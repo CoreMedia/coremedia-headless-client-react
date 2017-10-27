@@ -1,0 +1,16 @@
+{
+  "extends": ["react-app", "prettier", "eslint:recommended"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "rules": {
+    "no-console": 0,
+    "no-var": "error",
+    "no-constant-condition": ["error", { "checkLoops": false }]
+  }
+}
