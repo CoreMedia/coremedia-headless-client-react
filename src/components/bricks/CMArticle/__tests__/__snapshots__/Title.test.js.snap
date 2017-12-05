@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title Component should render correctly 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  box-sizing: border-box;
+  font-family: Helvetica;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1.4em;
+  margin: 1em;
+  text-align: center;
+  font-weight: 700;
+}
+
+@media (min-width:48em) {
+  .c0 {
+    font-size: 1.7em;
+  }
+}
+
+@media (min-width:62em) {
+  .c0 {
+    font-size: 2em;
+  }
+}
+
+@media (min-width:80em) {
+  .c0 {
+    font-size: 2.4em;
+  }
+}
+
+<h1
+  className="c0"
+>
+  Content
+</h1>
+`;

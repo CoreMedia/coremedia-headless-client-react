@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getFragment() should return data 1`] = `
+Object {
+  "picture": Object {
+    "alt": "Globe",
+    "link": "coremedia:///image/2656/data",
+    "title": "Globe",
+  },
+  "teaserTarget": Object {
+    "link": "https://www.coremedia.com/",
+    "segment": "",
+    "title": "",
+  },
+  "teaserText": "Discover the new CoreMedia Headless Services.",
+  "teaserTitle": "Content Management at a new Scale with CoreMedia CaaS",
+}
+`;
+
+exports[`getFragment() should return data 2`] = `
+Object {
+  "picture": Object {
+    "alt": "Globe",
+    "link": "coremedia:///image/2656/data",
+    "title": "Globe",
+  },
+  "teaserTarget": Object {
+    "link": "https://www.coremedia.com/",
+    "segment": "",
+    "title": "",
+  },
+  "teaserText": "Discover the new CoreMedia Headless Services.",
+  "teaserTitle": "Content Management at a new Scale with CoreMedia CaaS",
+}
+`;

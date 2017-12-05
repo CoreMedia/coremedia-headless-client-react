@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OptionalLink Component should render correctly with url 1`] = `
+<a
+  href="https://labs.coremedia.com"
+>
+  Content
+</a>
+`;
+
+exports[`OptionalLink Component should render correctly without url 1`] = `"Content"`;

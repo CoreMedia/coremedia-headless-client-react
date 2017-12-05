@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextBoxWrapper Component should render correctly 1`] = `
+.c0 {
+  padding: 2rem;
+}
+
+@media (min-width:48em) {
+  .c0 {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+}
+
+<div
+  className="c0"
+>
+  Content
+</div>
+`;

@@ -1,8 +1,7 @@
-html
-body {
+html body {
   margin: 0;
   padding: 0;
-  font-family: "Simplon Norm Light", "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, sans-serif;
+  font-family: 'Simplon Norm Light', 'Lucida Sans', 'Lucida Sans Unicode', 'Lucida Grande', Arial, Helvetica, sans-serif;
   line-height: 1.4;
 }
 
@@ -13,6 +12,46 @@ div {
 a {
   cursor: pointer;
   text-decoration: none;
+}
+
+.cm-logo {
+  box-sizing: content-box;
+  -ms-flex: 0 1 35px;
+  flex: 0 1 35px;
+  height: 35px;
+  -ms-flex-order: 0;
+  order: 0;
+  overflow: hidden;
+}
+
+.cm-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cm-logo .wide {
+  display: none;
+}
+
+@media only screen and (min-width: 48em) {
+  .cm-logo {
+    height: 40px;
+    -ms-flex: 0 0 248px;
+    flex: 0 0 248px;
+  }
+  .cm-logo .square {
+    display: none;
+  }
+  .cm-logo .wide {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 62em) {
+  .cm-logo {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 [class*='headline-'] {
@@ -37,7 +76,7 @@ a {
 }
 
 p {
-  font-family: "Simplon Norm Light", "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, sans-serif;
+  font-family: 'Simplon Norm Light', 'Lucida Sans', 'Lucida Sans Unicode', 'Lucida Grande', Arial, Helvetica, sans-serif;
   font-size: 1em;
   font-weight: 400;
 }
@@ -60,7 +99,8 @@ p {
   text-align: justify;
 }
 
-.header-box, .footer-box {
+.header-box,
+.footer-box {
   display: flex;
   overflow: hidden;
   justify-content: space-between;
@@ -75,17 +115,6 @@ p {
   margin-top: 2em;
 }
 
-.header-box .header-logo, .footer-box .footer-logo {
-  position: relative;
-  width: 248px;
-  min-width: 124px;
-  height: 40px;
-  background-image: url(../images/logo.svg);
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  margin-right: 10px;
-}
-
 .title {
   margin: 1em;
   text-align: center;
@@ -96,9 +125,9 @@ p {
   color: red;
 }
 
-
 @media only screen and (min-width: 48em) {
-  .header-box, .footer-box {
+  .header-box,
+  .footer-box {
     height: 3.5rem;
   }
   .headline-1 {
@@ -111,16 +140,17 @@ p {
     font-size: 1.3em;
   }
   p {
-    font-size: 1.0em;
+    font-size: 1em;
   }
 }
 
 @media only screen and (min-width: 62em) {
-  .header-box, .footer-box {
+  .header-box,
+  .footer-box {
     height: 4rem;
   }
   .headline-1 {
-    font-size: 2.0em;
+    font-size: 2em;
   }
   .headline-2 {
     font-size: 1.7em;
@@ -134,14 +164,15 @@ p {
 }
 
 @media only screen and (min-width: 75em) {
-  .header-box, .footer-box {
+  .header-box,
+  .footer-box {
     height: 4.5rem;
   }
   .headline-1 {
     font-size: 2.4em;
   }
   .headline-2 {
-    font-size: 2.0em;
+    font-size: 2em;
   }
   .headline-3 {
     font-size: 1.6em;

@@ -1,0 +1,303 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SquareTeaser Component should render SquareTeaser with Link 1`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox />
+</OptionalLink>
+`;
+
+exports[`SquareTeaser Component should render SquareTeaser with Link and Overlay 1`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <Overlay
+      bottom="0%"
+      color="blue"
+      ctaShow={true}
+      ctaText="More"
+      height="45%"
+      key="overlay"
+      width={100}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`SquareTeaser Component should render SquareTeaser with Link and Picture 1`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="portrait_ratio1x1"
+      title="Globe"
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`SquareTeaser Component should render SquareTeaser with Link, Picture and Overlay 1`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="portrait_ratio1x1"
+      title="Globe"
+    />
+    <Overlay
+      bottom="0%"
+      color="blue"
+      ctaShow={true}
+      ctaText="More"
+      height="45%"
+      key="overlay"
+      text="Discover the new CoreMedia Headless Services."
+      title="Content Management at a new Scale with CoreMedia CaaS"
+      width={100}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`SquareTeaser Component should render SquareTeaser with Link, Picture and Overlay 2`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="portrait_ratio1x1"
+      title="Globe"
+    />
+    <Overlay
+      bottom="0%"
+      color="blue"
+      ctaShow={false}
+      ctaText="More"
+      height="45%"
+      key="overlay"
+      text="Discover the new CoreMedia Headless Services."
+      title="Content Management at a new Scale with CoreMedia CaaS"
+      width={100}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`SquareTeaser Component should render SquareTeaser with Link, Picture and Overlay 3`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="portrait_ratio1x1"
+      title="Globe"
+    />
+    <Overlay
+      bottom="0%"
+      color="blue"
+      ctaShow={false}
+      ctaText="More"
+      height="45%"
+      key="overlay"
+      title="Content Management at a new Scale with CoreMedia CaaS"
+      width={100}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`SquareTeaser Component should render SquareTeaser with Link, Picture and Overlay 4`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="portrait_ratio1x1"
+      title="Globe"
+    />
+    <Overlay
+      bottom="0%"
+      color="blue"
+      ctaShow={false}
+      ctaText="More"
+      height="45%"
+      key="overlay"
+      text="Discover the new CoreMedia Headless Services."
+      width={100}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`SquareTeaser Component should render SquareTeaser with Link, Picture and Overlay 5`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="portrait_ratio1x1"
+      title="Globe"
+    />
+    <Overlay
+      bottom="0%"
+      color="blue"
+      ctaShow={true}
+      ctaText="More"
+      height="45%"
+      key="overlay"
+      text="Discover the new CoreMedia Headless Services."
+      width={100}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`SquareTeaser Component should render SquareTeaser with Link, Picture and Overlay 6`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="portrait_ratio1x1"
+      title="Globe"
+    />
+    <Overlay
+      bottom="0%"
+      color="blue"
+      ctaShow={true}
+      ctaText="More"
+      height="45%"
+      key="overlay"
+      title="Content Management at a new Scale with CoreMedia CaaS"
+      width={100}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`SquareTeaser Component should render SquareTeaser with Link, Picture and Overlay 7`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="portrait_ratio1x1"
+      title="Globe"
+    />
+    <Overlay
+      bottom="0%"
+      color="blue"
+      ctaShow={true}
+      ctaText="More"
+      height="45%"
+      key="overlay"
+      width={100}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`SquareTeaser Component should render SquareTeaser with Overlay 1`] = `
+<OptionalLink>
+  <TeaserBox>
+    <Overlay
+      bottom="0%"
+      color="blue"
+      ctaShow={false}
+      ctaText="More"
+      height="45%"
+      key="overlay"
+      width={100}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`SquareTeaser Component should render SquareTeaser with Picture (without params) 1`] = `
+<OptionalLink>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="portrait_ratio1x1"
+      title="Globe"
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`SquareTeaser Component should render SquareTeaser with Picture 1`] = `
+<OptionalLink>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="portrait_ratio1x1"
+      title="Globe"
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`SquareTeaser Component should render SquareTeaser with Picture and Overlay 1`] = `
+<OptionalLink>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="portrait_ratio1x1"
+      title="Globe"
+    />
+    <Overlay
+      bottom="0%"
+      color="blue"
+      ctaShow={false}
+      ctaText="More"
+      height="45%"
+      key="overlay"
+      width={100}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;

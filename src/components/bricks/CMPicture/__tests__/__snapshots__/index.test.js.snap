@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Picture Component should render Picture with Link, Picture and CTA 1`] = `
+<picture>
+  <source
+    key="0"
+    media="(min-width: 1280px)"
+    srcSet="http://127.0.0.1:8080/caas/v1/coremedia/sites/caassiopeia-en-DE/media/2662/data?ratio=portrait_ratio1x1&minWidth=1280"
+  />
+  <source
+    key="1"
+    media="(min-width: 992px)"
+    srcSet="http://127.0.0.1:8080/caas/v1/coremedia/sites/caassiopeia-en-DE/media/2662/data?ratio=portrait_ratio1x1&minWidth=992"
+  />
+  <source
+    key="2"
+    media="(min-width: 768px)"
+    srcSet="http://127.0.0.1:8080/caas/v1/coremedia/sites/caassiopeia-en-DE/media/2662/data?ratio=portrait_ratio1x1&minWidth=768"
+  />
+  <source
+    key="3"
+    media="(min-width: 480px)"
+    srcSet="http://127.0.0.1:8080/caas/v1/coremedia/sites/caassiopeia-en-DE/media/2662/data?ratio=portrait_ratio1x1&minWidth=480"
+  />
+  <Img
+    color="red"
+    src="http://127.0.0.1:8080/caas/v1/coremedia/sites/caassiopeia-en-DE/media/2662/data?ratio=portrait_ratio1x1&minWidth=320"
+    theme={
+      Object {
+        "colors": Object {
+          "default": Object {
+            "bgsolid": "rgba(239, 223, 15, 1)",
+            "bgtrans": "rgba(239, 223, 15, 0.7)",
+            "fg": "#fafafa",
+            "huerotation": "5deg",
+          },
+          "red": Object {
+            "bgsolid": "rgba(221, 52, 40, 1)",
+            "bgtrans": "rgba(221, 52, 40, 0.7)",
+            "fg": "#fafafa",
+            "huerotation": "320deg",
+          },
+        },
+      }
+    }
+    title="Scrum"
+  />
+</picture>
+`;

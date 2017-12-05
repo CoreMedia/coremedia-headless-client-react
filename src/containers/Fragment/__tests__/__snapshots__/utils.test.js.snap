@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getComponent() should throw Error 1`] = `"No matching component found"`;
+
+exports[`getComponent() should throw Error 2`] = `"No matching component found"`;
+
+exports[`getConfig() should return matching config 1`] = `
+Object {
+  "createProps": [Function],
+  "module": Object {
+    "Hero": [Function],
+    "Square": [Function],
+    "Wide": [Function],
+  },
+  "queryName": "teasables",
+  "viewName": null,
+}
+`;
+
+exports[`getConfig() should throw Error 1`] = `"No config found for show=\\"undefined\\""`;
+
+exports[`parseParams() should return parsed JSON 1`] = `
+Object {
+  "param1": "a",
+  "param2": 2,
+}
+`;
+
+exports[`parseParams() should throw Error 1`] = `"Error parsing params value"`;

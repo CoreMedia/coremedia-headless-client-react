@@ -1,9 +1,9 @@
-import LocalizedStrings from "react-localization";
+import LocalizedStrings from 'react-localization';
 
 const Strings = new LocalizedStrings({
   en: {
     hero_cta_text: 'Learn more',
-    teaser_cta_text: 'More'
+    teaser_cta_text: 'More',
   },
 
   // de: {

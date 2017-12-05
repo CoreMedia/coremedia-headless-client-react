@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CTA Component should render CTA using Button 1`] = `
+<Button>
+  Label
+</Button>
+`;
+
+exports[`CTA Component should render CTA using LinkButton 1`] = `
+<LinkButton
+  href="https://labs.coremedia.com"
+>
+  Label
+</LinkButton>
+`;

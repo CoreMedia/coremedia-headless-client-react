@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`media[label] should return return a valid media query 1`] = `
+Array [
+  "
+  @media (min-width: ",
+  "25",
+  "em) {
+    ",
+  "font-size: 1.2em",
+  ";
+  }
+",
+]
+`;

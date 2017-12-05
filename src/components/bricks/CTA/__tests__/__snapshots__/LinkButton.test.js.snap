@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkButton Component should render correctly 1`] = `
+.c0 {
+  border: 2px solid;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  color: inherit;
+  background-color: inherit;
+  display: inline-block;
+}
+
+<a
+  className="c0"
+  href="https://labs.coremedia.com"
+>
+  Content
+</a>
+`;
