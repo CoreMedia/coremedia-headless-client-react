@@ -15,6 +15,8 @@
 
 This sample application showcases the inclusion of CoreMedia Content-Fragments into existing webpages using the Headless-API.
 
+This README contains an overview of how to setup and use this example. For more detailed documentation, see the [wiki](https://github.com/CoreMedia/coremedia-headless-client-react/wiki).
+
 Custom elements in the HTML markup define the fragments to include (see [_index.html_](public/index.html)):
 
 ```
@@ -64,3 +66,14 @@ Launches the test runner in the interactive watch mode.<br> See the section abou
 Builds the app for production to the `build` folder.<br> It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br> Your app is ready to be deployed!
+
+*******
+
+
+# CoreMedia Labs
+
+Welcome to CoreMedia Labs! This repository is part of a platform for developers who want to have a look under the hood or get some hands-on understanding of the vast and compelling capabilities of CoreMedia. Whatever your experience level with CoreMedia is, we've got something for you.
+
+Each project in our Labs platform is an extra feature to be used with CoreMedia, including extensions, tools and 3rd party integrations. We provide some test data and explanatory videos for non-customers and for insiders there is open-source code and instructions on integrating the feature into your CoreMedia workspace. 
+
+The code we provide is meant to be example code, illustrating a set of features that could be used to enhance your CoreMedia experience. We'd love to hear your feedback on use-cases and further developments! If you're having problems with our code, please refer to our issues section. 
