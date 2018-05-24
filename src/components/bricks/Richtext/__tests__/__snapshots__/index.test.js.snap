@@ -9,11 +9,7 @@ exports[`Richtext Component should render HTML parsed to React Components 1`] = 
         "large": 1280,
         "tablet": 768,
       },
-      "typography": Object {
-        "fontFamily": Object {
-          "text": "Helvetica",
-        },
-      },
+      "name": "default",
     }
   }
 >
@@ -26,14 +22,7 @@ exports[`Richtext Component should render HTML parsed to React Components 1`] = 
           "large": 1280,
           "tablet": 768,
         },
-        "typography": Object {
-          "fontFamily": Object {
-            "heading": "Helvetica",
-          },
-          "fontWeight": Object {
-            "normal": 400,
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -48,14 +37,7 @@ exports[`Richtext Component should render HTML parsed to React Components 1`] = 
           "large": 1280,
           "tablet": 768,
         },
-        "typography": Object {
-          "fontFamily": Object {
-            "heading": "Helvetica",
-          },
-          "fontWeight": Object {
-            "normal": 400,
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -70,14 +52,7 @@ exports[`Richtext Component should render HTML parsed to React Components 1`] = 
           "large": 1280,
           "tablet": 768,
         },
-        "typography": Object {
-          "fontFamily": Object {
-            "heading": "Helvetica",
-          },
-          "fontWeight": Object {
-            "normal": 400,
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -92,11 +67,7 @@ exports[`Richtext Component should render HTML parsed to React Components 1`] = 
           "large": 1280,
           "tablet": 768,
         },
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -104,12 +75,30 @@ exports[`Richtext Component should render HTML parsed to React Components 1`] = 
   </P>
   <PictureWrapper
     key="4"
+    theme={
+      Object {
+        "breakpoints": Object {
+          "tablet": 768,
+        },
+        "name": "default",
+      }
+    }
   >
     <WithTheme(Picture)
       alt="Scrum"
-      color="red"
       link="coremedia:///image/2662/data"
       ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
     />
   </PictureWrapper>
   <a

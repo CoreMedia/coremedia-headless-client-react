@@ -1,31 +1,29 @@
 // @flow
-import { H3 } from '../../../basic/Heading';
-import { getColors } from '../../../../styles/themes/utils';
+import { P } from '../../../basic/Paragraph';
+import { media, getColors } from '../../../../styles/themes/utils';
 
-const Abstract = H3.extend`
-  font-family: ${props => props.theme.typography.fontFamily.text};
-  font-weight: ${props => props.theme.typography.fontWeight.light};
-  line-height: 1.4;
-  text-transform: none;
+const Abstract = P.extend`
+  font-weight: 300;
   padding: 2em;
   color: ${props => getColors(props.theme.colors, props.color).fg};
   background-color: ${props => getColors(props.theme.colors, props.color).bgsolid};
+  font-size: 1.2em;
+  ${props => media(props.theme.breakpoints.tablet)`
+    font-size: 1.3em;
+  `};
+  ${props => media(props.theme.breakpoints.desktop)`
+    font-size: 1.4em;
+  `};
+  ${props => media(props.theme.breakpoints.large)`
+    font-size: 1.6em;
+  `};
 `;
 
 Abstract.displayName = 'Abstract';
 
 Abstract.defaultProps = {
   theme: {
-    typography: {
-      fontFamily: {
-        heading: 'Arial',
-        text: 'Helvetica',
-      },
-      fontWeight: {
-        light: 300,
-        normal: 400,
-      },
-    },
+    name: 'default',
     breakpoints: {
       tablet: 768,
       desktop: 992,

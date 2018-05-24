@@ -5,10 +5,10 @@ exports[`Wrapper Component should render correctly 1`] = `
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Helvetica;
+  font-family: 'Simplon Norm Light','Lucida Sans','Lucida Sans Unicode','Lucida Grande',Arial, Helvetica,sans-serif;
+  font-weight: 400;
   line-height: 1.4;
   font-size: 1em;
-  font-weight: 400;
   margin-top: 2em;
   padding: 0 2em;
 }

@@ -1,6 +1,7 @@
 // @flow
 import * as Article from '../../components/bricks/CMArticle';
 import * as Teaser from '../../components/bricks/CMTeasable';
+import * as ShoppableVideo from '../../components/bricks/CMShoppableVideo';
 import type { Config } from '../../types';
 
 type ConfigSet = {
@@ -15,7 +16,7 @@ const config: ConfigSet = {
     createProps: ({ data, params }) => {
       const picture = data.picture || {};
       return {
-        url: params.url ? params.url : data.teaserTarget.link,
+        url: params && params.url ? params.url : data.teaserTarget.link,
         pictureLink: picture.link,
         pictureTitle: picture.title,
         pictureAlt: picture.alt,
@@ -38,6 +39,23 @@ const config: ConfigSet = {
         title: data.title,
         text: data.detailText,
         teaserText: data.teaserText,
+        params: params,
+      };
+    },
+  },
+  video: {
+    queryName: 'videos',
+    viewName: null,
+    module: ShoppableVideo,
+    createProps: ({ data, params }) => {
+      const picture = data.picture || {};
+      return {
+        link: data.link,
+        title: data.teaserTitle,
+        pictureLink: picture.link,
+        pictureTitle: picture.title,
+        pictureAlt: picture.alt,
+        timeLine: data.timeLine,
         params: params,
       };
     },

@@ -9,6 +9,8 @@ jest.mock('../../../backend');
 describe('Fragment Container', () => {
   beforeEach(() => {
     jest.resetModules();
+    // Workaround for https://github.com/facebook/react/issues/11098
+    global.console.error = jest.fn().mockName('console.error');
   });
 
   it('should render HeroTeaser Component', async () => {
@@ -122,6 +124,44 @@ describe('Fragment Container', () => {
     const wrapper = shallow(
       <Fragment id="caas.article" show="article" view="detail" params={'{"color": "blue"}'} />
     );
+    await expect(wrapper.instance().componentDidMount()).resolves;
+    expect(wrapper.state('data')).toEqual(data);
+    expect(wrapper.state('error')).toEqual(null);
+    expect(wrapper.update()).toMatchSnapshot();
+  });
+
+  it('should render ShoppableVideo Component', async () => {
+    const data = {
+      teaserTitle: 'Teaser Title',
+      picture: {
+        title: 'Summer Dresses Shoppable Video Picture',
+        alt: 'Summer Dresses Shoppable Video Picture',
+        link: 'coremedia:///image/6188/data',
+      },
+      link: 'coremedia:///media/6200/data',
+      timeLine: {
+        sequences: [
+          {
+            position: 4,
+            startTimeMillis: 18000,
+            target: {
+              _id: 'coremedia:///cap/content/6196',
+              teaserTitle: 'HKMX DK Sweater',
+              teaserText:
+                'This warm sweater from our Doutzen collection is ideal for wearing after your workout. It will keep nice and warm even on cold days. Combine with matching items from the DK collection.',
+              picture: {
+                title: 'Sweater',
+                alt: 'Sweater',
+                link: 'coremedia:///image/6226/data',
+              },
+              price: 42.99,
+            },
+          },
+        ],
+      },
+    };
+    API.getFragment = jest.fn().mockReturnValue(Promise.resolve(data));
+    const wrapper = shallow(<Fragment id="video.shoppable-video" show="video" view="teaser" />);
     await expect(wrapper.instance().componentDidMount()).resolves;
     expect(wrapper.state('data')).toEqual(data);
     expect(wrapper.state('error')).toEqual(null);

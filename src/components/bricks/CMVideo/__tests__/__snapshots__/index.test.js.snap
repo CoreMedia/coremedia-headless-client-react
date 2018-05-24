@@ -1,0 +1,321 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Video Brick should render Teaser Component and show poster overlay 1`] = `
+<Wrapper>
+  <TeaserBox>
+    <PosterBox
+      key="poster"
+    >
+      <WithTheme(Picture)
+        alt="Alt"
+        link="coremedia:///image/6188/data"
+        ratio="landscape_ratio16x9"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
+        title="Title"
+      />
+    </PosterBox>
+    <PlayButton
+      handleClick={[Function]}
+      key="playbutton"
+    />
+    <ReactPlayer
+      config={
+        Object {
+          "dailymotion": Object {
+            "params": Object {
+              "api": 1,
+              "endscreen-enable": false,
+            },
+            "preload": false,
+          },
+          "facebook": Object {
+            "appId": "1309697205772819",
+          },
+          "file": Object {
+            "attributes": Object {},
+            "forceAudio": false,
+            "forceDASH": false,
+            "forceHLS": false,
+            "forceVideo": false,
+            "hlsOptions": Object {},
+            "tracks": Array [],
+          },
+          "mixcloud": Object {
+            "options": Object {
+              "hide_cover": 1,
+            },
+          },
+          "soundcloud": Object {
+            "options": Object {
+              "buying": false,
+              "download": false,
+              "liking": false,
+              "sharing": false,
+              "show_comments": false,
+              "show_playcount": false,
+              "visual": true,
+            },
+          },
+          "twitch": Object {
+            "options": Object {},
+          },
+          "vimeo": Object {
+            "playerOptions": Object {
+              "autopause": false,
+              "byline": false,
+              "portrait": false,
+              "title": false,
+            },
+            "preload": false,
+          },
+          "wistia": Object {
+            "options": Object {},
+          },
+          "youtube": Object {
+            "playerVars": Object {
+              "iv_load_policy": 3,
+              "modestbranding": 1,
+              "playsinline": 1,
+              "rel": 0,
+              "showinfo": 0,
+            },
+            "preload": false,
+          },
+        }
+      }
+      controls={true}
+      height="100%"
+      key="player"
+      loop={false}
+      muted={false}
+      onBuffer={[Function]}
+      onDuration={[Function]}
+      onEnded={[Function]}
+      onError={[Function]}
+      onPause={[Function]}
+      onPlay={[Function]}
+      onProgress={[Function]}
+      onReady={[Function]}
+      onSeek={[Function]}
+      onStart={[Function]}
+      playbackRate={1}
+      playing={false}
+      playsinline={false}
+      progressInterval={500}
+      style={Object {}}
+      url="http://127.0.0.1:8080/caas/v1/coremedia/sites/caassiopeia-en-DE/media/6200/data"
+      volume={null}
+      width="100%"
+      wrapper="div"
+    />
+  </TeaserBox>
+</Wrapper>
+`;
+
+exports[`Video Brick should render Teaser Component without poster overlay 1`] = `
+<Wrapper>
+  <TeaserBox>
+    <PlayButton
+      handleClick={[Function]}
+      key="playbutton"
+    />
+    <ReactPlayer
+      config={
+        Object {
+          "dailymotion": Object {
+            "params": Object {
+              "api": 1,
+              "endscreen-enable": false,
+            },
+            "preload": false,
+          },
+          "facebook": Object {
+            "appId": "1309697205772819",
+          },
+          "file": Object {
+            "attributes": Object {},
+            "forceAudio": false,
+            "forceDASH": false,
+            "forceHLS": false,
+            "forceVideo": false,
+            "hlsOptions": Object {},
+            "tracks": Array [],
+          },
+          "mixcloud": Object {
+            "options": Object {
+              "hide_cover": 1,
+            },
+          },
+          "soundcloud": Object {
+            "options": Object {
+              "buying": false,
+              "download": false,
+              "liking": false,
+              "sharing": false,
+              "show_comments": false,
+              "show_playcount": false,
+              "visual": true,
+            },
+          },
+          "twitch": Object {
+            "options": Object {},
+          },
+          "vimeo": Object {
+            "playerOptions": Object {
+              "autopause": false,
+              "byline": false,
+              "portrait": false,
+              "title": false,
+            },
+            "preload": false,
+          },
+          "wistia": Object {
+            "options": Object {},
+          },
+          "youtube": Object {
+            "playerVars": Object {
+              "iv_load_policy": 3,
+              "modestbranding": 1,
+              "playsinline": 1,
+              "rel": 0,
+              "showinfo": 0,
+            },
+            "preload": false,
+          },
+        }
+      }
+      controls={true}
+      height="100%"
+      key="player"
+      loop={false}
+      muted={false}
+      onBuffer={[Function]}
+      onDuration={[Function]}
+      onEnded={[Function]}
+      onError={[Function]}
+      onPause={[Function]}
+      onPlay={[Function]}
+      onProgress={[Function]}
+      onReady={[Function]}
+      onSeek={[Function]}
+      onStart={[Function]}
+      playbackRate={1}
+      playing={false}
+      playsinline={false}
+      progressInterval={500}
+      style={Object {}}
+      url="http://127.0.0.1:8080/caas/v1/coremedia/sites/caassiopeia-en-DE/media/6200/data"
+      volume={null}
+      width="100%"
+      wrapper="div"
+    />
+  </TeaserBox>
+</Wrapper>
+`;
+
+exports[`Video Brick should render Teaser Component, hide poster overlay and play video 1`] = `
+<Wrapper>
+  <TeaserBox>
+    <ReactPlayer
+      config={
+        Object {
+          "dailymotion": Object {
+            "params": Object {
+              "api": 1,
+              "endscreen-enable": false,
+            },
+            "preload": false,
+          },
+          "facebook": Object {
+            "appId": "1309697205772819",
+          },
+          "file": Object {
+            "attributes": Object {},
+            "forceAudio": false,
+            "forceDASH": false,
+            "forceHLS": false,
+            "forceVideo": false,
+            "hlsOptions": Object {},
+            "tracks": Array [],
+          },
+          "mixcloud": Object {
+            "options": Object {
+              "hide_cover": 1,
+            },
+          },
+          "soundcloud": Object {
+            "options": Object {
+              "buying": false,
+              "download": false,
+              "liking": false,
+              "sharing": false,
+              "show_comments": false,
+              "show_playcount": false,
+              "visual": true,
+            },
+          },
+          "twitch": Object {
+            "options": Object {},
+          },
+          "vimeo": Object {
+            "playerOptions": Object {
+              "autopause": false,
+              "byline": false,
+              "portrait": false,
+              "title": false,
+            },
+            "preload": false,
+          },
+          "wistia": Object {
+            "options": Object {},
+          },
+          "youtube": Object {
+            "playerVars": Object {
+              "iv_load_policy": 3,
+              "modestbranding": 1,
+              "playsinline": 1,
+              "rel": 0,
+              "showinfo": 0,
+            },
+            "preload": false,
+          },
+        }
+      }
+      controls={true}
+      height="100%"
+      key="player"
+      loop={false}
+      muted={false}
+      onBuffer={[Function]}
+      onDuration={[Function]}
+      onEnded={[Function]}
+      onError={[Function]}
+      onPause={[Function]}
+      onPlay={[Function]}
+      onProgress={[Function]}
+      onReady={[Function]}
+      onSeek={[Function]}
+      onStart={[Function]}
+      playbackRate={1}
+      playing={true}
+      playsinline={false}
+      progressInterval={500}
+      style={Object {}}
+      url="http://127.0.0.1:8080/caas/v1/coremedia/sites/caassiopeia-en-DE/media/6200/data"
+      volume={null}
+      width="100%"
+      wrapper="div"
+    />
+  </TeaserBox>
+</Wrapper>
+`;

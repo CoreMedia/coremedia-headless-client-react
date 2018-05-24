@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkButton Component should render active correctly 1`] = `
+.c0 {
+  display: inline-block;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s linear 0.3s;
+  transition: opacity 0.3s linear 0.3s;
+}
+
+<a
+  aria-label={undefined}
+  className="c0"
+  role="button"
+>
+  Content
+</a>
+`;
+
+exports[`LinkButton Component should render inactive correctly 1`] = `
+.c0 {
+  display: inline-block;
+  opacity: 0.4;
+  -webkit-transition: opacity 0.3s linear 0.3s;
+  transition: opacity 0.3s linear 0.3s;
+}
+
+<a
+  aria-label="label name"
+  className="c0"
+  role="button"
+>
+  Content
+</a>
+`;
+
+exports[`LinkButton Component should render inactive with ariaLabel correctly 1`] = `
+.c0 {
+  display: inline-block;
+  opacity: 0.4;
+  -webkit-transition: opacity 0.3s linear 0.3s;
+  transition: opacity 0.3s linear 0.3s;
+}
+
+<a
+  aria-label={undefined}
+  className="c0"
+  role="button"
+>
+  Content
+</a>
+`;

@@ -5,6 +5,8 @@ exports[`ErrorBox Component should render correctly 1`] = `
   position: relative;
   border: 0;
   box-sizing: border-box;
+  width: 100%;
+  height: 100%;
   border: 2px solid rgba(221,52,40,1);
 }
 

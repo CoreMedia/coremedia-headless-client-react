@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThumbnailBar Component should calculate posX and width for ProgressBar correctly 1`] = `
+<ThumbnailsWrapper>
+  <ThumbnailsContainer
+    translateX={0}
+  >
+    <ThumbnailsBox
+      innerRef={[MockFunction handleRef]}
+    >
+      <Thumbnail
+        active={true}
+        ariaLabel="Open product preview for \\"Title\\""
+        handleClick={[MockFunction handleClick]}
+        key="id123"
+        pictureAlt="alt"
+        pictureLink="coremedia:///image/6188/data"
+        pictureTitle="picture title"
+      />
+    </ThumbnailsBox>
+    <ProgressBar
+      posX={78}
+      width={156}
+    />
+  </ThumbnailsContainer>
+</ThumbnailsWrapper>
+`;
+
+exports[`ThumbnailBar Component should render correctly 1`] = `
+<ThumbnailsWrapper>
+  <ThumbnailsContainer
+    translateX={0}
+  >
+    <ThumbnailsBox
+      innerRef={[MockFunction handleRef]}
+    >
+      <Thumbnail
+        active={true}
+        ariaLabel="Open product preview for \\"Title\\""
+        handleClick={[MockFunction handleClick]}
+        key="id123"
+        pictureAlt="alt"
+        pictureLink="coremedia:///image/6188/data"
+        pictureTitle="picture title"
+      />
+    </ThumbnailsBox>
+    <ProgressBar
+      posX={0}
+      width={0}
+    />
+  </ThumbnailsContainer>
+</ThumbnailsWrapper>
+`;
