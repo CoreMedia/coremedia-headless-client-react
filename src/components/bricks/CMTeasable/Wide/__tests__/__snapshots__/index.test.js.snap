@@ -113,6 +113,17 @@ exports[`WideTeaser Component should render WideTeaser with Link and Picture 1`]
         key="picture"
         link="coremedia:///image/2656/data"
         ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
         title="Globe"
       />
     </PictureBox>
@@ -141,6 +152,17 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
         key="picture"
         link="coremedia:///image/2656/data"
         ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
         title="Globe"
       />
     </PictureBox>
@@ -180,14 +202,7 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
                 "large": 1280,
                 "tablet": 768,
               },
-              "typography": Object {
-                "fontFamily": Object {
-                  "heading": "Helvetica",
-                },
-                "fontWeight": Object {
-                  "normal": 400,
-                },
-              },
+              "name": "default",
             }
           }
         >
@@ -206,11 +221,7 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
                 "large": 1280,
                 "tablet": 768,
               },
-              "typography": Object {
-                "fontFamily": Object {
-                  "text": "Helvetica",
-                },
-              },
+              "name": "default",
             }
           }
         />
@@ -244,6 +255,17 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
         key="picture"
         link="coremedia:///image/2656/data"
         ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
         title="Globe"
       />
     </PictureBox>
@@ -283,14 +305,7 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
                 "large": 1280,
                 "tablet": 768,
               },
-              "typography": Object {
-                "fontFamily": Object {
-                  "heading": "Helvetica",
-                },
-                "fontWeight": Object {
-                  "normal": 400,
-                },
-              },
+              "name": "default",
             }
           }
         >
@@ -309,11 +324,7 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
                 "large": 1280,
                 "tablet": 768,
               },
-              "typography": Object {
-                "fontFamily": Object {
-                  "text": "Helvetica",
-                },
-              },
+              "name": "default",
             }
           }
         />
@@ -344,6 +355,17 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
         key="picture"
         link="coremedia:///image/2656/data"
         ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
         title="Globe"
       />
     </PictureBox>
@@ -383,14 +405,7 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
                 "large": 1280,
                 "tablet": 768,
               },
-              "typography": Object {
-                "fontFamily": Object {
-                  "heading": "Helvetica",
-                },
-                "fontWeight": Object {
-                  "normal": 400,
-                },
-              },
+              "name": "default",
             }
           }
         >
@@ -423,6 +438,17 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
         key="picture"
         link="coremedia:///image/2656/data"
         ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
         title="Globe"
       />
     </PictureBox>
@@ -467,11 +493,7 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
                 "large": 1280,
                 "tablet": 768,
               },
-              "typography": Object {
-                "fontFamily": Object {
-                  "text": "Helvetica",
-                },
-              },
+              "name": "default",
             }
           }
         />
@@ -502,6 +524,17 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
         key="picture"
         link="coremedia:///image/2656/data"
         ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
         title="Globe"
       />
     </PictureBox>
@@ -546,11 +579,7 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
                 "large": 1280,
                 "tablet": 768,
               },
-              "typography": Object {
-                "fontFamily": Object {
-                  "text": "Helvetica",
-                },
-              },
+              "name": "default",
             }
           }
         />
@@ -584,6 +613,17 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
         key="picture"
         link="coremedia:///image/2656/data"
         ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
         title="Globe"
       />
     </PictureBox>
@@ -623,14 +663,7 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
                 "large": 1280,
                 "tablet": 768,
               },
-              "typography": Object {
-                "fontFamily": Object {
-                  "heading": "Helvetica",
-                },
-                "fontWeight": Object {
-                  "normal": 400,
-                },
-              },
+              "name": "default",
             }
           }
         >
@@ -666,6 +699,17 @@ exports[`WideTeaser Component should render WideTeaser with Link, Picture and CT
         key="picture"
         link="coremedia:///image/2656/data"
         ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
         title="Globe"
       />
     </PictureBox>
@@ -724,6 +768,17 @@ exports[`WideTeaser Component should render WideTeaser with Picture (without par
         key="picture"
         link="coremedia:///image/2656/data"
         ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
         title="Globe"
       />
     </PictureBox>
@@ -750,6 +805,17 @@ exports[`WideTeaser Component should render WideTeaser with Picture 1`] = `
         key="picture"
         link="coremedia:///image/2656/data"
         ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
         title="Globe"
       />
     </PictureBox>
@@ -776,6 +842,17 @@ exports[`WideTeaser Component should render WideTeaser with Picture and CTA 1`] 
         key="picture"
         link="coremedia:///image/2656/data"
         ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
         title="Globe"
       />
     </PictureBox>

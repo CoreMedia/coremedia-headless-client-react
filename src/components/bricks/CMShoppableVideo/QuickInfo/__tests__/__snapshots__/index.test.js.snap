@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuickInfo Component should render correctly 1`] = `
+<Modal
+  contentLabel="Minimal Modal Example"
+  isOpen={true}
+  onRequestClose={[MockFunction handleClose]}
+  theme={
+    Object {
+      "breakpoints": Object {
+        "tablet": 768,
+      },
+    }
+  }
+>
+  <CloseButton
+    handleClick={[MockFunction handleClose]}
+  />
+  <ContentBox
+    theme={
+      Object {
+        "name": "default",
+      }
+    }
+  >
+    <Title
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "tablet": 768,
+          },
+          "name": "default",
+        }
+      }
+    >
+      Title
+    </Title>
+    <ProductBox
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+          "name": "default",
+        }
+      }
+    >
+      <WithTheme(Picture)
+        alt="Picture Alt"
+        link="Link"
+        ratio="quickview_ratio5x6"
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
+        title="Picture Title"
+      />
+      <ProductInfo
+        theme={
+          Object {
+            "breakpoints": Object {
+              "tablet": 768,
+            },
+            "name": "default",
+          }
+        }
+      >
+        <P
+          theme={
+            Object {
+              "breakpoints": Object {
+                "desktop": 992,
+                "large": 1280,
+                "tablet": 768,
+              },
+              "name": "default",
+            }
+          }
+        >
+          Text
+        </P>
+        <H3
+          theme={
+            Object {
+              "breakpoints": Object {
+                "desktop": 992,
+                "large": 1280,
+                "tablet": 768,
+              },
+              "name": "default",
+            }
+          }
+        >
+          Title EUR 100
+        </H3>
+        <Button
+          theme={
+            Object {
+              "breakpoints": Object {
+                "desktop": 992,
+                "large": 1280,
+                "small": 480,
+                "tablet": 768,
+              },
+              "name": "default",
+            }
+          }
+        >
+          order
+        </Button>
+      </ProductInfo>
+    </ProductBox>
+  </ContentBox>
+</Modal>
+`;

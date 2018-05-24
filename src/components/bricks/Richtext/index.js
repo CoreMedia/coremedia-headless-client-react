@@ -57,7 +57,7 @@ const Richtext = ({ text, color }: Props) => {
         const alt = node.attribs['alt'];
         return (
           <PictureWrapper key={index}>
-            <Picture link={src} ratio="landscape_ratio16x9" alt={alt} color="red" />
+            <Picture link={src} ratio="landscape_ratio16x9" alt={alt} stretch />
           </PictureWrapper>
         );
       },

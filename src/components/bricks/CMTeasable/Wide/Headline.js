@@ -14,14 +14,7 @@ Headline.defaultProps = {
       desktop: 992,
       large: 1280,
     },
-    typography: {
-      fontFamily: {
-        heading: 'Helvetica',
-      },
-      fontWeight: {
-        normal: 400,
-      },
-    },
+    name: 'default',
   },
 };
 

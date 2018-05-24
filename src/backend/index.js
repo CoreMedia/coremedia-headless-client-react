@@ -28,7 +28,7 @@ const getFragment = async (queryName: string, targetId: string, viewName: ?strin
   return result.data;
 };
 
-const getImageUrl = (link: string, ratio?: string, minWidth?: number): string => {
+const getMediaUrl = (link: string, ratio?: string, minWidth?: number): string => {
   if (link && link.startsWith(CM_PREFIX)) {
     const parts = link.substring(CM_PREFIX.length).split('/');
     if (parts.length === 3) {
@@ -47,6 +47,10 @@ const getImageUrl = (link: string, ratio?: string, minWidth?: number): string =>
           }
           return baseUri;
         }
+        case 'media': {
+          const baseUri = baseURL() + `/media/${id}/${property}`;
+          return baseUri;
+        }
         default:
           return '';
       }
@@ -55,4 +59,4 @@ const getImageUrl = (link: string, ratio?: string, minWidth?: number): string =>
   return '';
 };
 
-export { getFragment, getImageUrl };
+export { getFragment, getMediaUrl };

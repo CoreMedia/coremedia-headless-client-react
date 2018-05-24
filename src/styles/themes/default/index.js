@@ -1,5 +1,5 @@
 // @flow
-import type { Colors, Breakpoints, Typography, Theme } from '../../../types';
+import type { Colors, Breakpoints, Theme } from '../../../types';
 
 const colors: Colors = {
   red: {
@@ -47,24 +47,10 @@ const breakpoints: Breakpoints = {
   large: 1280,
 };
 
-const typography: Typography = {
-  fontFamily: {
-    heading:
-      '"Core Light", "Simplon Norm Regular", "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, sans-serif',
-    text:
-      '"Simplon Norm Light", "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, sans-serif',
-  },
-  fontWeight: {
-    light: 300,
-    normal: 400,
-    bold: 700,
-  },
-};
-
 const theme: Theme = {
+  name: 'default',
   breakpoints,
   colors,
-  typography,
 };
 
-export { theme as default, breakpoints };
+export default theme;

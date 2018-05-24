@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductCard Component should render correctly 1`] = `
+<ProductBox
+  entered={true}
+  index={1}
+  theme={
+    Object {
+      "breakpoints": Object {
+        "desktop": 992,
+        "large": 1280,
+        "tablet": 768,
+      },
+      "name": "default",
+    }
+  }
+>
+  <ProductZoom
+    theme={
+      Object {
+        "breakpoints": Object {
+          "desktop": 992,
+          "large": 1280,
+          "tablet": 768,
+        },
+        "name": "default",
+      }
+    }
+  >
+    <LinkButton
+      onClick={[MockFunction handleClick]}
+    >
+      <WithTheme(Picture)
+        alt="Picture Alt 1"
+        link="coremedia:///image/6188/data"
+        ratio="portrait_ratio5x6"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
+        title="Picture Title 1"
+      />
+    </LinkButton>
+    <ProductInfo
+      theme={
+        Object {
+          "name": "default",
+        }
+      }
+    >
+      <ProductName
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "tablet": 768,
+            },
+            "name": "default",
+          }
+        }
+      >
+        Title 1
+      </ProductName>
+      <ProductPrice
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "tablet": 768,
+            },
+            "name": "default",
+          }
+        }
+      >
+        EUR 
+        100
+      </ProductPrice>
+    </ProductInfo>
+    <ProductOptions
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+          "name": "default",
+        }
+      }
+    >
+      <Button
+        onClick={[MockFunction handleClick]}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+            "name": "default",
+          }
+        }
+      >
+        quick view
+      </Button>
+    </ProductOptions>
+  </ProductZoom>
+</ProductBox>
+`;

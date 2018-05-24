@@ -38,6 +38,17 @@ exports[`HeroTeaser Component should render HeroTeaser with Link and Picture 1`]
       key="picture"
       link="coremedia:///image/2656/data"
       ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
       title="Globe"
     />
   </TeaserBox>
@@ -55,6 +66,17 @@ exports[`HeroTeaser Component should render HeroTeaser with Link, Picture and Ov
       key="picture"
       link="coremedia:///image/2656/data"
       ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
       title="Globe"
     />
     <Overlay
@@ -84,6 +106,17 @@ exports[`HeroTeaser Component should render HeroTeaser with Link, Picture and Ov
       key="picture"
       link="coremedia:///image/2656/data"
       ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
       title="Globe"
     />
     <Overlay
@@ -113,6 +146,17 @@ exports[`HeroTeaser Component should render HeroTeaser with Link, Picture and Ov
       key="picture"
       link="coremedia:///image/2656/data"
       ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
       title="Globe"
     />
     <Overlay
@@ -141,6 +185,17 @@ exports[`HeroTeaser Component should render HeroTeaser with Link, Picture and Ov
       key="picture"
       link="coremedia:///image/2656/data"
       ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
       title="Globe"
     />
     <Overlay
@@ -169,6 +224,17 @@ exports[`HeroTeaser Component should render HeroTeaser with Link, Picture and Ov
       key="picture"
       link="coremedia:///image/2656/data"
       ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
       title="Globe"
     />
     <Overlay
@@ -197,6 +263,17 @@ exports[`HeroTeaser Component should render HeroTeaser with Link, Picture and Ov
       key="picture"
       link="coremedia:///image/2656/data"
       ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
       title="Globe"
     />
     <Overlay
@@ -225,6 +302,17 @@ exports[`HeroTeaser Component should render HeroTeaser with Link, Picture and Ov
       key="picture"
       link="coremedia:///image/2656/data"
       ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
       title="Globe"
     />
     <Overlay
@@ -266,6 +354,17 @@ exports[`HeroTeaser Component should render HeroTeaser with Picture (without par
       key="picture"
       link="coremedia:///image/2656/data"
       ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
       title="Globe"
     />
   </TeaserBox>
@@ -281,6 +380,17 @@ exports[`HeroTeaser Component should render HeroTeaser with Picture 1`] = `
       key="picture"
       link="coremedia:///image/2656/data"
       ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
       title="Globe"
     />
   </TeaserBox>
@@ -296,6 +406,17 @@ exports[`HeroTeaser Component should render HeroTeaser with Picture and Overlay 
       key="picture"
       link="coremedia:///image/2656/data"
       ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
       title="Globe"
     />
     <Overlay

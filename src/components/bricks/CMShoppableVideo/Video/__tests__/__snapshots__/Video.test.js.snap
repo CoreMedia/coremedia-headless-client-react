@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Video Component should render correctly and proxy controls prop 1`] = `
+<VideoBox
+  show={true}
+>
+  <VideoBrick
+    controls={false}
+    link="coremedia:///media/6200/data"
+    loop={false}
+    muted={false}
+    playing={false}
+  />
+</VideoBox>
+`;
+
+exports[`Video Component should render correctly and proxy link prop 1`] = `
+<VideoBox
+  show={true}
+>
+  <VideoBrick
+    controls={true}
+    link="coremedia:///media/6200/data"
+    loop={false}
+    muted={false}
+    playing={false}
+  />
+</VideoBox>
+`;
+
+exports[`Video Component should render correctly and proxy loop prop 1`] = `
+<VideoBox
+  show={true}
+>
+  <VideoBrick
+    controls={true}
+    link="coremedia:///media/6200/data"
+    loop={false}
+    muted={false}
+    playing={false}
+  />
+</VideoBox>
+`;
+
+exports[`Video Component should render correctly and proxy muted prop 1`] = `
+<VideoBox
+  show={true}
+>
+  <VideoBrick
+    controls={true}
+    link="coremedia:///media/6200/data"
+    loop={false}
+    muted={false}
+    playing={false}
+  />
+</VideoBox>
+`;
+
+exports[`Video Component should render correctly and proxy pictureLink, pictureAlt and pictureTitle props 1`] = `
+<VideoBox
+  show={true}
+>
+  <VideoBrick
+    controls={true}
+    link="coremedia:///media/6200/data"
+    loop={false}
+    muted={false}
+    pictureAlt="Alt"
+    pictureLink="coremedia:///image/6188/data"
+    pictureTitle="Title"
+    playing={false}
+  />
+</VideoBox>
+`;
+
+exports[`Video Component should render correctly and proxy playing prop 1`] = `
+<VideoBox
+  show={true}
+>
+  <VideoBrick
+    controls={true}
+    link="coremedia:///media/6200/data"
+    loop={false}
+    muted={false}
+    playing={false}
+  />
+</VideoBox>
+`;

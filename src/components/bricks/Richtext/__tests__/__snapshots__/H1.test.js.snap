@@ -4,9 +4,11 @@ exports[`H1 Component should render correctly 1`] = `
 .c0 {
   margin: 0;
   padding: 0;
+  font-family: "Simplon Norm Light","Lucida Sans","Lucida Sans Unicode","Lucida Grande",Arial,Helvetica,sans-serif;
   line-height: 1.4;
   box-sizing: border-box;
-  font-family: Helvetica;
+  white-space: normal;
+  font-family: 'Core Light','Simplon Norm Regular','Lucida Sans','Lucida Sans Unicode', 'Lucida Grande',Arial,Helvetica,sans-serif;
   font-weight: 400;
   line-height: 1.2;
   margin: 0;

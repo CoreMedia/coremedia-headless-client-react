@@ -1,5 +1,5 @@
 // @flow
-import { getFragment, getImageUrl } from '..';
+import { getFragment, getMediaUrl } from '..';
 import axios from 'axios';
 
 jest.mock('axios');
@@ -61,43 +61,43 @@ describe('getFragment()', () => {
   });
 });
 
-describe('getImageUrl()', () => {
+describe('getMediaUrl()', () => {
   it('should return image url with ratio and minWidth', () => {
-    const value = getImageUrl('coremedia:///image/2656/data', 'landscape_ratio16x9', 320);
+    const value = getMediaUrl('coremedia:///image/2656/data', 'landscape_ratio16x9', 320);
     const expected =
       'http://127.0.0.1:8080/caas/v1/coremedia/sites/caassiopeia-en-DE/media/2656/data?ratio=landscape_ratio16x9&minWidth=320';
     expect(value).toEqual(expected);
   });
   it('should return image url with ratio', () => {
-    const value = getImageUrl('coremedia:///image/2656/data', 'landscape_ratio16x9');
+    const value = getMediaUrl('coremedia:///image/2656/data', 'landscape_ratio16x9');
     const expected =
       'http://127.0.0.1:8080/caas/v1/coremedia/sites/caassiopeia-en-DE/media/2656/data?ratio=landscape_ratio16x9';
     expect(value).toEqual(expected);
   });
   it('should return image url with minWidth', () => {
-    const value = getImageUrl('coremedia:///image/2656/data', undefined, 320);
+    const value = getMediaUrl('coremedia:///image/2656/data', undefined, 320);
     const expected =
       'http://127.0.0.1:8080/caas/v1/coremedia/sites/caassiopeia-en-DE/media/2656/data?minWidth=320';
     expect(value).toEqual(expected);
   });
   it('should return image url without ratio and minWidth', () => {
-    const value = getImageUrl('coremedia:///image/2656/data');
+    const value = getMediaUrl('coremedia:///image/2656/data');
     const expected =
       'http://127.0.0.1:8080/caas/v1/coremedia/sites/caassiopeia-en-DE/media/2656/data';
     expect(value).toEqual(expected);
   });
   it('should return an empty string', () => {
-    const value = getImageUrl('coremedia:///unknown/2656');
+    const value = getMediaUrl('coremedia:///unknown/2656');
     const expected = '';
     expect(value).toEqual(expected);
   });
   it('should return an empty string', () => {
-    const value = getImageUrl('coremedia:///unknown/2656/data');
+    const value = getMediaUrl('coremedia:///unknown/2656/data');
     const expected = '';
     expect(value).toEqual(expected);
   });
   it('should return an empty string', () => {
-    const value = getImageUrl('unknown:///image/2656/data');
+    const value = getMediaUrl('unknown:///image/2656/data');
     const expected = '';
     expect(value).toEqual(expected);
   });

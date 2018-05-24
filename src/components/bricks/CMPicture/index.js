@@ -3,8 +3,8 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme } from 'styled-components';
 
-import Img from './Img';
-import { getImageUrl } from '../../../backend';
+import Img from '../../basic/Img';
+import { getMediaUrl } from '../../../backend';
 import type { Theme } from '../../../types';
 
 const convertToArray = (breakpoints: mixed): Array<number> =>
@@ -24,7 +24,7 @@ const getImageSources = (link: string, ratio: string, breakpoints: mixed): React
       <source
         key={index}
         media={`(min-width: ${breakpoint}px)`}
-        srcSet={getImageUrl(link, ratio, breakpoint)}
+        srcSet={getMediaUrl(link, ratio, breakpoint)}
       />
     ));
   return sourceList;
@@ -33,31 +33,34 @@ const getImageSources = (link: string, ratio: string, breakpoints: mixed): React
 type Props = {
   link: string,
   ratio: string,
+  stretch?: boolean,
   title?: string,
   alt?: string,
-  color?: string,
   theme: Theme,
 };
 
-const Picture = ({ link, ratio, title, alt, color, theme }: Props) => (
-  <picture>
-    {getImageSources(link, ratio, theme.breakpoints)}
-    <Img src={getImageUrl(link, ratio, 320)} alt={alt} title={title} color={color} />
-  </picture>
-);
+const Picture = ({ link, ratio, stretch, title, alt, theme }: Props) =>
+  ratio === 'thumbnail' ? (
+    <Img src={getMediaUrl(link, ratio, 77)} alt={alt} title={title} stretch={stretch} />
+  ) : (
+    <picture>
+      {getImageSources(link, ratio, theme.breakpoints)}
+      <Img src={getMediaUrl(link, ratio, 320)} alt={alt} title={title} stretch={stretch} />
+    </picture>
+  );
 
-Picture.propTypes = {
+const Wrapped = withTheme(Picture);
+
+Wrapped.propTypes = {
   link: PropTypes.string.isRequired,
   ratio: PropTypes.string.isRequired,
+  stretch: PropTypes.bool,
   title: PropTypes.string,
   alt: PropTypes.string,
   color: PropTypes.string,
-  theme: PropTypes.shape({
-    breakpoints: PropTypes.object.isRequired,
-  }),
 };
 
-Picture.defaultProps = {
+Wrapped.defaultProps = {
   theme: {
     breakpoints: {
       small: 480,
@@ -68,4 +71,4 @@ Picture.defaultProps = {
   },
 };
 
-export default withTheme(Picture);
+export default Wrapped;

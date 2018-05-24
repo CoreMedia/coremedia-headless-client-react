@@ -1,0 +1,276 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductBoard Component should render correctly for mobile devices 1`] = `
+<React.Fragment>
+  <ReloadBox
+    theme={
+      Object {
+        "breakpoints": Object {
+          "tablet": 768,
+        },
+      }
+    }
+  >
+    <ReloadButton
+      handleClick={[MockFunction handleReplay]}
+    />
+  </ReloadBox>
+  <ProductBoardWrapper
+    theme={
+      Object {
+        "breakpoints": Object {
+          "tablet": 768,
+        },
+        "name": "default",
+      }
+    }
+  >
+    <Media
+      defaultMatches={true}
+      query="(min-width: 768px)"
+    />
+  </ProductBoardWrapper>
+</React.Fragment>
+`;
+
+exports[`ProductBoard Component should render correctly for mobile devices 2`] = `
+<TransitionGroup
+  childFactory={[Function]}
+  component={[Function]}
+  innerRef={[MockFunction handleRef]}
+>
+  <Transition
+    appear={true}
+    enter={true}
+    exit={true}
+    in={false}
+    key="ID3"
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={300}
+    unmountOnExit={false}
+  />
+  <Transition
+    appear={true}
+    enter={true}
+    exit={true}
+    in={false}
+    key="ID2"
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={500}
+    unmountOnExit={false}
+  />
+  <Transition
+    appear={true}
+    enter={true}
+    exit={true}
+    in={false}
+    key="ID1"
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={700}
+    unmountOnExit={false}
+  />
+  <ProductBox
+    index={0}
+    theme={
+      Object {
+        "breakpoints": Object {
+          "desktop": 992,
+          "large": 1280,
+          "tablet": 768,
+        },
+      }
+    }
+  >
+    <ReloadButton
+      handleClick={[MockFunction handleReplay]}
+    />
+  </ProductBox>
+</TransitionGroup>
+`;
+
+exports[`ProductBoard Component should render correctly for mobile devices 3`] = `
+<ProductCard
+  entered={false}
+  handleClick={[MockFunction handleClick]}
+  index={1}
+  pictureAlt="Picture Alt 3"
+  pictureLink="Link 3"
+  pictureTitle="Picture Title 3"
+  price={100}
+  title="Title 3"
+/>
+`;
+
+exports[`ProductBoard Component should render correctly for mobile devices 4`] = `
+<ProductCard
+  entered={false}
+  handleClick={[MockFunction handleClick]}
+  index={2}
+  pictureAlt="Picture Alt 2"
+  pictureLink="Link 2"
+  pictureTitle="Picture Title 2"
+  price={100}
+  title="Title 2"
+/>
+`;
+
+exports[`ProductBoard Component should render correctly for mobile devices 5`] = `
+<ProductCard
+  entered={false}
+  handleClick={[MockFunction handleClick]}
+  index={3}
+  pictureAlt="Picture Alt 1"
+  pictureLink="Link 1"
+  pictureTitle="Picture Title 1"
+  price={100}
+  title="Title 1"
+/>
+`;
+
+exports[`ProductBoard Component should render correctly for tablet and larger devices 1`] = `
+<React.Fragment>
+  <ReloadBox
+    theme={
+      Object {
+        "breakpoints": Object {
+          "tablet": 768,
+        },
+      }
+    }
+  >
+    <ReloadButton
+      handleClick={[MockFunction handleReplay]}
+    />
+  </ReloadBox>
+  <ProductBoardWrapper
+    theme={
+      Object {
+        "breakpoints": Object {
+          "tablet": 768,
+        },
+        "name": "default",
+      }
+    }
+  >
+    <Media
+      defaultMatches={true}
+      query="(min-width: 768px)"
+    />
+  </ProductBoardWrapper>
+</React.Fragment>
+`;
+
+exports[`ProductBoard Component should render correctly for tablet and larger devices 2`] = `
+<TransitionGroup
+  childFactory={[Function]}
+  component={[Function]}
+  innerRef={[MockFunction handleRef]}
+  productboardOverflow={false}
+>
+  <Transition
+    appear={true}
+    enter={true}
+    exit={true}
+    in={false}
+    key="ID1"
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={300}
+    unmountOnExit={false}
+  />
+  <Transition
+    appear={true}
+    enter={true}
+    exit={true}
+    in={false}
+    key="ID2"
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={500}
+    unmountOnExit={false}
+  />
+  <Transition
+    appear={true}
+    enter={true}
+    exit={true}
+    in={false}
+    key="ID3"
+    mountOnEnter={false}
+    onEnter={[Function]}
+    onEntered={[Function]}
+    onEntering={[Function]}
+    onExit={[Function]}
+    onExited={[Function]}
+    onExiting={[Function]}
+    timeout={700}
+    unmountOnExit={false}
+  />
+</TransitionGroup>
+`;
+
+exports[`ProductBoard Component should render correctly for tablet and larger devices 3`] = `
+<ProductCard
+  entered={false}
+  handleClick={[MockFunction handleClick]}
+  index={0}
+  pictureAlt="Picture Alt 1"
+  pictureLink="Link 1"
+  pictureTitle="Picture Title 1"
+  price={100}
+  title="Title 1"
+/>
+`;
+
+exports[`ProductBoard Component should render correctly for tablet and larger devices 4`] = `
+<ProductCard
+  entered={false}
+  handleClick={[MockFunction handleClick]}
+  index={1}
+  pictureAlt="Picture Alt 2"
+  pictureLink="Link 2"
+  pictureTitle="Picture Title 2"
+  price={100}
+  title="Title 2"
+/>
+`;
+
+exports[`ProductBoard Component should render correctly for tablet and larger devices 5`] = `
+<ProductCard
+  entered={false}
+  handleClick={[MockFunction handleClick]}
+  index={2}
+  pictureAlt="Picture Alt 3"
+  pictureLink="Link 3"
+  pictureTitle="Picture Title 3"
+  price={100}
+  title="Title 3"
+/>
+`;

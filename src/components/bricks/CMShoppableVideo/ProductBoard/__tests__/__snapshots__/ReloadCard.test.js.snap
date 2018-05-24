@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReloadCard Component should render correctly 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  position: relative;
+  width: 144px;
+  height: 173px;
+  margin: 8px;
+  padding: 0 36px;
+}
+
+@media (min-width:48em) {
+  .c0 {
+    display: none;
+  }
+}
+
+<div
+  className="c0"
+>
+  Content
+</div>
+`;

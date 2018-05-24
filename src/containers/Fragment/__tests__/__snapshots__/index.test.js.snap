@@ -34,6 +34,41 @@ exports[`Fragment Container should render HeroTeaser Component 1`] = `
 />
 `;
 
+exports[`Fragment Container should render ShoppableVideo Component 1`] = `
+<ShoppableVideoBrick
+  autoplay={false}
+  controls={true}
+  link="coremedia:///media/6200/data"
+  loop={false}
+  muted={false}
+  pictureAlt="Summer Dresses Shoppable Video Picture"
+  pictureLink="coremedia:///image/6188/data"
+  pictureTitle="Summer Dresses Shoppable Video Picture"
+  timeLine={
+    Object {
+      "sequences": Array [
+        Object {
+          "position": 4,
+          "startTimeMillis": 18000,
+          "target": Object {
+            "_id": "coremedia:///cap/content/6196",
+            "picture": Object {
+              "alt": "Sweater",
+              "link": "coremedia:///image/6226/data",
+              "title": "Sweater",
+            },
+            "price": 42.99,
+            "teaserText": "This warm sweater from our Doutzen collection is ideal for wearing after your workout. It will keep nice and warm even on cold days. Combine with matching items from the DK collection.",
+            "teaserTitle": "HKMX DK Sweater",
+          },
+        },
+      ],
+    }
+  }
+  title="Teaser Title"
+/>
+`;
+
 exports[`Fragment Container should render SquareTeaser Component 1`] = `
 <SquareTeaser
   params={

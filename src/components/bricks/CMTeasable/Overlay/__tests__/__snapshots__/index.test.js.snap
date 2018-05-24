@@ -31,11 +31,7 @@ exports[`Overlay Component fixed should render Overlay with CTA 1`] = `
   <TextBox
     theme={
       Object {
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -77,11 +73,7 @@ exports[`Overlay Component fixed should render Overlay with Text 1`] = `
   <TextBox
     theme={
       Object {
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -98,11 +90,7 @@ exports[`Overlay Component fixed should render Overlay with Text 1`] = `
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "text": "Helvetica",
-            },
-          },
+          "name": "default",
         }
       }
     />
@@ -141,11 +129,7 @@ exports[`Overlay Component fixed should render Overlay with Text and CTA 1`] = `
   <TextBox
     theme={
       Object {
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -162,11 +146,7 @@ exports[`Overlay Component fixed should render Overlay with Text and CTA 1`] = `
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "text": "Helvetica",
-            },
-          },
+          "name": "default",
         }
       }
     />
@@ -208,11 +188,7 @@ exports[`Overlay Component fixed should render Overlay with Title 1`] = `
   <TextBox
     theme={
       Object {
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -224,14 +200,7 @@ exports[`Overlay Component fixed should render Overlay with Title 1`] = `
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "heading": "Helvetica",
-            },
-            "fontWeight": Object {
-              "normal": 400,
-            },
-          },
+          "name": "default",
         }
       }
     >
@@ -272,11 +241,7 @@ exports[`Overlay Component fixed should render Overlay with Title and CTA 1`] = 
   <TextBox
     theme={
       Object {
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -288,14 +253,7 @@ exports[`Overlay Component fixed should render Overlay with Title and CTA 1`] = 
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "heading": "Helvetica",
-            },
-            "fontWeight": Object {
-              "normal": 400,
-            },
-          },
+          "name": "default",
         }
       }
     >
@@ -339,11 +297,7 @@ exports[`Overlay Component fixed should render Overlay with Title and Text 1`] =
   <TextBox
     theme={
       Object {
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -355,14 +309,7 @@ exports[`Overlay Component fixed should render Overlay with Title and Text 1`] =
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "heading": "Helvetica",
-            },
-            "fontWeight": Object {
-              "normal": 400,
-            },
-          },
+          "name": "default",
         }
       }
     >
@@ -381,11 +328,7 @@ exports[`Overlay Component fixed should render Overlay with Title and Text 1`] =
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "text": "Helvetica",
-            },
-          },
+          "name": "default",
         }
       }
     />
@@ -424,11 +367,7 @@ exports[`Overlay Component fixed should render Overlay with Title, Text and CTA 
   <TextBox
     theme={
       Object {
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -440,14 +379,7 @@ exports[`Overlay Component fixed should render Overlay with Title, Text and CTA 
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "heading": "Helvetica",
-            },
-            "fontWeight": Object {
-              "normal": 400,
-            },
-          },
+          "name": "default",
         }
       }
     >
@@ -466,11 +398,7 @@ exports[`Overlay Component fixed should render Overlay with Title, Text and CTA 
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "text": "Helvetica",
-            },
-          },
+          "name": "default",
         }
       }
     />
@@ -512,11 +440,7 @@ exports[`Overlay Component not fixed should render Overlay with CTA 1`] = `
   <TextBox
     theme={
       Object {
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -558,11 +482,7 @@ exports[`Overlay Component not fixed should render Overlay with Text 1`] = `
   <TextBox
     theme={
       Object {
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -579,11 +499,7 @@ exports[`Overlay Component not fixed should render Overlay with Text 1`] = `
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "text": "Helvetica",
-            },
-          },
+          "name": "default",
         }
       }
     />
@@ -622,11 +538,7 @@ exports[`Overlay Component not fixed should render Overlay with Text and CTA 1`]
   <TextBox
     theme={
       Object {
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -643,11 +555,7 @@ exports[`Overlay Component not fixed should render Overlay with Text and CTA 1`]
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "text": "Helvetica",
-            },
-          },
+          "name": "default",
         }
       }
     />
@@ -689,11 +597,7 @@ exports[`Overlay Component not fixed should render Overlay with Title 1`] = `
   <TextBox
     theme={
       Object {
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -705,14 +609,7 @@ exports[`Overlay Component not fixed should render Overlay with Title 1`] = `
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "heading": "Helvetica",
-            },
-            "fontWeight": Object {
-              "normal": 400,
-            },
-          },
+          "name": "default",
         }
       }
     >
@@ -753,11 +650,7 @@ exports[`Overlay Component not fixed should render Overlay with Title and CTA 1`
   <TextBox
     theme={
       Object {
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -769,14 +662,7 @@ exports[`Overlay Component not fixed should render Overlay with Title and CTA 1`
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "heading": "Helvetica",
-            },
-            "fontWeight": Object {
-              "normal": 400,
-            },
-          },
+          "name": "default",
         }
       }
     >
@@ -820,11 +706,7 @@ exports[`Overlay Component not fixed should render Overlay with Title and Text 1
   <TextBox
     theme={
       Object {
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -836,14 +718,7 @@ exports[`Overlay Component not fixed should render Overlay with Title and Text 1
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "heading": "Helvetica",
-            },
-            "fontWeight": Object {
-              "normal": 400,
-            },
-          },
+          "name": "default",
         }
       }
     >
@@ -862,11 +737,7 @@ exports[`Overlay Component not fixed should render Overlay with Title and Text 1
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "text": "Helvetica",
-            },
-          },
+          "name": "default",
         }
       }
     />
@@ -905,11 +776,7 @@ exports[`Overlay Component not fixed should render Overlay with Title, Text and 
   <TextBox
     theme={
       Object {
-        "typography": Object {
-          "fontFamily": Object {
-            "text": "Helvetica",
-          },
-        },
+        "name": "default",
       }
     }
   >
@@ -921,14 +788,7 @@ exports[`Overlay Component not fixed should render Overlay with Title, Text and 
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "heading": "Helvetica",
-            },
-            "fontWeight": Object {
-              "normal": 400,
-            },
-          },
+          "name": "default",
         }
       }
     >
@@ -947,11 +807,7 @@ exports[`Overlay Component not fixed should render Overlay with Title, Text and 
             "large": 1280,
             "tablet": 768,
           },
-          "typography": Object {
-            "fontFamily": Object {
-              "text": "Helvetica",
-            },
-          },
+          "name": "default",
         }
       }
     />
