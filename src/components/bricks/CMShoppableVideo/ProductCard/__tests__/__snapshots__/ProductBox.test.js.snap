@@ -1,0 +1,237 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductBox Component with default theme should render correctly (entered=false) 1`] = `
+.c0 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  position: relative;
+  top: -20px;
+  width: 144px;
+  height: 256px;
+  margin: 8px;
+  z-index: 5;
+  text-align: center;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-out,top 0.6s ease-out;
+  transition: opacity 0.2s ease-out,top 0.6s ease-out;
+}
+
+@media (min-width:48em) {
+  .c0 {
+    border: 1px solid #eee;
+  }
+
+  .c0:hover {
+    z-index: 10;
+  }
+}
+
+@media (min-width:48em) {
+  .c0 {
+    width: 134px;
+    height: 258px;
+  }
+}
+
+@media (min-width:62em) {
+  .c0 {
+    width: 179px;
+    height: 319px;
+  }
+}
+
+@media (min-width:80em) {
+  .c0 {
+    width: 237px;
+    height: 368px;
+  }
+}
+
+<div
+  className="c0"
+>
+  Content
+</div>
+`;
+
+exports[`ProductBox Component with default theme should render correctly (entered=true) 1`] = `
+.c0 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  position: relative;
+  top: -20px;
+  width: 144px;
+  height: 256px;
+  margin: 8px;
+  z-index: 5;
+  text-align: center;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-out,top 0.6s ease-out;
+  transition: opacity 0.2s ease-out,top 0.6s ease-out;
+  top: 0;
+  opacity: 1;
+}
+
+@media (min-width:48em) {
+  .c0 {
+    border: 1px solid #eee;
+  }
+
+  .c0:hover {
+    z-index: 10;
+  }
+}
+
+@media (min-width:48em) {
+  .c0 {
+    width: 134px;
+    height: 258px;
+  }
+}
+
+@media (min-width:62em) {
+  .c0 {
+    width: 179px;
+    height: 319px;
+  }
+}
+
+@media (min-width:80em) {
+  .c0 {
+    width: 237px;
+    height: 368px;
+  }
+}
+
+<div
+  className="c0"
+>
+  Content
+</div>
+`;
+
+exports[`ProductBox Component with hkm theme should render correctly (entered=false) 1`] = `
+.c0 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  position: relative;
+  top: -20px;
+  width: 144px;
+  height: 256px;
+  margin: 8px;
+  z-index: 5;
+  text-align: center;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-out,top 0.6s ease-out;
+  transition: opacity 0.2s ease-out,top 0.6s ease-out;
+}
+
+@media (min-width:48em) {
+  .c0 {
+    border: 1px solid #eee;
+  }
+
+  .c0:hover {
+    z-index: 10;
+  }
+}
+
+@media (min-width:48em) {
+  .c0 {
+    width: 134px;
+    height: 244px;
+  }
+}
+
+@media (min-width:62em) {
+  .c0 {
+    width: 179px;
+    height: 281px;
+  }
+}
+
+@media (min-width:80em) {
+  .c0 {
+    width: 237px;
+    height: 350px;
+  }
+}
+
+<div
+  className="c0"
+>
+  Content
+</div>
+`;
+
+exports[`ProductBox Component with hkm theme should render correctly (entered=true) 1`] = `
+.c0 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  position: relative;
+  top: -20px;
+  width: 144px;
+  height: 256px;
+  margin: 8px;
+  z-index: 5;
+  text-align: center;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-out,top 0.6s ease-out;
+  transition: opacity 0.2s ease-out,top 0.6s ease-out;
+  top: 0;
+  opacity: 1;
+}
+
+@media (min-width:48em) {
+  .c0 {
+    border: 1px solid #eee;
+  }
+
+  .c0:hover {
+    z-index: 10;
+  }
+}
+
+@media (min-width:48em) {
+  .c0 {
+    width: 134px;
+    height: 244px;
+  }
+}
+
+@media (min-width:62em) {
+  .c0 {
+    width: 179px;
+    height: 281px;
+  }
+}
+
+@media (min-width:80em) {
+  .c0 {
+    width: 237px;
+    height: 350px;
+  }
+}
+
+<div
+  className="c0"
+>
+  Content
+</div>
+`;

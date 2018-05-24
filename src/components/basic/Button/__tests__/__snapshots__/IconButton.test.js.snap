@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconButton Component should render correctly with default props 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 7px;
+  margin: 0;
+  border-style: none;
+  border-radius: 50%;
+  border-width: 0;
+  outline: none;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+<button
+  className="c0"
+>
+  Content
+</button>
+`;
+
+exports[`IconButton Component should render correctly with given backgroundColor 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 7px;
+  margin: 0;
+  border-style: none;
+  border-radius: 50%;
+  border-width: 0;
+  outline: none;
+  color: inherit;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+<button
+  className="c0"
+>
+  Content
+</button>
+`;
+
+exports[`IconButton Component should render correctly with given color 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 7px;
+  margin: 0;
+  border-style: none;
+  border-radius: 50%;
+  border-width: 0;
+  outline: none;
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+<button
+  className="c0"
+  color="#fff"
+>
+  Content
+</button>
+`;

@@ -2,10 +2,16 @@
 
 exports[`PictureWrapper Component should render correctly 1`] = `
 .c0 {
-  width: 50%;
-  float: left;
-  margin: 1em 1em 1em 0em;
+  margin: 1em 0em;
   display: block;
+}
+
+@media (min-width:48em) {
+  .c0 {
+    margin: 1em 1em 1em 0em;
+    width: 50%;
+    float: left;
+  }
 }
 
 <span

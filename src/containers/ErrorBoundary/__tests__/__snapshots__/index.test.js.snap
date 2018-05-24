@@ -20,14 +20,7 @@ exports[`ErrorBoundary Container should render ErrorBox Component 1`] = `
           "large": 1280,
           "tablet": 768,
         },
-        "typography": Object {
-          "fontFamily": Object {
-            "heading": "Helvetica",
-          },
-          "fontWeight": Object {
-            "normal": 400,
-          },
-        },
+        "name": "default",
       }
     }
   >

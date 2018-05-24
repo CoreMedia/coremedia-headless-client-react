@@ -9,7 +9,7 @@ type Props = {
   id: string,
   show: string,
   view: string,
-  params: string,
+  params?: string,
 };
 
 type State = {
@@ -22,7 +22,7 @@ class Fragment extends React.Component<Props, State> {
     id: PropTypes.string.isRequired,
     show: PropTypes.string.isRequired,
     view: PropTypes.string.isRequired,
-    params: PropTypes.string.isRequired,
+    params: PropTypes.string,
   };
 
   state = {
@@ -31,29 +31,33 @@ class Fragment extends React.Component<Props, State> {
   };
 
   config = getConfig(this.props.show);
-  params = parseParams(this.props.params);
+  params = this.props.params ? parseParams(this.props.params) : undefined;
 
-  async componentDidMount() {
-    try {
-      const data = await getFragment(this.config.queryName, this.props.id, this.config.viewName);
-      this.setState({ data });
-    } catch (error) {
-      this.setState({ error });
-    }
-  }
-
-  render() {
+  _getComponent = () => {
     const { createProps, module } = this.config;
-    const { data, error } = this.state;
-    if (error) {
-      throw error;
-    }
+    const { data } = this.state;
     if (!data) {
       return null;
     }
     const Component = getComponent(module, this.props.view);
     const props = createProps({ data, params: this.params });
     return <Component {...props} />;
+  };
+
+  async componentDidMount() {
+    try {
+      const data = await getFragment(this.config.queryName, this.props.id, this.config.viewName);
+      this.setState(prevState => ({ data }));
+    } catch (error) {
+      this.setState(prevState => ({ error }));
+    }
+  }
+
+  render() {
+    if (this.state.error) {
+      throw this.state.error;
+    }
+    return this._getComponent();
   }
 }
 

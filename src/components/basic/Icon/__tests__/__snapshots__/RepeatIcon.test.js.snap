@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RepeatIcon Component should render correctly with color #000 1`] = `
+.c0 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+
+<svg
+  aria-labelledby="ID"
+  className="c0"
+  role="img"
+  size={undefined}
+  viewBox="0 0 84 92"
+>
+  <title
+    id="ID"
+  >
+    repeat
+  </title>
+  <g
+    fill="none"
+    fillRule="evenodd"
+    stroke="#000"
+  >
+    <path
+      d="M3.477 66.46c10.67 20.066 35.586 27.683 55.652 17.014 20.066-10.67 27.684-35.586 17.014-55.652C65.473 7.756 40.558.138 20.492 10.808a40.992 40.992 0 0 0-13.626 11.66"
+      strokeWidth="6"
+    />
+    <path
+      d="M23.648 24.024H6.385V6.762z"
+      fill="#000"
+      strokeWidth="5"
+    />
+  </g>
+</svg>
+`;
+
+exports[`RepeatIcon Component should render correctly with default props 1`] = `
+.c0 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+
+<svg
+  aria-labelledby="ID"
+  className="c0"
+  role="img"
+  size={undefined}
+  viewBox="0 0 84 92"
+>
+  <title
+    id="ID"
+  >
+    repeat
+  </title>
+  <g
+    fill="none"
+    fillRule="evenodd"
+    stroke="currentColor"
+  >
+    <path
+      d="M3.477 66.46c10.67 20.066 35.586 27.683 55.652 17.014 20.066-10.67 27.684-35.586 17.014-55.652C65.473 7.756 40.558.138 20.492 10.808a40.992 40.992 0 0 0-13.626 11.66"
+      strokeWidth="6"
+    />
+    <path
+      d="M23.648 24.024H6.385V6.762z"
+      fill="currentColor"
+      strokeWidth="5"
+    />
+  </g>
+</svg>
+`;
+
+exports[`RepeatIcon Component should render correctly with size 40 1`] = `
+.c0 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+}
+
+<svg
+  aria-labelledby="ID"
+  className="c0"
+  role="img"
+  size={40}
+  viewBox="0 0 84 92"
+>
+  <title
+    id="ID"
+  >
+    repeat
+  </title>
+  <g
+    fill="none"
+    fillRule="evenodd"
+    stroke="currentColor"
+  >
+    <path
+      d="M3.477 66.46c10.67 20.066 35.586 27.683 55.652 17.014 20.066-10.67 27.684-35.586 17.014-55.652C65.473 7.756 40.558.138 20.492 10.808a40.992 40.992 0 0 0-13.626 11.66"
+      strokeWidth="6"
+    />
+    <path
+      d="M23.648 24.024H6.385V6.762z"
+      fill="currentColor"
+      strokeWidth="5"
+    />
+  </g>
+</svg>
+`;

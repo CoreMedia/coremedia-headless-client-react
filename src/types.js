@@ -10,7 +10,7 @@ export type Config = {
   queryName: string,
   viewName: ?string,
   module: Object,
-  createProps: (ownerProps: { data: Object, params: FragmentParams }) => Object,
+  createProps: (ownerProps: { data: Object, params: FragmentParams | void }) => Object,
 };
 
 export type Teaser = {
@@ -36,18 +36,6 @@ export type Colors = {
 
 export type Breakpoints = {
   [label: string]: number,
-};
-
-export type Typography = {
-  fontFamily: {
-    heading: string,
-    text: string,
-  },
-  fontWeight: {
-    light: number,
-    normal: number,
-    bold: number,
-  },
 };
 
 export type Theme = {

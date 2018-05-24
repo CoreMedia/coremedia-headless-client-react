@@ -15,11 +15,7 @@ Text.defaultProps = {
       desktop: 992,
       large: 1280,
     },
-    typography: {
-      fontFamily: {
-        text: 'Helvetica',
-      },
-    },
+    name: 'default',
   },
 };
 

@@ -35,6 +35,7 @@ const composeContent = ({
           title={pictureTitle}
           alt={pictureAlt}
           color={color}
+          stretch={true}
         />
       </PictureBox>
     );
