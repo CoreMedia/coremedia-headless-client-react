@@ -53,7 +53,7 @@ const Richtext = ({ text, color }: Props) => {
         return node.name === 'img';
       },
       processNode: function(node, children, index) {
-        const src = node.attribs['cms-src'];
+        const src = node.attribs['data-src'];
         const alt = node.attribs['alt'];
         return (
           <PictureWrapper key={index}>
