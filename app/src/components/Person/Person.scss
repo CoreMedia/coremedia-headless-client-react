@@ -1,0 +1,31 @@
+.cm-author {
+  display: flex;
+  margin-bottom: var(--padding-medium);
+  padding:  var(--padding-medium);
+  border-radius:  var(--padding-small);
+  background-color: var(--color-background-light-grey);
+
+  &__picture {
+    display: block;
+    margin-right: var(--padding-medium);
+
+    .cm-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__headline {
+    font-size: var(--font-size-heading-3);
+    margin: var(--padding-small) 0;
+  }
+}

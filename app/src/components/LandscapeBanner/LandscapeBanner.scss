@@ -1,0 +1,47 @@
+.cm-landscape-banner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &-container {
+    --number-items: 1;
+    --gap-width: var(--padding-medium);
+
+    @media screen and (min-width: 768px) {
+      --number-items: 2;
+    }
+
+    @media screen and (min-width: 1024px) {
+      --number-items: 3;
+    }
+  }
+
+  .cm-image-box {
+    --aspect-ratio: 16*9;
+  }
+
+  &__caption {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    position: static;
+    transform: none;
+    box-sizing: border-box;
+    font-size: var(--font-size-text-small);
+    flex-grow: 1;
+
+    > :last-child {
+      margin-bottom: 0
+    }
+  }
+
+  &__cta {
+    margin-top: auto
+  }
+
+  .shop-now:before {
+    padding-top: 56.25%;
+  }
+}

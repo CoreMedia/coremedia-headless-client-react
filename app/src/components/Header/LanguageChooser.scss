@@ -1,0 +1,85 @@
+.cm-header__language-chooser {
+  border: 1px solid #000;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-size: var(--font-size-text-small);
+}
+
+.cm-header__language-chooser > .cm-navigation-item__title {
+  font-size: var(--font-size-text-small);
+}
+
+.cm-navigation-item {
+  &--special-depth-1 {
+    @media screen and (min-width: 768px) and (orientation: landscape), screen and (min-width: 1200px) {
+      position: relative; // menus should be aligned to the button rather than the whole header
+      border-bottom: none;
+
+      > .cm-navigation-item__title {
+        cursor: pointer; // always show pointer as it is either a dropdown or a link
+        padding: 15px 20px;
+        line-height: 20px;
+      }
+
+      // change toggle button appearance
+      > .cm-navigation-item__toggle {
+        top: -1px;
+
+        &::before {
+          // don't mess with the original triangle
+          display: none;
+        }
+
+        &::after {
+          content: "";
+          display: inline-block;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-top: 5px solid #000000;
+        }
+      }
+
+      > .cm-navigation-item__menu {
+        left: auto; // align to the bottom-right edge of the buttom
+        min-width: 160px;
+        padding: 5px 0;
+        box-shadow: none;
+        border: 1px solid #000000;
+        border-top-color: #FFFFFF;
+
+        > li {
+          width: 100%;
+        }
+      }
+
+      // for special items the dropdown should still be in place on large devices
+      &:hover {
+        background-color: #eee;
+
+        > .cm-navigation-item__menu {
+          transition: none;
+          visibility: hidden;
+        }
+      }
+
+      &.cm-navigation-item--open {
+        background-color: #eee;
+
+        > .cm-navigation-item__menu {
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  &--special-depth-2 {
+    @media screen and (min-width: 768px) and (orientation: landscape), screen and (min-width: 1200px) {
+      padding-bottom: 0;
+
+      .cm-navigation-item__title {
+        display: block;
+        padding: 3px 20px;
+      }
+    }
+  }
+}

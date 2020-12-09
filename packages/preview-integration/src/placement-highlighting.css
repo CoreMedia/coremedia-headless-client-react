@@ -1,0 +1,118 @@
+.cm-placement-highlighting-blue,
+.cm-placement-highlighting-green,
+.cm-placement-highlighting-orange {
+  position: relative;
+}
+
+/* Available Empty Placement: */
+.cm-placement-highlighting-green {
+  background: #E8F8AF;
+  border: 2px solid #2FAC66;
+  margin: 3px 0;
+}
+
+/* Unavailable Placement: */
+.cm-placement-highlighting-orange {
+  background: #FFFCCC;
+  border: 2px solid #ED8703;
+  margin: 3px 0;
+}
+
+/* Available Placement: */
+.cm-placement-highlighting-blue .cm-placement-border-left,
+.cm-placement-highlighting-blue .cm-placement-border-right,
+.cm-placement-highlighting-blue .cm-placement-border-top,
+.cm-placement-highlighting-blue .cm-placement-border-bottom {
+  background-color: #006CAE;
+}
+
+.cm-placement-border-left,
+.cm-placement-border-right,
+.cm-placement-border-top,
+.cm-placement-border-bottom {
+  position: absolute;
+  z-index: 10;
+  margin-bottom: 0;
+  margin-top: 0 !important;
+}
+
+.cm-placement-border-left,
+.cm-placement-border-right {
+  top: 0;
+  height: 100%;
+}
+
+.cm-placement-border-left {
+  left: 0;
+  width: 2px;
+}
+
+.cm-placement-border-right {
+  right: 0;
+  width: 2px;
+}
+
+.cm-placement-border-top,
+.cm-placement-border-bottom {
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+.cm-placement-border-top {
+  top: 0;
+}
+
+.cm-placement-border-bottom {
+  bottom: 0;
+}
+
+.cm-placement-highlighting-blue-overlay,
+.cm-placement-highlighting-green-overlay,
+.cm-placement-highlighting-orange-overlay {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: initial;
+  padding: 0 3px;
+  margin-top: 0 !important;
+  z-index: 10;
+  font-weight: bold;
+}
+
+.cm-placement-highlighting-blue-overlay {
+  top: 1px;
+  left: 1px;
+}
+
+.cm-placement-highlighting-green-overlay {
+  background: #E8F8AF;
+  border: 1px solid #2FAC66;
+}
+
+.cm-placement-highlighting-orange-overlay {
+  background: #FFFCCC;
+  border: 1px solid #ED8703;
+}
+
+.cm-placement-highlighting-blue-overlay {
+  background: #D6F0FF;
+  border: 1px solid #006CAE;
+}
+
+.cm-placement-highlighting-blue-overlay,
+.cm-placement-highlighting-green-overlay,
+.cm-placement-highlighting-orange-overlay,
+.cm-placement-highlighting-green,
+.cm-placement-highlighting-orange {
+  font-family: "Segoe UI", "Trebuchet MS", "Lucida Grande", Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: left;
+  color: #4F4F4F;
+}
+
+.cm-placement-highlighting-green-text,
+.cm-placement-highlighting-orange-text {
+  margin-top: 0 !important;
+}

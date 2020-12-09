@@ -1,0 +1,16 @@
+.cm-loading {
+  display: flex;
+  flex: 1 0 auto;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.cm-loading__icon {
+  margin: 0 auto;
+}
+
+.cm-loading__icon rect {
+  fill: #efefed;
+}

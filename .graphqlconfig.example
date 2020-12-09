@@ -1,0 +1,15 @@
+{
+  "name": "CoreMedia Headless Server Schema",
+  "schemaPath": "app/__generated__/schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "GraphQL Endpoint": {
+        "url": "https://<headless-server.example/graphql-endpoint>",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": true
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "name": "@coremedia/headless-client-app",
+  "version": "1.0.0",
+  "private": true,
+  "license": "CoreMedia Open Source License",
+  "dependencies": {
+    "@apollo/client": "^3.2.5",
+    "@coremedia/preview-integration": "0.1.0",
+    "@coremedia/view-dispatcher": "^1.0.0",
+    "@js-joda/core": "^3.2.0",
+    "@js-joda/timezone": "^2.1.1",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/react-slick": "^0.23.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.1",
+    "react-slick": "^0.27.12",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "@craco/craco": "^5.6.4",
+    "@types/jest": "^24.9.1",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "apollo": "^2.30.2",
+    "cross-fetch": "^3.0.5",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "graphql": "^15.4.0",
+    "jest": "24.9.0",
+    "node-sass": "^4.14.1",
+    "prettier": "^2.0.5",
+    "ts-jest": "^24.3.0",
+    "typedoc": "^0.19.2",
+    "typedoc-plugin-external-module-name": "^4.0.3",
+    "typescript": "^3.9.7",
+    "webpack": "^4.43.0",
+    "webpack-inject-plugin": "^1.5.4"
+  },
+  "scripts": {
+    "start": "craco start",
+    "prebuild": "yarn apollo:prepare",
+    "build": "craco build",
+    "test": "jest",
+    "lint": "eslint --fix \"src/**/*.+(ts|tsx)\"",
+    "prettier": "prettier --write \"src/**/*.+(ts|tsx)\"",
+    "docs": "typedoc src",
+    "coverage": "jest --coverage",
+    "apollo:prepare": "yarn download:possible-types && yarn download:interfaces && yarn download:metadata && yarn download:schema && yarn apollo:codegen",
+    "apollo:codegen": "apollo client:codegen --globalTypesFile=./src/__generated__/globalTypes.ts --target typescript",
+    "download:schema": "node ./bin/download-schema.js",
+    "download:possible-types": "node ./bin/download-possible-types.js",
+    "download:interfaces": "node ./bin/download-interfaces.js",
+    "download:metadata": "node ./bin/download-metadata.js",
+    "download:crops": "node ./bin/download-crops.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

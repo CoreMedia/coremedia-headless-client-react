@@ -1,0 +1,29 @@
+<svg viewBox="0 0 227 227" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
+     stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+  <path d="M16.54,135.12L29.92,109.08L50.76,109.08L50.76,135.11" fill="none" stroke="#000" stroke-width="2"/>
+  <path d="M87.11,146.9L57.06,146.9L57.06,99.71L116.04,99.71L116.04,146.9L106.37,146.9" fill="none" stroke="#000"
+        stroke-width="2"/>
+  <path d="M22.93,155.67L16.54,155.67L16.54,135.12L50.76,135.12L50.76,155.67L44.32,155.67" fill="none" stroke="#000"
+        stroke-width="2"/>
+  <circle cx="33.6" cy="152.5" r="11.2" fill="none" stroke="#000" stroke-width="2" stroke-miterlimit="3.9"/>
+  <circle cx="192.4" cy="152.5" r="11.2" fill="none" stroke="#000" stroke-width="2" stroke-miterlimit="3.9"/>
+  <path d="M181.33,149.73L153.25,157.25L141.04,111.67L198.02,96.4L210.23,141.98L200.37,144.62" fill="none" stroke="#000"
+        stroke-width="2"/>
+  <path d="M153.25,157.25L129.1,163.72" fill="none" stroke="#000" stroke-width="2"/>
+  <circle cx="192.4" cy="152.5" r="5.2" fill="none" stroke="#000" stroke-width="2" stroke-miterlimit="3.9"/>
+  <path d="M65.37,146.91L65.37,155.67L50.76,155.67" fill="none" stroke="#000" stroke-width="2"/>
+  <path d="M50.76,146.9L57.06,146.9" fill="none" stroke="#000" stroke-width="2"/>
+  <path d="M85.63,151.28L65.37,151.28" fill="none" stroke="#000" stroke-width="2"/>
+  <path
+    d="M28.46,152.52C28.46,149.67 30.77,147.35 33.63,147.35C36.49,147.35 38.8,149.66 38.8,152.52C38.8,155.37 36.49,157.69 33.63,157.69C30.77,157.69 28.46,155.37 28.46,152.52Z"
+    fill="none" stroke="#000" stroke-width="2" stroke-miterlimit="3.9"/>
+  <path d="M133.39,155.27L142.58,152.78L144.32,159.25" fill="none" stroke="#000" stroke-width="2"/>
+  <circle cx="96.7" cy="152.5" r="11.2" fill="none" stroke="#000" stroke-width="2" stroke-miterlimit="3.9"/>
+  <path
+    d="M91.58,152.52C91.58,149.67 93.89,147.35 96.75,147.35C99.6,147.35 101.92,149.66 101.92,152.52C101.92,155.37 99.61,157.69 96.75,157.69C93.89,157.68 91.58,155.37 91.58,152.52Z"
+    fill="none" stroke="#000" stroke-width="2" stroke-miterlimit="3.9"/>
+  <path d="M18.4,164.77L117.94,164.77" fill="none" stroke="#000" stroke-width="2" stroke-miterlimit="3.9"/>
+  <path d="M158.86,164.77L210.1,164.77" fill="none" stroke="#000" stroke-width="2" stroke-miterlimit="3.9"/>
+  <path d="M47.84,100.18L29.77,105.02" fill="none" stroke="#000" stroke-width="2"/>
+  <path d="M29.92,109.08L29.92,135.11" fill="none" stroke="#000" stroke-width="2"/>
+</svg>

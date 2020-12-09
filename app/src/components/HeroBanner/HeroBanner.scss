@@ -1,0 +1,66 @@
+.cm-hero-banner {
+  position: relative;
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-text);
+  margin: 0;
+
+  .cm-image-box {
+    --aspect-ratio: 1*1;
+
+    @media screen and (orientation: landscape) and (max-width: 767px), (min-width: 768px) {
+      --aspect-ratio: 8*3;
+    }
+
+    @media screen and (orientation: portrait) and (min-width: 768px) {
+      --aspect-ratio: 16*9;
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    bottom: var(--padding-large);
+    text-align: center;
+    padding: 0 8%;
+    text-shadow: 0 0 var(--padding-small) var(--color-background-dark);
+    z-index: 2;
+
+    > :last-child {
+      margin-bottom: 0
+    }
+  }
+
+  .cm-teaser-overlay__text {
+    margin-bottom: 12px
+  }
+
+  .cm-teaser-overlay > :last-child {
+    margin-bottom: 0
+  }
+
+  .cm-banner {
+    &__headline,
+    &__text,
+    &__title {
+      color: #fff;
+      margin: 0
+    }
+
+    &__text {
+      margin-bottom: 12px
+    }
+
+    &__title,
+    &__headline {
+      font-family: var(--font-family-headline);
+      font-size: var(--font-size-heading-2);
+      line-height: 1.6;
+      text-decoration: none;
+    }
+
+    &__title:hover {
+      text-decoration: underline;
+    }
+  }
+}

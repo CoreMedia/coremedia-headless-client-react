@@ -1,0 +1,26 @@
+.cm-slot {
+  --number-items: 1;
+  --gap-width: 0;
+
+  &__headline {
+    font-family: var(--font-family-headline);
+    font-size: var(--font-size-heading-1);
+    text-align: center;
+    line-height: 1;
+    margin-top: var(--padding-medium);
+    margin-bottom: var(--padding-medium);
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gap-width);
+  }
+
+  &__item {
+    --item-width: calc(1 / var(--number-items) * 100%);
+    --gap-width-per-item: calc(var(--gap-width) *  (var(--number-items) - 1) / var(--number-items));
+    width: calc(var(--item-width) - var(--gap-width-per-item));
+  }
+}

@@ -1,0 +1,81 @@
+
+.cm-imagemap {
+  position: relative;
+  overflow: hidden;
+
+  &__wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  &__picture {
+    -ms-user-select: none;
+    user-select: none
+  }
+
+  &__area--disabled {
+    display: none
+  }
+
+  &__hotzone {
+    position: absolute;
+    z-index: 2;
+    border: 0;
+    padding: 0;
+    display: block;
+    transform: translate(-50%, -50%);
+
+    &--icon {
+      width: 24px;
+      height: 24px;
+      background: transparent url("./assets/imagemap-icon.svg") no-repeat 50%;
+      border-radius: 50%;
+      cursor: pointer
+    }
+  }
+
+
+  &__hotzone--active, &__hotzone--hover, &__hotzone:hover {
+    &.cm-imagemap__hotzone--icon {
+      background-image: url("./assets/imagemap-icon-hover.svg");
+    }
+  }
+
+  &__hotzone--disabled, &__hotzone--loading {
+    display: none
+  }
+
+  &__button.cm-button {
+    text-transform: uppercase;
+    text-decoration: underline;
+    padding: 14px
+  }
+
+  &__areas {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none;
+    max-height: none;
+
+    svg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: none;
+      max-height: none;
+
+      opacity: 0;
+    }
+  }
+}
+

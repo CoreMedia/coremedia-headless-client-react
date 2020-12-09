@@ -1,0 +1,24 @@
+.cm-clp.cm-details {
+  .cm-row {
+    display: flex;
+  }
+
+  .cm-details {
+    &__sidebar {
+      flex: 1;
+      padding-right: 6px;
+
+      .cm-placement--sidebar {
+        width: 100%;
+      }
+    }
+
+    &__content {
+      flex: 3;
+
+      .cm-placement--main {
+        width: 100%;
+      }
+    }
+  }
+}

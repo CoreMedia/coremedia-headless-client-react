@@ -1,0 +1,28 @@
+.cm-banner {
+  &__title {
+    text-decoration: none;
+    font-family: var(--font-family-headline);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__headline {
+    font-family: var(--font-family-headline);
+    font-size: var(--font-size-heading-3);
+    color: #000;
+    margin: 0 0 15px;
+  }
+
+  a:hover > &__headline {
+    text-decoration: underline
+  }
+
+
+  &__text {
+    color: #000;
+    margin: 0;
+    margin-bottom: 15px;
+    flex-grow: 1; //align cta at bottom
+  }
+}

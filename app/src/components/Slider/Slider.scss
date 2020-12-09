@@ -1,0 +1,108 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.cm-slick-carousel {
+  z-index: 0;
+
+  &__item {
+    display: none;
+
+    &:first-child {
+      display: block
+    }
+  }
+
+  .slick-arrow:before {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background-size: cover;
+    content: "";
+  }
+
+  .slick-prev:before {
+    background-image: url("./assets/arrow-prev.svg");
+  }
+
+  .slick-next:before {
+    background-image: url("./assets/arrow-next.svg");
+  }
+
+  &--inner-arrows {
+    .slick-arrow {
+      top: 0;
+      bottom: 0;
+      height: auto;
+      transform: none;
+      width: 5%;
+
+      @media screen and (max-width: 767px) {
+        width: 10%
+      }
+
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+      }
+    }
+
+    .slick-prev {
+      z-index: 1;
+      left: 0;
+
+      &:before {
+        background-image: url("./assets/arrow-prev-inner.svg");
+      }
+
+      &:hover:before {
+        background-image: url("./assets/arrow-prev-inner-hover.svg");
+      }
+    }
+
+    .slick-next {
+      right: 0;
+
+      &:before {
+        background-image: url("./assets/arrow-next-inner.svg");
+      }
+
+      &:hover:before {
+        background-image: url("./assets/arrow-next-inner-hover.svg");
+      }
+    }
+  }
+
+  .slick-slide:not(.slick-current) video {
+    visibility: hidden
+  }
+
+  &--transitioning .slick-slide:not(.slick-current) video {
+    visibility: visible
+  }
+
+  // used for carousel banner
+  &--multiple {
+    .slick-track {
+    display: flex;
+    }
+
+    .slick-slide {
+      height: unset;
+
+      > div {
+        margin: 0 6px;
+        height: 100%;
+
+        @media screen and (min-width: 768px) and (orientation: landscape), screen and (min-width: 1200px) {
+          margin: 0 12px;
+        }
+      }
+
+      .cm-slot__item {
+        height: 100%;
+      }
+    }
+  }
+}

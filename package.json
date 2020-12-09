@@ -1,0 +1,18 @@
+{
+  "name": "@coremedia/headless-client-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "license": "CoreMedia Open Source License",
+  "scripts": {
+    "build": "yarn workspaces run build",
+    "test": "yarn workspaces run test",
+    "lint": "yarn workspaces run lint",
+    "prettier": "yarn workspaces run prettier",
+    "docs": "yarn workspaces run docs"
+  },
+  "workspaces": [
+    "packages/*",
+    "app",
+    "app-standalone-fragment"
+  ]
+}
