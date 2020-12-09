@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReloadBox Component should render correctly 1`] = `
+.c0 {
+  display: none;
+}
+
+@media (min-width:48em) {
+  .c0 {
+    display: block;
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    z-index: 9999;
+  }
+}
+
+<div
+  className="c0"
+>
+  Content
+</div>
+`;

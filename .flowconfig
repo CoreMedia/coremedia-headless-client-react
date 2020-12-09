@@ -1,0 +1,13 @@
+[ignore]
+.*/node_modules/
+.*/build/.*
+.*/__tests__/.*
+
+[include]
+
+[libs]
+flow-typed
+
+[lints]
+
+[options]

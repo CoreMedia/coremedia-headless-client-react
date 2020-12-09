@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShoppableVideoBrick Component _createThumbnailProps() should return props 1`] = `
+Object {
+  "active": false,
+  "handleClick": [Function],
+  "id": "ID_1",
+  "pictureAlt": "Picture Alt",
+  "pictureLink": "coremedia:///media/6288",
+  "pictureTitle": "Picture Title",
+  "price": 100,
+  "teaserText": "Teaser Text",
+  "teaserTitle": "Teaser Title",
+}
+`;
+
+exports[`ShoppableVideoBrick Component should render correctly 1`] = `
+<Wrapper
+  innerRef={[Function]}
+>
+  <Video
+    controls={true}
+    handleDuration={[Function]}
+    handleEnded={[Function]}
+    handlePause={[Function]}
+    handlePlay={[Function]}
+    handleProgress={[Function]}
+    link="coremedia:///media/6200/data"
+    loop={false}
+    muted={false}
+    pictureAlt="Alt"
+    pictureLink="coremedia:///image/6188/data"
+    pictureTitle="Title"
+    playing={false}
+    show={true}
+  />
+  <ThumbnailBar
+    handleRef={[Function]}
+    prevItems={0}
+    range={0}
+    thumbWidth={0}
+    thumbnails={
+      Array [
+        Object {
+          "active": false,
+          "handleClick": [Function],
+          "id": "coremedia:///cap/content/6268_0",
+          "pictureAlt": "Comfort Sports Leggings",
+          "pictureLink": "coremedia:///image/6266/data",
+          "pictureTitle": "Comfort Sports Leggings",
+          "price": 37.99,
+          "teaserText": "Be ready for the gym with these comfortable sports leggings from our DK collection. They are made from very breathable fabric that feels nice and light during sports and exercise. Combine with matching items from the HKMX DK collection.",
+          "teaserTitle": "HKMX DK Comfort Sports Leggings",
+        },
+        Object {
+          "active": false,
+          "handleClick": [Function],
+          "id": "coremedia:///cap/content/6232_0",
+          "pictureAlt": "The All Star Level 2 Bra",
+          "pictureLink": "coremedia:///image/6208/data",
+          "pictureTitle": "The All Star Level 2 Bra",
+          "price": 37.99,
+          "teaserText": "This DK sports bra features a pretty floral print for a feminine touch. This level 2 sports bra provides medium support for fairly intensive exercise such as jogging and running.",
+          "teaserTitle": "HKMX DK The All Star Level 2 Bra",
+        },
+        Object {
+          "active": false,
+          "handleClick": [Function],
+          "id": "coremedia:///cap/content/6196_1",
+          "pictureAlt": "Sweater",
+          "pictureLink": "coremedia:///image/6226/data",
+          "pictureTitle": "Sweater",
+          "price": 42.99,
+          "teaserText": "This warm sweater from our Doutzen collection is ideal for wearing after your workout. It will keep nice and warm even on cold days. Combine with matching items from the DK collection.",
+          "teaserTitle": "HKMX DK Sweater",
+        },
+      ]
+    }
+    translateX={0}
+  />
+  <QuickInfo
+    handleClose={[Function]}
+    item={null}
+  />
+</Wrapper>
+`;

@@ -1,0 +1,926 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WideTeaser Component should render WideTeaser with Link 1`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox />
+</OptionalLink>
+`;
+
+exports[`WideTeaser Component should render WideTeaser with Link and CTA (custom Label) 1`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <TextBox
+      color="blue"
+      key="textbox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+          "colors": Object {
+            "default": Object {
+              "bgsolid": "rgba(239, 223, 15, 1)",
+              "bgtrans": "rgba(239, 223, 15, 0.7)",
+              "fg": "#fafafa",
+              "huerotation": "5deg",
+            },
+          },
+        }
+      }
+    >
+      <TextBoxWrapper
+        theme={
+          Object {
+            "breakpoints": Object {
+              "tablet": 768,
+            },
+          }
+        }
+      >
+        <CTA
+          text="Label"
+        />
+      </TextBoxWrapper>
+    </TextBox>
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`WideTeaser Component should render WideTeaser with Link and CTA 1`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <TextBox
+      color="blue"
+      key="textbox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+          "colors": Object {
+            "default": Object {
+              "bgsolid": "rgba(239, 223, 15, 1)",
+              "bgtrans": "rgba(239, 223, 15, 0.7)",
+              "fg": "#fafafa",
+              "huerotation": "5deg",
+            },
+          },
+        }
+      }
+    >
+      <TextBoxWrapper
+        theme={
+          Object {
+            "breakpoints": Object {
+              "tablet": 768,
+            },
+          }
+        }
+      >
+        <CTA
+          text="More"
+        />
+      </TextBoxWrapper>
+    </TextBox>
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`WideTeaser Component should render WideTeaser with Link and Picture 1`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <PictureBox
+      key="picturebox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+        }
+      }
+    >
+      <WithTheme(Picture)
+        alt="Globe"
+        color="blue"
+        key="picture"
+        link="coremedia:///image/2656/data"
+        ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
+        title="Globe"
+      />
+    </PictureBox>
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`WideTeaser Component should render WideTeaser with Link, Picture and CTA 1`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <PictureBox
+      key="picturebox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+        }
+      }
+    >
+      <WithTheme(Picture)
+        alt="Globe"
+        color="blue"
+        key="picture"
+        link="coremedia:///image/2656/data"
+        ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
+        title="Globe"
+      />
+    </PictureBox>
+    <TextBox
+      color="blue"
+      key="textbox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+          "colors": Object {
+            "default": Object {
+              "bgsolid": "rgba(239, 223, 15, 1)",
+              "bgtrans": "rgba(239, 223, 15, 0.7)",
+              "fg": "#fafafa",
+              "huerotation": "5deg",
+            },
+          },
+        }
+      }
+    >
+      <TextBoxWrapper
+        theme={
+          Object {
+            "breakpoints": Object {
+              "tablet": 768,
+            },
+          }
+        }
+      >
+        <Headline
+          theme={
+            Object {
+              "breakpoints": Object {
+                "desktop": 992,
+                "large": 1280,
+                "tablet": 768,
+              },
+              "name": "default",
+            }
+          }
+        >
+          Content Management at a new Scale with CoreMedia CaaS
+        </Headline>
+        <Text
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Discover the new CoreMedia Headless Services.",
+            }
+          }
+          theme={
+            Object {
+              "breakpoints": Object {
+                "desktop": 992,
+                "large": 1280,
+                "tablet": 768,
+              },
+              "name": "default",
+            }
+          }
+        />
+        <CTA
+          text="More"
+        />
+      </TextBoxWrapper>
+    </TextBox>
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`WideTeaser Component should render WideTeaser with Link, Picture and CTA 2`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <PictureBox
+      key="picturebox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+        }
+      }
+    >
+      <WithTheme(Picture)
+        alt="Globe"
+        color="blue"
+        key="picture"
+        link="coremedia:///image/2656/data"
+        ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
+        title="Globe"
+      />
+    </PictureBox>
+    <TextBox
+      color="blue"
+      key="textbox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+          "colors": Object {
+            "default": Object {
+              "bgsolid": "rgba(239, 223, 15, 1)",
+              "bgtrans": "rgba(239, 223, 15, 0.7)",
+              "fg": "#fafafa",
+              "huerotation": "5deg",
+            },
+          },
+        }
+      }
+    >
+      <TextBoxWrapper
+        theme={
+          Object {
+            "breakpoints": Object {
+              "tablet": 768,
+            },
+          }
+        }
+      >
+        <Headline
+          theme={
+            Object {
+              "breakpoints": Object {
+                "desktop": 992,
+                "large": 1280,
+                "tablet": 768,
+              },
+              "name": "default",
+            }
+          }
+        >
+          Content Management at a new Scale with CoreMedia CaaS
+        </Headline>
+        <Text
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Discover the new CoreMedia Headless Services.",
+            }
+          }
+          theme={
+            Object {
+              "breakpoints": Object {
+                "desktop": 992,
+                "large": 1280,
+                "tablet": 768,
+              },
+              "name": "default",
+            }
+          }
+        />
+      </TextBoxWrapper>
+    </TextBox>
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`WideTeaser Component should render WideTeaser with Link, Picture and CTA 3`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <PictureBox
+      key="picturebox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+        }
+      }
+    >
+      <WithTheme(Picture)
+        alt="Globe"
+        color="blue"
+        key="picture"
+        link="coremedia:///image/2656/data"
+        ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
+        title="Globe"
+      />
+    </PictureBox>
+    <TextBox
+      color="blue"
+      key="textbox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+          "colors": Object {
+            "default": Object {
+              "bgsolid": "rgba(239, 223, 15, 1)",
+              "bgtrans": "rgba(239, 223, 15, 0.7)",
+              "fg": "#fafafa",
+              "huerotation": "5deg",
+            },
+          },
+        }
+      }
+    >
+      <TextBoxWrapper
+        theme={
+          Object {
+            "breakpoints": Object {
+              "tablet": 768,
+            },
+          }
+        }
+      >
+        <Headline
+          theme={
+            Object {
+              "breakpoints": Object {
+                "desktop": 992,
+                "large": 1280,
+                "tablet": 768,
+              },
+              "name": "default",
+            }
+          }
+        >
+          Content Management at a new Scale with CoreMedia CaaS
+        </Headline>
+      </TextBoxWrapper>
+    </TextBox>
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`WideTeaser Component should render WideTeaser with Link, Picture and CTA 4`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <PictureBox
+      key="picturebox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+        }
+      }
+    >
+      <WithTheme(Picture)
+        alt="Globe"
+        color="blue"
+        key="picture"
+        link="coremedia:///image/2656/data"
+        ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
+        title="Globe"
+      />
+    </PictureBox>
+    <TextBox
+      color="blue"
+      key="textbox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+          "colors": Object {
+            "default": Object {
+              "bgsolid": "rgba(239, 223, 15, 1)",
+              "bgtrans": "rgba(239, 223, 15, 0.7)",
+              "fg": "#fafafa",
+              "huerotation": "5deg",
+            },
+          },
+        }
+      }
+    >
+      <TextBoxWrapper
+        theme={
+          Object {
+            "breakpoints": Object {
+              "tablet": 768,
+            },
+          }
+        }
+      >
+        <Text
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Discover the new CoreMedia Headless Services.",
+            }
+          }
+          theme={
+            Object {
+              "breakpoints": Object {
+                "desktop": 992,
+                "large": 1280,
+                "tablet": 768,
+              },
+              "name": "default",
+            }
+          }
+        />
+      </TextBoxWrapper>
+    </TextBox>
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`WideTeaser Component should render WideTeaser with Link, Picture and CTA 5`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <PictureBox
+      key="picturebox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+        }
+      }
+    >
+      <WithTheme(Picture)
+        alt="Globe"
+        color="blue"
+        key="picture"
+        link="coremedia:///image/2656/data"
+        ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
+        title="Globe"
+      />
+    </PictureBox>
+    <TextBox
+      color="blue"
+      key="textbox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+          "colors": Object {
+            "default": Object {
+              "bgsolid": "rgba(239, 223, 15, 1)",
+              "bgtrans": "rgba(239, 223, 15, 0.7)",
+              "fg": "#fafafa",
+              "huerotation": "5deg",
+            },
+          },
+        }
+      }
+    >
+      <TextBoxWrapper
+        theme={
+          Object {
+            "breakpoints": Object {
+              "tablet": 768,
+            },
+          }
+        }
+      >
+        <Text
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Discover the new CoreMedia Headless Services.",
+            }
+          }
+          theme={
+            Object {
+              "breakpoints": Object {
+                "desktop": 992,
+                "large": 1280,
+                "tablet": 768,
+              },
+              "name": "default",
+            }
+          }
+        />
+        <CTA
+          text="More"
+        />
+      </TextBoxWrapper>
+    </TextBox>
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`WideTeaser Component should render WideTeaser with Link, Picture and CTA 6`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <PictureBox
+      key="picturebox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+        }
+      }
+    >
+      <WithTheme(Picture)
+        alt="Globe"
+        color="blue"
+        key="picture"
+        link="coremedia:///image/2656/data"
+        ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
+        title="Globe"
+      />
+    </PictureBox>
+    <TextBox
+      color="blue"
+      key="textbox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+          "colors": Object {
+            "default": Object {
+              "bgsolid": "rgba(239, 223, 15, 1)",
+              "bgtrans": "rgba(239, 223, 15, 0.7)",
+              "fg": "#fafafa",
+              "huerotation": "5deg",
+            },
+          },
+        }
+      }
+    >
+      <TextBoxWrapper
+        theme={
+          Object {
+            "breakpoints": Object {
+              "tablet": 768,
+            },
+          }
+        }
+      >
+        <Headline
+          theme={
+            Object {
+              "breakpoints": Object {
+                "desktop": 992,
+                "large": 1280,
+                "tablet": 768,
+              },
+              "name": "default",
+            }
+          }
+        >
+          Content Management at a new Scale with CoreMedia CaaS
+        </Headline>
+        <CTA
+          text="More"
+        />
+      </TextBoxWrapper>
+    </TextBox>
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`WideTeaser Component should render WideTeaser with Link, Picture and CTA 7`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <PictureBox
+      key="picturebox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+        }
+      }
+    >
+      <WithTheme(Picture)
+        alt="Globe"
+        color="blue"
+        key="picture"
+        link="coremedia:///image/2656/data"
+        ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
+        title="Globe"
+      />
+    </PictureBox>
+    <TextBox
+      color="blue"
+      key="textbox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+          "colors": Object {
+            "default": Object {
+              "bgsolid": "rgba(239, 223, 15, 1)",
+              "bgtrans": "rgba(239, 223, 15, 0.7)",
+              "fg": "#fafafa",
+              "huerotation": "5deg",
+            },
+          },
+        }
+      }
+    >
+      <TextBoxWrapper
+        theme={
+          Object {
+            "breakpoints": Object {
+              "tablet": 768,
+            },
+          }
+        }
+      >
+        <CTA
+          text="More"
+        />
+      </TextBoxWrapper>
+    </TextBox>
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`WideTeaser Component should render WideTeaser with Picture (without params) 1`] = `
+<OptionalLink>
+  <TeaserBox>
+    <PictureBox
+      key="picturebox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+        }
+      }
+    >
+      <WithTheme(Picture)
+        alt="Globe"
+        key="picture"
+        link="coremedia:///image/2656/data"
+        ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
+        title="Globe"
+      />
+    </PictureBox>
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`WideTeaser Component should render WideTeaser with Picture 1`] = `
+<OptionalLink>
+  <TeaserBox>
+    <PictureBox
+      key="picturebox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+        }
+      }
+    >
+      <WithTheme(Picture)
+        alt="Globe"
+        color="blue"
+        key="picture"
+        link="coremedia:///image/2656/data"
+        ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
+        title="Globe"
+      />
+    </PictureBox>
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`WideTeaser Component should render WideTeaser with Picture and CTA 1`] = `
+<OptionalLink>
+  <TeaserBox>
+    <PictureBox
+      key="picturebox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+        }
+      }
+    >
+      <WithTheme(Picture)
+        alt="Globe"
+        color="blue"
+        key="picture"
+        link="coremedia:///image/2656/data"
+        ratio="landscape_ratio3x2"
+        stretch={true}
+        theme={
+          Object {
+            "breakpoints": Object {
+              "desktop": 992,
+              "large": 1280,
+              "small": 480,
+              "tablet": 768,
+            },
+          }
+        }
+        title="Globe"
+      />
+    </PictureBox>
+    <TextBox
+      color="blue"
+      key="textbox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+          "colors": Object {
+            "default": Object {
+              "bgsolid": "rgba(239, 223, 15, 1)",
+              "bgtrans": "rgba(239, 223, 15, 0.7)",
+              "fg": "#fafafa",
+              "huerotation": "5deg",
+            },
+          },
+        }
+      }
+    >
+      <TextBoxWrapper
+        theme={
+          Object {
+            "breakpoints": Object {
+              "tablet": 768,
+            },
+          }
+        }
+      />
+    </TextBox>
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`WideTeaser Component should render WideTeaser without CTA 1`] = `
+<OptionalLink>
+  <TeaserBox>
+    <TextBox
+      color="blue"
+      key="textbox"
+      theme={
+        Object {
+          "breakpoints": Object {
+            "tablet": 768,
+          },
+          "colors": Object {
+            "default": Object {
+              "bgsolid": "rgba(239, 223, 15, 1)",
+              "bgtrans": "rgba(239, 223, 15, 0.7)",
+              "fg": "#fafafa",
+              "huerotation": "5deg",
+            },
+          },
+        }
+      }
+    >
+      <TextBoxWrapper
+        theme={
+          Object {
+            "breakpoints": Object {
+              "tablet": 768,
+            },
+          }
+        }
+      />
+    </TextBox>
+  </TeaserBox>
+</OptionalLink>
+`;

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CTA Component should render CTA using Button 1`] = `
+<styled.button
+  theme={
+    Object {
+      "breakpoints": Object {
+        "desktop": 992,
+        "large": 1280,
+        "small": 480,
+        "tablet": 768,
+      },
+      "name": "default",
+    }
+  }
+>
+  Label
+</styled.button>
+`;
+
+exports[`CTA Component should render CTA using LinkButton 1`] = `
+<styled.a
+  href="https://labs.coremedia.com"
+  theme={
+    Object {
+      "breakpoints": Object {
+        "desktop": 992,
+        "large": 1280,
+        "small": 480,
+        "tablet": 768,
+      },
+      "name": "default",
+    }
+  }
+>
+  Label
+</styled.a>
+`;

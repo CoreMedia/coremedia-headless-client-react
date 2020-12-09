@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoBox Component should render correctly with show = false 1`] = `
+.c0 {
+  opacity: 0;
+  -webkit-transition: opacity 0.6s linear 0s;
+  transition: opacity 0.6s linear 0s;
+}
+
+<div
+  className="c0"
+>
+  Content
+</div>
+`;
+
+exports[`VideoBox Component should render correctly with show = true 1`] = `
+.c0 {
+  opacity: 1;
+  -webkit-transition: opacity 0.6s linear 0s;
+  transition: opacity 0.6s linear 0s;
+}
+
+<div
+  className="c0"
+>
+  Content
+</div>
+`;

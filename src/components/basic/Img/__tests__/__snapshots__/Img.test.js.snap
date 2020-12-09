@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Img Component should render correctly with default props 1`] = `
+.c0 {
+  display: block;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+<img
+  className="c0"
+  src="img.jpg"
+/>
+`;
+
+exports[`Img Component should render correctly with width 100% 1`] = `
+.c0 {
+  display: block;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+<img
+  className="c0"
+  src="img.jpg"
+/>
+`;

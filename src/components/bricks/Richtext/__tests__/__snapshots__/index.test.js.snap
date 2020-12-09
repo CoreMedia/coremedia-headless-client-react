@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Richtext Component should render HTML parsed to React Components 1`] = `
+<Wrapper
+  theme={
+    Object {
+      "breakpoints": Object {
+        "desktop": 992,
+        "large": 1280,
+        "tablet": 768,
+      },
+      "name": "default",
+    }
+  }
+>
+  <H1
+    key="0"
+    theme={
+      Object {
+        "breakpoints": Object {
+          "desktop": 992,
+          "large": 1280,
+          "tablet": 768,
+        },
+        "name": "default",
+      }
+    }
+  >
+    Heading 1
+  </H1>
+  <H2
+    key="1"
+    theme={
+      Object {
+        "breakpoints": Object {
+          "desktop": 992,
+          "large": 1280,
+          "tablet": 768,
+        },
+        "name": "default",
+      }
+    }
+  >
+    Heading 2
+  </H2>
+  <H3
+    key="2"
+    theme={
+      Object {
+        "breakpoints": Object {
+          "desktop": 992,
+          "large": 1280,
+          "tablet": 768,
+        },
+        "name": "default",
+      }
+    }
+  >
+    Heading 3
+  </H3>
+  <P
+    key="3"
+    theme={
+      Object {
+        "breakpoints": Object {
+          "desktop": 992,
+          "large": 1280,
+          "tablet": 768,
+        },
+        "name": "default",
+      }
+    }
+  >
+    Paragraph
+  </P>
+  <PictureWrapper
+    key="4"
+    theme={
+      Object {
+        "breakpoints": Object {
+          "tablet": 768,
+        },
+        "name": "default",
+      }
+    }
+  >
+    <WithTheme(Picture)
+      alt="Scrum"
+      link="coremedia:///image/2662/data"
+      ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
+    />
+  </PictureWrapper>
+  <a
+    cms-href="coremedia:///page/home~2450"
+    href="#none"
+    key="5"
+  >
+    CoreMedia Labs
+  </a>
+  <ul
+    key="6"
+  >
+    <li
+      key="0"
+    >
+      <a
+        href="https://labs.coremedia.com/"
+        key="0"
+      >
+        <strong
+          key="0"
+        >
+          Github project
+        </strong>
+      </a>
+    </li>
+    <li
+      key="1"
+    >
+      <a
+        href="https://labs.coremedia.com/wiki"
+        key="0"
+      >
+        <strong
+          key="0"
+        >
+          Technical wiki
+        </strong>
+      </a>
+    </li>
+  </ul>
+</Wrapper>
+`;

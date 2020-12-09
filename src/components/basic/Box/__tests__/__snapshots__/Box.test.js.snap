@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box Component should render correctly 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  font-family: "Simplon Norm Light","Lucida Sans","Lucida Sans Unicode","Lucida Grande",Arial,Helvetica,sans-serif;
+  line-height: 1.4;
+  box-sizing: border-box;
+  white-space: normal;
+}
+
+<div
+  className="c0"
+>
+  Content
+</div>
+`;

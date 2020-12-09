@@ -1,0 +1,183 @@
+html body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Simplon Norm Light', 'Lucida Sans', 'Lucida Sans Unicode', 'Lucida Grande', Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cm-logo {
+  box-sizing: content-box;
+  -ms-flex: 0 1 35px;
+  flex: 0 1 35px;
+  height: 35px;
+  -ms-flex-order: 0;
+  order: 0;
+  overflow: hidden;
+}
+
+.cm-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cm-logo .wide {
+  display: none;
+}
+
+@media only screen and (min-width: 48em) {
+  .cm-logo {
+    height: 40px;
+    -ms-flex: 0 0 248px;
+    flex: 0 0 248px;
+  }
+  .cm-logo .square {
+    display: none;
+  }
+  .cm-logo .wide {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 62em) {
+  .cm-logo {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+[class*='headline-'] {
+  font-family: 'Core Light', 'Simplon Norm Regular', 'Lucida Sans', 'Lucida Sans Unicode', 'Lucida Grande', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  color: inherit;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.headline-1 {
+  font-size: 1.4em;
+}
+
+.headline-2 {
+  font-size: 1.3em;
+}
+
+.headline-3 {
+  font-size: 1.2em;
+}
+
+p {
+  font-family: 'Simplon Norm Light', 'Lucida Sans', 'Lucida Sans Unicode', 'Lucida Grande', Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.justify {
+  text-align: justify;
+}
+
+.header-box,
+.footer-box {
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
+  color: #fafafa;
+  background-color: rgb(239, 223, 15);
+  height: 3.2em;
+  padding: 0 10px;
+}
+
+.footer-box {
+  margin-top: 2em;
+}
+
+.title {
+  margin: 1em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+}
+
+@media only screen and (min-width: 48em) {
+  .header-box,
+  .footer-box {
+    height: 3.5rem;
+  }
+  .headline-1 {
+    font-size: 1.7em;
+  }
+  .headline-2 {
+    font-size: 1.5em;
+  }
+  .headline-3 {
+    font-size: 1.3em;
+  }
+  p {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (min-width: 62em) {
+  .header-box,
+  .footer-box {
+    height: 4rem;
+  }
+  .headline-1 {
+    font-size: 2em;
+  }
+  .headline-2 {
+    font-size: 1.7em;
+  }
+  .headline-3 {
+    font-size: 1.4em;
+  }
+  p {
+    font-size: 1.1em;
+  }
+}
+
+@media only screen and (min-width: 75em) {
+  .header-box,
+  .footer-box {
+    height: 4.5rem;
+  }
+  .headline-1 {
+    font-size: 2.4em;
+  }
+  .headline-2 {
+    font-size: 2em;
+  }
+  .headline-3 {
+    font-size: 1.6em;
+  }
+  p {
+    font-size: 1.2em;
+  }
+}

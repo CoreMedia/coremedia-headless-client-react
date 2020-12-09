@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayIcon Component should render correctly 1`] = `
+.c0 {
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  -webkit-transform: translate(50%,50%);
+  -ms-transform: translate(50%,50%);
+  transform: translate(50%,50%);
+  z-index: 1;
+  width: 90px;
+  height: 90px;
+  max-width: 75%;
+  max-height: 75%;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICAgIDxjaXJjbGUKICAgICAgY3g9IjI1NiIKICAgICAgY3k9IjI1NiIKICAgICAgcj0iMjMxIgogICAgICBmaWxsPSJyZ2JhKDAsMCwwLC41KSIKICAgICAgc3Ryb2tlPSIjZmZmIgogICAgICBzdHJva2Utd2lkdGg9IjMwIgogICAgICBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiCiAgICAvPgogICAgPHBhdGgKICAgICAgZD0iTTM0OC4xIDI0NS42bC0xMzQtNzguMmMtMTIuMi03LjEtMjIuMS0xLjQtMjIgMTIuN2wuNyAxNTUuMmMuMSAxNC4xIDEwIDE5LjkgMjIuMyAxMi44bDEzMy03Ni44YzEyLjItNy4xIDEyLjMtMTguNiAwLTI1Ljd6IgogICAgICBmaWxsPSIjZmZmIgogICAgLz4KICA8L3N2Zz4=) no-repeat;
+  -webkit-transition: all 0.35s ease(in-out-quad);
+  transition: all 0.35s ease(in-out-quad);
+}
+
+@media (min-width:62em) {
+  .c0 {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;

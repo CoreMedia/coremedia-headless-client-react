@@ -1,0 +1,434 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeroTeaser Component should render HeroTeaser with Link 1`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox />
+</OptionalLink>
+`;
+
+exports[`HeroTeaser Component should render HeroTeaser with Link and Overlay 1`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <Overlay
+      bottom="5%"
+      color="blue"
+      ctaShow={true}
+      ctaText="Learn more"
+      fixed={false}
+      height="auto"
+      key="overlay"
+      width={70}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`HeroTeaser Component should render HeroTeaser with Link and Picture 1`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
+      title="Globe"
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`HeroTeaser Component should render HeroTeaser with Link, Picture and Overlay 1`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
+      title="Globe"
+    />
+    <Overlay
+      bottom="5%"
+      color="blue"
+      ctaShow={true}
+      ctaText="Learn more"
+      fixed={false}
+      height="auto"
+      key="overlay"
+      text="Discover the new CoreMedia Headless Services."
+      title="Content Management at a new Scale with CoreMedia CaaS"
+      width={70}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`HeroTeaser Component should render HeroTeaser with Link, Picture and Overlay 2`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
+      title="Globe"
+    />
+    <Overlay
+      bottom="5%"
+      color="blue"
+      ctaShow={false}
+      ctaText="Learn more"
+      fixed={false}
+      height="auto"
+      key="overlay"
+      text="Discover the new CoreMedia Headless Services."
+      title="Content Management at a new Scale with CoreMedia CaaS"
+      width={70}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`HeroTeaser Component should render HeroTeaser with Link, Picture and Overlay 3`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
+      title="Globe"
+    />
+    <Overlay
+      bottom="5%"
+      color="blue"
+      ctaShow={false}
+      ctaText="Learn more"
+      fixed={false}
+      height="auto"
+      key="overlay"
+      title="Content Management at a new Scale with CoreMedia CaaS"
+      width={70}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`HeroTeaser Component should render HeroTeaser with Link, Picture and Overlay 4`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
+      title="Globe"
+    />
+    <Overlay
+      bottom="5%"
+      color="blue"
+      ctaShow={false}
+      ctaText="Learn more"
+      fixed={false}
+      height="auto"
+      key="overlay"
+      text="Discover the new CoreMedia Headless Services."
+      width={70}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`HeroTeaser Component should render HeroTeaser with Link, Picture and Overlay 5`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
+      title="Globe"
+    />
+    <Overlay
+      bottom="5%"
+      color="blue"
+      ctaShow={true}
+      ctaText="Learn more"
+      fixed={false}
+      height="auto"
+      key="overlay"
+      text="Discover the new CoreMedia Headless Services."
+      width={70}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`HeroTeaser Component should render HeroTeaser with Link, Picture and Overlay 6`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
+      title="Globe"
+    />
+    <Overlay
+      bottom="5%"
+      color="blue"
+      ctaShow={true}
+      ctaText="Learn more"
+      fixed={false}
+      height="auto"
+      key="overlay"
+      title="Content Management at a new Scale with CoreMedia CaaS"
+      width={70}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`HeroTeaser Component should render HeroTeaser with Link, Picture and Overlay 7`] = `
+<OptionalLink
+  url="/caas.html"
+>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
+      title="Globe"
+    />
+    <Overlay
+      bottom="5%"
+      color="blue"
+      ctaShow={true}
+      ctaText="Learn more"
+      fixed={false}
+      height="auto"
+      key="overlay"
+      width={70}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`HeroTeaser Component should render HeroTeaser with Overlay 1`] = `
+<OptionalLink>
+  <TeaserBox>
+    <Overlay
+      bottom="5%"
+      color="blue"
+      ctaShow={false}
+      ctaText="Learn more"
+      fixed={false}
+      height="auto"
+      key="overlay"
+      width={70}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`HeroTeaser Component should render HeroTeaser with Picture (without params) 1`] = `
+<OptionalLink>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
+      title="Globe"
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`HeroTeaser Component should render HeroTeaser with Picture 1`] = `
+<OptionalLink>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
+      title="Globe"
+    />
+  </TeaserBox>
+</OptionalLink>
+`;
+
+exports[`HeroTeaser Component should render HeroTeaser with Picture and Overlay 1`] = `
+<OptionalLink>
+  <TeaserBox>
+    <WithTheme(Picture)
+      alt="Globe"
+      color="blue"
+      key="picture"
+      link="coremedia:///image/2656/data"
+      ratio="landscape_ratio16x9"
+      stretch={true}
+      theme={
+        Object {
+          "breakpoints": Object {
+            "desktop": 992,
+            "large": 1280,
+            "small": 480,
+            "tablet": 768,
+          },
+        }
+      }
+      title="Globe"
+    />
+    <Overlay
+      bottom="5%"
+      color="blue"
+      ctaShow={false}
+      ctaText="Learn more"
+      fixed={false}
+      height="auto"
+      key="overlay"
+      width={70}
+    />
+  </TeaserBox>
+</OptionalLink>
+`;

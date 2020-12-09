@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Thumbnail Component should render correctly with default props 1`] = `
+<LinkButton
+  active={false}
+  onClick={[MockFunction handleClick]}
+>
+  <WithTheme(Picture)
+    alt="Alt"
+    link="coremedia:///image/6188/data"
+    ratio="thumbnail"
+    theme={
+      Object {
+        "breakpoints": Object {
+          "desktop": 992,
+          "large": 1280,
+          "small": 480,
+          "tablet": 768,
+        },
+      }
+    }
+    title="Title"
+  />
+</LinkButton>
+`;

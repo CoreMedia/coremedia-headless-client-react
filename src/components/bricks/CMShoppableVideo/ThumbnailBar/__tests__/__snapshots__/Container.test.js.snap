@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container Component should render correctly 1`] = `
+.c0 {
+  -webkit-transform: translateX(10px);
+  -ms-transform: translateX(10px);
+  transform: translateX(10px);
+  -webkit-transition: -webkit-transform 0.45s ease-out;
+  -webkit-transition: transform 0.45s ease-out;
+  transition: transform 0.45s ease-out;
+}
+
+<div
+  className="c0"
+>
+  Content
+</div>
+`;

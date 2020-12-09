@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "Core Bold";
+  font-weight: 500;
+  font-style: normal;
+  src: url(../fonts/cm3-bold-woff2-data.woff2) format("woff2"),
+  url(../fonts/cm3-bold-woff-data.woff) format("woff"),
+  url(../fonts/cm3-bold-ttf-data.ttf) format("truetype")
+}
+@font-face {
+  font-family: "Core Light";
+  font-weight: 500;
+  font-style: normal;
+  src: url(../fonts/cm3-light-woff2-data.woff2) format("woff2"),
+  url(../fonts/cm3-light-woff-data.woff) format("woff"),
+  url(../fonts/cm3-light-ttf-data.ttf) format("truetype")
+}
+@font-face {
+  font-family: "Simplon Norm Bold";
+  font-weight: 500;
+  font-style: normal;
+  src: url(../fonts/simplonnorm-bold-webxl-woff2-data.woff2) format("woff2"),
+  url(../fonts/simplonnorm-bold-webxl-woff-data.woff) format("woff"),
+  url(../fonts/simplonnorm-bold-webxl-ttf-data.ttf) format("truetype")
+}
+@font-face {
+  font-family: "Simplon Norm Bold Italic";
+  font-weight: 500;
+  font-style: normal;
+  src: url(../fonts/simplonnorm-bolditalic-webxl-woff2-data.woff2) format("woff2"),
+  url(../fonts/simplonnorm-bolditalic-webxl-woff-data.woff) format("woff"),
+  url(../fonts/simplonnorm-bolditalic-webxl-ttf-data.ttf) format("truetype")
+}
+@font-face {
+  font-family: "Simplon Norm Light";
+  font-weight: 500;
+  font-style: normal;
+  src: url(../fonts/simplonnorm-light-webxl-woff2-data.woff2) format("woff2"),
+  url(../fonts/simplonnorm-light-webxl-woff-data.woff) format("woff"),
+  url(../fonts/simplonnorm-light-webxl-ttf-data.ttf) format("truetype")
+}
+@font-face {
+  font-family: "Simplon Norm Light Italic";
+  font-weight: 500;
+  font-style: normal;
+  src: url(../fonts/simplonnorm-lightitalic-webxl-woff2-data.woff2) format("woff2"),
+  url(../fonts/simplonnorm-lightitalic-webxl-woff-data.woff) format("woff"),
+  url(../fonts/simplonnorm-lightitalic-webxl-ttf-data.ttf) format("truetype")
+}
+@font-face {
+  font-family: "Simplon Norm Medium";
+  font-weight: 500;
+  font-style: normal;
+  src: url(../fonts/simplonnorm-medium-webxl-woff2-data.woff2) format("woff2"),
+  url(../fonts/simplonnorm-medium-webxl-woff-data.woff) format("woff"),
+  url(../fonts/simplonnorm-medium-webxl-ttf-data.ttf) format("truetype")
+}
+@font-face {
+  font-family: "Simplon Norm Medium Italic";
+  font-weight: 500;
+  font-style: normal;
+  src: url(../fonts/simplonnorm-mediumitalic-webxl-woff2-data.woff2) format("woff2"),
+  url(../fonts/simplonnorm-mediumitalic-webxl-woff-data.woff) format("woff"),
+  url(../fonts/simplonnorm-mediumitalic-webxl-ttf-data.ttf) format("truetype")
+}
+@font-face {
+  font-family: "Simplon Norm Regular";
+  font-weight: 500;
+  font-style: normal;
+  src: url(../fonts/simplonnorm-regular-webxl-woff2-data.woff2) format("woff2"),
+  url(../fonts/simplonnorm-regular-webxl-woff-data.woff) format("woff"),
+  url(../fonts/simplonnorm-regular-webxl-ttf-data.ttf) format("truetype")
+}
+@font-face {
+  font-family: "Simplon Norm Regular Italic";
+  font-weight: 500;
+  font-style: normal;
+  src: url(../fonts/simplonnorm-regularitalic-webxl-woff2-data.woff2) format("woff2"),
+  url(../fonts/simplonnorm-regularitalic-webxl-woff-data.woff) format("woff"),
+  url(../fonts/simplonnorm-regularitalic-webxl-ttf-data.ttf) format("truetype")
+}
+@font-face {
+  font-family: "Simplon Mono Regular";
+  font-weight: 500;
+  font-style: normal;
+  src: url(../fonts/simplonmono-regular-webxl-woff2-data.woff2) format("woff2"),
+  url(../fonts/simplonmono-regular-webxl-woff-data.woff) format("woff"),
+  url(../fonts/simplonmono-regular-webxl-ttf-data.ttf) format("truetype")
+}
