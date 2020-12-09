@@ -1,0 +1,368 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>CoreMedia Headless Client App</title>
+	<meta name="description" content="Documentation for CoreMedia Headless Client App">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">CoreMedia Headless Client App</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>CoreMedia Headless Client App</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><img src="https://documentation.coremedia.com/badges/banner_coremedia_labs_wide.png" alt="CoreMedia Labs Logo"></p>
+				<p><img src="https://img.shields.io/static/v1?message=2010&label=CoreMedia%20Content%20Cloud&style=for-the-badge&labelColor=666666&color=672779" alt="CoreMedia Content Cloud Version" title="This badge shows the CoreMedia version this project is compatible with.
+					Please read the versioning section of the project to see what other CoreMedia versions are supported and how to find them.">
+					<img src="https://img.shields.io/static/v1?message=active&label=Status&style=for-the-badge&labelColor=666666&color=2FAC66" alt="Status" title="The status badge describes if the project is maintained. Possible values are active and inactive.
+				If a project is inactive it means that the development has been discontinued and won&#39;t support future CoreMedia versions."></p>
+				<a href="#spark---the-react-example-application" id="spark---the-react-example-application" style="color: inherit; text-decoration: none;">
+					<h1>Spark - The React Example Application</h1>
+				</a>
+				<p><img src="docs/img/spark.jpg" alt="Picture of Spark"></p>
+				<p>This is the workspace of Spark - a React example application based on React, TypeScript and the Headless Server of CoreMedia Content Cloud. </p>
+				<p>CoreMedia customers can use Spark as a quick start for building prototype applications. Note that we do not recommend the use of these prototype apps in production environments.</p>
+				<p>This CoreMedia Labs project includes two React applications:</p>
+				<ul>
+					<li><em>app</em> - Provides guidance for frontend developers that are building websites and other applications based on the CoreMedia Headless server with code examples and documentation on:<ul>
+							<li>Preview Driven Editing</li>
+							<li>Time Travel</li>
+							<li>Placement Highlighting</li>
+							<li>Content Search</li>
+							<li>Fragment Preview and many others</li>
+						</ul>
+					</li>
+					<li><em>app-standalone-fragment</em> - Demonstrates the ability to load fragments from a CoreMedia Content Cloud and render it on an external website. For example, by injecting resources client side through a tag management solution like the Google Tag Manager.</li>
+				</ul>
+				<p>Although we chose React with which to build Spark, the principles can easily be transferred to other component libraries and frameworks such as Vue and Angular.</p>
+				<p>This project will be updated with enhancements and fixes on a regular basis. Please refer to the <a href="CHANGELOG.md">changelog</a> for more details.</p>
+				<a href="#quickstart" id="quickstart" style="color: inherit; text-decoration: none;">
+					<h2>Quickstart</h2>
+				</a>
+				<p>You need at least Node.js 14.x (LTS), Yarn 1.22.x and a running instance of the CoreMedia Content Cloud.
+				Define your environment variables in <code>app/.env</code>:</p>
+				<pre><code>REACT_APP_API_ENDPOINT=https:<span class="hljs-regexp">//</span>&lt;headless-server.example.com&gt;</code></pre>
+				<p>Install and start local environment:</p>
+				<pre><code>yarn <span class="hljs-keyword">install</span>
+yarn <span class="hljs-keyword">build</span>
+
+cd app
+yarn <span class="hljs-keyword">start</span></code></pre>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
+				</a>
+				<p>Read the <a href="docs/README.md">documentation</a> or on <a href="https://coremedia.github.io/coremedia-headless-client-react/docs">GitHub Pages</a> for more information on development, deployment and the concepts of the app.</p>
+				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
+					<h2>Contributing</h2>
+				</a>
+				<p>Read our <a href="CONTRIBUTING.md">contributing guide</a> to learn about how to propose bugfixes and improvements.</p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p>This project is licensed under the terms of the <a href="LICENSE.txt">CoreMedia Open Source License</a>.</p>
+				<a href="#coremedia-labs" id="coremedia-labs" style="color: inherit; text-decoration: none;">
+					<h2>CoreMedia Labs</h2>
+				</a>
+				<p>Welcome to <a href="https://blog.coremedia.com/labs/">CoreMedia Labs</a>! This repository
+					is part of a platform for developers who want to have a look under the hood or
+					get some hands-on understanding of the vast and compelling capabilities of
+					CoreMedia. Whatever your experience level with CoreMedia is, we&#39;ve got something
+				for you.</p>
+				<p>Each project in our Labs platform is an extra feature to be used with CoreMedia,
+					including extensions, tools and 3rd party integrations. We provide some test
+					data and explanatory videos for non-customers and for insiders there is
+					open-source code and instructions on integrating the feature into your
+				CoreMedia workspace. </p>
+				<p>The code we provide is meant to be example code, illustrating a set of features
+					that could be used to enhance your CoreMedia experience. We&#39;d love to hear your
+					feedback on use-cases and further developments! If you&#39;re having problems with
+					our code, please refer to our issues section. If you already have a solution to
+				an issue, we love to review and integrate your pull requests. </p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-not-exported">
+						<a href="modules/reflection-2168.html">&lt;em&gt;<wbr>Module&lt;/em&gt;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_app.html">components\<wbr>App</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_button.html">components\<wbr>Button</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_cta.html">components\CTA</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_caption.html">components\<wbr>Caption</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_carouselbanner.html">components\<wbr>Carousel<wbr>Banner</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_carouselbanner_views.html">components\<wbr>Carousel<wbr>Banner\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_category.html">components\<wbr>Category</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_date.html">components\<wbr>Date</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_details.html">components\<wbr>Details</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_details_views.html">components\<wbr>Details\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_error.html">components\<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_footer.html">components\<wbr>Footer</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_footer_views.html">components\<wbr>Footer\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_fragmentpreview.html">components\<wbr>Fragment<wbr>Preview</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_fragmentpreview_views.html">components\<wbr>Fragment<wbr>Preview\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_header.html">components\<wbr>Header</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_herobanner.html">components\<wbr>Hero<wbr>Banner</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_herobanner_views.html">components\<wbr>Hero<wbr>Banner\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_imagemap.html">components\<wbr>Image<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_landscapebanner.html">components\<wbr>Landscape<wbr>Banner</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_landscapebanner_views.html">components\<wbr>Landscape<wbr>Banner\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_leftrightbanner.html">components\<wbr>Left<wbr>Right<wbr>Banner</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_leftrightbanner_views.html">components\<wbr>Left<wbr>Right<wbr>Banner\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_link.html">components\<wbr>Link</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_loading.html">components\<wbr>Loading</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_media.html">components\<wbr>Media</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_modal.html">components\<wbr>Modal</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_navigation.html">components\<wbr>Navigation</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_navigation_views.html">components\<wbr>Navigation\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_overlay.html">components\<wbr>Overlay</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_pagegrid.html">components\<wbr>Page<wbr>Grid</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_pagegrid_views.html">components\<wbr>Page<wbr>Grid\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_person.html">components\<wbr>Person</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_popup.html">components\<wbr>Popup</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_popup_views.html">components\<wbr>Popup\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_portraitbanner.html">components\<wbr>Portrait<wbr>Banner</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_portraitbanner_views.html">components\<wbr>Portrait<wbr>Banner\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_product.html">components\<wbr>Product</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_richtext.html">components\<wbr>Rich<wbr>Text</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_richtext_views.html">components\<wbr>Rich<wbr>Text\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_search.html">components\<wbr>Search</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_search_views.html">components\<wbr>Search\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_slider.html">components\<wbr>Slider</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_slot.html">components\<wbr>Slot</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_slot_views.html">components\<wbr>Slot\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_squarebanner.html">components\<wbr>Square<wbr>Banner</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_squarebanner_views.html">components\<wbr>Square<wbr>Banner\views</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_tags.html">components\<wbr>Tags</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/container.html">container</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/context.html">context</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_banner.html">models\<wbr>Banner</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_detail.html">models\<wbr>Detail</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_grid.html">models\<wbr>Grid</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/models_navigation.html">models\<wbr>Navigation</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/queries.html">queries</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/queries_fragments.html">queries\fragments</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_app.html">utils\<wbr>App</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_commerce.html">utils\<wbr>Commerce</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_link.html">utils\<wbr>Link</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_media.html">utils\<wbr>Media</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_pagegrid.html">utils\<wbr>Page<wbr>Grid</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_preview.html">utils\<wbr>Preview</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_richtext.html">utils\<wbr>Richtext</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utils_viewdispatcher.html">utils\<wbr>View<wbr>Dispatcher</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
