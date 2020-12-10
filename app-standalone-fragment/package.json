@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "license": "CoreMedia Open Source License",
+  "scripts": {
+    "prebuild": "apollo client:codegen --globalTypesFile=./src/__generated__/globalTypes.ts --target typescript",
+    "build": "webpack --mode=production",
+    "test": "exit 0",
+    "lint": "eslint --fix \"src/**/*.+(ts|tsx)\"",
+    "prettier": "prettier --write \"src/**/*.+(ts|tsx)\""
+  },
   "dependencies": {
     "@apollo/client": "^3.2.5",
     "@coremedia/headless-client-app": "^1.0.0",
@@ -27,13 +34,6 @@
     "typescript": "^3.9.7",
     "webpack": "^4.43.0",
     "webpack-cli": "^4.2.0"
-  },
-  "scripts": {
-    "prebuild": "apollo client:codegen --globalTypesFile=./src/__generated__/globalTypes.ts --target typescript",
-    "build": "webpack --mode=production",
-    "test": "exit 0",
-    "lint": "eslint --fix \"src/**/*.+(ts|tsx)\"",
-    "prettier": "prettier --write \"src/**/*.+(ts|tsx)\""
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -3,9 +3,26 @@
   "version": "1.0.0",
   "private": true,
   "license": "CoreMedia Open Source License",
+  "scripts": {
+    "start": "craco start",
+    "prebuild": "yarn apollo:prepare",
+    "build": "craco build",
+    "test": "jest",
+    "lint": "eslint --fix \"src/**/*.+(ts|tsx)\"",
+    "prettier": "prettier --write \"src/**/*.+(ts|tsx)\"",
+    "docs": "typedoc src",
+    "coverage": "jest --coverage",
+    "apollo:prepare": "yarn download:possible-types && yarn download:interfaces && yarn download:metadata && yarn download:schema && yarn apollo:codegen",
+    "apollo:codegen": "apollo client:codegen --globalTypesFile=./src/__generated__/globalTypes.ts --target typescript",
+    "download:schema": "node ./bin/download-schema.js",
+    "download:possible-types": "node ./bin/download-possible-types.js",
+    "download:interfaces": "node ./bin/download-interfaces.js",
+    "download:metadata": "node ./bin/download-metadata.js",
+    "download:crops": "node ./bin/download-crops.js"
+  },
   "dependencies": {
     "@apollo/client": "^3.2.5",
-    "@coremedia/preview-integration": "0.1.0",
+    "@coremedia/preview-integration": "^1.0.0",
     "@coremedia/view-dispatcher": "^1.0.0",
     "@js-joda/core": "^3.2.0",
     "@js-joda/timezone": "^2.1.1",
@@ -42,23 +59,6 @@
     "typescript": "^3.9.7",
     "webpack": "^4.43.0",
     "webpack-inject-plugin": "^1.5.4"
-  },
-  "scripts": {
-    "start": "craco start",
-    "prebuild": "yarn apollo:prepare",
-    "build": "craco build",
-    "test": "jest",
-    "lint": "eslint --fix \"src/**/*.+(ts|tsx)\"",
-    "prettier": "prettier --write \"src/**/*.+(ts|tsx)\"",
-    "docs": "typedoc src",
-    "coverage": "jest --coverage",
-    "apollo:prepare": "yarn download:possible-types && yarn download:interfaces && yarn download:metadata && yarn download:schema && yarn apollo:codegen",
-    "apollo:codegen": "apollo client:codegen --globalTypesFile=./src/__generated__/globalTypes.ts --target typescript",
-    "download:schema": "node ./bin/download-schema.js",
-    "download:possible-types": "node ./bin/download-possible-types.js",
-    "download:interfaces": "node ./bin/download-interfaces.js",
-    "download:metadata": "node ./bin/download-metadata.js",
-    "download:crops": "node ./bin/download-crops.js"
   },
   "eslintConfig": {
     "extends": "react-app"
