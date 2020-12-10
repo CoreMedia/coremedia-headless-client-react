@@ -1,6 +1,7 @@
 {
   "name": "@coremedia/headless-client-workspace",
-  "version": "1.0.0",
+  "version": "2010.1.0",
+  "description": "Spark - The React client workspace for the CoreMedia Headless Server",
   "private": true,
   "license": "CoreMedia Open Source License",
   "scripts": {
@@ -14,5 +15,27 @@
     "packages/*",
     "app",
     "app-standalone-fragment"
+  ],
+  "engines": {
+    "node": ">=14",
+    "yarn": ">=1.22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CoreMedia/coremedia-headless-client-react.git"
+  },
+  "homepage": "https://github.com/CoreMedia/coremedia-headless-client-react",
+  "author": "CoreMedia GmbH",
+  "bugs": {
+    "url": "https://github.com/CoreMedia/coremedia-headless-client-react/issues"
+  },
+  "keywords": [
+    "apollo",
+    "coremedia",
+    "coremedia-labs",
+    "graphql",
+    "headless",
+    "react",
+    "spark"
   ]
 }

@@ -2,6 +2,13 @@
   "name": "@coremedia/view-dispatcher",
   "version": "1.0.0",
   "private": true,
+  "license": "CoreMedia Open Source License",
+  "scripts": {
+    "build": "tsc --build",
+    "test": "exit 0",
+    "lint": "eslint --fix \"src/**\"",
+    "prettier": "prettier --write \"src/**/*.+(js|jsx|ts|tsx|json)\""
+  },
   "main": "dist/index.js",
   "main:src": "src/index.ts",
   "types": "dist/index.d.ts",
@@ -17,11 +24,5 @@
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.0.5"
-  },
-  "scripts": {
-    "build": "tsc --build",
-    "test": "exit 0",
-    "lint": "eslint --fix \"src/**\"",
-    "prettier": "prettier --write \"src/**/*.+(js|jsx|ts|tsx|json)\""
   }
 }
