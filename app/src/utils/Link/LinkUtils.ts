@@ -5,9 +5,18 @@ import { Person } from "../../queries/fragments/__generated__/Person";
 import { ProductTeaser } from "../../queries/fragments/__generated__/ProductTeaser";
 import { ExternalChannel } from "../../queries/fragments/__generated__/ExternalChannel";
 import { getFQDN } from "../App/App";
+import qs, { StringifiableRecord } from "query-string";
 
 const hasDetailPage: Array<string> = ["CMArticle", "CMVideo", "CMProduct"];
 const hasPage: Array<string> = ["CMChannel", "CMExternalPage"];
+
+const makeAbsoluteAndAddParams = (path: string, params?: StringifiableRecord): string => {
+  let link = getFQDN() + path;
+  if (link && params) {
+    link += "?" + qs.stringify(params);
+  }
+  return link;
+};
 
 export const formatSegmentForUrl = (segment: string | null | undefined): string => {
   if (!segment) {
@@ -18,7 +27,7 @@ export const formatSegmentForUrl = (segment: string | null | undefined): string 
   return segment;
 };
 
-export const createProductHref = (self: Product, rootSegment?: string): string => {
+export const createProductHref = (self: Product, rootSegment?: string, params?: StringifiableRecord): string => {
   if (!self) {
     return "";
   }
@@ -51,10 +60,10 @@ export const createProductHref = (self: Product, rootSegment?: string): string =
       path += self.seoSegment;
     }
   }
-  return getFQDN() + path;
+  return makeAbsoluteAndAddParams(path, params);
 };
 
-export const createCategoryHref = (self: Category, rootSegment?: string): string => {
+export const createCategoryHref = (self: Category, rootSegment?: string, params?: StringifiableRecord): string => {
   if (!self) {
     return "";
   }
@@ -84,10 +93,10 @@ export const createCategoryHref = (self: Category, rootSegment?: string): string
       path += self.shortId + "/";
     }
   }
-  return getFQDN() + path;
+  return makeAbsoluteAndAddParams(path, params);
 };
 
-export const createHref = (self: Linkable, rootSegment?: string): string => {
+export const createHref = (self: Linkable, rootSegment?: string, params?: StringifiableRecord): string => {
   if (!self) {
     return "";
   }
@@ -125,21 +134,21 @@ export const createHref = (self: Linkable, rootSegment?: string): string => {
       console.debug(`No linkbuilding for ${self.link?.type} has been implemented yet`);
     }
   }
-  return getFQDN() + path;
+  return makeAbsoluteAndAddParams(path, params);
 };
 
-export const getLink = (to: any, rootSegment: string): string => {
+export const getLink = (to: any, rootSegment: string, params?: StringifiableRecord): string => {
   let linkTarget: string;
   if (to) {
     if (to?.link !== undefined && to.link?.type !== undefined) {
       const linkable = to as Linkable;
-      linkTarget = createHref(linkable, rootSegment);
+      linkTarget = createHref(linkable, rootSegment, params);
     } else if (to.__typename === "CategoryImpl") {
       const linkable = to as Category;
-      linkTarget = createCategoryHref(linkable, rootSegment);
+      linkTarget = createCategoryHref(linkable, rootSegment, params);
     } else if (to.__typename === "ProductImpl") {
       const linkable = to as Product;
-      linkTarget = createProductHref(linkable, rootSegment);
+      linkTarget = createProductHref(linkable, rootSegment, params);
     } else if (typeof to === "string") {
       linkTarget = to;
     } else {

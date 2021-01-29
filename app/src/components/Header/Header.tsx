@@ -3,6 +3,8 @@ import { useSiteContextState } from "../../context/SiteContextProvider";
 import Link from "../Link/Link";
 import Navigation from "../Navigation/Navigation";
 import HeaderSearchForm from "../Search/HeaderSearchForm";
+import LanguageChooser from "./LanguageChooser";
+
 import "./Header.scss";
 
 const Header: FC = () => {
@@ -32,7 +34,7 @@ const Header: FC = () => {
         <ul id="navbar" className="cm-header__navigation">
           <Navigation />
           <li className="cm-header__divider" />
-          {/*<LanguageChooser />*/}
+          <LanguageChooser />
           <HeaderSearchForm />
         </ul>
       </div>

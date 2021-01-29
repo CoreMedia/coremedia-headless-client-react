@@ -33,6 +33,8 @@ export interface Banner extends PreviewMetadataProps {
   overlayRequired: boolean;
   overlayConfiguration?: OverlayConfiguration;
   text?: string;
+  openInNewTab: boolean;
+  externalLink: boolean;
 }
 
 /**
@@ -76,6 +78,9 @@ export const initializeBanner = (self: Teasable, rootSegment: string): Banner =>
       }) as Array<Target>;
     addProperty(banner, "targets", targets, getPropertyName(self, "teaserTargets"));
   }
+  // optional props = false
+  banner.openInNewTab = false;
+  banner.externalLink = false;
 
   const linkTarget = createHref(self, rootSegment);
   linkTarget && (banner.linkTarget = linkTarget);

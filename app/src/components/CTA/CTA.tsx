@@ -18,13 +18,15 @@ const CTA: React.FC<Props> = ({ targets, additionalClass, additionalButtonClass 
       {targets &&
         targets.map((target, index) => {
           return (
-            target && (
+            target &&
+            target.callToActionEnabled && (
               <Button
                 key={index}
                 linkTarget={target.target}
                 text={target.callToActionText}
-                openInNewTab={false}
                 additionalClass={additionalButtonClass}
+                openInNewTab={target.openInNewTab}
+                externalLink={target.externalLink}
               />
             )
           );

@@ -20,6 +20,7 @@ interface FragmentPreviewProps {
 
 interface RouteProps {
   id: string;
+  rootSegment: string;
 }
 
 const PreviewPage: FC<FragmentPreviewProps> = ({ match }) => {
@@ -32,6 +33,10 @@ const PreviewPage: FC<FragmentPreviewProps> = ({ match }) => {
   const self = data.content.content;
 
   const fragments = viewDispatcher.lookupView(self.__typename, defaultView, null) || [];
+
+  if (!fragments) {
+    return <PageNotFoundAlert />;
+  }
 
   return <FragmentPreview self={self} fragments={fragments} />;
 };

@@ -5,12 +5,20 @@ import "./Button.scss";
 interface Props {
   linkTarget: any;
   text?: string;
-  openInNewTab?: boolean;
   blockClass?: string;
   additionalClass?: string;
+  openInNewTab: boolean;
+  externalLink: boolean;
 }
 
-const Button: React.FC<Props> = ({ linkTarget, text, blockClass, additionalClass }) => {
+const Button: React.FC<Props> = ({
+  linkTarget,
+  text,
+  blockClass,
+  additionalClass,
+  openInNewTab = false,
+  externalLink = false,
+}) => {
   text = text ? text : "Read more";
   return (
     <Link
@@ -19,6 +27,8 @@ const Button: React.FC<Props> = ({ linkTarget, text, blockClass, additionalClass
         additionalClass !== undefined ? additionalClass : ""
       }`}
       role={"button"}
+      openInNewTab={openInNewTab}
+      externalLink={externalLink}
     >
       {text}
     </Link>

@@ -18,7 +18,7 @@ const LeftRightBanner: React.FC<Props> = ({ banner }) => {
     <div className={`cm-left-right-banner`} {...metaDataElement(banner.metadata?.root)}>
       {banner.picture && (
         <div className={`cm-left-right-banner__picture`} {...metaDataProperty(banner.metadata?.picture)}>
-          <Link to={banner.linkTarget}>
+          <Link to={banner.linkTarget || ""} openInNewTab={banner.openInNewTab} externalLink={banner.externalLink}>
             <LeftRightResponsiveImage picture={banner.picture} />
           </Link>
         </div>

@@ -8,6 +8,7 @@ import { externalChannelFragment } from "./fragments/ExternalChannelFragment";
 import { pageGridPlacementFragment } from "./fragments/PageGridPlacementFragment";
 import { linkableWithLocaleFragment } from "./fragments/LinkableWithLocaleFragment";
 import { CMProductFragment } from "./fragments/CMProductFragment";
+import { externalLinkFragment } from "./fragments/ExternalLinkFragment";
 
 const ROOT_QUERY = gql`
   query RootQuery($rootSegment: String!) {
@@ -50,6 +51,7 @@ const ROOT_QUERY = gql`
           ...Collection
           ...ExternalChannel
           ...CMProduct
+          ...ExternalLink
           ... on CMExternalChannel {
             category {
               children {
@@ -76,6 +78,7 @@ const ROOT_QUERY = gql`
               ...Collection
               ...ExternalChannel
               ...CMProduct
+              ...ExternalLink
               ... on CMNavigation {
                 children {
                   ...Teasable
@@ -83,6 +86,7 @@ const ROOT_QUERY = gql`
                   ...Collection
                   ...ExternalChannel
                   ...CMProduct
+                  ...ExternalLink
                   ... on CMNavigation {
                     children {
                       ...Teasable
@@ -90,6 +94,7 @@ const ROOT_QUERY = gql`
                       ...Collection
                       ...ExternalChannel
                       ...CMProduct
+                      ...ExternalLink
                       ... on CMNavigation {
                         children {
                           ...Teasable
@@ -97,6 +102,7 @@ const ROOT_QUERY = gql`
                           ...Collection
                           ...ExternalChannel
                           ...CMProduct
+                          ...ExternalLink
                         }
                       }
                     }
@@ -117,6 +123,7 @@ const ROOT_QUERY = gql`
   ${externalChannelFragment}
   ${pageGridPlacementFragment}
   ${CMProductFragment}
+  ${externalLinkFragment}
 `;
 
 export default (rootSegment: string): QueryResult<RootQuery> => {

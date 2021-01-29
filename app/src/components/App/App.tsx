@@ -4,34 +4,37 @@ import { ApolloProvider } from "@apollo/client";
 import { SiteContextProvider } from "../../context/SiteContextProvider";
 import AppRoutes from "./AppRoutes";
 import { getRootSegment } from "../../utils/App/App";
-import FragmentPreview from "../../container/PreviewPage";
+import PreviewPage from "../../container/PreviewPage";
 import { initializeApollo } from "../../utils/App/Apollo";
 import { getPreviewDate, isPreview } from "../../utils/Preview/Preview";
+import { PreviewContextProvider } from "../../context/PreviewContextProvider";
 
 import "./App.scss";
 
 /**
- * The main app component with the ApolloClient and [[SiteContextProvider]]
+ * The main app component with the ApolloClient, [[SiteContextProvider]], and [[PreviewContextProvider]]
  * @category Components
  */
 const App: FC = () => {
   const location = useLocation();
   const rootSegment = getRootSegment(location.pathname);
-  const previewDate = getPreviewDate(location.pathname);
+  const previewDate = getPreviewDate(useLocation().search);
   const apolloClient = initializeApollo(rootSegment, previewDate);
 
   return (
     <ApolloProvider client={apolloClient}>
-      <Switch>
-        <Route exact path={"/"}>
-          <Redirect to={"/calista"} />
-        </Route>
-        {isPreview() && <Route path={"/preview/:id/:previewDate?"} component={FragmentPreview} />}
+      <PreviewContextProvider previewDate={previewDate}>
+        <Switch>
+          <Route exact path={"/"}>
+            <Redirect to={"/calista"} />
+          </Route>
+          {isPreview() && <Route path={"/preview/:rootSegment/:id/"} component={PreviewPage} />}
 
-        <SiteContextProvider rootSegment={rootSegment} currentNavigation={location.pathname}>
-          <AppRoutes />
-        </SiteContextProvider>
-      </Switch>
+          <SiteContextProvider rootSegment={rootSegment} currentNavigation={location.pathname}>
+            <AppRoutes />
+          </SiteContextProvider>
+        </Switch>
+      </PreviewContextProvider>
     </ApolloProvider>
   );
 };

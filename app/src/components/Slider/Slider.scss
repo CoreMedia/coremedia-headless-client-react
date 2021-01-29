@@ -28,6 +28,10 @@
     background-image: url("./assets/arrow-next.svg");
   }
 
+  .slick-active {
+    z-index: 99;
+  }
+
   &--inner-arrows {
     .slick-arrow {
       top: 0;

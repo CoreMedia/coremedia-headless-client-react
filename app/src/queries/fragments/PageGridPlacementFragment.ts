@@ -7,6 +7,8 @@ import { productTeaserFragment } from "./ProductTeaserFragment";
 import { navigationFragment } from "./NavigationFragment";
 import { externalChannelFragment } from "./ExternalChannelFragment";
 import { selectionRulesFragment } from "./SelectionRulesFragment";
+import { CMProductFragment } from "./CMProductFragment";
+import { externalLinkFragment } from "./ExternalLinkFragment";
 
 export const pageGridPlacementFragment = gql`
   fragment PageGridPlacement on PageGridPlacement {
@@ -21,11 +23,15 @@ export const pageGridPlacementFragment = gql`
       ...ProductTeaser
       ...ExternalChannel
       ...SelectionRules
+      ...CMProduct
+      ...ExternalLink
       ... on CMNavigation {
         children {
           ...Teasable
           ...Navigation
           ...Collection
+          ...CMProduct
+          ...ExternalLink
         }
       }
     }
@@ -38,4 +44,6 @@ export const pageGridPlacementFragment = gql`
   ${navigationFragment}
   ${externalChannelFragment}
   ${selectionRulesFragment}
+  ${CMProductFragment}
+  ${externalLinkFragment}
 `;

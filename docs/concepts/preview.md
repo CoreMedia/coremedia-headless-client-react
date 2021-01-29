@@ -18,8 +18,7 @@ variable `REACT_APP_PREVIEW=true`. It is enabled in the developer mode by defaul
 To enable the Spark App and the Standalone Fragment App in the Studio Preview for all 
 Blueprints, add the configuration as depicted in the screenshot to the settings 
 at `/Settings/Options/Settings/Multi Preview/Standard Preview` in the content
-repository. `<FQDN>` has to be replaced with the domain name of your test
-system.
+repository.
 
 You can also add another entry for localhost for developers to integrate the 
 local development server.
@@ -58,8 +57,7 @@ data-cm-metadata='[
 ## Time Dependent Visibility
   
 The time at which a published content should be visible to the customer can be 
-controlled by validity or visibility. The preview date is added as parameter
-to the `uriTemplate` called `{previewDateRFC1123}`. The app in preview mode
+controlled by validity or visibility. The app in preview mode
 will add this date to the Apollo Client for the server queries, see 
 `createPreviewMiddleWare()` in [Apollo.ts](../../app/src/utils/App/Apollo.ts).
 

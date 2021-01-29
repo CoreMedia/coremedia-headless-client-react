@@ -1,60 +1,50 @@
-.cm-header__language-chooser {
-  border: 1px solid #000;
-  border-radius: 2px;
+#cm-header .cm-header__language-chooser {
+  position: relative;
   text-transform: uppercase;
-  font-size: var(--font-size-text-small);
 }
 
-.cm-header__language-chooser > .cm-navigation-item__title {
-  font-size: var(--font-size-text-small);
-}
-
-.cm-navigation-item {
-  &--special-depth-1 {
-    @media screen and (min-width: 768px) and (orientation: landscape), screen and (min-width: 1200px) {
+@media screen and (min-width: 768px) and (orientation: landscape), screen and (min-width: 1200px) {
+  .cm-navigation-item {
+    &--special-depth-1.cm-header__language-chooser {
       position: relative; // menus should be aligned to the button rather than the whole header
+      border: 1px solid transparent;
       border-bottom: none;
+      border-radius: 2px;
 
       > .cm-navigation-item__title {
+        font-size: var(--font-size-text-small);
+        line-height: 1.428571429;
+        padding: 6px 18px 6px 15px;
         cursor: pointer; // always show pointer as it is either a dropdown or a link
-        padding: 15px 20px;
-        line-height: 20px;
+        color: #fff;
       }
 
-      // change toggle button appearance
-      > .cm-navigation-item__toggle {
-        top: -1px;
-
-        &::before {
-          // don't mess with the original triangle
-          display: none;
-        }
-
-        &::after {
-          content: "";
-          display: inline-block;
-          border-left: 5px solid transparent;
-          border-right: 5px solid transparent;
-          border-top: 5px solid #000000;
-        }
+      > .cm-navigation-item__toggle::before {
+        border-color: #fff;
       }
 
       > .cm-navigation-item__menu {
         left: auto; // align to the bottom-right edge of the buttom
-        min-width: 160px;
-        padding: 5px 0;
+        right: -1px;
+        min-width: 83px;
+        padding: 0;
         box-shadow: none;
         border: 1px solid #000000;
-        border-top-color: #FFFFFF;
+        border-top: none;
+        box-sizing: border-box;
 
         > li {
           width: 100%;
+          padding-bottom: 0;
         }
       }
 
-      // for special items the dropdown should still be in place on large devices
       &:hover {
-        background-color: #eee;
+        border-color: transparent;
+
+        > .cm-navigation-item__title {
+          text-decoration: underline;
+        }
 
         > .cm-navigation-item__menu {
           transition: none;
@@ -62,23 +52,35 @@
         }
       }
 
+      // for special items the dropdown should still be in place on large devices
       &.cm-navigation-item--open {
-        background-color: #eee;
+        border-color: #000;
+        background: #fff;
+
+        > .cm-navigation-item__title {
+          color: #000;
+        }
+
+        > .cm-navigation-item__toggle::before {
+          border-color: #000;
+        }
 
         > .cm-navigation-item__menu {
           visibility: visible;
         }
       }
     }
-  }
 
-  &--special-depth-2 {
-    @media screen and (min-width: 768px) and (orientation: landscape), screen and (min-width: 1200px) {
+    &--special-depth-2 {
       padding-bottom: 0;
 
-      .cm-navigation-item__title {
+      > .cm-navigation-item__title {
         display: block;
-        padding: 3px 20px;
+        padding: 6px 15px;
+
+        &:hover {
+          background-color: #ccc;
+        }
       }
     }
   }

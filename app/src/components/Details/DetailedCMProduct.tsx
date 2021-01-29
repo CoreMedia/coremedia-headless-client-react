@@ -18,13 +18,13 @@ const DetailedCMProduct: React.FC<DetailCMProduct> = ({
   return (
     <div className={`cm-details cm-details--product`} {...metaDataElement(metadata.root)}>
       <article className={`cm-details__content`}>
-        <h1 className={`cm-details__headline`} {...metaDataElement(metadata.title)}>
+        <h1 className={`cm-details__headline`} {...metaDataProperty(metadata.title)}>
           {title}
         </h1>
 
         <DetailedMedia media={media} />
         {productCode && (
-          <div className={`cm-details__code`} {...metaDataElement(metadata.productCode)}>
+          <div className={`cm-details__code`} {...metaDataProperty(metadata.productCode)}>
             <span>Product Code</span> {productCode}
           </div>
         )}

@@ -31,5 +31,7 @@ module.exports = {
   rules: {
     "react/prop-types": "off",
     "@typescript-eslint/camelcase": "off", // disable for generated interfaces by apollo
+    "@typescript-eslint/no-explicit-any" : "off", //disable for CI
+    "@typescript-eslint/explicit-module-boundary-types": "off" //disable for CI
   },
 };
