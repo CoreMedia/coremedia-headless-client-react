@@ -91,6 +91,8 @@
 								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="queries_fragments.html#detailteasablefragment" class="tsd-kind-icon">detail<wbr>Teasable<wbr>Fragment</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="queries_fragments.html#dimensionfragment" class="tsd-kind-icon">dimension<wbr>Fragment</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="queries_fragments.html#externalchannelfragment" class="tsd-kind-icon">external<wbr>Channel<wbr>Fragment</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="queries_fragments.html#externallinkaslinkablefragment" class="tsd-kind-icon">external<wbr>Link<wbr>AsLinkable<wbr>Fragment</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="queries_fragments.html#externallinkfragment" class="tsd-kind-icon">external<wbr>Link<wbr>Fragment</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="queries_fragments.html#imagemapfragment" class="tsd-kind-icon">image<wbr>Map<wbr>Fragment</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="queries_fragments.html#linkablefragment" class="tsd-kind-icon">linkable<wbr>Fragment</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="queries_fragments.html#linkablewithlocalefragment" class="tsd-kind-icon">linkable<wbr>With<wbr>Locale<wbr>Fragment</a></li>
@@ -122,7 +124,7 @@
 					<div class="tsd-signature tsd-kind-icon">CMProduct<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment CMProduct on CMProduct {...TeasableproductName}${teasableFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/CMProductFragment.ts#L4">app/src/queries/fragments/CMProductFragment.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/CMProductFragment.ts#L4">app/src/queries/fragments/CMProductFragment.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -132,7 +134,7 @@
 					<div class="tsd-signature tsd-kind-icon">catalog<wbr>Picture<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment CatalogPicture on CatalogPicture {url}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/CatalogPictureFragment.ts#L3">app/src/queries/fragments/CatalogPictureFragment.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/CatalogPictureFragment.ts#L3">app/src/queries/fragments/CatalogPictureFragment.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -142,17 +144,17 @@
 					<div class="tsd-signature tsd-kind-icon">category<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment Category on Category {idshortIdnamebreadcrumb {name}picture {...Picture}}${pictureFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/CategoryFragment.ts#L4">app/src/queries/fragments/CategoryFragment.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/CategoryFragment.ts#L4">app/src/queries/fragments/CategoryFragment.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="collectionfragment" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> collection<wbr>Fragment</h3>
-					<div class="tsd-signature tsd-kind-icon">collection<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment Collection on CMCollection {...Teasableviewtypeitems {...Teasable...ProductTeaser...ImageMap...Product...ExternalChannel}}${teasableFragment}${productTeaserFragment}${imageMapFragment}${productFragment}${externalChannelFragment}&#x60;</span></div>
+					<div class="tsd-signature tsd-kind-icon">collection<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment Collection on CMCollection {...Teasableviewtypeitems {...Teasable...ProductTeaser...ImageMap...Product...ExternalChannel...CMProduct...ExternalLink}}${teasableFragment}${productTeaserFragment}${imageMapFragment}${productFragment}${externalChannelFragment}${CMProductFragment}${externalLinkFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/CollectionFragment.ts#L8">app/src/queries/fragments/CollectionFragment.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/CollectionFragment.ts#L10">app/src/queries/fragments/CollectionFragment.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -162,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">crop<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment Crop on Crop {aspectRatio {...Dimension}nameminWidthminHeightsizes {...Dimension}}${dimensionFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/CropFragment.ts#L4">app/src/queries/fragments/CropFragment.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/CropFragment.ts#L4">app/src/queries/fragments/CropFragment.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -172,7 +174,7 @@
 					<div class="tsd-signature tsd-kind-icon">detailCMProduct<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment DetailCMProduct on CMProduct {...DetailTeasableproductNameproductCodedownloads {...Teasable}}${detailTeasableFragment}${teasableFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/DetailCMProduct.ts#L5">app/src/queries/fragments/DetailCMProduct.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/DetailCMProduct.ts#L5">app/src/queries/fragments/DetailCMProduct.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -182,7 +184,7 @@
 					<div class="tsd-signature tsd-kind-icon">detail<wbr>Category<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment DetailCategory on Category {...Categoryproducts {...Product}shortDescriptionlongDescriptionchildren {...Categoryproducts {...Product}}grid {...PageGrid}}${pictureFragment}${productTeaserFragment}${categoryFragment}${productFragment}${pageGridFragment}${categoryFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/DetailCategoryFragment.ts#L8">app/src/queries/fragments/DetailCategoryFragment.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/DetailCategoryFragment.ts#L8">app/src/queries/fragments/DetailCategoryFragment.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -192,7 +194,7 @@
 					<div class="tsd-signature tsd-kind-icon">detail<wbr>Person<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment DetailPerson on CMPerson {...DetailTeasable...PersonjobTitleorganizationeMail}${detailTeasableFragment}${personFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/DetailPersonFragment.ts#L5">app/src/queries/fragments/DetailPersonFragment.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/DetailPersonFragment.ts#L5">app/src/queries/fragments/DetailPersonFragment.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -202,7 +204,7 @@
 					<div class="tsd-signature tsd-kind-icon">detail<wbr>Product<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment DetailProduct on Product {...ProductlongDescriptionpictures {...Picture}}${productFragment}${pictureFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/DetailProductFragment.ts#L5">app/src/queries/fragments/DetailProductFragment.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/DetailProductFragment.ts#L5">app/src/queries/fragments/DetailProductFragment.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -212,7 +214,7 @@
 					<div class="tsd-signature tsd-kind-icon">detail<wbr>Teasable<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment DetailTeasable on CMTeasable {iddetailTextdetailTextAsTreepictures {...Picture}media {...Picture...Video}titleextDisplayedDatemodificationDatesubjectTaxonomy {... on CMTaxonomy {value}...Linkable}authors {...Person}related {...Picture...Teasable...Collection}}${pictureFragment}${teasableFragment}${linkableFragment}${videoFragment}${personFragment}${collectionFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/DetailTeasableFragment.ts#L9">app/src/queries/fragments/DetailTeasableFragment.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/DetailTeasableFragment.ts#L9">app/src/queries/fragments/DetailTeasableFragment.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -222,7 +224,7 @@
 					<div class="tsd-signature tsd-kind-icon">dimension<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment Dimension on Dimension {widthheight}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/DimensionFragment.ts#L3">app/src/queries/fragments/DimensionFragment.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/DimensionFragment.ts#L3">app/src/queries/fragments/DimensionFragment.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -232,7 +234,27 @@
 					<div class="tsd-signature tsd-kind-icon">external<wbr>Channel<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment ExternalChannel on CMExternalChannel {...Teasablecategory {...Category}}${categoryFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/ExternalChannelFragment.ts#L4">app/src/queries/fragments/ExternalChannelFragment.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/ExternalChannelFragment.ts#L4">app/src/queries/fragments/ExternalChannelFragment.ts:4</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
+					<a name="externallinkaslinkablefragment" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> external<wbr>Link<wbr>AsLinkable<wbr>Fragment</h3>
+					<div class="tsd-signature tsd-kind-icon">external<wbr>Link<wbr>AsLinkable<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment ExternalLinkAsLinkable on CMExternalLink {...LinkableurlopenInNewTab}&#x60;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/ExternalLinkAsLinkableFragment.ts#L3">app/src/queries/fragments/ExternalLinkAsLinkableFragment.ts:3</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
+					<a name="externallinkfragment" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> external<wbr>Link<wbr>Fragment</h3>
+					<div class="tsd-signature tsd-kind-icon">external<wbr>Link<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment ExternalLink on CMExternalLink {...TeasableurlopenInNewTab}${teasableFragment}&#x60;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/ExternalLinkFragment.ts#L4">app/src/queries/fragments/ExternalLinkFragment.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -242,7 +264,7 @@
 					<div class="tsd-signature tsd-kind-icon">image<wbr>Map<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment ImageMap on CMImageMap {...TeasableoverlayConfiguration: settings(paths: [&quot;overlay&quot;])transformedHotZones {crops {namecoords {xy}}points {xy}altshapetargetdisplayAsInlineOverlayinlineOverlayThemelinkedContent {...Teasable...ProductTeaser}}}${teasableFragment}${productTeaserFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/ImageMapFragment.ts#L5">app/src/queries/fragments/ImageMapFragment.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/ImageMapFragment.ts#L5">app/src/queries/fragments/ImageMapFragment.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -252,7 +274,7 @@
 					<div class="tsd-signature tsd-kind-icon">linkable<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment Linkable on CMLinkable {titleidsegmentlink {type}navigationPath {segmentidtitle}}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/LinkableFragment.ts#L3">app/src/queries/fragments/LinkableFragment.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/LinkableFragment.ts#L3">app/src/queries/fragments/LinkableFragment.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -262,7 +284,7 @@
 					<div class="tsd-signature tsd-kind-icon">linkable<wbr>With<wbr>Locale<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment LinkableWithLocale on CMLinkable {...Linkablelocale}${linkableFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/LinkableWithLocaleFragment.ts#L4">app/src/queries/fragments/LinkableWithLocaleFragment.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/LinkableWithLocaleFragment.ts#L4">app/src/queries/fragments/LinkableWithLocaleFragment.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -272,7 +294,7 @@
 					<div class="tsd-signature tsd-kind-icon">media<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment Media on CMMedia {titledetailTextdata {uri}altid}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/MediaFragment.ts#L3">app/src/queries/fragments/MediaFragment.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/MediaFragment.ts#L3">app/src/queries/fragments/MediaFragment.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -282,7 +304,7 @@
 					<div class="tsd-signature tsd-kind-icon">navigation<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment Navigation on CMNavigation {idpicture {...Picture}segment...Teasable...Linkable}${teasableFragment}${linkableFragment}${pictureFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/NavigationFragment.ts#L6">app/src/queries/fragments/NavigationFragment.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/NavigationFragment.ts#L6">app/src/queries/fragments/NavigationFragment.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -292,17 +314,17 @@
 					<div class="tsd-signature tsd-kind-icon">page<wbr>Grid<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment PageGrid on PageGrid {idrows {...PageGridRow}}${pageGridRowFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/PageGridFragment.ts#L4">app/src/queries/fragments/PageGridFragment.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/PageGridFragment.ts#L4">app/src/queries/fragments/PageGridFragment.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="pagegridplacementfragment" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> page<wbr>Grid<wbr>Placement<wbr>Fragment</h3>
-					<div class="tsd-signature tsd-kind-icon">page<wbr>Grid<wbr>Placement<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment PageGridPlacement on PageGridPlacement {idnameviewtypeitems {...Teasable...Collection...Video...ImageMap...ProductTeaser...ExternalChannel...SelectionRules... on CMNavigation {children {...Teasable...Navigation...Collection}}}}${teasableFragment}${collectionFragment}${videoFragment}${imageMapFragment}${productTeaserFragment}${navigationFragment}${externalChannelFragment}${selectionRulesFragment}&#x60;</span></div>
+					<div class="tsd-signature tsd-kind-icon">page<wbr>Grid<wbr>Placement<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment PageGridPlacement on PageGridPlacement {idnameviewtypeitems {...Teasable...Collection...Video...ImageMap...ProductTeaser...ExternalChannel...SelectionRules...CMProduct...ExternalLink... on CMNavigation {children {...Teasable...Navigation...Collection...CMProduct...ExternalLink}}}}${teasableFragment}${collectionFragment}${videoFragment}${imageMapFragment}${productTeaserFragment}${navigationFragment}${externalChannelFragment}${selectionRulesFragment}${CMProductFragment}${externalLinkFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/PageGridPlacementFragment.ts#L11">app/src/queries/fragments/PageGridPlacementFragment.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/PageGridPlacementFragment.ts#L13">app/src/queries/fragments/PageGridPlacementFragment.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -312,7 +334,7 @@
 					<div class="tsd-signature tsd-kind-icon">page<wbr>Grid<wbr>Row<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment PageGridRow on PageGridRow {idrowIdplacements {...PageGridPlacement}}${pageGridPlacementFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/PageGridRowFragment.ts#L4">app/src/queries/fragments/PageGridRowFragment.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/PageGridRowFragment.ts#L4">app/src/queries/fragments/PageGridRowFragment.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -322,7 +344,7 @@
 					<div class="tsd-signature tsd-kind-icon">person<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment Person on CMPerson {...LinkabledisplayNameteaserTextfirstNamelastNamepicture {...Picture}}${pictureFragment}${linkableFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/PersonFragment.ts#L5">app/src/queries/fragments/PersonFragment.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/PersonFragment.ts#L5">app/src/queries/fragments/PersonFragment.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -332,7 +354,7 @@
 					<div class="tsd-signature tsd-kind-icon">picture<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment Picture on CMPicture {...MediauriTemplate}${mediaFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/PictureFragment.ts#L4">app/src/queries/fragments/PictureFragment.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/PictureFragment.ts#L4">app/src/queries/fragments/PictureFragment.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -342,7 +364,7 @@
 					<div class="tsd-signature tsd-kind-icon">preview<wbr>Picture<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment PreviewPicture on CMPicture {crops {...Crop}...Picture}${pictureFragment}${cropFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/PreviewPictureFragment.ts#L5">app/src/queries/fragments/PreviewPictureFragment.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/PreviewPictureFragment.ts#L5">app/src/queries/fragments/PreviewPictureFragment.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -352,7 +374,7 @@
 					<div class="tsd-signature tsd-kind-icon">product<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment Product on Product {idnameshortDescriptionofferPricelistPricecurrencylocaleseoSegmentshortIdcategory {breadcrumb {name}}catalogPicture {...CatalogPicture}picture {...Picture}}${pictureFragment}${catalogPictureFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/ProductFragment.ts#L5">app/src/queries/fragments/ProductFragment.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/ProductFragment.ts#L5">app/src/queries/fragments/ProductFragment.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -362,7 +384,7 @@
 					<div class="tsd-signature tsd-kind-icon">product<wbr>Teaser<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment ProductTeaser on CMProductTeaser {...Teasableproduct {...Product}shopNowSetting: settings(paths: [&quot;shopNow&quot;])}${teasableFragment}${productFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/ProductTeaserFragment.ts#L5">app/src/queries/fragments/ProductTeaserFragment.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/ProductTeaserFragment.ts#L5">app/src/queries/fragments/ProductTeaserFragment.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -372,7 +394,7 @@
 					<div class="tsd-signature tsd-kind-icon">selection<wbr>Rules<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment SelectionRules on CMSelectionRules {defaultContent {...Teasable...Collection...Video...ImageMap...ProductTeaser}}${teasableFragment}${collectionFragment}${videoFragment}${imageMapFragment}${productTeaserFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/SelectionRulesFragment.ts#L8">app/src/queries/fragments/SelectionRulesFragment.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/SelectionRulesFragment.ts#L8">app/src/queries/fragments/SelectionRulesFragment.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -382,7 +404,7 @@
 					<div class="tsd-signature tsd-kind-icon">teasable<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment Teasable on CMTeasable {idpicture {...Picture}teaserTextplainTeaserText: teaserText(view: &quot;plainFirstParagraph&quot;)teaserTitleteaserOverlaySettings {...TeasableOverlaySettings}authors {...Person}...LinkableextDisplayedDatemodificationDateteaserTargets {...TeaserTarget}}${linkableFragment}${pictureFragment}${teasableOverlayFragment}${teaserTargetFragment}${personFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/TeasableFragment.ts#L8">app/src/queries/fragments/TeasableFragment.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/TeasableFragment.ts#L8">app/src/queries/fragments/TeasableFragment.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -392,17 +414,17 @@
 					<div class="tsd-signature tsd-kind-icon">teasable<wbr>Overlay<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment TeasableOverlaySettings on TeaserOverlaySettings {styleenabledpositionXpositionYwidth}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/TeasableOverlayFragment.ts#L3">app/src/queries/fragments/TeasableOverlayFragment.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/TeasableOverlayFragment.ts#L3">app/src/queries/fragments/TeasableOverlayFragment.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="teasertargetfragment" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> teaser<wbr>Target<wbr>Fragment</h3>
-					<div class="tsd-signature tsd-kind-icon">teaser<wbr>Target<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment TeaserTarget on ExtendedTeaserTarget {target {...Linkable... on CMExternalChannel {category {...Category}}}callToActionEnabledcallToActionText}${linkableFragment}${categoryFragment}&#x60;</span></div>
+					<div class="tsd-signature tsd-kind-icon">teaser<wbr>Target<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment TeaserTarget on ExtendedTeaserTarget {target {...Linkable...ExternalLinkAsLinkable... on CMExternalChannel {category {...Category}}}callToActionEnabledcallToActionText}${linkableFragment}${categoryFragment}${externalLinkAsLinkableFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/TeaserTargetFragment.ts#L5">app/src/queries/fragments/TeaserTargetFragment.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/TeaserTargetFragment.ts#L6">app/src/queries/fragments/TeaserTargetFragment.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -412,7 +434,7 @@
 					<div class="tsd-signature tsd-kind-icon">video<wbr>Fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DocumentNode</span><span class="tsd-signature-symbol"> = gql&#x60;fragment Video on CMVideo {...MediateaserTitleteaserTexttitledataUrl...Linkable...Teasablesettings(paths: &quot;playerSettings&quot;)timeLine {defaultTarget {...Teasable}sequences {startTimeMillis}}}${linkableFragment}${teasableFragment}${mediaFragment}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/queries/fragments/VideoFragment.ts#L6">app/src/queries/fragments/VideoFragment.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/queries/fragments/VideoFragment.ts#L6">app/src/queries/fragments/VideoFragment.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -475,6 +497,12 @@
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
 						<a href="queries_fragments.html#externalchannelfragment" class="tsd-kind-icon">external<wbr>Channel<wbr>Fragment</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="queries_fragments.html#externallinkaslinkablefragment" class="tsd-kind-icon">external<wbr>Link<wbr>AsLinkable<wbr>Fragment</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="queries_fragments.html#externallinkfragment" class="tsd-kind-icon">external<wbr>Link<wbr>Fragment</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
 						<a href="queries_fragments.html#imagemapfragment" class="tsd-kind-icon">image<wbr>Map<wbr>Fragment</a>

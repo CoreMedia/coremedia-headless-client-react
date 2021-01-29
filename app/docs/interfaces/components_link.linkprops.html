@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Slot | CoreMedia Headless Client App</title>
+	<title>LinkProps | CoreMedia Headless Client App</title>
 	<meta name="description" content="Documentation for CoreMedia Headless Client App">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,41 +54,24 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/models_grid.html">models\Grid</a>
+					<a href="../modules/components_link.html">components\Link</a>
 				</li>
 				<li>
-					<a href="models_grid.slot.html">Slot</a>
+					<a href="components_link.linkprops.html">LinkProps</a>
 				</li>
 			</ul>
-			<h1>Interface Slot</h1>
+			<h1>Interface LinkProps</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="utils_preview.previewmetadataprops.html" class="tsd-signature-type">PreviewMetadataProps</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">Slot</span>
-								<ul class="tsd-hierarchy">
-									<li>
-										<a href="components_carouselbanner.props-1.html" class="tsd-signature-type">Props</a>
-									</li>
-									<li>
-										<a href="components_slot.props-1.html" class="tsd-signature-type">Props</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
+						<span class="target">LinkProps</span>
 					</li>
 				</ul>
 			</section>
@@ -99,10 +82,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="models_grid.slot.html#items" class="tsd-kind-icon">items</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="models_grid.slot.html#metadata" class="tsd-kind-icon">metadata</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="models_grid.slot.html#text" class="tsd-kind-icon">text</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="models_grid.slot.html#title" class="tsd-kind-icon">title</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="components_link.linkprops.html#classname" class="tsd-kind-icon">class<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="components_link.linkprops.html#externallink" class="tsd-kind-icon">external<wbr>Link</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="components_link.linkprops.html#openinnewtab" class="tsd-kind-icon">open<wbr>InNew<wbr>Tab</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="components_link.linkprops.html#role" class="tsd-kind-icon">role</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="components_link.linkprops.html#title" class="tsd-kind-icon">title</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="components_link.linkprops.html#to" class="tsd-kind-icon">to</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,33 +96,42 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="items" class="tsd-anchor"></a>
-					<h3>items</h3>
-					<div class="tsd-signature tsd-kind-icon">items<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="utils_viewdispatcher.dispatchable.html" class="tsd-signature-type">Dispatchable</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<a name="classname" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> class<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">class<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/models/Grid/Slot.ts#L13">app/src/models/Grid/Slot.ts:13</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="metadata" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> metadata</h3>
-					<div class="tsd-signature tsd-kind-icon">metadata<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{}</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="models_grid.col.html">Col</a>.<a href="models_grid.col.html#metadata">metadata</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/utils/Preview/MetaData.ts#L12">app/src/utils/Preview/MetaData.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/components/Link/Link.tsx#L9">app/src/components/Link/Link.tsx:9</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="text" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> text</h3>
-					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="externallink" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> external<wbr>Link</h3>
+					<div class="tsd-signature tsd-kind-icon">external<wbr>Link<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/models/Grid/Slot.ts#L11">app/src/models/Grid/Slot.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/components/Link/Link.tsx#L13">app/src/components/Link/Link.tsx:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="openinnewtab" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> open<wbr>InNew<wbr>Tab</h3>
+					<div class="tsd-signature tsd-kind-icon">open<wbr>InNew<wbr>Tab<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/components/Link/Link.tsx#L12">app/src/components/Link/Link.tsx:12</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="role" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> role</h3>
+					<div class="tsd-signature tsd-kind-icon">role<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/components/Link/Link.tsx#L10">app/src/components/Link/Link.tsx:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -147,7 +141,17 @@
 					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/models/Grid/Slot.ts#L12">app/src/models/Grid/Slot.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/components/Link/Link.tsx#L11">app/src/components/Link/Link.tsx:11</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="to" class="tsd-anchor"></a>
+					<h3>to</h3>
+					<div class="tsd-signature tsd-kind-icon">to<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/components/Link/Link.tsx#L8">app/src/components/Link/Link.tsx:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -160,50 +164,47 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/models_grid.html">models\<wbr>Grid</a>
+						<a href="../modules/components_link.html">components\<wbr>Link</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="models_grid.col.html" class="tsd-kind-icon">Col</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="models_grid.grid.html" class="tsd-kind-icon">Grid</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="models_grid.row.html" class="tsd-kind-icon">Row</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="models_grid.slot.html" class="tsd-kind-icon">Slot</a>
+						<a href="components_link.linkprops.html" class="tsd-kind-icon">Link<wbr>Props</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="models_grid.slot.html#items" class="tsd-kind-icon">items</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="models_grid.slot.html#metadata" class="tsd-kind-icon">metadata</a>
+								<a href="components_link.linkprops.html#classname" class="tsd-kind-icon">class<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="models_grid.slot.html#text" class="tsd-kind-icon">text</a>
+								<a href="components_link.linkprops.html#externallink" class="tsd-kind-icon">external<wbr>Link</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="models_grid.slot.html#title" class="tsd-kind-icon">title</a>
+								<a href="components_link.linkprops.html#openinnewtab" class="tsd-kind-icon">open<wbr>InNew<wbr>Tab</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="components_link.linkprops.html#role" class="tsd-kind-icon">role</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="components_link.linkprops.html#title" class="tsd-kind-icon">title</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="components_link.linkprops.html#to" class="tsd-kind-icon">to</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/models_grid.html#initializegrid" class="tsd-kind-icon">initialize<wbr>Grid</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+						<a href="components_link.externallinkprops.html" class="tsd-kind-icon">external<wbr>Link<wbr>Props</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/models_grid.html#initializeslotfromcollection" class="tsd-kind-icon">initialize<wbr>Slot<wbr>From<wbr>Collection</a>
+						<a href="../modules/components_link.html#externallink" class="tsd-kind-icon">External<wbr>Link</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/models_grid.html#initializeslotfrompagegridplacement" class="tsd-kind-icon">initialize<wbr>Slot<wbr>From<wbr>Page<wbr>Grid<wbr>Placement</a>
+						<a href="../modules/components_link.html#link" class="tsd-kind-icon">Link</a>
 					</li>
 				</ul>
 			</nav>

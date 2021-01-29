@@ -71,20 +71,25 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported"><a href="../interfaces/context.previewcontext.html" class="tsd-kind-icon">Preview<wbr>Context</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported"><a href="../interfaces/context.props.html" class="tsd-kind-icon">Props</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported"><a href="../interfaces/context.props-1.html" class="tsd-kind-icon">Props</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported"><a href="../interfaces/context.sitecontext.html" class="tsd-kind-icon">Site<wbr>Context</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported"><a href="context.html#previewdatacontext" class="tsd-kind-icon">preview<wbr>Data<wbr>Context</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported"><a href="context.html#sitecontext-1" class="tsd-kind-icon">site<wbr>Context</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="context.html#previewcontextprovider" class="tsd-kind-icon">Preview<wbr>Context<wbr>Provider</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="context.html#sitecontextprovider" class="tsd-kind-icon">Site<wbr>Context<wbr>Provider</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="context.html#usepreviewcontextstate" class="tsd-kind-icon">use<wbr>Preview<wbr>Context<wbr>State</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="context.html#usesitecontextstate" class="tsd-kind-icon">use<wbr>Site<wbr>Context<wbr>State</a></li>
 							</ul>
 						</section>
@@ -94,18 +99,59 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Variables</h2>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
+					<a name="previewdatacontext" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> preview<wbr>Data<wbr>Context</h3>
+					<div class="tsd-signature tsd-kind-icon">preview<wbr>Data<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Context</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/context.previewcontext.html" class="tsd-signature-type">PreviewContext</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = React.createContext&lt;PreviewContext&gt;({})</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/context/PreviewContextProvider.tsx#L7">app/src/context/PreviewContextProvider.tsx:7</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 					<a name="sitecontext-1" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> site<wbr>Context</h3>
 					<div class="tsd-signature tsd-kind-icon">site<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Context</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/context.sitecontext.html" class="tsd-signature-type">SiteContext</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = React.createContext&lt;SiteContext&gt;({rootSegment: &quot;&quot;,})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/context/SiteContextProvider.tsx#L22">app/src/context/SiteContextProvider.tsx:22</a></li>
+							<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/context/SiteContextProvider.tsx#L21">app/src/context/SiteContextProvider.tsx:21</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="previewcontextprovider" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Preview<wbr>Context<wbr>Provider</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">Preview<wbr>Context<wbr>Provider<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>children<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReactNode</span><span class="tsd-signature-symbol">; </span>previewDate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/context/PreviewContextProvider.tsx#L21">app/src/context/PreviewContextProvider.tsx:21</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>children<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReactNode</span><span class="tsd-signature-symbol">; </span>previewDate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>children<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReactNode</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>preview<wbr>Date<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="sitecontextprovider" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> Site<wbr>Context<wbr>Provider</h3>
@@ -116,7 +162,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/context/SiteContextProvider.tsx#L40">app/src/context/SiteContextProvider.tsx:40</a></li>
+									<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/context/SiteContextProvider.tsx#L39">app/src/context/SiteContextProvider.tsx:39</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -141,6 +187,23 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="usepreviewcontextstate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> use<wbr>Preview<wbr>Context<wbr>State</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">use<wbr>Preview<wbr>Context<wbr>State<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/context.previewcontext.html" class="tsd-signature-type">PreviewContext</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/context/PreviewContextProvider.tsx#L9">app/src/context/PreviewContextProvider.tsx:9</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/context.previewcontext.html" class="tsd-signature-type">PreviewContext</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="usesitecontextstate" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> use<wbr>Site<wbr>Context<wbr>State</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -150,7 +213,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a7fb56f/app/src/context/SiteContextProvider.tsx#L26">app/src/context/SiteContextProvider.tsx:26</a></li>
+									<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/a520d50/app/src/context/SiteContextProvider.tsx#L25">app/src/context/SiteContextProvider.tsx:25</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/context.sitecontext.html" class="tsd-signature-type">SiteContext</a></h4>
@@ -173,16 +236,31 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../interfaces/context.previewcontext.html" class="tsd-kind-icon">Preview<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 						<a href="../interfaces/context.props.html" class="tsd-kind-icon">Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../interfaces/context.props-1.html" class="tsd-kind-icon">Props</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-is-not-exported">
 						<a href="../interfaces/context.sitecontext.html" class="tsd-kind-icon">Site<wbr>Context</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
+						<a href="context.html#previewdatacontext" class="tsd-kind-icon">preview<wbr>Data<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 						<a href="context.html#sitecontext-1" class="tsd-kind-icon">site<wbr>Context</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="context.html#previewcontextprovider" class="tsd-kind-icon">Preview<wbr>Context<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="context.html#sitecontextprovider" class="tsd-kind-icon">Site<wbr>Context<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="context.html#usepreviewcontextstate" class="tsd-kind-icon">use<wbr>Preview<wbr>Context<wbr>State</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="context.html#usesitecontextstate" class="tsd-kind-icon">use<wbr>Site<wbr>Context<wbr>State</a>
