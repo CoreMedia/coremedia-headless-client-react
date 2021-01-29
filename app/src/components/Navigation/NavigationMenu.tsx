@@ -6,10 +6,12 @@ import { AdditionalIncludeParams } from "../../utils/ViewDispatcher/IncludeProps
 import { Navigation } from "../../models/Navigation/Navigation";
 
 export const initializeAndConvertParams = (params?: AdditionalIncludeParams) => {
-  return {
-    depth: params?.depth ? Number(params?.depth) : 0,
-    maxDepth: params?.maxDepth ? Number(params?.maxDepth) : 0,
-  };
+  return (
+    params && {
+      depth: params?.depth ? Number(params?.depth) : 0,
+      maxDepth: params?.maxDepth ? Number(params?.maxDepth) : 0,
+    }
+  );
 };
 
 interface Props extends Navigation {

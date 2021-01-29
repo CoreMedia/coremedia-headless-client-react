@@ -6,7 +6,7 @@
 import { ApolloClient, ApolloLink, concat, HttpLink, InMemoryCache } from "@apollo/client";
 import possibleTypes from "../../__downloaded__/possibleTypes.json";
 import { getEndpoint } from "./App";
-import { isPreview } from "../Preview/Preview";
+import { formatPreviewDate, isPreview } from "../Preview/Preview";
 
 /**
  * Global singleton instance of the ApolloClient.
@@ -65,10 +65,9 @@ const createApolloClient = (link: ApolloLink): ApolloClient<unknown> => {
  */
 const createPreviewMiddleWare = (previewDate: string): ApolloLink => {
   return new ApolloLink((operation, forward) => {
-    console.log("Time travel is activated.", previewDate);
     operation.setContext({
       headers: {
-        "X-Preview-Date": previewDate,
+        "X-Preview-Date": formatPreviewDate(previewDate),
       },
     });
     return forward(operation);
@@ -84,8 +83,9 @@ const createPreviewMiddleWare = (previewDate: string): ApolloLink => {
  * @param newPreviewDate optional preview date used for Time Travel in CoreMedia Studio Preview
  */
 export const initializeApollo = (newRootSegment = "", newPreviewDate: string | undefined): ApolloClient<unknown> => {
-  // Create the Apollo Client once in the client, if not changed
+  // Create the Apollo Client once in the client, if not changed or previewDate is set
   if (!apolloClient || rootSegment !== newRootSegment || newPreviewDate) {
+    newPreviewDate && console.log("Time travel is activated.", newPreviewDate);
     let link: ApolloLink = new HttpLink({
       uri: getEndpoint(newRootSegment),
     });

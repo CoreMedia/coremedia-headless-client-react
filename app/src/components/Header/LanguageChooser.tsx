@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSiteContextState } from "../../context/SiteContextProvider";
 import Link from "../Link/Link";
+
 import "./LanguageChooser.scss";
 
 const LanguageChooser: React.FC = () => {

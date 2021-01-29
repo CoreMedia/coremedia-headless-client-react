@@ -2,7 +2,6 @@ import React, { ReactNode } from "react";
 import { PageGridPlacement } from "../queries/fragments/__generated__/PageGridPlacement";
 import RootQuery from "../queries/RootQuery";
 import { Navigation } from "../queries/fragments/Navigation";
-
 import Loading from "../components/Loading/Loading";
 import { metaDataForResponsiveDevices } from "../utils/Preview/MetaData";
 import { LinkableWithLocale } from "../queries/fragments/__generated__/LinkableWithLocale";

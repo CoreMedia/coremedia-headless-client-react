@@ -6,6 +6,10 @@
   &__wrapper {
     position: relative;
     overflow: hidden;
+
+    .cm-image-box {
+      z-index: 1
+    }
   }
 
 
@@ -20,7 +24,7 @@
 
   &__hotzone {
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     border: 0;
     padding: 0;
     display: block;
@@ -75,6 +79,10 @@
       max-height: none;
 
       opacity: 0;
+
+      a {
+        z-index: 2
+      }
     }
   }
 }

@@ -5,6 +5,8 @@ import { pictureFragment } from "./fragments/PictureFragment";
 import { imageMapFragment } from "./fragments/ImageMapFragment";
 import { videoFragment } from "./fragments/VideoFragment";
 import { productTeaserFragment } from "./fragments/ProductTeaserFragment";
+import { CMProductFragment } from "./fragments/CMProductFragment";
+import { externalLinkFragment } from "./fragments/ExternalLinkFragment";
 
 const TEASABLE_QUERY = gql`
   query TeasableQuery($id: String!) {
@@ -15,6 +17,8 @@ const TEASABLE_QUERY = gql`
         ...ProductTeaser
         ...ImageMap
         ...Video
+        ...CMProduct
+        ...ExternalLink
       }
     }
   }
@@ -23,6 +27,8 @@ const TEASABLE_QUERY = gql`
   ${productTeaserFragment}
   ${imageMapFragment}
   ${videoFragment}
+  ${CMProductFragment}
+  ${externalLinkFragment}
 `;
 
 export default (id: string): QueryResult<TeasableQuery> => {
