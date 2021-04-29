@@ -1,5 +1,5 @@
 {
-  "name": "@coremedia/headless-client-workspace",
+  "name": "@coremedia-labs/headless-client-workspace",
   "version": "2101.1.0",
   "description": "Spark - The React client workspace for the CoreMedia Headless Server",
   "private": true,
@@ -9,12 +9,13 @@
     "test": "yarn workspaces run test",
     "lint": "yarn workspaces run lint",
     "prettier": "yarn workspaces run prettier",
-    "docs": "yarn workspaces run docs"
+    "docs": "yarn workspaces run docs",
+    "start": "concurrently \"yarn workspace @coremedia-labs/headless-server-mocking start\" \"yarn workspace @coremedia-labs/headless-server-stitching start\" \"yarn workspace @coremedia-labs/spark start\""
   },
   "workspaces": [
     "packages/*",
-    "app",
-    "app-standalone-fragment"
+    "servers/*",
+    "apps/*"
   ],
   "engines": {
     "node": ">=14",
@@ -37,5 +38,8 @@
     "headless",
     "react",
     "spark"
-  ]
+  ],
+  "dependencies": {
+    "concurrently": "^6.0.0"
+  }
 }

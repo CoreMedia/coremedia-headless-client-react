@@ -1,0 +1,26 @@
+{
+  "data": {
+    "category": {
+      "id": "ibm:///catalog/category/Men Shoes",
+      "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
+      "externalId": "Men Shoes",
+      "shortId": "Men Shoes",
+      "name": "Shoes",
+      "breadcrumb": [
+        {
+          "name": "Apparel",
+          "__typename": "CategoryImpl"
+        },
+        {
+          "name": "Men",
+          "__typename": "CategoryImpl"
+        },
+        {
+          "name": "Shoes",
+          "__typename": "CategoryImpl"
+        }
+      ],
+      "__typename": "CategoryImpl"
+    }
+  }
+}

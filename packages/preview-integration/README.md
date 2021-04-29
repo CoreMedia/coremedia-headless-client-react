@@ -1,4 +1,4 @@
-# @coremedia/preview-integration
+# @coremedia-labs/preview-integration
 
 Package for Studio Preview Integration. 
 
@@ -15,13 +15,13 @@ Adds support for:
 Add this package to your app.
  
  ```
-yarn add @coremedia/preview-integration
+yarn add @coremedia-labs/preview-integration
 ```
 
 Import it to the app.
 
 ```
-import "@coremedia/preview-integration";
+import "@coremedia-labs/preview-integration";
 ```
 
 ## Build

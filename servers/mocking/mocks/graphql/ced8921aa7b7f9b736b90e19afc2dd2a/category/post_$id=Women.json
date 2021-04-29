@@ -1,0 +1,208 @@
+{
+  "data": {
+    "category": {
+      "id": "ibm:///catalog/category/Women",
+      "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
+      "externalId": "Women",
+      "shortId": "Women",
+      "name": "Women",
+      "breadcrumb": [
+        {
+          "name": "Apparel",
+          "__typename": "CategoryImpl"
+        },
+        {
+          "name": "Women",
+          "__typename": "CategoryImpl"
+        }
+      ],
+      "__typename": "CategoryImpl",
+      "children": [
+        {
+          "id": "ibm:///catalog/category/Dresses",
+          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
+          "externalId": "Dresses",
+          "shortId": "Dresses",
+          "name": "Dresses",
+          "breadcrumb": [
+            {
+              "name": "Apparel",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Women",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Dresses",
+              "__typename": "CategoryImpl"
+            }
+          ],
+          "__typename": "CategoryImpl",
+          "children": []
+        },
+        {
+          "id": "ibm:///catalog/category/Women Shirts Blouses",
+          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
+          "externalId": "Women Shirts Blouses",
+          "shortId": "Women Shirts Blouses",
+          "name": "Blouses",
+          "breadcrumb": [
+            {
+              "name": "Apparel",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Women",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Blouses",
+              "__typename": "CategoryImpl"
+            }
+          ],
+          "__typename": "CategoryImpl",
+          "children": []
+        },
+        {
+          "id": "ibm:///catalog/category/Women Sweaters",
+          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
+          "externalId": "Women Sweaters",
+          "shortId": "Women Sweaters",
+          "name": "Sweaters",
+          "breadcrumb": [
+            {
+              "name": "Apparel",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Women",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Sweaters",
+              "__typename": "CategoryImpl"
+            }
+          ],
+          "__typename": "CategoryImpl",
+          "children": []
+        },
+        {
+          "id": "ibm:///catalog/category/Women Skirts",
+          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
+          "externalId": "Women Skirts",
+          "shortId": "Women Skirts",
+          "name": "Skirts",
+          "breadcrumb": [
+            {
+              "name": "Apparel",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Women",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Skirts",
+              "__typename": "CategoryImpl"
+            }
+          ],
+          "__typename": "CategoryImpl",
+          "children": []
+        },
+        {
+          "id": "ibm:///catalog/category/Women Pants",
+          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
+          "externalId": "Women Pants",
+          "shortId": "Women Pants",
+          "name": "Pants",
+          "breadcrumb": [
+            {
+              "name": "Apparel",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Women",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Pants",
+              "__typename": "CategoryImpl"
+            }
+          ],
+          "__typename": "CategoryImpl",
+          "children": []
+        },
+        {
+          "id": "ibm:///catalog/category/Women Shoes",
+          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
+          "externalId": "Women Shoes",
+          "shortId": "Women Shoes",
+          "name": "Shoes",
+          "breadcrumb": [
+            {
+              "name": "Apparel",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Women",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Shoes",
+              "__typename": "CategoryImpl"
+            }
+          ],
+          "__typename": "CategoryImpl",
+          "children": []
+        },
+        {
+          "id": "ibm:///catalog/category/Women Handbags",
+          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
+          "externalId": "Women Handbags",
+          "shortId": "Women Handbags",
+          "name": "Handbags",
+          "breadcrumb": [
+            {
+              "name": "Apparel",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Women",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Handbags",
+              "__typename": "CategoryImpl"
+            }
+          ],
+          "__typename": "CategoryImpl",
+          "children": []
+        },
+        {
+          "id": "ibm:///catalog/category/Women Accessories",
+          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
+          "externalId": "Women Accessories",
+          "shortId": "Women Accessories",
+          "name": "Accessories",
+          "breadcrumb": [
+            {
+              "name": "Apparel",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Women",
+              "__typename": "CategoryImpl"
+            },
+            {
+              "name": "Accessories",
+              "__typename": "CategoryImpl"
+            }
+          ],
+          "__typename": "CategoryImpl",
+          "children": []
+        }
+      ]
+    }
+  }
+}

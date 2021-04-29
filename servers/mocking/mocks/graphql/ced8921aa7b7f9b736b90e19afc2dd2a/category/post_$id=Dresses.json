@@ -1,0 +1,26 @@
+{
+  "data": {
+    "category": {
+      "id": "ibm:///catalog/category/Dresses",
+      "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
+      "externalId": "Dresses",
+      "shortId": "Dresses",
+      "name": "Dresses",
+      "breadcrumb": [
+        {
+          "name": "Apparel",
+          "__typename": "CategoryImpl"
+        },
+        {
+          "name": "Women",
+          "__typename": "CategoryImpl"
+        },
+        {
+          "name": "Dresses",
+          "__typename": "CategoryImpl"
+        }
+      ],
+      "__typename": "CategoryImpl"
+    }
+  }
+}

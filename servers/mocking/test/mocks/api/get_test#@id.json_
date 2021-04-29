@@ -1,0 +1,10 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "custom-header": "hello"
+  },
+  "body": {
+    "message": "id: {{params.id}}",
+    "query": {{JSON.stringify(query)}}
+  }
+}

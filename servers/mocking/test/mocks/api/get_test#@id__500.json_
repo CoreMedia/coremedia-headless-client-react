@@ -1,0 +1,6 @@
+{
+  "statusCode": 500,
+  "body": {
+    "message": "Error"
+  }
+}

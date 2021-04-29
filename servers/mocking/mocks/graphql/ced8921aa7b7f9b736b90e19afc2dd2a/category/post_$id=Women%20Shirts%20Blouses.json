@@ -1,0 +1,26 @@
+{
+  "data": {
+    "category": {
+      "id": "ibm:///catalog/category/Women Shirts Blouses",
+      "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
+      "externalId": "Women Shirts Blouses",
+      "shortId": "Women Shirts Blouses",
+      "name": "Blouses",
+      "breadcrumb": [
+        {
+          "name": "Apparel",
+          "__typename": "CategoryImpl"
+        },
+        {
+          "name": "Women",
+          "__typename": "CategoryImpl"
+        },
+        {
+          "name": "Blouses",
+          "__typename": "CategoryImpl"
+        }
+      ],
+      "__typename": "CategoryImpl"
+    }
+  }
+}
