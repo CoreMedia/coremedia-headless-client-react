@@ -1,31 +1,55 @@
-# CoreMedia Headless Client Documentation
+# CoreMedia Headless Client and Stitching Server Documentation
 
 Welcome to our documentation pages! What would you like to view?
 
-## [Development](development.md)
+## Headless Client
+
+### [Development](apps/development.md)
 
 How to develop and run the app locally
 
-## [Deployment](deployment.md)
+### [Deployment](apps/deployment.md)
 
 How to deploy the app as docker image
 
-## [Concepts](concepts/README.md)
+### [Concepts](apps/concepts/README.md)
 
 Information about the CoreMedia Content Cloud specific concepts.
 
-   - [Workspace Structure](concepts/structure.md)
-   - [Apollo Client for GraphQL](concepts/apollo.md)
-   - [Standard Component Layout](concepts/README.md#standard-component-layout)
-   - [Responsive Images](concepts/README.md#responsive-images)
-   - [SiteContextProvider](concepts/README.md#sitecontextprovider)
-   - [View Dispatching](concepts/view_dispatching.md)
-   - [Studio Preview Integration](concepts/preview.md)
-   - [Standalone Fragment Application](concepts/standalone.md)
+   - [Workspace Structure](apps/concepts/structure.md)
+   - [Apollo Client for GraphQL](apps/concepts/apollo.md)
+   - [Standard Component Layout](apps/concepts/README.md#standard-component-layout)
+   - [Responsive Images](apps/concepts/README.md#responsive-images)
+   - [SiteContextProvider](apps/concepts/README.md#sitecontextprovider)
+   - [View Dispatching](apps/concepts/view_dispatching.md)
+   - [Studio Preview Integration](apps/concepts/preview.md)
+   - [Standalone Fragment Application](apps/concepts/standalone.md)
    
-## [API Documentation](../app/docs/index.html)
+### [API Documentation](../apps/spark/docs/index.html)
 
 Generated HTML by Typedoc
+
+---
+
+## Headless Servers
+
+### [Workspace Structure](servers/structure.md)
+
+Find your way in the server workspaces.
+
+### [Installation and Start of the Mocking Server](servers/installation-mocking.md)
+
+How to build and run the mock server.
+
+### [Installation and Start of the Stitching Server](servers/installation-stitching.md)
+
+How to build and run the stitching server.
+
+### [Concepts](servers/concepts/README.md)
+
+Read this to learn more about the servers background and further topics.
+
+---
 
 ## [Changelog](../CHANGELOG.md)
 

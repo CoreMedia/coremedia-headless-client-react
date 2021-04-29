@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "sourceMap": true,
+    "newLine": "LF",
+    "useDefineForClassFields": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "lib": [
+      "es5",
+      "esnext"
+    ],
+    "baseUrl": "..",
+    "rootDir": "src",
+    "outDir": "dist",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "types": [
+      "node"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+.cm-shoppable {
+
+  &.cm-hero-banner {
+    .cm-image-box {
+      --aspect-ratio: 16*9;
+    }
+  }
+
+  &__teaser {
+    height: 100%;
+    display: block;
+    opacity: .4;
+    transition: opacity .3s linear .3s,border .3s ease-out .3s;
+
+    &--active {
+      opacity: 1;
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 6px;
+        background-color: #006cae;
+      }
+    }
+  }
+
+  .cm-portrait-banner__caption {
+    display: none;
+  }
+
+  .cm-video video {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}

@@ -37,7 +37,7 @@ export default class ViewDispatcher<P> {
     }
 
     for (const parentType of parentTypes) {
-      const viewComponent = this.lookup(parentType, view, originalType, originalView);
+      const viewComponent = this.lookup(parentType, view, originalType, originalView); //todo breath first search
       if (viewComponent) {
         return viewComponent;
       }

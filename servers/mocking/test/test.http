@@ -1,0 +1,103 @@
+// ---------------------------------------------------------------------------
+// Install REST Client extension for VS Code to use this file:
+// https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+// ---------------------------------------------------------------------------
+
+// Test routing and query params
+http://localhost:5000/api/test/2?debug=true
+
+###
+
+// Test mock verb discrimination
+http://localhost:5000/api/hello
+
+###
+
+// Test fallback mock with no verb specified
+POST http://localhost:5000/api/hello
+
+###
+
+// Test query params discrimination
+http://localhost:5000/api/hello?who=john%20doe
+
+###
+
+// Test post
+POST http://localhost:5000/ping
+Content-Type: application/json
+
+{ "message": "test" }
+
+###
+
+// Test post with different content-type
+POST http://localhost:5000/ping
+Content-Type: application/x-www-form-urlencoded
+
+message=test
+
+###
+
+// Test multiple methods support
+PUT http://localhost:5000/ping
+Content-Type: application/json
+
+{ "message": "test" }
+
+###
+
+// Test template match either based on path or file name
+http://localhost:5000/api/version
+
+###
+
+// Test 404
+http://localhost:5000/notFound
+
+###
+
+// Discriminate 404 by accept header
+http://localhost:5000/
+Accept: application/json
+
+###
+
+// Defeat Node cache for JS mocks
+http://localhost:5000/api/random
+
+###
+
+// Match any type
+http://localhost:5000/api/text
+
+###
+
+// Match only specified type
+http://localhost:5000/api/text
+Accept: text/*
+
+###
+
+// Test template with JS evaluation
+ http://localhost:5000/headers
+
+###
+
+// JS mock with custom status and headers
+http://localhost:5000/user-agent
+
+###
+
+// Test JSON array
+http://localhost:5000/api/quotes
+
+###
+
+// Test custom reponse with buffer
+http://localhost:5000/api/buffer
+
+###
+
+// Test mock collection
+http://localhost:5000/api/ping
