@@ -74,7 +74,7 @@ one of the apps or servers, navigate to the according folder and run `yarn start
 
 ## Documentation
 
-Read the [documentation](docs/README.md) or on [GitHub Pages](https://coremedia.github.io/coremedia-headless-client-react-pwa/docs) for more information on development, deployment and the concepts of the app.
+Read the [documentation](docs/README.md) or on [GitHub Pages](https://coremedia.github.io/coremedia-headless-client-react/docs) for more information on development, deployment and the concepts of the app.
 
 
 ## Contributing
