@@ -30,8 +30,8 @@ export const getFQDN = (): string => {
  * Returns the backend URI. Used for blob URLs like images
  * @category App
  */
-export const getBackendUri = (): string => {
-  let serverUrl = getFQDN();
+export const getBackendMediaUri = (): string => {
+  let serverUrl = process.env.REACT_APP_MEDIA_FQDN || getFQDN();
 
   // fallback to endpoint or local stitching server in development
   if (!serverUrl && process.env.NODE_ENV === "development") {
@@ -50,4 +50,12 @@ export const getRootSegment = (path: string): string | undefined => {
     return item !== null && item !== "";
   });
   return navigationPath[0] !== "preview" ? navigationPath[0] : navigationPath[1];
+};
+
+/**
+ * Returns true if REACT_APP_APQ_ENABLED is set to "true"
+ * @category App
+ */
+export const isAPQEnabled = () => {
+  return process.env.REACT_APP_APQ_ENABLED === "true";
 };

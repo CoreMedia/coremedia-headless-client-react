@@ -6,9 +6,10 @@ import { ProductTeaser } from "../../queries/fragments/__generated__/ProductTeas
 import { ExternalChannel } from "../../queries/fragments/__generated__/ExternalChannel";
 import { getFQDN } from "../App/App";
 import qs, { StringifiableRecord } from "query-string";
+import { getGlobalState } from "../App/GlobalState";
 
-const hasDetailPage: Array<string> = ["CMArticle", "CMVideo", "CMProduct"];
-const hasPage: Array<string> = ["CMChannel", "CMExternalPage"];
+const hasDetailPage: Array<string> = ["CMArticleImpl", "CMVideoImpl", "CMProductImpl"];
+const hasPage: Array<string> = ["CMChannelImpl", "CMExternalPageImpl"];
 
 const makeAbsoluteAndAddParams = (path: string, params?: StringifiableRecord): string => {
   let link = getFQDN() + path;
@@ -27,25 +28,11 @@ export const formatSegmentForUrl = (segment: string | null | undefined): string 
   return segment;
 };
 
-export const createProductHref = (self: Product, rootSegment?: string, params?: StringifiableRecord): string => {
+export const createProductHref = (self: Product, params?: StringifiableRecord): string => {
   if (!self) {
     return "";
   }
-  if (!rootSegment) {
-    console.error("rootSegment is needed for link building, please specify");
-    return "";
-  }
-
-  let requiresProductId = false;
-  if (rootSegment.startsWith("sfra")) {
-    requiresProductId = true;
-  } else if (rootSegment.startsWith("sitegenesis")) {
-    requiresProductId = true;
-  } else if (rootSegment.startsWith("apparel")) {
-    requiresProductId = true;
-  } else if (rootSegment.startsWith("commerce")) {
-    requiresProductId = true;
-  }
+  const { rootSegment } = getGlobalState();
 
   let path = "/";
   if (self.category?.breadcrumb) {
@@ -54,7 +41,7 @@ export const createProductHref = (self: Product, rootSegment?: string, params?: 
         return formatSegmentForUrl(item?.name);
       })
       .join("/")}/`;
-    if (requiresProductId) {
+    if (!getGlobalState().useSeo) {
       path += `${self.shortId}/`;
     } else if (self.seoSegment) {
       path += self.seoSegment;
@@ -63,59 +50,46 @@ export const createProductHref = (self: Product, rootSegment?: string, params?: 
   return makeAbsoluteAndAddParams(path, params);
 };
 
-export const createCategoryHref = (self: Category, rootSegment?: string, params?: StringifiableRecord): string => {
+export const createCategoryHref = (self: Category, params?: StringifiableRecord): string => {
   if (!self) {
     return "";
   }
-  if (!rootSegment) {
-    console.error("rootSegment is needed for link building, please specify");
-    return "";
-  }
-  let requiresCategoryDashes = false;
-  let requiresCategoryId = false;
-  if (rootSegment.startsWith("sfra")) {
-    requiresCategoryDashes = true;
-  } else if (rootSegment.startsWith("sitegenesis")) {
-    requiresCategoryDashes = true;
-  } else if (rootSegment.startsWith("apparel")) {
-    requiresCategoryId = true;
-  } else if (rootSegment.startsWith("commerce")) {
-    requiresCategoryId = true;
-  }
+  const { rootSegment } = getGlobalState();
+
   let path = "/";
   if (self?.breadcrumb) {
     path = `/${rootSegment}/category/${self.breadcrumb
       .map((item) => {
         return formatSegmentForUrl(item?.name);
       })
-      .join(requiresCategoryDashes ? "-" : "/")}/`;
-    if (requiresCategoryId) {
+      .join("/")}/`;
+    if (!getGlobalState().useSeo) {
       path += self.shortId + "/";
     }
   }
   return makeAbsoluteAndAddParams(path, params);
 };
 
-export const createHref = (self: Linkable, rootSegment?: string, params?: StringifiableRecord): string => {
+export const createHref = (self: Linkable, params?: StringifiableRecord): string => {
   if (!self) {
     return "";
   }
   let path = "/";
-  if (self.link?.type) {
-    if (hasDetailPage.indexOf(self.link.type) >= 0) {
+  if (self.__typename) {
+    if (hasDetailPage.indexOf(self.__typename) >= 0) {
       self.navigationPath &&
         self.navigationPath.slice(0, self.navigationPath.length - 1).map((item) => {
           item && (path += `${formatSegmentForUrl(item.segment || item.title)}/`);
           return true;
         });
       path += `${formatSegmentForUrl(self.segment || self.title)}-${self.id}`;
-    } else if (hasPage.indexOf(self.link?.type) >= 0) {
+    } else if (hasPage.indexOf(self.__typename) >= 0) {
       self.navigationPath &&
         self.navigationPath.map((item) => {
           item && (path += `${formatSegmentForUrl(item.segment || item.title)}/`);
           return true;
         });
-    } else if (self.link?.type === "CMPerson") {
+    } else if (self.__typename === "CMPersonImpl") {
       const person: Person = self as Person;
       self.navigationPath &&
         self.navigationPath.slice(0, self.navigationPath.length - 1).map((item) => {
@@ -123,39 +97,39 @@ export const createHref = (self: Linkable, rootSegment?: string, params?: String
           return true;
         });
       path += `${formatSegmentForUrl(person.displayName || person.firstName + " " + person.lastName)}-${person.id}`;
-    } else if (self.link?.type === "CMProductTeaser") {
+    } else if (self.__typename === "CMProductTeaserImpl" || self.__typename === "CMExternalProductImpl") {
       const productTeaser: ProductTeaser = self as ProductTeaser;
       path =
         (productTeaser.productRef &&
           productTeaser.productRef.product &&
-          createProductHref(productTeaser.productRef.product as Product, rootSegment)) ||
+          createProductHref(productTeaser.productRef.product as Product)) ||
         "";
-    } else if (self.link?.type === "CMExternalChannel") {
+    } else if (self.__typename === "CMExternalChannelImpl") {
       const externalChannel: ExternalChannel = self as ExternalChannel;
       path =
         (externalChannel.categoryRef &&
           externalChannel.categoryRef.category &&
-          createCategoryHref(externalChannel.categoryRef.category as Category, rootSegment)) ||
+          createCategoryHref(externalChannel.categoryRef.category as Category)) ||
         "";
     } else {
-      console.debug(`No linkbuilding for ${self.link?.type} has been implemented yet`);
+      console.debug(`No linkbuilding for ${self.__typename} has been implemented yet`);
     }
   }
   return makeAbsoluteAndAddParams(path, params);
 };
 
-export const getLink = (to: any, rootSegment: string, params?: StringifiableRecord): string => {
+export const getLink = (to: any, params?: StringifiableRecord): string => {
   let linkTarget: string;
   if (to) {
-    if (to?.link !== undefined && to.link?.type !== undefined) {
+    if (to.__typename && to.__typename.startsWith("CM")) {
       const linkable = to as Linkable;
-      linkTarget = createHref(linkable, rootSegment, params);
+      linkTarget = createHref(linkable, params);
     } else if (to.__typename === "CategoryImpl") {
       const linkable = to as Category;
-      linkTarget = createCategoryHref(linkable, rootSegment, params);
+      linkTarget = createCategoryHref(linkable, params);
     } else if (to.__typename === "ProductImpl") {
       const linkable = to as Product;
-      linkTarget = createProductHref(linkable, rootSegment, params);
+      linkTarget = createProductHref(linkable, params);
     } else if (typeof to === "string") {
       linkTarget = to;
     } else {

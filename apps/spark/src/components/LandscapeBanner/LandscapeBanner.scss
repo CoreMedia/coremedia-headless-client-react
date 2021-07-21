@@ -44,4 +44,10 @@
   .shop-now:before {
     padding-top: 56.25%;
   }
+
+  .cm-banner {
+    &__text {
+      --max-lines: 3;
+    }
+  }
 }

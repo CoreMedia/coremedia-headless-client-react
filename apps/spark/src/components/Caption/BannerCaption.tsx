@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "../Link/Link";
-import PreviewMetadataProps, { metaDataProperty } from "../../utils/Preview/MetaData";
+import PreviewMetadata, { metaDataProperty } from "../../utils/Preview/MetaData";
 import "./BannerCaption.scss";
 
-interface Props extends PreviewMetadataProps {
+interface Props extends PreviewMetadata {
   linkTarget?: string;
   title: string | null;
   plaintext: string | null;
@@ -28,7 +28,7 @@ const BannerCaption: React.FC<Props> = ({
           openInNewTab={openInNewTab}
           externalLink={externalLink}
         >
-          <h3 className={`cm-banner__headline`} {...metaDataProperty(metadata.title)}>
+          <h3 className={`cm-banner__headline`} {...metaDataProperty(metadata.properties?.title)}>
             {title}
           </h3>
         </Link>
@@ -37,7 +37,7 @@ const BannerCaption: React.FC<Props> = ({
         <div
           className={`cm-banner__text`}
           dangerouslySetInnerHTML={{ __html: plaintext }}
-          {...metaDataProperty(metadata.plaintext)}
+          {...metaDataProperty(metadata.properties?.plaintext)}
         />
       )}
     </>

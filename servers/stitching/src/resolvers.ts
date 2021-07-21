@@ -49,20 +49,21 @@ export const resolvers = (coreMediaSchema: GraphQLSchema, catalogSchema: GraphQL
     },
     CategoryImpl: {
       augmentation: {
-        selectionSet: `{ externalId, siteId }`,
+        selectionSet: `{ externalId, siteId, breadcrumb{externalId} }`,
         resolve(category, args: Record<string, string>, context: Record<string, string>, info: GraphQLResolveInfo) {
           const externalId = category.externalId;
           const siteId = category.siteId; // consider info.variableValues.siteId if not available
-          logger.debug("CategoryImpl#augmentation " + externalId + ":" + siteId);
+          const breadcrumb = category.breadcrumb.map((a) => a.externalId);
+          logger.debug("CategoryImpl#augmentation " + externalId + ":" + siteId + ":" + breadcrumb);
           return delegateToSchema({
             schema: coreMediaSchema,
             operation: "query",
-            fieldName: "commerce",
+            fieldName: "content",
             context,
             info,
             transforms: [
               new WrapQuery(
-                ["commerce"],
+                ["content"],
                 (subtree) => ({
                   kind: Kind.SELECTION_SET,
                   selections: [
@@ -86,6 +87,14 @@ export const resolvers = (coreMediaSchema: GraphQLSchema, catalogSchema: GraphQL
                             value: siteId,
                           },
                         },
+                        {
+                          kind: Kind.ARGUMENT,
+                          name: { kind: Kind.NAME, value: "breadcrumb" },
+                          value: {
+                            kind: Kind.STRING,
+                            value: breadcrumb,
+                          },
+                        },
                       ],
                       selectionSet: subtree,
                     },
@@ -100,20 +109,21 @@ export const resolvers = (coreMediaSchema: GraphQLSchema, catalogSchema: GraphQL
     },
     ProductImpl: {
       augmentation: {
-        selectionSet: `{ externalId, siteId }`,
+        selectionSet: `{ externalId, siteId, breadcrumb{externalId} }`,
         resolve(product, args: Record<string, string>, context: Record<string, string>, info: GraphQLResolveInfo) {
           const externalId = product.externalId;
           const siteId = product.siteId; // consider info.variableValues.siteId if not available
-          logger.debug("ProductImpl#augmentation " + externalId + ":" + siteId);
+          const breadcrumb = product.category.breadcrumb.map((a) => a.externalId);
+          logger.debug("ProductImpl#augmentation " + externalId + ":" + siteId + ":" + breadcrumb);
           return delegateToSchema({
             schema: coreMediaSchema,
             operation: "query",
-            fieldName: "commerce",
+            fieldName: "content",
             context,
             info,
             transforms: [
               new WrapQuery(
-                ["commerce"],
+                ["content"],
                 (subtree) => ({
                   kind: Kind.SELECTION_SET,
                   selections: [
@@ -135,6 +145,14 @@ export const resolvers = (coreMediaSchema: GraphQLSchema, catalogSchema: GraphQL
                           value: {
                             kind: Kind.STRING,
                             value: siteId,
+                          },
+                        },
+                        {
+                          kind: Kind.ARGUMENT,
+                          name: { kind: Kind.NAME, value: "breadcrumb" },
+                          value: {
+                            kind: Kind.STRING,
+                            value: breadcrumb,
                           },
                         },
                       ],

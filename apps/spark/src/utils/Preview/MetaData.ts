@@ -7,36 +7,45 @@ import { Dispatchable } from "../ViewDispatcher/Dispatchable";
  * @internal
  */
 type metadata = { "data-cm-metadata": string } | undefined;
-export type MetadataId = number | string;
-export default interface PreviewMetadataProps {
-  metadata?: {
-    [P in keyof Omit<this, "metadata"> | "root"]?: MetadataId;
-  };
+export interface MetadataRoot {
+  id: string | null;
+  type?: string;
 }
 
+export interface PreviewMetadataProps<T> {
+  properties?: { [P in keyof Omit<T, "metadata">]?: string };
+  root: MetadataRoot;
+}
+
+export default interface PreviewMetadata {
+  metadata?: PreviewMetadataProps<this>;
+}
+
+export const initializeMetadata = (id: string | null, type = "content"): PreviewMetadata => {
+  return { metadata: { root: { id: id, type: type }, properties: {} } };
+};
+
 /**
- * Generates the CoreMedia metadata JSON with id and optional properties.
- * @param contentId Id of the given content
+ * Generates the CoreMedia metadata JSON with id.
+ * @param metadataRoot Id of the given content
  * @param propertyNames List of optional properties
  */
-export const metaData = (contentId: MetadataId | undefined, ...propertyNames: Array<string | undefined>): metadata => {
-  if (!isPreview() || !contentId) {
+export const metaDataElement = (
+  metadataRoot: MetadataRoot | undefined,
+  ...propertyNames: Array<string | undefined>
+): metadata => {
+  if (!isPreview() || !metadataRoot) {
     return undefined;
   }
-
   const metadata = [];
-  if (contentId) {
-    if (typeof contentId == "number" || !contentId.startsWith("content/")) {
-      contentId = "content/" + contentId;
-    }
-    metadata.push({ _: { $Ref: contentId } });
-  }
+
+  metadata.push({ _: { $Ref: (metadataRoot.type || "content") + "/" + metadataRoot.id } });
 
   if (propertyNames) {
-    propertyNames.forEach((propertyName) => {
-      propertyName &&
+    propertyNames.forEach((property) => {
+      property &&
         metadata.push({
-          _: String(propertyName).startsWith("properties.") ? propertyName : "properties." + propertyName,
+          _: property,
         });
     });
   }
@@ -45,25 +54,10 @@ export const metaData = (contentId: MetadataId | undefined, ...propertyNames: Ar
 };
 
 /**
- * Generates the CoreMedia metadata JSON with id.
- * @param contentId Id of the given content
- */
-export const metaDataElement = (contentId: MetadataId | undefined): metadata => {
-  if (!isPreview() || !contentId) {
-    return undefined;
-  }
-
-  const metadata = [];
-  metadata.push({ _: { $Ref: "content/" + contentId } });
-
-  return { "data-cm-metadata": JSON.stringify(metadata) };
-};
-
-/**
  * Generates the CoreMedia metadata JSON with a property.
  * @param property The given property of a content
  */
-export const metaDataProperty = (property: MetadataId | undefined): metadata => {
+export const metaDataProperty = (property: string | undefined): metadata => {
   if (!isPreview() || !property) {
     return undefined;
   }
@@ -94,35 +88,29 @@ export const metaDataForPlacement = (placement: Col): metadata => {
 
 /**
  * Generates the CoreMedia metadata JSON including the responsive device settings.
- * @param contentId Id of the page
  */
-export const metaDataForResponsiveDevices = (contentId?: string | number): metadata => {
+export const metaDataForResponsiveDevices = (): metadata => {
   if (!isPreview()) {
     return undefined;
   }
 
-  const metadata = [];
-  if (contentId) {
-    if (typeof contentId == "number" || !contentId.startsWith("content/")) {
-      contentId = "content/" + contentId;
-    }
-    metadata.push({ _: { $Ref: contentId } });
-  }
-  metadata.push({
-    cm_responsiveDevices: {
-      mobile_portrait: {
-        width: 414,
-        height: 736,
-        order: 1,
-        isDefault: "true",
+  const metadata = [
+    {
+      cm_responsiveDevices: {
+        mobile_portrait: {
+          width: 414,
+          height: 736,
+          order: 1,
+          isDefault: "true",
+        },
+        mobile_landscape: { width: 736, height: 414, order: 2 },
+        tablet_portrait: { width: 768, height: 1024, order: 3 },
+        tablet_landscape: { width: 1024, height: 768, order: 4 },
+        desktop: { width: 1200, order: 5 },
       },
-      mobile_landscape: { width: 736, height: 414, order: 2 },
-      tablet_portrait: { width: 768, height: 1024, order: 3 },
-      tablet_landscape: { width: 1024, height: 768, order: 4 },
-      desktop: { width: 1200, order: 5 },
+      cm_preferredWidth: 1280,
     },
-    cm_preferredWidth: 1280,
-  });
+  ];
 
   return { "data-cm-metadata": JSON.stringify(metadata) };
 };
@@ -133,7 +121,7 @@ export const metaDataForResponsiveDevices = (contentId?: string | number): metad
  * @param type The given content object
  * @param propertyName The name of of the property
  */
-export function getPropertyName<S extends Dispatchable>(type: S, propertyName: keyof S): MetadataId {
+export function getPropertyName<S extends Dispatchable>(type: S, propertyName: keyof S): string {
   const mapping: { [key: string]: any } = metaDataMapping;
   const metaDataMappingElement: { [key: string]: string } = mapping[type.__typename];
   let property: string =

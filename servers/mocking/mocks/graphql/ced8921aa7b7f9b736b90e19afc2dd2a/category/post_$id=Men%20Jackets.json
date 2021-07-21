@@ -9,14 +9,17 @@
       "breadcrumb": [
         {
           "name": "Apparel",
+          "externalId": "Apparel",
           "__typename": "CategoryImpl"
         },
         {
           "name": "Men",
+          "externalId": "Men",
           "__typename": "CategoryImpl"
         },
         {
           "name": "Jackets",
+          "externalId": "Men Jackets",
           "__typename": "CategoryImpl"
         }
       ],

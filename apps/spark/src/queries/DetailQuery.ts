@@ -8,6 +8,7 @@ const DETAIL_QUERY = gql`
   query DetailQuery($id: String!) {
     content {
       content(id: $id) {
+        id
         ...DetailTeasable
         ...DetailPerson
         ...DetailCMProduct

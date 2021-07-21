@@ -23,10 +23,9 @@ export interface DetailCMProduct extends Detail {
 /**
  * Returns a [[DetailCMProduct]] object based on the GraphQL [[DetailCMProduct]]
  * @param self
- * @param rootSegment Needed for link building
  */
-export const initializeDetailCMProduct = (self: GraphQLDetailCMProduct, rootSegment: string): DetailCMProduct => {
-  const details: Detail = initializeDetail(self, rootSegment);
+export const initializeDetailCMProduct = (self: GraphQLDetailCMProduct): DetailCMProduct => {
+  const details: Detail = initializeDetail(self);
   const productDetails: DetailCMProduct = {
     ...mapProperties(self, { title: "productName", productCode: "productCode" }, details),
   };
@@ -38,7 +37,7 @@ export const initializeDetailCMProduct = (self: GraphQLDetailCMProduct, rootSegm
         return (
           download && {
             title: download.teaserTitle,
-            linkTarget: createHref(download, rootSegment),
+            linkTarget: createHref(download),
           }
         );
       }),

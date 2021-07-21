@@ -1,6 +1,6 @@
 import { Video } from "../../queries/fragments/__generated__/Video";
 import { Picture } from "../../models/Banner/Picture";
-import { getBackendUri } from "../App/App";
+import { getBackendMediaUri } from "../App/App";
 
 /**
  * Checks if an URL is an absolute URL
@@ -21,7 +21,7 @@ export const getImageUrl = (imageUriTemplate: string | null, cropName: string, w
   }
 
   if (!isUrlAbsolute(imageUriTemplate)) {
-    imageUriTemplate = getBackendUri() + imageUriTemplate;
+    imageUriTemplate = getBackendMediaUri() + imageUriTemplate;
   }
   return imageUriTemplate.replace("{cropName}", cropName).replace("{width}", String(width));
 };
@@ -33,7 +33,7 @@ export const getImageUrl = (imageUriTemplate: string | null, cropName: string, w
 export const getVideoUrl = (media: Video): string | null => {
   let videoLink: string | null = media.dataUrl;
   if (!videoLink && media.data !== undefined) {
-    videoLink = getBackendUri() + media.data?.uri;
+    videoLink = getBackendMediaUri() + media.data?.uri;
   }
   return videoLink;
 };
@@ -50,7 +50,7 @@ export const getImageUrlByPicture = (
   cropName: string | undefined,
   width: number | undefined
 ): string => {
-  let imageUrl = getBackendUri() + self?.data?.uri || "";
+  let imageUrl = getBackendMediaUri() + self?.data?.uri || "";
   if (self.uriTemplate && cropName !== undefined && width !== undefined) {
     imageUrl = getImageUrl(self.uriTemplate, cropName, width);
   }

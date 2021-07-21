@@ -6,13 +6,14 @@ import { SortFieldWithOrder } from "../__generated__/globalTypes";
 import { useLocation } from "react-router";
 import { useHistory } from "react-router-dom";
 import Search from "../components/Search/Search";
-import { useSiteContextState } from "../context/SiteContextProvider";
+import { getGlobalState } from "../utils/App/GlobalState";
+import SeoHeader from "../components/Header/SeoHeader";
 
 const SearchPage: FC = () => {
   const history = useHistory();
   const location = useLocation();
   const urlSearchParams = new URLSearchParams(location.search);
-  const { siteId } = useSiteContextState();
+  const { siteId } = getGlobalState();
   const [query, setQuery] = useState<string>(urlSearchParams.get("query") || "");
   const [searchQuery, setSearchQuery] = useState<string>(query);
   const [doctypes] = useState(["CMArticle"]);
@@ -138,16 +139,19 @@ const SearchPage: FC = () => {
   };
 
   return (
-    <Search
-      numFound={data?.content?.search?.numFound}
-      result={data?.content?.search?.result}
-      query={query}
-      onQueryChange={onQueryChange}
-      onSortChange={onSortChange}
-      onLoadMore={onLoadMore}
-      sortFields={sortFields}
-      sortField={sortField}
-    />
+    <>
+      <SeoHeader title={`Search "${query}"`} />
+      <Search
+        numFound={data?.content?.search?.numFound}
+        result={data?.content?.search?.result}
+        query={query}
+        onQueryChange={onQueryChange}
+        onSortChange={onSortChange}
+        onLoadMore={onLoadMore}
+        sortFields={sortFields}
+        sortField={sortField}
+      />
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import PreviewMetadataProps, { getPropertyName } from "../../utils/Preview/MetaData";
+import PreviewMetadata, { getPropertyName } from "../../utils/Preview/MetaData";
 import { Picture } from "./Picture";
 import { Person } from "../../queries/fragments/__generated__/Person";
 import { createHref } from "../../utils/Link/LinkUtils";
@@ -7,7 +7,7 @@ import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelp
 /**
  * @category ViewModels
  */
-export interface Author extends PreviewMetadataProps {
+export interface Author extends PreviewMetadata {
   title: string | null; // what is this for?
   displayName: string | null;
   linkTarget: string | null;
@@ -18,11 +18,10 @@ export interface Author extends PreviewMetadataProps {
 /**
  * Returns an [[Author]] object based on the GraphQL [[Person]]
  * @param person
- * @param rootSegment Needed for link building
  */
-export const initializeAuthor = (person: Person, rootSegment: string): Author => {
+export const initializeAuthor = (person: Person): Author => {
   const author: Author = {
-    linkTarget: createHref(person, rootSegment),
+    linkTarget: createHref(person),
     ...mapProperties(person, { text: "teaserText", title: "title", picture: "picture" }),
   };
   const displayName: string | undefined =

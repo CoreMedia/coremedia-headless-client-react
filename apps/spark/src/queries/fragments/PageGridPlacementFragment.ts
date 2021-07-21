@@ -9,6 +9,7 @@ import { externalChannelFragment } from "./ExternalChannelFragment";
 import { selectionRulesFragment } from "./SelectionRulesFragment";
 import { CMProductFragment } from "./CMProductFragment";
 import { externalLinkFragment } from "./ExternalLinkFragment";
+import { externalProductFragment } from "./ExternalProductFragment";
 
 export const pageGridPlacementFragment = gql`
   fragment PageGridPlacement on PageGridPlacement {
@@ -34,6 +35,7 @@ export const pageGridPlacementFragment = gql`
           ...ExternalLink
         }
       }
+      ...ExternalProduct
     }
   }
   ${teasableFragment}
@@ -46,4 +48,5 @@ export const pageGridPlacementFragment = gql`
   ${selectionRulesFragment}
   ${CMProductFragment}
   ${externalLinkFragment}
+  ${externalProductFragment}
 `;

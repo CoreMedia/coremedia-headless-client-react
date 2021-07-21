@@ -9,10 +9,12 @@
       "breadcrumb": [
         {
           "name": "Apparel",
+          "externalId": "Apparel",
           "__typename": "CategoryImpl"
         },
         {
           "name": "Men",
+          "externalId": "Men",
           "__typename": "CategoryImpl"
         }
       ],
@@ -27,14 +29,17 @@
           "breadcrumb": [
             {
               "name": "Apparel",
+              "externalId": "Apparel",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Men",
+              "externalId": "Men",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Jackets",
+              "externalId": "Men Jackets",
               "__typename": "CategoryImpl"
             }
           ],
@@ -50,14 +55,17 @@
           "breadcrumb": [
             {
               "name": "Apparel",
+              "externalId": "Apparel",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Men",
+              "externalId": "Men",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Shirts",
+              "externalId": "Men Shirts",
               "__typename": "CategoryImpl"
             }
           ],
@@ -73,14 +81,17 @@
           "breadcrumb": [
             {
               "name": "Apparel",
+              "externalId": "Apparel",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Men",
+              "externalId": "Men",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Suits",
+              "externalId": "Men Suits",
               "__typename": "CategoryImpl"
             }
           ],
@@ -96,14 +107,17 @@
           "breadcrumb": [
             {
               "name": "Apparel",
+              "externalId": "Apparel",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Men",
+              "externalId": "Men",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Pants",
+              "externalId": "Men Pants",
               "__typename": "CategoryImpl"
             }
           ],
@@ -119,14 +133,17 @@
           "breadcrumb": [
             {
               "name": "Apparel",
+              "externalId": "Apparel",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Men",
+              "externalId": "Men",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Accessories",
+              "externalId": "Men Accessories",
               "__typename": "CategoryImpl"
             }
           ],
@@ -142,14 +159,17 @@
           "breadcrumb": [
             {
               "name": "Apparel",
+              "externalId": "Apparel",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Men",
+              "externalId": "Men",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Shoes",
+              "externalId": "Men Shoes",
               "__typename": "CategoryImpl"
             }
           ],

@@ -1,11 +1,11 @@
 import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
-import PreviewMetadataProps from "../../utils/Preview/MetaData";
+import PreviewMetadata, { initializeMetadata } from "../../utils/Preview/MetaData";
 import { PageGrid } from "../../queries/fragments/__generated__/PageGrid";
 
 /**
  * @category ViewModels
  */
-export interface Col extends Dispatchable, PreviewMetadataProps {
+export interface Col extends Dispatchable, PreviewMetadata {
   name: string;
   items: Array<Dispatchable>;
 }
@@ -13,7 +13,7 @@ export interface Col extends Dispatchable, PreviewMetadataProps {
 /**
  * @category ViewModels
  */
-export interface Row extends PreviewMetadataProps {
+export interface Row extends PreviewMetadata {
   rowId: number;
   cols: Array<Col> | null;
 }
@@ -21,7 +21,7 @@ export interface Row extends PreviewMetadataProps {
 /**
  * @category ViewModels
  */
-export interface Grid extends PreviewMetadataProps {
+export interface Grid extends PreviewMetadata {
   rows: Array<Row> | null;
 }
 
@@ -31,25 +31,21 @@ export interface Grid extends PreviewMetadataProps {
  */
 export const initializeGrid = (grid: PageGrid | null): Grid => {
   return {
-    metadata: { root: (grid && grid.id) || undefined },
+    ...(grid && initializeMetadata(grid.id)),
     rows:
       grid &&
       grid.rows &&
-      grid.rows?.map(
-        (row): Row => {
-          return {
-            ...row,
-            cols:
-              row.placements &&
-              row.placements.map(
-                (placement): Col => {
-                  return {
-                    ...placement,
-                  };
-                }
-              ),
-          };
-        }
-      ),
+      grid.rows?.map((row): Row => {
+        return {
+          ...row,
+          cols:
+            row.placements &&
+            row.placements.map((placement): Col => {
+              return {
+                ...placement,
+              };
+            }),
+        };
+      }),
   };
 };

@@ -15,7 +15,7 @@ const SquareBanner: React.FC<Props> = ({ banner }) => {
   return (
     <div className={`cm-square-banner`} {...metaDataElement(banner.metadata?.root)}>
       {banner.picture && (
-        <div className={`cm-square-banner__picture`} {...metaDataProperty(banner.metadata?.picture)}>
+        <div className={`cm-square-banner__picture`} {...metaDataProperty(banner.metadata?.properties?.picture)}>
           <SquareResponsiveImage picture={banner.picture} />
         </div>
       )}

@@ -40,9 +40,12 @@ const NavigationMenu: FC<Props> = ({
         <ul className="cm-navigation-item__menu" {...metaDataProperty("children")}>
           {depth <= 1 && (
             <li className="cm-navigation-item__menu-label" {...metaDataElement(metadata?.root)}>
-              <Link to={linkTarget} className={"cm-navigation-item__title"}>
-                {title}
-              </Link>
+              {linkTarget && (
+                <Link to={linkTarget} className={"cm-navigation-item__title"}>
+                  {title}
+                </Link>
+              )}
+              {!linkTarget && <span className={"cm-navigation-item__title"}>{title}</span>}
             </li>
           )}
           {items &&

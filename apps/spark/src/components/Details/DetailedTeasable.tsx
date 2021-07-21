@@ -25,7 +25,7 @@ const DetailedTeasable: React.FC<Detail> = ({
   return (
     <div className={`cm-details`} {...metaDataElement(metadata.root)}>
       <article className={`cm-details__content`}>
-        <h1 className={`cm-details__headline`} {...metaDataElement(metadata.title)}>
+        <h1 className={`cm-details__headline`} {...metaDataProperty(metadata.properties?.title)}>
           {title}
         </h1>
         <div className={"cm-details__metalist"}>
@@ -35,7 +35,11 @@ const DetailedTeasable: React.FC<Detail> = ({
                 author &&
                 author.displayName && (
                   <span className={`cm-details__metalist-item`} key={index} {...metaDataElement(author.metadata?.root)}>
-                    <Link to={author.linkTarget} key={index} {...metaDataProperty(author.metadata?.displayName)}>
+                    <Link
+                      to={author.linkTarget}
+                      key={index}
+                      {...metaDataProperty(author.metadata?.properties?.displayName)}
+                    >
                       {author.displayName}
                     </Link>
                   </span>
@@ -51,25 +55,25 @@ const DetailedTeasable: React.FC<Detail> = ({
         </div>
         {media && <DetailedMedia media={media} />}
         {structuredText && (
-          <div className={`cm-details__text`} {...metaDataProperty(metadata.structuredText)}>
+          <div className={`cm-details__text`} {...metaDataProperty(metadata.properties?.structuredText)}>
             <RichText text={structuredText} />
           </div>
         )}
       </article>
       {authors && authors.length > 0 && (
-        <section className={`cm-details__authors`} {...metaDataProperty(metadata.authors)}>
+        <section className={`cm-details__authors`} {...metaDataProperty(metadata.properties?.authors)}>
           {authors.map((author, index) => {
             return author && <PersonBlurb {...author} key={index} />;
           })}
         </section>
       )}
       {tags && (
-        <section className={`cm-details__tags`} {...metaDataProperty(metadata.tags)}>
+        <section className={`cm-details__tags`} {...metaDataProperty(metadata.properties?.tags)}>
           <TagList tags={tags} />
         </section>
       )}
       {related && (
-        <section className={`cm-details__related`} {...metaDataProperty(metadata.related)}>
+        <section className={`cm-details__related`} {...metaDataProperty(metadata.properties?.related)}>
           <Related related={related} />
         </section>
       )}

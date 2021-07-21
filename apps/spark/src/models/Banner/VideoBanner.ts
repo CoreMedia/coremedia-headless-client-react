@@ -29,7 +29,7 @@ const addOrUpdate = (
   }
 };
 
-export const getSortedTimeLineSequences = (timeLine: TimeLine, rootSegment: string): Array<TimelineEntry> => {
+export const getSortedTimeLineSequences = (timeLine: TimeLine): Array<TimelineEntry> => {
   const sequenceEntries: {
     [key: number]: Array<Dispatchable>;
   } = {};
@@ -58,7 +58,7 @@ export const getSortedTimeLineSequences = (timeLine: TimeLine, rootSegment: stri
       timeLineEntries.push({
         startTime: Number(key) / 1000,
         endTime: endTime,
-        entry: initializeProductBannerFromProductTeaser(item as ProductTeaser, rootSegment),
+        entry: initializeProductBannerFromProductTeaser(item as ProductTeaser),
         activeIdForBlock: elementToActivate,
       });
       return true;
@@ -94,18 +94,17 @@ export interface ShoppableVideoBanner extends VideoBanner {
 /**
  * Returns a [[VideoBanner]] object based on the GraphQL [[Video]]
  * @param video
- * @param rootSegment Needed for link building
  */
-export const initializeVideoBanner = (video: Video, rootSegment: string): VideoBanner => {
-  const banner: VideoBanner = initializeBanner(video, rootSegment);
+export const initializeVideoBanner = (video: Video): VideoBanner => {
+  const banner: VideoBanner = initializeBanner(video);
   video.settings && (banner.playerSettings = video.settings.playerSettings);
   const videoUrl = getVideoUrl(video);
   videoUrl && (banner.videoUrl = videoUrl);
   return banner;
 };
 
-export const initializeShoppableVideoBanner = (video: Video, rootSegment: string): ShoppableVideoBanner => {
-  const banner: ShoppableVideoBanner = initializeVideoBanner(video, rootSegment);
-  video.timeLine && addProperty(banner, "timeline", getSortedTimeLineSequences(video.timeLine, rootSegment));
+export const initializeShoppableVideoBanner = (video: Video): ShoppableVideoBanner => {
+  const banner: ShoppableVideoBanner = initializeVideoBanner(video);
+  video.timeLine && addProperty(banner, "timeline", getSortedTimeLineSequences(video.timeLine));
   return banner;
 };

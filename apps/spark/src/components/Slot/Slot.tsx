@@ -12,11 +12,11 @@ interface Props extends SlotProps {
   viewName: string;
 }
 
-const Slot: React.FC<Props> = ({ items, className = "cm-banner", viewName, text, title, metadata = {} }) => {
+const Slot: React.FC<Props> = ({ items, className = "cm-banner", viewName, text, title, metadata }) => {
   return (
-    <div className={`cm-slot ${className}-container`} {...metaDataElement(metadata.root)}>
-      <SlotHeader slotTitle={title} slotText={text} />
-      <div className={`cm-slot__items`} {...metaDataProperty(metadata.items)}>
+    <div className={`cm-slot ${className}-container`} {...metaDataElement(metadata?.root)}>
+      <SlotHeader title={title} text={text} metadata={metadata} />
+      <div className={`cm-slot__items`} {...metaDataProperty(metadata?.properties?.items)}>
         {items &&
           items.map((item, index) => {
             return (

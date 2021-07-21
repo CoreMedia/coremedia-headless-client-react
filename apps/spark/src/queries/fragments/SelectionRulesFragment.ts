@@ -7,6 +7,7 @@ import { productTeaserFragment } from "./ProductTeaserFragment";
 
 export const selectionRulesFragment = gql`
   fragment SelectionRules on CMSelectionRules {
+    id
     defaultContent {
       ...Teasable
       ...Collection

@@ -3,11 +3,13 @@ import { Redirect, Route, Switch, useLocation } from "react-router-dom";
 import { ApolloProvider } from "@apollo/client";
 import { SiteContextProvider } from "../../context/SiteContextProvider";
 import AppRoutes from "./AppRoutes";
-import { getRootSegment } from "../../utils/App/App";
+import { getRootSegment, isAPQEnabled } from "../../utils/App/App";
 import PreviewPage from "../../container/PreviewPage";
 import { initializeApollo } from "../../utils/App/Apollo";
 import { getPreviewDate, isPreview } from "../../utils/Preview/Preview";
 import { PreviewContextProvider } from "../../context/PreviewContextProvider";
+import { getGlobalState } from "../../utils/App/GlobalState";
+import { HelmetProvider } from "react-helmet-async";
 
 import "./App.scss";
 
@@ -17,23 +19,25 @@ import "./App.scss";
  */
 const App: FC = () => {
   const location = useLocation();
-  const rootSegment = getRootSegment(location.pathname);
+  const rootSegment = getRootSegment(location.pathname) || getGlobalState().rootSegment;
   const previewDate = getPreviewDate(useLocation().search);
-  const apolloClient = initializeApollo(previewDate);
+  const apolloClient = initializeApollo(previewDate, isAPQEnabled());
 
   return (
     <ApolloProvider client={apolloClient}>
       <PreviewContextProvider previewDate={previewDate}>
-        <Switch>
-          <Route exact path={"/"}>
-            <Redirect to={"/calista"} />
-          </Route>
-          {isPreview() && <Route path={"/preview/:rootSegment/:id/"} component={PreviewPage} />}
+        <HelmetProvider>
+          <Switch>
+            <Route exact path={"/"}>
+              <Redirect to={`/${rootSegment}`} />
+            </Route>
+            {isPreview() && <Route path={"/preview/:rootSegment/:id/"} component={PreviewPage} />}
 
-          <SiteContextProvider rootSegment={rootSegment} currentNavigation={location.pathname}>
-            <AppRoutes />
-          </SiteContextProvider>
-        </Switch>
+            <SiteContextProvider rootSegment={rootSegment} currentNavigation={location.pathname}>
+              <AppRoutes />
+            </SiteContextProvider>
+          </Switch>
+        </HelmetProvider>
       </PreviewContextProvider>
     </ApolloProvider>
   );

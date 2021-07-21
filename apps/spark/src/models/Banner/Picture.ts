@@ -1,11 +1,11 @@
-import PreviewMetadataProps from "../../utils/Preview/MetaData";
+import PreviewMetadata from "../../utils/Preview/MetaData";
 import { Picture as GraphQLPicture } from "../../queries/fragments/__generated__/Picture";
 import { mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
 
 /**
  * @category ViewModels
  */
-export interface Picture extends PreviewMetadataProps {
+export interface Picture extends PreviewMetadata {
   title: string | null;
   alt: string | null;
   uriTemplate: string | null;

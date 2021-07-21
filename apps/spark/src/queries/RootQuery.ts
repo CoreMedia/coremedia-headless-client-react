@@ -1,4 +1,4 @@
-import { gql, useQuery, QueryResult } from "@apollo/client";
+import { gql, QueryResult, useQuery } from "@apollo/client";
 import { RootQuery, RootQueryVariables } from "./__generated__/RootQuery";
 import { teasableFragment } from "./fragments/TeasableFragment";
 import { navigationFragment } from "./fragments/NavigationFragment";
@@ -9,6 +9,10 @@ import { pageGridPlacementFragment } from "./fragments/PageGridPlacementFragment
 import { linkableWithLocaleFragment } from "./fragments/LinkableWithLocaleFragment";
 import { CMProductFragment } from "./fragments/CMProductFragment";
 import { externalLinkFragment } from "./fragments/ExternalLinkFragment";
+import { externalChannelForNavigationFragment } from "./fragments/navigation/ExternalChannelForNavigationFragment";
+import { teasableForNavigationFragment } from "./fragments/navigation/TeasableForNavigationFragment";
+import { CMProductForNavigationFragment } from "./fragments/navigation/CMProductForNavigationFragment";
+import { collectionForNavigationFragment } from "./fragments/navigation/CollectionForNavigationFragment";
 
 const ROOT_QUERY = gql`
   query RootQuery($rootSegment: String!) {
@@ -23,12 +27,10 @@ const ROOT_QUERY = gql`
             ...PageGridPlacement
           }
         }
-        id
         localizedVariants {
           ...LinkableWithLocale
         }
-        ...Teasable
-        ...Navigation
+        ...TeasableForNavigation
         ... on CMExternalChannel {
           categoryRef {
             category {
@@ -36,27 +38,37 @@ const ROOT_QUERY = gql`
                 ...Category
                 children {
                   ...Category
-                  children {
-                    ...Category
-                    children {
-                      ...Category
-                      children {
-                        ...Category
-                      }
-                    }
-                  }
                 }
               }
             }
           }
         }
         children {
-          ...Teasable
-          ...Navigation
-          ...Collection
-          ...ExternalChannel
-          ...CMProduct
+          ...TeasableForNavigation
+          ...ExternalChannelForNavigation
+          ...CollectionForNavigation
+          ...CMProductForNavigation
           ...ExternalLink
+          ... on CMCollection {
+            items {
+              ...TeasableForNavigation
+              ...ExternalChannelForNavigation
+              ...CMProductForNavigation
+              ...ExternalLink
+              ...ProductRef
+              ...ExternalProduct
+              ... on CMCollection {
+                items {
+                  ...TeasableForNavigation
+                  ...ExternalChannelForNavigation
+                  ...CMProductForNavigation
+                  ...ExternalLink
+                  ...ProductRef
+                  ...ExternalProduct
+                }
+              }
+            }
+          }
           ... on CMExternalChannel {
             categoryRef {
               category {
@@ -64,15 +76,6 @@ const ROOT_QUERY = gql`
                   ...Category
                   children {
                     ...Category
-                    children {
-                      ...Category
-                      children {
-                        ...Category
-                        children {
-                          ...Category
-                        }
-                      }
-                    }
                   }
                 }
               }
@@ -80,40 +83,18 @@ const ROOT_QUERY = gql`
           }
           ... on CMNavigation {
             children {
-              ...Teasable
-              ...Navigation
-              ...Collection
-              ...ExternalChannel
-              ...CMProduct
+              ...TeasableForNavigation
+              ...ExternalChannelForNavigation
+              ...CollectionForNavigation
+              ...CMProductForNavigation
               ...ExternalLink
               ... on CMNavigation {
                 children {
-                  ...Teasable
-                  ...Navigation
-                  ...Collection
-                  ...ExternalChannel
-                  ...CMProduct
+                  ...TeasableForNavigation
+                  ...ExternalChannelForNavigation
+                  ...CollectionForNavigation
+                  ...CMProductForNavigation
                   ...ExternalLink
-                  ... on CMNavigation {
-                    children {
-                      ...Teasable
-                      ...Navigation
-                      ...Collection
-                      ...ExternalChannel
-                      ...CMProduct
-                      ...ExternalLink
-                      ... on CMNavigation {
-                        children {
-                          ...Teasable
-                          ...Navigation
-                          ...Collection
-                          ...ExternalChannel
-                          ...CMProduct
-                          ...ExternalLink
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -131,6 +112,10 @@ const ROOT_QUERY = gql`
   ${pageGridPlacementFragment}
   ${CMProductFragment}
   ${externalLinkFragment}
+  ${externalChannelForNavigationFragment}
+  ${teasableForNavigationFragment}
+  ${CMProductForNavigationFragment}
+  ${collectionForNavigationFragment}
 `;
 
 export default (rootSegment: string): QueryResult<RootQuery> => {

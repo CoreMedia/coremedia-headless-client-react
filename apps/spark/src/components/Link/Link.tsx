@@ -1,6 +1,5 @@
 import React from "react";
 import { Link as ReactLink } from "react-router-dom";
-import { useSiteContextState } from "../../context/SiteContextProvider";
 import { getLink } from "../../utils/Link/LinkUtils";
 import { ExternalLink } from "./ExternalLink";
 
@@ -22,8 +21,6 @@ export const Link: React.FC<LinkProps> = ({
   openInNewTab = false,
   externalLink = false,
 }) => {
-  const { rootSegment } = useSiteContextState();
-
   // external link
   if (externalLink) {
     return (
@@ -34,7 +31,7 @@ export const Link: React.FC<LinkProps> = ({
   }
 
   // internal link
-  const linkTarget = getLink(to, rootSegment);
+  const linkTarget = getLink(to);
   return (
     <ReactLink className={className} to={linkTarget} role={role} title={title}>
       {children}

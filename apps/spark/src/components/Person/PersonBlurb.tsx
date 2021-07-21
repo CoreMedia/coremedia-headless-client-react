@@ -1,5 +1,5 @@
 import React from "react";
-import { metaDataElement } from "../../utils/Preview/MetaData";
+import { metaDataElement, metaDataProperty } from "../../utils/Preview/MetaData";
 import Link from "../Link/Link";
 import Image from "../Media/Image";
 import "./Person.scss";
@@ -16,7 +16,7 @@ const PersonBlurb: React.FC<Author> = ({ displayName, text, picture, linkTarget,
       <div className={`cm-author__description`}>
         {displayName && (
           <Link to={linkTarget} className={`cm-author__link`}>
-            <h3 className={`cm-author__headline`} {...metaDataElement(metadata.displayName)}>
+            <h3 className={`cm-author__headline`} {...metaDataProperty(metadata?.properties?.displayName)}>
               {displayName}
             </h3>
           </Link>
@@ -24,7 +24,7 @@ const PersonBlurb: React.FC<Author> = ({ displayName, text, picture, linkTarget,
         {text && (
           <p
             className={`cm-author__short-text`}
-            {...metaDataElement(metadata.text)}
+            {...metaDataProperty(metadata?.properties?.text)}
             dangerouslySetInnerHTML={{ __html: text }}
           />
         )}

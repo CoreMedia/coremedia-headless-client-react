@@ -1,10 +1,10 @@
 import React from "react";
-import PreviewMetadataProps, { metaDataProperty } from "../../utils/Preview/MetaData";
+import PreviewMetadata, { metaDataProperty } from "../../utils/Preview/MetaData";
 import Link from "../Link/Link";
 import Image from "../Media/Image";
 import { Picture } from "../../models/Banner/Picture";
 
-interface Props extends PreviewMetadataProps {
+interface Props extends PreviewMetadata {
   displayName: string | null;
   picture: Picture | null;
   cssClass?: string;
@@ -31,22 +31,22 @@ const PersonWithInfo: React.FC<Props> = ({
       )}
       <div className={`${cssClass}__description`}>
         {displayName && (
-          <h1 className={`${cssClass}__name`} {...metaDataProperty(metadata.displayName)}>
+          <h1 className={`${cssClass}__name`} {...metaDataProperty(metadata.properties?.displayName)}>
             {displayName}
           </h1>
         )}
         {jobTitle && (
-          <h2 className={`${cssClass}__job`} {...metaDataProperty(metadata.jobTitle)}>
+          <h2 className={`${cssClass}__job`} {...metaDataProperty(metadata.properties?.jobTitle)}>
             {jobTitle}
           </h2>
         )}
         {organization && (
-          <p className={`${cssClass}__organization`} {...metaDataProperty(metadata.organization)}>
+          <p className={`${cssClass}__organization`} {...metaDataProperty(metadata.properties?.organization)}>
             {organization}
           </p>
         )}
         {eMail && (
-          <p className={`${cssClass}__email`} {...metaDataProperty(metadata.eMail)}>
+          <p className={`${cssClass}__email`} {...metaDataProperty(metadata.properties?.eMail)}>
             <Link to={`mailto:${eMail}`}>
               <span className={`${cssClass}__email-icon`} />
               <span className={`${cssClass}__email-text`}>{eMail}</span>

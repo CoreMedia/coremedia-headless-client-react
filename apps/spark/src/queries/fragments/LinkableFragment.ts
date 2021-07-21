@@ -5,9 +5,6 @@ export const linkableFragment = gql`
     title
     id
     segment
-    link {
-      type
-    }
     navigationPath {
       segment
       id

@@ -16,7 +16,10 @@ const HeroImageMap: React.FC<Props> = ({ banner }) => {
   return (
     <div className={teaserBlockClass} {...metaDataElement(banner.metadata?.root)}>
       {banner.picture && (
-        <div className={`cm-hero-banner__picture cm-imagemap`} {...metaDataProperty(banner.metadata?.picture)}>
+        <div
+          className={`cm-hero-banner__picture cm-imagemap`}
+          {...metaDataProperty(banner.metadata?.properties?.picture)}
+        >
           <div className={"cm-imagemap__wrapper"}>
             <HeroResponsiveImage picture={banner.picture} />
             <ImageMapAreas {...banner} cropName={"landscape_ratio8x3"} />

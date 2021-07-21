@@ -18,11 +18,10 @@ export interface DetailAuthor extends Author {
 /**
  * Returns an [[DetailAuthor]] object based on the GraphQL [[DetailPerson]]
  * @param self
- * @param rootSegment Needed for link building
  */
-export const initializeDetailAuthor = (self: GraphQLDetailPerson, rootSegment: string): DetailAuthor => {
+export const initializeDetailAuthor = (self: GraphQLDetailPerson): DetailAuthor => {
   const detail: DetailAuthor = {
-    ...initializeAuthor(self, rootSegment),
+    ...initializeAuthor(self),
     ...mapProperties(self, {
       organization: "organization",
       jobTitle: "jobTitle",

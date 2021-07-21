@@ -11,6 +11,7 @@ import { detailPersonFragment } from "./fragments/DetailPersonFragment";
 import { productTeaserFragment } from "./fragments/ProductTeaserFragment";
 import { CMProductFragment } from "./fragments/CMProductFragment";
 import { externalLinkFragment } from "./fragments/ExternalLinkFragment";
+import { externalProductFragment } from "./fragments/ExternalProductFragment";
 
 const FRAGMENT_PREVIEW_QUERY = gql`
   query FragmentPreviewQuery($contentId: String!) {
@@ -27,6 +28,7 @@ const FRAGMENT_PREVIEW_QUERY = gql`
         ...ProductTeaser
         ...CMProduct
         ...ExternalLink
+        ...ExternalProduct
       }
     }
   }
@@ -41,6 +43,7 @@ const FRAGMENT_PREVIEW_QUERY = gql`
   ${productTeaserFragment}
   ${CMProductFragment}
   ${externalLinkFragment}
+  ${externalProductFragment}
 `;
 
 export default (contentId: string): QueryResult<FragmentPreviewQuery> => {

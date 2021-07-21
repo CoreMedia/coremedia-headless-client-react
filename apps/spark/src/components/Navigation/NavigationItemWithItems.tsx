@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import NavigationItem from "./NavigationItem";
-import NavigatioItemWithPicture from "./NavigationItemWithPicture";
+import NavigationItemWithPicture from "./NavigationItemWithPicture";
 import { Navigation } from "../../models/Navigation/Navigation";
 import NavigationMenu from "./NavigationMenu";
 
@@ -18,7 +18,7 @@ const NavigationItemWithItems: FC<Props> = ({
   depth,
   isTopLevel,
   maxDepth = -1,
-  metadata = {},
+  metadata,
 }) => {
   if (items && items.length > 0) {
     return (
@@ -37,7 +37,7 @@ const NavigationItemWithItems: FC<Props> = ({
     );
   } else {
     return (
-      <NavigatioItemWithPicture
+      <NavigationItemWithPicture
         linkTarget={linkTarget}
         picture={picture}
         title={title}

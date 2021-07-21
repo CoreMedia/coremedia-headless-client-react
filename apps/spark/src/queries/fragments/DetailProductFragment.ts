@@ -6,6 +6,12 @@ export const detailProductFragment = gql`
   fragment DetailProduct on Product {
     ...Product
     longDescription
+    defaultImageUrl
+    category {
+      breadcrumb {
+        externalId
+      }
+    }
     augmentation {
       pictures {
         ...Picture

@@ -1,10 +1,10 @@
 import React from "react";
-import PreviewMetadataProps, { metaDataElement, metaDataProperty } from "../../utils/Preview/MetaData";
+import PreviewMetadata, { metaDataElement, metaDataProperty } from "../../utils/Preview/MetaData";
 import Link from "../Link/Link";
 import "./Tags.scss";
 import { Tag } from "../../models/Banner/Tag";
 
-interface Props extends PreviewMetadataProps {
+interface Props extends PreviewMetadata {
   tags: Array<Tag | null>;
 }
 
@@ -20,7 +20,7 @@ const TagList: React.FC<Props> = ({ tags }) => {
                 taxonomy && (
                   <li key={index} className={`cm-tag__item`} {...metaDataElement(taxonomy.metadata?.root)}>
                     {taxonomy.linkTarget && (
-                      <Link to={taxonomy.linkTarget} {...metaDataProperty(taxonomy.metadata?.name)}>
+                      <Link to={taxonomy.linkTarget} {...metaDataProperty(taxonomy.metadata?.properties?.name)}>
                         {taxonomy.name}
                       </Link>
                     )}

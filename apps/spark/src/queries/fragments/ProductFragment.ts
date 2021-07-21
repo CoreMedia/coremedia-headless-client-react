@@ -17,8 +17,10 @@ export const productFragment = gql`
     category {
       breadcrumb {
         name
+        externalId
       }
     }
+    thumbnailUrl
     augmentation {
       picture {
         ...Picture

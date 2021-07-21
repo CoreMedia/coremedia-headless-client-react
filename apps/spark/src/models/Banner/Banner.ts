@@ -1,5 +1,5 @@
 import { initializePicture, Picture } from "./Picture";
-import PreviewMetadataProps, { getPropertyName } from "../../utils/Preview/MetaData";
+import PreviewMetadata, { getPropertyName } from "../../utils/Preview/MetaData";
 import { Author, initializeAuthor } from "./Author";
 import { Target } from "./Target";
 import { Teasable } from "../../queries/fragments/__generated__/Teasable";
@@ -22,7 +22,7 @@ export interface OverlayConfiguration {
 /**
  * @category ViewModels
  */
-export interface Banner extends PreviewMetadataProps {
+export interface Banner extends PreviewMetadata {
   picture?: Picture;
   title: string | null;
   plaintext: string | null;
@@ -40,9 +40,8 @@ export interface Banner extends PreviewMetadataProps {
 /**
  * Returns a [[Banner]] object based on the GraphQL [[Teasable]]
  * @param self
- * @param rootSegment
  */
-export const initializeBanner = (self: Teasable, rootSegment: string): Banner => {
+export const initializeBanner = (self: Teasable): Banner => {
   const banner: Banner = {
     displayDate: self.extDisplayedDate || self.modificationDate,
     ...mapProperties(self, { text: "teaserText", title: "teaserTitle", plaintext: "plainTeaserText" }),
@@ -57,7 +56,7 @@ export const initializeBanner = (self: Teasable, rootSegment: string): Banner =>
       banner,
       "authors",
       self.authors.map((author) => {
-        return initializeAuthor(author as Person, rootSegment);
+        return initializeAuthor(author as Person);
       }),
       getPropertyName(self, "authors")
     );
@@ -67,7 +66,7 @@ export const initializeBanner = (self: Teasable, rootSegment: string): Banner =>
       .map((teaserTarget) => {
         return (
           teaserTarget && {
-            target: createHref(teaserTarget.target as Linkable, rootSegment) || "",
+            target: createHref(teaserTarget.target as Linkable) || "",
             callToActionEnabled: teaserTarget.callToActionEnabled && true ? teaserTarget.callToActionEnabled : false,
             callToActionText: teaserTarget.callToActionText || undefined,
           }
@@ -82,7 +81,7 @@ export const initializeBanner = (self: Teasable, rootSegment: string): Banner =>
   banner.openInNewTab = false;
   banner.externalLink = false;
 
-  const linkTarget = createHref(self, rootSegment);
+  const linkTarget = createHref(self);
   linkTarget && (banner.linkTarget = linkTarget);
   return banner;
 };

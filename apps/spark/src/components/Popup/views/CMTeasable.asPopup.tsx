@@ -3,7 +3,6 @@ import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 import { Teasable } from "../../../queries/fragments/__generated__/Teasable";
 import { OverlayConfiguration } from "../../ImageMap/ImageMapHelpers";
 import PopupBanner from "../PopupBanner";
-import { useSiteContextState } from "../../../context/SiteContextProvider";
 import { Banner, initializeBanner } from "../../../models/Banner/Banner";
 
 const CMTeasableAsPopup: React.FC<IncludeProps<Teasable>> = ({ self, params }) => {
@@ -17,8 +16,7 @@ const CMTeasableAsPopup: React.FC<IncludeProps<Teasable>> = ({ self, params }) =
     ...params,
   };
 
-  const { rootSegment } = useSiteContextState();
-  const banner: Banner = initializeBanner(self, rootSegment);
+  const banner: Banner = initializeBanner(self);
 
   return <PopupBanner banner={banner} overlay={overlay} />;
 };

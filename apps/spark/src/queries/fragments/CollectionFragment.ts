@@ -5,6 +5,8 @@ import { imageMapFragment } from "./ImageMapFragment";
 import { externalChannelFragment } from "./ExternalChannelFragment";
 import { CMProductFragment } from "./CMProductFragment";
 import { externalLinkFragment } from "./ExternalLinkFragment";
+import { externalProductFragment } from "./ExternalProductFragment";
+import { productRefFragment } from "./ProductRefFragment";
 
 export const collectionFragment = gql`
   fragment Collection on CMCollection {
@@ -17,6 +19,8 @@ export const collectionFragment = gql`
       ...ExternalChannel
       ...CMProduct
       ...ExternalLink
+      ...ProductRef
+      ...ExternalProduct
     }
   }
   ${teasableFragment}
@@ -25,4 +29,6 @@ export const collectionFragment = gql`
   ${externalChannelFragment}
   ${CMProductFragment}
   ${externalLinkFragment}
+  ${productRefFragment}
+  ${externalProductFragment}
 `;

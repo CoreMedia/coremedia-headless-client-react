@@ -14,7 +14,7 @@ const PortraitProductBanner: React.FC<Props> = ({ banner }) => {
   return (
     <div className={`cm-portrait-banner`} {...metaDataElement(banner.metadata?.root)}>
       {banner.picture && (
-        <div className={`cm-portrait-banner__picture`} {...metaDataProperty(banner.metadata?.picture)}>
+        <div className={`cm-portrait-banner__picture`} {...metaDataProperty(banner.metadata?.properties?.picture)}>
           <PortraitResponsiveImage picture={banner.picture} />
         </div>
       )}

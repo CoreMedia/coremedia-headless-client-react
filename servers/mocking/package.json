@@ -19,7 +19,6 @@
     "cors": "2.8.5",
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.2",
-    "fs-extra": "^9.0.1",
     "globby": "^11.0.1",
     "graphql": "^15.5.0",
     "import-fresh": "^3.2.1",
@@ -32,7 +31,7 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
+    "dotenv": "^10.0.0",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.1.2",

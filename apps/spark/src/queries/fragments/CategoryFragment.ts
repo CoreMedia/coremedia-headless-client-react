@@ -9,6 +9,7 @@ export const categoryFragment = gql`
     name
     breadcrumb {
       name
+      externalId
     }
     augmentation {
       __typename

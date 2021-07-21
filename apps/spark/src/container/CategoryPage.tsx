@@ -6,8 +6,11 @@ import { ApolloClientAlert, CategoryNotFoundAlert } from "../components/Error/Al
 import DetailedCategory from "../components/Category/DetailedCategory";
 import { DetailCategory } from "../models/Detail/DetailCategory";
 import { initializeGrid } from "../models/Grid/Grid";
-import { useSiteContextState } from "../context/SiteContextProvider";
 import CategoryByIdQuery from "../queries/CategoryByIdQuery";
+import { getGlobalState } from "../utils/App/GlobalState";
+import SeoHeader from "../components/Header/SeoHeader";
+import RootPreviewId from "../components/FragmentPreview/RootPreviewId";
+import { initializeMetadata } from "../utils/Preview/MetaData";
 
 interface PageProps {
   match: match<RouteProps>;
@@ -20,7 +23,7 @@ interface RouteProps {
 
 const CategoryPage: FC<PageProps> = ({ match }) => {
   let category = null;
-  const { useSeo, siteId } = useSiteContextState();
+  const { useSeo, siteId } = getGlobalState();
   if (useSeo) {
     const { data, loading, error } = CategoryBySeoSegmentQuery(match.params.seoSegment, siteId);
     if (loading) return <Loading />;
@@ -42,8 +45,15 @@ const CategoryPage: FC<PageProps> = ({ match }) => {
   const detailCategory: DetailCategory = {
     ...category,
     grid: category.augmentation && initializeGrid(category.augmentation.grid),
+    ...initializeMetadata(category.augmentation?.content?.id || category.id, "commerce"),
   };
-  return <DetailedCategory {...detailCategory} />;
+  return (
+    <>
+      <SeoHeader title={detailCategory.name} />
+      <RootPreviewId metadataRoot={detailCategory.metadata?.root} />
+      <DetailedCategory {...detailCategory} />
+    </>
+  );
 };
 
 export default CategoryPage;

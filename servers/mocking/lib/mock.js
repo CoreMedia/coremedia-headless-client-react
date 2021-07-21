@@ -1,5 +1,5 @@
 const path = require("path");
-const fs = require("fs-extra");
+const fs = require("fs/promises");
 const globby = require("globby");
 const { pathToRegexp } = require("path-to-regexp");
 const importFresh = require("import-fresh");
