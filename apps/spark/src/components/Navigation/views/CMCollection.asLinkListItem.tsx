@@ -2,7 +2,7 @@ import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 import Include from "../../../utils/ViewDispatcher/Include";
 import { Dispatchable } from "../../../utils/ViewDispatcher/Dispatchable";
-import { Collection } from "../../../queries/fragments/__generated__/Collection";
+import { CollectionForNavigation as Collection } from "../../../queries/fragments/navigation/__generated__/CollectionForNavigation";
 import NavigationItem, { initializeAndConvertParams } from "../NavigationItem";
 import NavigationItemWithItems from "../NavigationItemWithItems";
 import { initializeNavigationFromCollection, Navigation } from "../../../models/Navigation/Navigation";

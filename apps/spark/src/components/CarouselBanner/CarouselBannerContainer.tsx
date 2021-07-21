@@ -3,6 +3,7 @@ import Include from "../../utils/ViewDispatcher/Include";
 import SlotHeader from "../Slot/SlotHeader";
 import Slider, { Settings } from "../Slider/Slider";
 import { Slot } from "../../models/Grid/Slot";
+import { metaDataElement } from "../../utils/Preview/MetaData";
 
 const carouselConfig = (infinite = true): Settings => {
   return {
@@ -61,10 +62,10 @@ interface Props extends Slot {
   infinite?: boolean;
 }
 
-const CarouselBannerContainer: React.FC<Props> = ({ items, title, text, infinite = false }) => {
+const CarouselBannerContainer: React.FC<Props> = ({ items, title, text, infinite = false, metadata }) => {
   return (
-    <div className={"cm-carousel-banner-container"}>
-      <SlotHeader slotTitle={title} slotText={text} />
+    <div className={"cm-carousel-banner-container"} {...metaDataElement(metadata?.root)}>
+      <SlotHeader title={title} text={text} metadata={metadata} />
       <Slider className={"cm-slick-carousel--multiple"} config={carouselConfig(infinite)}>
         {items &&
           items.map((content, index) => {

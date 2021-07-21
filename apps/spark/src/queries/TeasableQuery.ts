@@ -7,6 +7,7 @@ import { videoFragment } from "./fragments/VideoFragment";
 import { productTeaserFragment } from "./fragments/ProductTeaserFragment";
 import { CMProductFragment } from "./fragments/CMProductFragment";
 import { externalLinkFragment } from "./fragments/ExternalLinkFragment";
+import { externalProductFragment } from "./fragments/ExternalProductFragment";
 import { collectionFragment } from "./fragments/CollectionFragment";
 
 const TEASABLE_QUERY = gql`
@@ -20,6 +21,7 @@ const TEASABLE_QUERY = gql`
         ...Video
         ...CMProduct
         ...ExternalLink
+        ...ExternalProduct
         ...Collection
       }
     }
@@ -31,6 +33,7 @@ const TEASABLE_QUERY = gql`
   ${videoFragment}
   ${CMProductFragment}
   ${externalLinkFragment}
+  ${externalProductFragment}
   ${collectionFragment}
 `;
 

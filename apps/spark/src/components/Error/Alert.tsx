@@ -45,5 +45,6 @@ export const ApolloClientAlert: React.FC<Props> = ({ error }) => {
     console.error(error);
   }
   const statusCode = error?.networkError as ServerError;
-  return <Alert errorCode={statusCode?.statusCode || 500} title="Apollo Client Error" message={error?.message} />;
+  const errorMessage = [...new Set(error?.message.split("\n"))].toString().replaceAll(",", "\n"); // filter duplicate messages
+  return <Alert errorCode={statusCode?.statusCode || 500} title="Apollo Client Error" message={errorMessage} />;
 };

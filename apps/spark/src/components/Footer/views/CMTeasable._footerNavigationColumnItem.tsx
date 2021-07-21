@@ -7,7 +7,7 @@ import { Teasable } from "../../../queries/fragments/__generated__/Teasable";
 const FooterNavigationColumnItem: React.FC<IncludeProps<Teasable>> = ({ self }) => {
   return (
     <li className={"cm-footer-navigation-column__item"}>
-      <Link to={self} className={"cm-footer-navigation-column__link"} {...metaDataElement(self.id)}>
+      <Link to={self} className={"cm-footer-navigation-column__link"} {...metaDataElement({ id: self.id })}>
         {self.teaserTitle}
       </Link>
     </li>

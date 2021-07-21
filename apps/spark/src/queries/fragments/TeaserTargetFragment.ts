@@ -19,6 +19,11 @@ export const teaserTargetFragment = gql`
           ...ProductRef
         }
       }
+      ... on CMExternalProduct {
+        productRef {
+          ...ProductRef
+        }
+      }
     }
     callToActionEnabled
     callToActionText

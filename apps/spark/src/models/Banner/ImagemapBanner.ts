@@ -40,11 +40,10 @@ export interface ImagemapBanner extends Banner {
 
 /**
  * Returns an [[ImagemapBanner]] object based on the GraphQL [[ImageMap]]
- * @param person
- * @param rootSegment Needed for link building
+ * @param imageMap
  */
-export const initializeImagemapBanner = (imageMap: ImageMap, rootSegment: string): ImagemapBanner => {
-  const imagemapBanner: ImagemapBanner = initializeBanner(imageMap, rootSegment) as ImagemapBanner;
+export const initializeImagemapBanner = (imageMap: ImageMap): ImagemapBanner => {
+  const imagemapBanner: ImagemapBanner = initializeBanner(imageMap) as ImagemapBanner;
   imagemapBanner.hotzones = imageMap.transformedHotZones as Array<Hotzone>;
   imagemapBanner.overlayConfiguration = { ...imageMap.overlayConfiguration, ...imagemapBanner.overlayConfiguration };
   return imagemapBanner;

@@ -1,18 +1,16 @@
 import * as React from "react";
 import { FC, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useSiteContextState } from "../../context/SiteContextProvider";
+import { getGlobalState } from "../../utils/App/GlobalState";
+
 import "./HeaderSearchForm.scss";
 
 const HeaderSearchForm: FC = () => {
-  const { rootSegment } = useSiteContextState();
   const placeholder = "Search...";
-
   const minLength = 3;
-
   const [value, setValue] = useState<string>("");
-
   const history = useHistory();
+  const { rootSegment } = getGlobalState();
 
   const handleSubmit = (): void => {
     history.push(`/${rootSegment}/search`);

@@ -16,7 +16,7 @@ const HeroBanner: React.FC<Props> = ({ banner }) => {
   return (
     <div className={`cm-hero-banner`} {...metaDataElement(banner.metadata?.root)}>
       {banner.picture && (
-        <div className={`cm-hero-banner__picture`} {...metaDataProperty(banner.metadata?.picture)}>
+        <div className={`cm-hero-banner__picture`} {...metaDataProperty(banner.metadata?.properties?.picture)}>
           <HeroResponsiveImage picture={banner.picture} />
         </div>
       )}

@@ -27,7 +27,11 @@ const PopupBanner: React.FC<Props> = ({ banner, overlay, children }) => {
         <div className="cm-popup__content">
           {banner?.title && overlay.displayTitle && (
             <div className="cm-popup__header">
-              <Link to={banner.linkTarget} className="cm-popup__title" {...metaDataProperty(banner.metadata?.title)}>
+              <Link
+                to={banner.linkTarget}
+                className="cm-popup__title"
+                {...metaDataProperty(banner.metadata?.properties?.title)}
+              >
                 {banner?.title}
               </Link>
             </div>
@@ -37,7 +41,7 @@ const PopupBanner: React.FC<Props> = ({ banner, overlay, children }) => {
             <div
               className="cm-popup__text"
               dangerouslySetInnerHTML={{ __html: banner?.plaintext }}
-              {...metaDataProperty(banner.metadata?.plaintext)}
+              {...metaDataProperty(banner.metadata?.properties?.plaintext)}
             />
           )}
           <CTA targets={banner.targets} />

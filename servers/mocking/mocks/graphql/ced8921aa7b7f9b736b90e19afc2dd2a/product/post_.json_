@@ -16,6 +16,7 @@
         "breadcrumb": [
           {
             "name": "Apparel",
+            "externalId": "Apparel",
             "__typename": "CategoryImpl"
           }
         ],

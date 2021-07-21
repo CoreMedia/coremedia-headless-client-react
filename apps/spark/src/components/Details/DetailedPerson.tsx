@@ -27,13 +27,13 @@ const DetailedPerson: React.FC<DetailAuthor> = ({
           cssClass={"cm-details"}
         />
         {structuredText && (
-          <div className={`cm-details__text`} {...metaDataProperty(metadata.structuredText)}>
+          <div className={`cm-details__text`} {...metaDataProperty(metadata.properties?.structuredText)}>
             <RichText text={structuredText} />
           </div>
         )}
       </article>
       {related && (
-        <section className={`cm-details__related`} {...metaDataProperty(metadata.related)}>
+        <section className={`cm-details__related`} {...metaDataProperty(metadata.properties?.related)}>
           <Related related={related} />
         </section>
       )}

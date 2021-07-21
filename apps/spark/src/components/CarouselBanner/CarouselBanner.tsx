@@ -14,12 +14,13 @@ const CarouselBanner: React.FC<Props> = ({ banner }) => {
   return (
     <div className={`cm-carousel-banner`} {...metaDataElement(banner.metadata?.root)}>
       {banner.picture && (
-        <div className={`cm-carousel-banner__picture`} {...metaDataProperty(banner.metadata?.picture)}>
+        <div className={`cm-carousel-banner__picture`} {...metaDataProperty(banner.metadata?.properties?.picture)}>
           <CarouselResponsiveImage picture={banner.picture} />
         </div>
       )}
       <div className={`cm-carousel-banner__caption`}>
         <BannerCaption {...banner} />
+        DetailedCMProduct.tsx
         {banner.targets && <CTA targets={banner.targets} additionalClass={`cm-carousel-banner__cta`} />}
       </div>
     </div>

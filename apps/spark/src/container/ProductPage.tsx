@@ -6,8 +6,12 @@ import { ApolloClientAlert, ProductNotFoundAlert } from "../components/Error/Ale
 import DetailedProduct from "../components/Product/DetailedProduct";
 import { DetailProduct } from "../models/Detail/DetailProduct";
 import { initializeGrid } from "../models/Grid/Grid";
-import { useSiteContextState } from "../context/SiteContextProvider";
 import ProductByIdQuery from "../queries/ProductByIdQuery";
+import { getGlobalState } from "../utils/App/GlobalState";
+import { initializePicture, Picture } from "../models/Banner/Picture";
+import SeoHeader from "../components/Header/SeoHeader";
+import RootPreviewId from "../components/FragmentPreview/RootPreviewId";
+import { initializeProductBannerFromProduct } from "../models/Banner/ProductBanner";
 
 interface PageProps {
   match: match<RouteProps>;
@@ -20,7 +24,7 @@ interface RouteProps {
 
 const ProductPage: FC<PageProps> = ({ match }) => {
   let product = null;
-  const { useSeo, siteId } = useSiteContextState();
+  const { useSeo, siteId } = getGlobalState();
   if (useSeo) {
     const { data, loading, error } = ProductBySeoSegmentQuery(match.params.seoSegment, siteId);
     if (loading) return <Loading />;
@@ -43,13 +47,34 @@ const ProductPage: FC<PageProps> = ({ match }) => {
     return <ProductNotFoundAlert />;
   }
 
+  let media: Array<Picture> = [];
+  const imageUrl = product.defaultImageUrl || product.thumbnailUrl;
+  if (imageUrl) {
+    media = [{ uriTemplate: imageUrl, title: product.name, alt: product.name, data: null }];
+  }
+  if (product.augmentation && product.augmentation.pictures && product.augmentation.pictures.length > 0) {
+    media = product.augmentation?.pictures.map((item: any) => {
+      return initializePicture(item);
+    });
+  }
+
   const detailProduct: DetailProduct = {
-    ...product,
-    pictures: product.augmentation && product.augmentation?.pictures,
+    ...initializeProductBannerFromProduct(product),
+    name: product.name,
+    shortDescription: product.shortDescription,
+    longDescription: product.longDescription,
+    shopNowConfiguration: true,
+    pictures: media,
     grid: product.augmentation && initializeGrid(product.augmentation.grid),
   };
 
-  return <DetailedProduct {...detailProduct} />;
+  return (
+    <>
+      <SeoHeader title={detailProduct.name} />
+      <RootPreviewId metadataRoot={detailProduct.metadata?.root} />
+      <DetailedProduct {...detailProduct} />
+    </>
+  );
 };
 
 export default ProductPage;

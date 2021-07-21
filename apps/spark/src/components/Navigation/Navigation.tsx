@@ -5,17 +5,11 @@ import { initializeNavigationFromNavigation } from "../../models/Navigation/Navi
 
 const Navigation: React.FC = () => {
   const { navigation } = useSiteContextState();
-  const { rootSegment } = useSiteContextState();
 
   return (
     <li id="cm-navigation" className={`cm-navigation`}>
       {navigation && (
-        <NavigationMenu
-          {...initializeNavigationFromNavigation(navigation, rootSegment)}
-          maxDepth={3}
-          depth={0}
-          isTopLevel={true}
-        />
+        <NavigationMenu {...initializeNavigationFromNavigation(navigation)} maxDepth={3} depth={0} isTopLevel={true} />
       )}
     </li>
   );

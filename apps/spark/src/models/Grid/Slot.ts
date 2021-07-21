@@ -1,5 +1,5 @@
 import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
-import PreviewMetadataProps, { MetadataId } from "../../utils/Preview/MetaData";
+import PreviewMetadata from "../../utils/Preview/MetaData";
 import { PageGridPlacement } from "../../queries/fragments/__generated__/PageGridPlacement";
 import { mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
 import { Collection } from "../../queries/fragments/__generated__/Collection";
@@ -7,7 +7,7 @@ import { Collection } from "../../queries/fragments/__generated__/Collection";
 /**
  * @category ViewModels
  */
-export interface Slot extends PreviewMetadataProps {
+export interface Slot extends PreviewMetadata {
   text?: string;
   title?: string;
   items: Array<Dispatchable | null> | null;
@@ -18,11 +18,7 @@ export interface Slot extends PreviewMetadataProps {
  * @param self
  */
 export const initializeSlotFromPageGridPlacement = (self: PageGridPlacement): Slot => {
-  return {
-    metadata: { root: self.id as MetadataId, items: "properties.items" },
-    items: self.items,
-    ...mapProperties(self, { items: "items" }),
-  };
+  return { items: self.items };
 };
 
 /**

@@ -11,6 +11,9 @@ export const detailCategoryFragment = gql`
     products {
       ...Product
     }
+    breadcrumb {
+      externalId
+    }
     shortDescription
     longDescription
     children {
@@ -22,6 +25,9 @@ export const detailCategoryFragment = gql`
     augmentation {
       grid {
         ...PageGrid
+      }
+      content {
+        id
       }
     }
   }

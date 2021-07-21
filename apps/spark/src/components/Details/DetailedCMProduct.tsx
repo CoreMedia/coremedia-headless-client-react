@@ -18,23 +18,23 @@ const DetailedCMProduct: React.FC<DetailCMProduct> = ({
   return (
     <div className={`cm-details cm-details--product`} {...metaDataElement(metadata.root)}>
       <article className={`cm-details__content`}>
-        <h1 className={`cm-details__headline`} {...metaDataProperty(metadata.title)}>
+        <h1 className={`cm-details__headline`} {...metaDataProperty(metadata.properties?.title)}>
           {title}
         </h1>
 
         <DetailedMedia media={media} />
         {productCode && (
-          <div className={`cm-details__code`} {...metaDataProperty(metadata.productCode)}>
+          <div className={`cm-details__code`} {...metaDataProperty(metadata.properties?.productCode)}>
             <span>Product Code</span> {productCode}
           </div>
         )}
         {structuredText && (
-          <div className={`cm-details__text`} {...metaDataProperty(metadata.structuredText)}>
+          <div className={`cm-details__text`} {...metaDataProperty(metadata.properties?.structuredText)}>
             <RichText text={structuredText} />
           </div>
         )}
         {downloads && downloads.length > 0 && (
-          <div className={`cm-details__downloads cm-downloads`} {...metaDataElement(metadata.downloads)}>
+          <div className={`cm-details__downloads cm-downloads`} {...metaDataProperty(metadata.properties?.downloads)}>
             <h3>Downloads</h3>
             <ul className={"cm-downloads__items"}>
               {downloads.map((item, index) => {
@@ -51,7 +51,7 @@ const DetailedCMProduct: React.FC<DetailCMProduct> = ({
         )}
       </article>
       {related && (
-        <section className={`cm-details__related`} {...metaDataElement(metadata.related)}>
+        <section className={`cm-details__related`} {...metaDataProperty(metadata.properties?.related)}>
           <Related related={related} />
         </section>
       )}

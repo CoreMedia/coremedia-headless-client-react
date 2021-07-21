@@ -18,11 +18,11 @@ const SearchBanner: React.FC<Props> = ({ banner }) => {
         </Link>
       )}
       <div className={"cm-search-result__caption"}>
-        <h3 className={"cm-search-result__title"} {...metaDataProperty(banner.metadata?.title)}>
+        <h3 className={"cm-search-result__title"} {...metaDataProperty(banner.metadata?.properties?.title)}>
           <Link to={banner.linkTarget}>{banner?.title}</Link>
         </h3>
         {banner?.plaintext && (
-          <p className={"cm-search-result__text"} {...metaDataProperty(banner.metadata?.text)}>
+          <p className={"cm-search-result__text"} {...metaDataProperty(banner.metadata?.properties?.text)}>
             <span className={"cm-search-result__date"}>
               <Date date={banner.displayDate} />
             </span>

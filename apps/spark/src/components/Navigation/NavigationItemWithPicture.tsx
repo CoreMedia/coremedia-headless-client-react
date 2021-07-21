@@ -10,12 +10,12 @@ interface Props extends Navigation {
   isTopLevel: boolean;
 }
 
-const NavigatioItemWithPicture: FC<Props> = ({ linkTarget, title, picture, depth, isTopLevel, metadata = {} }) => {
+const NavigationItemWithPicture: FC<Props> = ({ linkTarget, title, picture, depth, isTopLevel, metadata }) => {
   return (
     <NavigationItem linkTarget={linkTarget} title={title} depth={depth} isTopLevel={isTopLevel} metadata={metadata}>
       {picture && depth === 2 && (
         <Link to={linkTarget} className="cm-navigation-item__picture-link">
-          <div className={`cm-navigation-item__picture`} {...metaDataProperty(metadata.picture)}>
+          <div className={`cm-navigation-item__picture`} {...metaDataProperty(metadata?.properties?.picture)}>
             <Image picture={picture} width={208} cropName={"landscape_ratio16x9"} />
           </div>
         </Link>
@@ -23,4 +23,4 @@ const NavigatioItemWithPicture: FC<Props> = ({ linkTarget, title, picture, depth
     </NavigationItem>
   );
 };
-export default NavigatioItemWithPicture;
+export default NavigationItemWithPicture;

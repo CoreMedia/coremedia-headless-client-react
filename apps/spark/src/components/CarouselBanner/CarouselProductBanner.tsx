@@ -14,7 +14,7 @@ const CarouselProductBanner: React.FC<Props> = ({ banner }) => {
   return (
     <div className={`cm-carousel-banner`} {...metaDataElement(banner.metadata?.root)}>
       {banner.picture && (
-        <div className={`cm-carousel-banner__picture`} {...metaDataProperty(banner.metadata?.picture)}>
+        <div className={`cm-carousel-banner__picture`} {...metaDataProperty(banner.metadata?.properties?.picture)}>
           <CarouselResponsiveImage picture={banner.picture} />
         </div>
       )}

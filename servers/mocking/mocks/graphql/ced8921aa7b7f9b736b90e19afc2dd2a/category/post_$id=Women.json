@@ -9,10 +9,12 @@
       "breadcrumb": [
         {
           "name": "Apparel",
+          "externalId": "Apparel",
           "__typename": "CategoryImpl"
         },
         {
           "name": "Women",
+          "externalId": "Women",
           "__typename": "CategoryImpl"
         }
       ],
@@ -27,14 +29,17 @@
           "breadcrumb": [
             {
               "name": "Apparel",
+              "externalId": "Apparel",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Women",
+              "externalId": "Women",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Dresses",
+              "externalId": "Dresses",
               "__typename": "CategoryImpl"
             }
           ],
@@ -50,14 +55,17 @@
           "breadcrumb": [
             {
               "name": "Apparel",
+              "externalId": "Apparel",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Women",
+              "externalId": "Women",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Blouses",
+              "externalId": "Women Shirts Blouses",
               "__typename": "CategoryImpl"
             }
           ],
@@ -73,14 +81,17 @@
           "breadcrumb": [
             {
               "name": "Apparel",
+              "externalId": "Apparel",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Women",
+              "externalId": "Women",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Sweaters",
+              "externalId": "Women Sweaters",
               "__typename": "CategoryImpl"
             }
           ],
@@ -96,14 +107,17 @@
           "breadcrumb": [
             {
               "name": "Apparel",
+              "externalId": "Apparel",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Women",
+              "externalId": "Women",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Skirts",
+              "externalId": "Women Skirts",
               "__typename": "CategoryImpl"
             }
           ],
@@ -119,14 +133,17 @@
           "breadcrumb": [
             {
               "name": "Apparel",
+              "externalId": "Apparel",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Women",
+              "externalId": "Women",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Pants",
+              "externalId": "Women Pants",
               "__typename": "CategoryImpl"
             }
           ],
@@ -142,14 +159,17 @@
           "breadcrumb": [
             {
               "name": "Apparel",
+              "externalId": "Apparel",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Women",
+              "externalId": "Women",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Shoes",
+              "externalId": "Women Shoes",
               "__typename": "CategoryImpl"
             }
           ],
@@ -165,14 +185,17 @@
           "breadcrumb": [
             {
               "name": "Apparel",
+              "externalId": "Apparel",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Women",
+              "externalId": "Women",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Handbags",
+              "externalId": "Women Handbags",
               "__typename": "CategoryImpl"
             }
           ],
@@ -188,14 +211,17 @@
           "breadcrumb": [
             {
               "name": "Apparel",
+              "externalId": "Apparel",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Women",
+              "externalId": "Women",
               "__typename": "CategoryImpl"
             },
             {
               "name": "Accessories",
+              "externalId": "Women Accessories",
               "__typename": "CategoryImpl"
             }
           ],

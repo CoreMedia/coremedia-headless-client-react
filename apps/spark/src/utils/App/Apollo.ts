@@ -4,6 +4,8 @@
  * @packageDocumentation
  */
 import { ApolloClient, ApolloLink, concat, HttpLink, InMemoryCache } from "@apollo/client";
+import { createPersistedQueryLink } from "@apollo/client/link/persisted-queries";
+import { sha256 } from "crypto-hash";
 import possibleTypes from "../../__downloaded__/possibleTypes.json";
 import { getEndpoint } from "./App";
 import { formatPreviewDate, isPreview } from "../Preview/Preview";
@@ -75,17 +77,23 @@ const createPreviewMiddleWare = (previewDate: string): ApolloLink => {
  * a new instance of the client is created.
  * @category Apollo
  * @param newPreviewDate optional preview date used for Time Travel in CoreMedia Studio Preview
+ * @param apqEnabled set to true to use APQ via GET requests
  */
-export const initializeApollo = (newPreviewDate: string | undefined): ApolloClient<unknown> => {
+export const initializeApollo = (newPreviewDate: string | undefined, apqEnabled: boolean): ApolloClient<unknown> => {
   // Create the Apollo Client once in the client, if not changed or previewDate is set
   if (!apolloClient || newPreviewDate) {
-    newPreviewDate && console.log("Time travel is activated.", newPreviewDate);
     let link: ApolloLink = new HttpLink({
       uri: getEndpoint(),
     });
     if (newPreviewDate && isPreview()) {
+      console.log("Time travel is activated.", newPreviewDate);
       const previewMiddleware = createPreviewMiddleWare(newPreviewDate);
       link = previewMiddleware ? concat(previewMiddleware, link) : link;
+    }
+    if (apqEnabled) {
+      console.log("Automatic persistent queries are activated.");
+      const persistedQueriesLink = createPersistedQueryLink({ sha256, useGETForHashedQueries: true });
+      link = persistedQueriesLink.concat(link);
     }
     // Set global state
     apolloClient = createApolloClient(link);

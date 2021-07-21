@@ -1,4 +1,5 @@
 import { Dispatchable } from "./Dispatchable";
+import { PreviewMetadataProps } from "../Preview/MetaData";
 
 export interface AdditionalIncludeParams {
   [key: string]:
@@ -6,6 +7,7 @@ export interface AdditionalIncludeParams {
     | number
     | boolean
     | Dispatchable
+    | PreviewMetadataProps<any>
     | string[]
     | number[]
     | boolean[]

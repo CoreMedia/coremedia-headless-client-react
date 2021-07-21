@@ -48,7 +48,8 @@
     }
 
     &__text {
-      margin-bottom: 12px
+      --max-lines: 2;
+      margin-bottom: 12px;
     }
 
     &__title,
@@ -62,5 +63,9 @@
     &__title:hover {
       text-decoration: underline;
     }
+  }
+
+  .cm-pricing {
+    color: #fff;
   }
 }

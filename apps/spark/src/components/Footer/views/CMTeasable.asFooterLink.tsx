@@ -6,7 +6,7 @@ import { metaDataElement } from "../../../utils/Preview/MetaData";
 
 const CMTeasableAsFooterLink: React.FC<IncludeProps<Teasable>> = ({ self }) => {
   return (
-    <Link to={self} className={"cm-footer__link"} {...metaDataElement(self.id)}>
+    <Link to={self} className={"cm-footer__link"} {...metaDataElement({ id: self.id })}>
       {self.teaserTitle}
     </Link>
   );

@@ -2,13 +2,11 @@ import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 import { CMProduct } from "../../../queries/fragments/__generated__/CMProduct";
 import LeftRightBanner from "../LeftRightBanner";
-import { useSiteContextState } from "../../../context/SiteContextProvider";
 import { Banner } from "../../../models/Banner/Banner";
 import { initializeCMProduct } from "../../../models/Banner/CMProduct";
 
 const CMProductAsLeftRightBanner: React.FC<IncludeProps<CMProduct>> = ({ self }) => {
-  const { rootSegment } = useSiteContextState();
-  const banner: Banner = initializeCMProduct(self, rootSegment);
+  const banner: Banner = initializeCMProduct(self);
   return <LeftRightBanner banner={banner} />;
 };
 

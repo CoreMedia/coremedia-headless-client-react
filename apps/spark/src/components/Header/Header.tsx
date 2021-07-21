@@ -1,15 +1,15 @@
 import React, { FC, useState } from "react";
-import { useSiteContextState } from "../../context/SiteContextProvider";
 import Link from "../Link/Link";
 import Navigation from "../Navigation/Navigation";
 import HeaderSearchForm from "../Search/HeaderSearchForm";
 import LanguageChooser from "./LanguageChooser";
+import { getGlobalState } from "../../utils/App/GlobalState";
 
 import "./Header.scss";
 
 const Header: FC = () => {
-  const { rootSegment } = useSiteContextState();
   const [toggled, setToggeled] = useState(false);
+  const { rootSegment } = getGlobalState();
   return (
     <header id="cm-header" className="cm-header">
       <div className="cm-header__wrapper">

@@ -14,6 +14,9 @@ const { logger } = require("./logger");
 function createServer(options) {
   options = getOptions(options);
 
+  // enable SSL for self-signed certs
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
   const app = express()
     .disable("x-powered-by")
     .set("port", options.port)

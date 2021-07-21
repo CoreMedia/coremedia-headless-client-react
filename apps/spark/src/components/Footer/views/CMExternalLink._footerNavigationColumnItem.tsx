@@ -10,7 +10,7 @@ const FooterNavigationColumnItem: React.FC<IncludeProps<ExternalLink>> = ({ self
       <Link
         to={self.url}
         className={"cm-footer-navigation-column__link"}
-        {...metaDataElement(self.id)}
+        {...metaDataElement({ id: self.id })}
         openInNewTab={self.openInNewTab || false}
         externalLink={true}
       >

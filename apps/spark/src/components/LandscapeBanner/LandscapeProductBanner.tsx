@@ -14,7 +14,7 @@ const LandscapeProductBanner: React.FC<Props> = ({ banner }) => {
   return (
     <div className={`cm-landscape-banner`} {...metaDataElement(banner.metadata?.root)}>
       {banner.picture && (
-        <div className={`cm-landscape-banner__picture`} {...metaDataProperty(banner.metadata?.picture)}>
+        <div className={`cm-landscape-banner__picture`} {...metaDataProperty(banner.metadata?.properties?.picture)}>
           <LandscapeResponsiveImage picture={banner.picture} />
         </div>
       )}

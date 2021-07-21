@@ -1,5 +1,5 @@
 const path = require("path");
-const fs = require("fs-extra");
+const fs = require("fs/promises");
 const mime = require("mime-types");
 const { logger } = require("./logger");
 
@@ -70,7 +70,7 @@ async function appendToMockCollection(mock, outputFile) {
     outputFile += mockCollectionExt;
   }
 
-  const mocks = (await fs.pathExists(outputFile)) ? await getMocksFromCollections(process.cwd(), [outputFile]) : [];
+  const mocks = (await fs.access(outputFile)) ? await getMocksFromCollections(process.cwd(), [outputFile]) : [];
   return writeMockCollection(mocks.concat(mock), outputFile);
 }
 
@@ -86,7 +86,7 @@ async function writeMock(mock, outputFolder, depth) {
   }
 
   const outputFile = path.join(outputFolder, buildFile(mock, depth));
-  await fs.mkdirp(path.dirname(outputFile));
+  await fs.mkdir(path.dirname(outputFile), { recursive: true });
   await fs.writeFile(outputFile, content);
 }
 
@@ -105,7 +105,7 @@ async function writeMockCollection(mocks, outputFile) {
   let collection = indent(mocks.map((mock) => `"${buildFile(mock, 0)}": ${stringifyMockData(mock)}`).join(",\n"));
   collection = `module.exports = {\n${collection}\n};\n`;
 
-  await fs.mkdirp(path.dirname(outputFile));
+  await fs.mkdir(path.dirname(outputFile), { recursive: true });
   await fs.writeFile(outputFile, collection);
 }
 

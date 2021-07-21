@@ -154,4 +154,8 @@ export const fragmentsByType: {
       viewName: "asContainer[carousel]",
     },
   ],
+  CMExternalProduct: {
+    viewName: "asPreview",
+    title: "Full Page",
+  },
 };

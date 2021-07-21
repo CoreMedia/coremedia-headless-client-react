@@ -9,7 +9,7 @@ const CMExternalLinkAsFooterLink: React.FC<IncludeProps<ExternalLink>> = ({ self
     <Link
       to={self.url}
       className={"cm-footer__link"}
-      {...metaDataElement(self.id)}
+      {...metaDataElement({ id: self.id })}
       openInNewTab={self.openInNewTab || false}
       externalLink={true}
     >

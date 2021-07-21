@@ -41,5 +41,9 @@
   ],
   "dependencies": {
     "concurrently": "^6.0.0"
+  },
+  "resolutions": {
+    "**/glob-parent": "^5.1.2",
+    "**/browserslist": "^4.16.5"
   }
 }
