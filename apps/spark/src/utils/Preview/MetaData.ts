@@ -97,18 +97,12 @@ export const metaDataForResponsiveDevices = (): metadata => {
   const metadata = [
     {
       cm_responsiveDevices: {
-        mobile_portrait: {
-          width: 414,
-          height: 736,
-          order: 1,
-          isDefault: "true",
-        },
+        mobile_portrait: { width: 414, height: 736, order: 1, isDefault: "true" },
         mobile_landscape: { width: 736, height: 414, order: 2 },
         tablet_portrait: { width: 768, height: 1024, order: 3 },
         tablet_landscape: { width: 1024, height: 768, order: 4 },
-        desktop: { width: 1200, order: 5 },
       },
-      cm_preferredWidth: 1280,
+      cm_preferredWidth: 1200,
     },
   ];
 

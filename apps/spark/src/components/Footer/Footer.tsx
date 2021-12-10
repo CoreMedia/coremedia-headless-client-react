@@ -4,6 +4,7 @@ import Include from "../../utils/ViewDispatcher/Include";
 import { useSiteContextState } from "../../context/SiteContextProvider";
 import { metaDataForPlacement } from "../../utils/Preview/MetaData";
 import { Col } from "../../models/Grid/Grid";
+import { getWorkspaceVersion } from "../../utils/App/App";
 
 import "./Footer.scss";
 
@@ -16,7 +17,7 @@ const Footer: FC = () => {
     <div className={`cm-placement cm-placement--${name}`} {...(placement && metaDataForPlacement(placement))}>
       <footer id={`cm-${name}`} className={"cm-footer"}>
         <div className={"cm-footer__wrapper"}>
-          <div className={"cm-footer__copyright"}>© 2021 CoreMedia GmbH</div>
+          <div className={"cm-footer__copyright"}>© CoreMedia GmbH</div>
 
           {items && (
             <ul className={"cm-footer__links"}>
@@ -43,6 +44,9 @@ const Footer: FC = () => {
             <a href="https://www.youtube.com/user/coremediachannel" target="_blank" rel="noopener noreferrer">
               <i className="social-icon youtube" />
             </a>
+          </div>
+          <div className="cm-footer__version">
+            Version: <b>{getWorkspaceVersion()}</b>
           </div>
         </div>
       </footer>

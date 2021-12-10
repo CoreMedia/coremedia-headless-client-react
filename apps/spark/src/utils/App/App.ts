@@ -1,3 +1,5 @@
+import { version } from "../../__generated__/version.json";
+
 /**
  * Returns the GraphQL URL Endpoint
  * @category App
@@ -58,4 +60,8 @@ export const getRootSegment = (path: string): string | undefined => {
  */
 export const isAPQEnabled = () => {
   return process.env.REACT_APP_APQ_ENABLED === "true";
+};
+
+export const getWorkspaceVersion = () => {
+  return version;
 };

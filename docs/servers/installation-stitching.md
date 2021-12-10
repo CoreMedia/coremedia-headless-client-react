@@ -15,8 +15,8 @@ cd servers/stitching
 ## Installation
 
 ```bash
-yarn install
-yarn build
+pnpm install
+pnpm build
 ```
 Copy of the file .env.example to .env and configure both endpoints. To establish the default
 mocking mode the CATALOG_ENDPOINT can be left commented out. In a "real" scenario you would
@@ -30,7 +30,7 @@ COREMEDIA_ENDPOINT=http://<coremedia-headless-server>/graphql
 ## Usage
 
 ```bash
-yarn start
+pnpm start
 ```
 
 ## Building the Docker Container

@@ -21,9 +21,11 @@ export interface Author extends PreviewMetadata {
  */
 export const initializeAuthor = (person: Person): Author => {
   const author: Author = {
+    ...mapProperties(person, { title: "title", picture: "picture" }),
     linkTarget: createHref(person),
-    ...mapProperties(person, { text: "teaserText", title: "title", picture: "picture" }),
   };
+  (person.teaserText?.text ?? person.teaserText?.text !== undefined) &&
+    addProperty(author, "text", person.teaserText?.text, getPropertyName(person, "teaserText"));
   const displayName: string | undefined =
     ((person.displayName || person.firstName || person.lastName) && person.displayName) ||
     `${person.firstName} ${person.lastName}`;

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { match } from "react-router";
+import { match } from "react-router-dom";
 import PageByPathQuery from "../queries/PageByPathQuery";
 import PageGrid from "../components/PageGrid/PageGrid";
 import Loading from "../components/Loading/Loading";

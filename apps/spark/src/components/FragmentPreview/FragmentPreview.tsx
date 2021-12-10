@@ -18,6 +18,7 @@ const FragmentPreview: React.FC<Props> = ({ self, fragments }) => {
     return <Include self={self} view={fragments.viewName} />;
   }
 
+  document.body.classList.add("cm-app--preview");
   return (
     <div className={"cm-preview"} {...metaDataForResponsiveDevices()}>
       <FragmentPreviewContextProvider type={self.__typename}>

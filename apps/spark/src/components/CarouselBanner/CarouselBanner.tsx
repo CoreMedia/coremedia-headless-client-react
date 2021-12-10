@@ -20,7 +20,6 @@ const CarouselBanner: React.FC<Props> = ({ banner }) => {
       )}
       <div className={`cm-carousel-banner__caption`}>
         <BannerCaption {...banner} />
-        DetailedCMProduct.tsx
         {banner.targets && <CTA targets={banner.targets} additionalClass={`cm-carousel-banner__cta`} />}
       </div>
     </div>

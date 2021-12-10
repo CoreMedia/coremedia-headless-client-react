@@ -6,11 +6,11 @@
 
 # Deployment
 
-Run `yarn build` to build the app for production to the `build` folder.<br />
-It runs `yarn apollo:codegen` automatically before building the app.
+Run `pnpm build` to build the app for production to the `build` folder.<br />
+It runs `pnpm apollo:codegen` automatically before building the app.
 
 If you have changed the schema of the headless server, you need to run 
-`yarn download` before to update the local copies of the files.
+`pnpm download` before to update the local copies of the files.
 
 It bundles React in production mode and optimizes the build for the best performance. 
 It is minified and the filenames include the hashes.<br />

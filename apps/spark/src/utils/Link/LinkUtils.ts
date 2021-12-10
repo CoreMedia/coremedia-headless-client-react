@@ -7,6 +7,7 @@ import { ExternalChannel } from "../../queries/fragments/__generated__/ExternalC
 import { getFQDN } from "../App/App";
 import qs, { StringifiableRecord } from "query-string";
 import { getGlobalState } from "../App/GlobalState";
+import { Tag } from "../../queries/fragments/__generated__/Tag";
 
 const hasDetailPage: Array<string> = ["CMArticleImpl", "CMVideoImpl", "CMProductImpl"];
 const hasPage: Array<string> = ["CMChannelImpl", "CMExternalPageImpl"];
@@ -111,6 +112,16 @@ export const createHref = (self: Linkable, params?: StringifiableRecord): string
           externalChannel.categoryRef.category &&
           createCategoryHref(externalChannel.categoryRef.category as Category)) ||
         "";
+    } else if (self.__typename === "CMTaxonomyImpl") {
+      const tag: Tag = self as Tag;
+      self.navigationPath &&
+        self.navigationPath.slice(0, self.navigationPath.length - 1).map((item) => {
+          item && (path += `${formatSegmentForUrl((item as Tag).value)}/`);
+          return true;
+        });
+      const { rootSegment } = getGlobalState();
+      path = `/${rootSegment}/tag${path}`;
+      path += `${formatSegmentForUrl(tag.value)}-${tag.id}`;
     } else {
       console.debug(`No linkbuilding for ${self.__typename} has been implemented yet`);
     }

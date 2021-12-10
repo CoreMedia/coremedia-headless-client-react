@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
 import { logfile } from "./logger";
 import actuator from "express-actuator";
+import { RequestHandler } from "express";
 
 const envEndpoint = () => {
   return (req, res) => {
@@ -20,7 +21,7 @@ const logfileEndpoint = () => {
   };
 };
 
-export const createActuator = () => {
+export const createActuator = (): RequestHandler => {
   const options: actuator.Options = {
     basePath: "/actuator", // It will set /actuator/info instead of /info
     infoGitMode: "simple", // the amount of git information you want to expose, 'simple' or 'full',

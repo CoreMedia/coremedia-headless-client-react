@@ -11,7 +11,9 @@ const FRAGMENT_PREVIEW_QUERY = gql`
   }
   fragment StandaloneTeasable on CMTeasable {
     id
-    plainTeaserText: teaserText(view: "plainFirstParagraph")
+    teaserText {
+      plaintext: text(view: "plainFirstParagraph")
+    }
     teaserTitle
     picture {
       ...StandalonePicture

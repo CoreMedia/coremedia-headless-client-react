@@ -1,14 +1,33 @@
-import React, { ChangeEventHandler } from "react";
+import React, { FormEvent, useEffect, useMemo, useState } from "react";
+import { useSearchStateContextState } from "../../context/SearchStateContext";
+import { useHistory, useLocation } from "react-router-dom";
 
-interface Props {
-  query?: string;
-  onQueryChange?: ChangeEventHandler;
-}
+const SearchQuery: React.FC = () => {
+  const { setQuery, query } = useSearchStateContextState();
+  const [searchQuery, setSearchQuery] = useState(query);
 
-const SearchQuery: React.FC<Props> = ({ query, onQueryChange }) => {
+  const history = useHistory();
+  const location = useLocation();
+  const urlSearchParams = useMemo(() => new URLSearchParams(location.search), [location.search]);
+
+  useEffect(() => {
+    const urlSearchParams = new URLSearchParams(location.search);
+    setSearchQuery(urlSearchParams.get("query") || "");
+  }, [location.search]);
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    if (searchQuery && searchQuery !== query) {
+      setQuery(searchQuery);
+      urlSearchParams.set("query", searchQuery);
+      location.search = urlSearchParams.toString();
+      history.push(location);
+    }
+  };
+
   return (
     <div className="cm-search--form-result-page ">
-      <form className="cm-search--form" autoComplete="off" role="search">
+      <form onSubmit={onSubmit} className="cm-search--form" autoComplete="off" role="search">
         <fieldset className="cm-search__form-fieldset">
           <label htmlFor="cm-search-result-page-query" className="cm-search__form-label">
             Search
@@ -18,8 +37,8 @@ const SearchQuery: React.FC<Props> = ({ query, onQueryChange }) => {
             placeholder="Search..."
             type="search"
             className="cm-search__form-input"
-            value={query}
-            onChange={onQueryChange}
+            value={searchQuery}
+            onChange={(event) => setSearchQuery(event.target.value)}
             name="query"
           />
         </fieldset>

@@ -23,9 +23,7 @@ const DetailPage: FC<DetailViewProps> = ({ match }) => {
   return (
     <>
       <div id="cm-placement-main" className="cm-placement cm-placement--main">
-        <div className="cm-details-container">
-          {data.content.content && <Include self={data.content.content} view={"asDetail"} />}
-        </div>
+        {data.content.content && <Include self={data.content.content} view={"asDetail"} />}
       </div>
     </>
   );

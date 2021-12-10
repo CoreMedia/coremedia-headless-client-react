@@ -26,9 +26,10 @@ export const initializeDetailAuthor = (self: GraphQLDetailPerson): DetailAuthor 
       organization: "organization",
       jobTitle: "jobTitle",
       eMail: "eMail",
-      structuredText: "detailTextAsTree",
     }),
   };
+  (self.detailText?.textAsTree ?? self.detailText?.textAsTree !== undefined) &&
+    addProperty(detail, "structuredText", self.detailText.textAsTree, getPropertyName(self, "detailText"));
   self.related && addProperty(detail, "related", self.related, getPropertyName(self, "related"));
   return detail;
 };

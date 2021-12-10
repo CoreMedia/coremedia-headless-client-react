@@ -11,8 +11,10 @@ export const teasableFragment = gql`
     picture {
       ...Picture
     }
-    teaserText
-    plainTeaserText: teaserText(view: "plainFirstParagraph")
+    teaserText {
+      text
+      plaintext: text(view: "plainFirstParagraph")
+    }
     teaserTitle
     teaserOverlaySettings {
       ...TeasableOverlaySettings

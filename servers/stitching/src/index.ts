@@ -1,23 +1,45 @@
-import makeRemoteExecutor from "./makeRemoteExecutor";
 import logger from "./logger";
-import { introspectSchema, wrapSchema } from "@graphql-tools/wrap";
-import { stitchSchemas } from "@graphql-tools/stitch";
-import { config } from "dotenv";
 import express from "express";
 import proxy from "express-http-proxy";
 import cors from "cors";
-import { graphqlHTTP } from "express-graphql";
 import { resolvers } from "./resolvers";
-import { defaultQueryString } from "./graphiqlDefaultQuery";
+import { stitchSchemas } from "@graphql-tools/stitch";
+import { config } from "dotenv";
+import { ApolloServer } from "apollo-server-express";
+import {
+  ApolloServerPluginDrainHttpServer,
+  ApolloServerPluginLandingPageLocalDefault,
+  ApolloServerPluginLandingPageProductionDefault,
+} from "apollo-server-core";
+import { loadSchema } from "@graphql-tools/load";
+import { UrlLoader } from "@graphql-tools/url-loader";
+import * as http from "http";
+import { Server } from "http";
 import { createActuator } from "./actuator";
+import { print } from "graphql";
+import { wrapSchema } from "@graphql-tools/wrap";
+import { Executor } from "@graphql-tools/utils";
+import fetch from "cross-undici-fetch";
+import { graphqlHTTP } from "express-graphql";
+import { defaultQueryString } from "./graphiqlDefaultQuery";
 
 const makeGatewaySchema = async () => {
   config();
 
   try {
     logger.info("Fetching schemas from both GraphQL endpoints");
-    const coreMediaSchema = makeRemoteExecutor(coreMediaHeadlessServerEndpoint());
-    const catalogSchema = makeRemoteExecutor(commerceCatalogEndpoint());
+
+    logger.info(`Loading schema from ${coreMediaHeadlessServerEndpoint()} (Headless Server).`);
+    const coreMediaSchema = await loadSchema(coreMediaHeadlessServerEndpoint(), {
+      loaders: [new UrlLoader()],
+    });
+    logger.info(`Successfully loaded schema from coreMediaHeadlessServerEndpoint.`);
+
+    logger.info(`Loading schema from ${commerceCatalogEndpoint()} (Headless Commerce Server).`);
+    const catalogSchema = await loadSchema(commerceCatalogEndpoint(), {
+      loaders: [new UrlLoader()],
+    });
+    logger.info(`Successfully loaded schema from commerceCatalogEndpoint.`);
 
     // Schema extensions
     const linkSchemaDefs = `
@@ -44,35 +66,34 @@ const makeGatewaySchema = async () => {
         }
   `;
 
-    const wrappedCatalogSchema = wrapSchema({
-      schema: await introspectSchema(catalogSchema),
-      executor: catalogSchema,
-    });
-
-    const wrappedCoreMediaSchema = wrapSchema({
-      schema: await introspectSchema(coreMediaSchema),
-      executor: coreMediaSchema,
-    });
-
     return stitchSchemas({
-      subschemas: [
-        {
-          schema: wrappedCatalogSchema,
-          executor: catalogSchema,
-        },
-        {
-          schema: wrappedCoreMediaSchema,
-          executor: coreMediaSchema,
-        },
-      ],
-      resolvers: resolvers(wrappedCoreMediaSchema, wrappedCatalogSchema),
+      subschemas: [wrapSchema({ schema: coreMediaSchema, executor: executor }), catalogSchema],
+      resolvers: resolvers(coreMediaSchema, catalogSchema),
       typeDefs: linkSchemaDefs,
     });
   } catch (error) {
     logger.error("Could not retrieve and stitch schemas.");
-    logger.debug(error, error.message);
+    logger.error(error, error.message);
     process.exit(1);
   }
+};
+
+// Executor to query subschema endpoint. Forwards headers from the context
+const executor: Executor = async ({ document, variables, context }) => {
+  const query = print(document);
+  const newHeaders = { ...context.request.headers };
+  // remove host header to prevent issues with subschema service accepting it.
+  newHeaders["host"] = "";
+  // set correct content length for changed request.
+  newHeaders["content-length"] = JSON.stringify({ query, variables }).length;
+  const fetchResult = await fetch(coreMediaHeadlessServerEndpoint(), {
+    method: context.request.method,
+    headers: {
+      ...newHeaders,
+    },
+    body: JSON.stringify({ query, variables }),
+  });
+  return fetchResult.json();
 };
 
 const coreMediaHeadlessServerEndpoint = () => {
@@ -105,8 +126,8 @@ const proxyEndpoint = () => {
   return coreMediaHeadlessServerEndpoint().replace("/graphql", "");
 };
 
-const createServer = (schema) => {
-  const server = express()
+const createServer = async (schema) => {
+  const app = express()
     .disable("x-powered-by")
     .use(cors())
     .use(
@@ -117,20 +138,43 @@ const createServer = (schema) => {
           return "/caas" + req.url;
         },
       })
-    )
-    .use("/graphql", graphqlHTTP({ schema, graphiql: false }))
-    .use("/graphiql", graphqlHTTP({ schema, graphiql: { defaultQuery: defaultQueryString } }));
-  if (process.env.NODE_ENV === "production") {
-    server.use(createActuator());
+    );
+
+  if (process.env.COREMEDIA_STITCHING_ENABLE_GRAPHIQL) {
+    app.use("/graphiql", graphqlHTTP({ schema, graphiql: { defaultQuery: defaultQueryString } }));
   }
-  return server;
+
+  if (process.env.NODE_ENV === "production") {
+    app.use(createActuator());
+  }
+
+  const httpServer = http.createServer(app);
+  const server = new ApolloServer({
+    schema: schema,
+    introspection: true,
+    context: ({ req }) => ({
+      request: req,
+    }),
+    plugins: [
+      process.env.COREMEDIA_STITCHING_ENABLE_APOLLO_STUDIO || false
+        ? ApolloServerPluginLandingPageLocalDefault({ footer: false })
+        : ApolloServerPluginLandingPageProductionDefault({ footer: false }),
+      ApolloServerPluginDrainHttpServer({ httpServer }),
+    ],
+  });
+  await server.start();
+  server.applyMiddleware({ app });
+
+  return httpServer;
 };
 
-const startServer = (app, port = 4000, host = "localhost") => {
-  app.listen(port, () => logger.info(`Stitching server started on: http://${host}:${port}`));
+const startServer = (app: Server, port = 4000, host = "localhost") => {
+  app.listen(port, () => logger.info(`Stitching server started on: http://${host}:${port}/graphql`));
 };
 
 // start the server after retrieving the schemas and stitching them
 makeGatewaySchema().then((schema) => {
-  startServer(createServer(schema));
+  createServer(schema).then((app) => {
+    startServer(app);
+  });
 });

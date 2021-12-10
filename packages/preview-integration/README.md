@@ -15,7 +15,7 @@ Adds support for:
 Add this package to your app.
  
  ```
-yarn add @coremedia-labs/preview-integration
+pnpm add @coremedia-labs/preview-integration
 ```
 
 Import it to the app.
@@ -27,6 +27,6 @@ import "@coremedia-labs/preview-integration";
 ## Build
 
 ```
-yarn install
-yarn build
+pnpm install
+pnpm build
 ```

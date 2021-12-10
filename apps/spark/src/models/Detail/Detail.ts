@@ -6,6 +6,7 @@ import { DetailTeasable } from "../../queries/fragments/__generated__/DetailTeas
 import { readTimeInMinutes } from "../../utils/Richtext/ReadTime";
 import { Person } from "../../queries/fragments/__generated__/Person";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
+import { createHref } from "../../utils/Link/LinkUtils";
 
 /**
  * @category ViewModels
@@ -14,6 +15,7 @@ export interface Detail extends PreviewMetadata {
   title: string | null;
   readTime: number | null;
   structuredText: any | null;
+  structuredTextLinks: Array<Dispatchable | null>;
   authors?: Array<Author | null>;
   tags?: Array<Tag | null>;
   related?: Array<Dispatchable | null>;
@@ -27,10 +29,15 @@ export interface Detail extends PreviewMetadata {
  */
 export const initializeDetail = (self: DetailTeasable): Detail => {
   const detail: Detail = {
-    readTime: readTimeInMinutes(self.detailText),
+    ...mapProperties(self, { title: "title", media: "media" }),
     displayDate: self.extDisplayedDate || self.modificationDate,
-    ...mapProperties(self, { structuredText: "detailTextAsTree", title: "title", media: "media" }),
   };
+  (self.detailText?.textAsTree ?? self.detailText?.textAsTree !== undefined) &&
+    addProperty(detail, "structuredText", self.detailText.textAsTree, getPropertyName(self, "detailText"));
+  (self.detailText?.textReferencedContent ?? self.detailText?.textReferencedContent !== undefined) &&
+    addProperty(detail, "structuredTextLinks", self.detailText.textReferencedContent);
+  (self.detailText?.text ?? self.detailText?.text !== undefined) &&
+    addProperty(detail, "readTime", readTimeInMinutes(self.detailText?.text));
   self.authors &&
     addProperty(
       detail,
@@ -48,6 +55,7 @@ export const initializeDetail = (self: DetailTeasable): Detail => {
         return (
           tag && {
             name: tag.value || undefined,
+            linkTarget: createHref(tag),
             ...mapProperties(self, { tag: "value" }),
           }
         );

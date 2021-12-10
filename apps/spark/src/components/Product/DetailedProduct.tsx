@@ -12,11 +12,9 @@ const DetailedProduct: React.FC<DetailProduct> = ({ name, shortDescription, long
     <>
       <Col col={colByName(grid, "banner")} />
       <div className="cm-placement cm-placement--main">
-        <div className={`cm-details-container`}>
-          <div className={`cm-details cm-pdp`}>
-            {<ProductAssets pictures={pictures} />}
-            {<ProductDetails name={name} shortDescription={shortDescription} longDescription={longDescription} />}
-          </div>
+        <div className={`cm-details cm-pdp`}>
+          {<ProductAssets pictures={pictures} />}
+          {<ProductDetails name={name} shortDescription={shortDescription} longDescription={longDescription} />}
         </div>
       </div>
       <Col col={colByName(grid, "tab")} />

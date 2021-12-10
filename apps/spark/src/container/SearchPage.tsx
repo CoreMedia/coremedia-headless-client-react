@@ -1,101 +1,44 @@
-import React, { ChangeEvent, FC, useEffect, useState } from "react";
+import React, { FC } from "react";
+import { useSearchStateContextState } from "../context/SearchStateContext";
+import { SortFieldWithOrder } from "../__generated__/globalTypes";
+import { getGlobalState } from "../utils/App/GlobalState";
 import Loading from "../components/Loading/Loading";
 import { Alert, ApolloClientAlert } from "../components/Error/Alert";
-import SearchQuery from "../queries/SearchQuery";
-import { SortFieldWithOrder } from "../__generated__/globalTypes";
-import { useLocation } from "react-router";
-import { useHistory } from "react-router-dom";
-import Search from "../components/Search/Search";
-import { getGlobalState } from "../utils/App/GlobalState";
+import SearchPageContext, { Facet } from "../context/SearchPageContext";
 import SeoHeader from "../components/Header/SeoHeader";
+import Search from "../components/Search/Search";
+import SearchQuery from "../queries/SearchQuery";
+
+const asSortFieldWithOrder = (sortFieldName: string | null): SortFieldWithOrder | null => {
+  if (Object.values(SortFieldWithOrder).some((col: string) => col === sortFieldName)) {
+    return sortFieldName as SortFieldWithOrder;
+  }
+  return null;
+};
 
 const SearchPage: FC = () => {
-  const history = useHistory();
-  const location = useLocation();
-  const urlSearchParams = new URLSearchParams(location.search);
   const { siteId } = getGlobalState();
-  const [query, setQuery] = useState<string>(urlSearchParams.get("query") || "");
-  const [searchQuery, setSearchQuery] = useState<string>(query);
-  const [doctypes] = useState(["CMArticle"]);
-  const [limit] = useState(5);
-  const [offset] = useState(0);
+  const { query } = useSearchStateContextState();
 
-  const getSort = () => {
-    const sortParam = urlSearchParams.get("sort") || "";
-    if (Object.values(SortFieldWithOrder).some((col: string) => col === sortParam)) {
-      return sortParam as SortFieldWithOrder;
-    }
-    return null;
-  };
+  const { sortField, limit, types } = useSearchStateContextState();
 
-  const [sortField, setSortField] = useState<SortFieldWithOrder | null>(getSort);
-
-  const sortFields = [
-    {
-      label: "Relevance",
-      value: "",
-    },
-    {
-      label: "Display Date Asc",
-      value: SortFieldWithOrder.EXTERNALLY_DISPLAYED_DATE_ASC,
-    },
-    {
-      label: "Display Date Desc",
-      value: SortFieldWithOrder.EXTERNALLY_DISPLAYED_DATE_DESC,
-    },
-    { label: "Creation Date Asc", value: SortFieldWithOrder.CREATION_DATE_ASC },
-    {
-      label: "Creation Date Desc",
-      value: SortFieldWithOrder.CREATION_DATE_DESC,
-    },
-    {
-      label: "Modification Date Asc",
-      value: SortFieldWithOrder.MODIFICATION_DATE_ASC,
-    },
-    {
-      label: "Modification Date Desc",
-      value: SortFieldWithOrder.MODIFICATION_DATE_DESC,
-    },
-  ];
-
-  const onSortChange = (e: ChangeEvent<HTMLSelectElement>): void => {
-    e.preventDefault();
-    const localSortFieldWithOrder: SortFieldWithOrder | null = (e.currentTarget.value as SortFieldWithOrder) || null;
-    setSortField(localSortFieldWithOrder);
-    if (localSortFieldWithOrder == null) {
-      urlSearchParams.delete("sort");
-    } else {
-      urlSearchParams.set("sort", localSortFieldWithOrder.toString());
-    }
-    location.search = urlSearchParams.toString();
-    history.push(location);
-  };
-
-  const onQueryChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    e.preventDefault();
-    const value = e.target.value;
-    setQuery(value);
-    urlSearchParams.set("query", value.toString());
-    location.search = urlSearchParams.toString();
-    history.push(location);
-  };
-
-  useEffect(() => {
-    const timeOutId = setTimeout(() => setSearchQuery(query), 500);
-    return () => clearTimeout(timeOutId);
-  }, [query]);
-
+  const sortFieldWithOrder = asSortFieldWithOrder(sortField);
   const { data, loading, error, fetchMore } = SearchQuery(
     siteId,
-    searchQuery,
-    offset,
+    query || "",
+    0,
     limit,
-    sortField == null ? null : [sortField],
-    doctypes
+    sortFieldWithOrder == null ? null : [sortFieldWithOrder],
+    null,
+    types
   );
 
-  if (loading) return <Loading />;
-  if (error) return <ApolloClientAlert error={error} />;
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
+    return <ApolloClientAlert error={error} />;
+  }
   if (!data || !data.content || !data.content.search) {
     return <Alert title="404 - Search not found" message="Sorry, the requested search could not be performed." />;
   }
@@ -138,20 +81,49 @@ const SearchPage: FC = () => {
     });
   };
 
+  const facets: Array<Facet> = [
+    /*{
+      label: "Category",
+      key: "category",
+      values: [
+        { label: "For Consumers", query: "for_consumer", hitCount: 3 },
+        { label: "For Professionals", query: "for_consumer", hitCount: 5 },
+        { label: "Company", query: "for_consumer", hitCount: 9 },
+      ],
+    },
+    {
+      label: "Types",
+      key: "types",
+      multiSelect: true,
+      values: [
+        { label: "Article", query: "article" },
+        { label: "Pages", query: "page" },
+        { label: "Product", query: "product" },
+      ],
+    },
+    {
+      label: "Types2",
+      key: "types2",
+      multiSelect: false,
+      values: [
+        { label: "Article", query: "article" },
+        { label: "Pages", query: "page" },
+        { label: "Product", query: "product" },
+      ],
+    },*/
+  ];
+
   return (
-    <>
+    <SearchPageContext
+      query={query}
+      totalCount={data?.content?.search?.numFound}
+      availableFacets={facets}
+      result={data?.content?.search?.result}
+      onLoadMore={onLoadMore}
+    >
       <SeoHeader title={`Search "${query}"`} />
-      <Search
-        numFound={data?.content?.search?.numFound}
-        result={data?.content?.search?.result}
-        query={query}
-        onQueryChange={onQueryChange}
-        onSortChange={onSortChange}
-        onLoadMore={onLoadMore}
-        sortFields={sortFields}
-        sortField={sortField}
-      />
-    </>
+      <Search />
+    </SearchPageContext>
   );
 };
 

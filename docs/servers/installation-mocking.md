@@ -15,13 +15,13 @@ cd servers/mocking
 ## Installation
 
 ```bash
-yarn install
+pnpm install
 ```
 
 ## Usage in default mocking mode
 
 ```bash
-yarn start
+pnpm start
 ```
 The mocking server is using by default server port 5000, and the sub-directory "mocks"
 where all  pre-fabricated mock files are located.

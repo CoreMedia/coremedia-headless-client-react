@@ -120,7 +120,7 @@
     vertical-align: bottom;
   }
 
-  // detailview as banner
+  // detailview as banner (used in corporate)
   &-container {
     width: 100%;
     flex-grow: 1;
@@ -129,6 +129,7 @@
       display: none;
     }
 
+    .cm-details,
     .cm-details__content {
       margin-bottom: 0;
     }

@@ -20,6 +20,7 @@ const DetailedTeasable: React.FC<Detail> = ({
   tags,
   related,
   structuredText,
+  structuredTextLinks,
   metadata = {},
 }) => {
   return (
@@ -56,7 +57,7 @@ const DetailedTeasable: React.FC<Detail> = ({
         {media && <DetailedMedia media={media} />}
         {structuredText && (
           <div className={`cm-details__text`} {...metaDataProperty(metadata.properties?.structuredText)}>
-            <RichText text={structuredText} />
+            <RichText text={structuredText} embeddedItems={structuredTextLinks} />
           </div>
         )}
       </article>
