@@ -57,7 +57,7 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<p><img src="https://documentation.coremedia.com/badges/banner_coremedia_labs_wide.png" alt="CoreMedia Labs Logo"></p>
-				<p><img src="https://img.shields.io/static/v1?message=2107&label=CoreMedia%20Content%20Cloud&style=for-the-badge&labelColor=666666&color=672779" alt="CoreMedia Content Cloud Version" title="This badge shows the CoreMedia version this project is compatible with.
+				<p><img src="https://img.shields.io/static/v1?message=2110&label=CoreMedia%20Content%20Cloud&style=for-the-badge&labelColor=666666&color=672779" alt="CoreMedia Content Cloud Version" title="This badge shows the CoreMedia version this project is compatible with.
 					Please read the versioning section of the project to see what other CoreMedia versions are supported and how to find them.">
 					<img src="https://img.shields.io/static/v1?message=active&label=Status&style=for-the-badge&labelColor=666666&color=2FAC66" alt="Status" title="The status badge describes if the project is maintained. Possible values are active and inactive.
 				If a project is inactive it means that the development has been discontinued and won&#39;t support future CoreMedia versions."></p>
@@ -76,9 +76,10 @@
 				<p>This CoreMedia Labs project includes two React applications and two server
 				components:</p>
 				<ul>
-					<li><em>spark</em> - Provides guidance for frontend developers that are building websites
-						and other applications based on the CoreMedia Headless server with code examples
-						and documentation on:<ul>
+					<li><p><em>spark</em> - Provides guidance for frontend developers that are building websites
+							and other applications based on the CoreMedia Headless server with code examples
+						and documentation on:</p>
+						<ul>
 							<li>Preview Driven Editing</li>
 							<li>Time Travel</li>
 							<li>Placement Highlighting</li>
@@ -86,12 +87,15 @@
 							<li>Fragment Preview and many others</li>
 						</ul>
 					</li>
-					<li><em>standalone-fragment</em> - Demonstrates the ability to load fragments from a
-						CoreMedia Content Cloud and render it on an external website. For example, by
-						injecting resources client side through a tag management solution like the
-					Google Tag Manager.</li>
-					<li><em>stitching-server</em> - Provides a GraphQL Endpoint for the apps.</li>
-					<li><em>mocking-server</em> - Provides generic commerce data for the stitching server.</li>
+					<li><p><em>standalone-fragment</em> - Demonstrates the ability to load fragments from a
+							CoreMedia Content Cloud and render it on an external website. For example, by
+							injecting resources client side through a tag management solution like the
+						Google Tag Manager.</p>
+					</li>
+					<li><p><em>stitching-server</em> - Provides a GraphQL Endpoint for the apps.</p>
+					</li>
+					<li><p><em>mocking-server</em> - Provides generic commerce data for the stitching server.</p>
+					</li>
 				</ul>
 				<p>Although we chose React with which to build Spark, the principles can easily be
 				transferred to other component libraries and frameworks such as Vue and Angular.</p>
@@ -100,20 +104,20 @@
 				<a href="#quickstart" id="quickstart" style="color: inherit; text-decoration: none;">
 					<h2>Quickstart</h2>
 				</a>
-				<p>You need at least Node.js 14.x (LTS), Yarn 1.22.x and a running instance of the CoreMedia Content Cloud.
+				<p>You need at least Node.js 16 (LTS), pnpm 6 and a running instance of the CoreMedia Content Cloud.
 				Define your environment variables in <code>.env</code> file for the stitching server:</p>
 				<p><a href="servers/stitching/.env.example">servers/stitching/.env</a></p>
 				<pre><code><span style="color: #0070C1">COREMEDIA_ENDPOINT</span><span style="color: #000000">=https:</span><span style="color: #008000">//&lt;headless-server.example.com&gt;/graphql</span>
 </code></pre>
 				<p>Install and build local environment once:</p>
-				<pre><code><span style="color: #001080">yarn</span><span style="color: #000000"> </span><span style="color: #001080">install</span>
-<span style="color: #001080">yarn</span><span style="color: #000000"> </span><span style="color: #001080">build</span>
+				<pre><code><span style="color: #001080">pnpm</span><span style="color: #000000"> </span><span style="color: #001080">install</span>
+<span style="color: #001080">pnpm</span><span style="color: #000000"> </span><span style="color: #001080">build</span>
 </code></pre>
 				<p>You can now start the workspace including the spark app in watch mode:</p>
-				<pre><code><span style="color: #001080">yarn</span><span style="color: #000000"> </span><span style="color: #001080">start</span>
+				<pre><code><span style="color: #001080">pnpm</span><span style="color: #000000"> </span><span style="color: #001080">start</span>
 </code></pre>
 				<p>This will start both servers and the app concurrently. If you want to start just
-				one of the apps or servers, navigate to the according folder and run <code>yarn start</code>.</p>
+				one of the apps or servers, navigate to the according folder and run <code>pnpm start</code>.</p>
 				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
 					<h2>Documentation</h2>
 				</a>
@@ -164,6 +168,9 @@
 						<a href="modules/components_Button_Button.html">components/<wbr>Button/<wbr>Button</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/components_CMHTML_CMHTML.html">components/CMHTML/CMHTML</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/components_CTA_CTA.html">components/CTA/CTA</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -192,6 +199,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/components_CarouselBanner_views_CMExternalProduct_asCarouselBanner.html">components/<wbr>Carousel<wbr>Banner/views/CMExternal<wbr>Product.as<wbr>Carousel<wbr>Banner</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_CarouselBanner_views_CMHTML_asCarouselBanner.html">components/<wbr>Carousel<wbr>Banner/views/CMHTML.as<wbr>Carousel<wbr>Banner</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/components_CarouselBanner_views_CMProduct_asCarouselBanner.html">components/<wbr>Carousel<wbr>Banner/views/CMProduct.as<wbr>Carousel<wbr>Banner</a>
@@ -236,6 +246,9 @@
 						<a href="modules/components_Details_views_CMCollection_asContainer_full_details_.html">components/<wbr>Details/views/CMCollection.as<wbr>Container[full-<wbr>details]</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/components_Details_views_CMHTML_asDetail.html">components/<wbr>Details/views/CMHTML.as<wbr>Detail</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/components_Details_views_CMPerson_asDetail.html">components/<wbr>Details/views/CMPerson.as<wbr>Detail</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -275,6 +288,9 @@
 						<a href="modules/components_Footer_views_CMExternalLink_asFooterLink.html">components/<wbr>Footer/views/CMExternal<wbr>Link.as<wbr>Footer<wbr>Link</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/components_Footer_views_CMHTML_asFooterNavigationColumn.html">components/<wbr>Footer/views/CMHTML.as<wbr>Footer<wbr>Navigation<wbr>Column</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/components_Footer_views_CMTeasable__footerNavigationColumnItem.html">components/<wbr>Footer/views/CMTeasable._<wbr>footer<wbr>Navigation<wbr>Column<wbr>Item</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -300,6 +316,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/components_FragmentPreview_views_CMExternalProduct_asPreview.html">components/<wbr>Fragment<wbr>Preview/views/CMExternal<wbr>Product.as<wbr>Preview</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_FragmentPreview_views_CMHTML_asContainerPreview.html">components/<wbr>Fragment<wbr>Preview/views/CMHTML.as<wbr>Container<wbr>Preview</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/components_FragmentPreview_views_CMPicture_asPreview.html">components/<wbr>Fragment<wbr>Preview/views/CMPicture.as<wbr>Preview</a>
@@ -350,6 +369,9 @@
 						<a href="modules/components_HeroBanner_views_CMExternalProduct_asHeroBanner.html">components/<wbr>Hero<wbr>Banner/views/CMExternal<wbr>Product.as<wbr>Hero<wbr>Banner</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/components_HeroBanner_views_CMHTML_asHeroBanner.html">components/<wbr>Hero<wbr>Banner/views/CMHTML.as<wbr>Hero<wbr>Banner</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/components_HeroBanner_views_CMImageMap_asHeroBanner.html">components/<wbr>Hero<wbr>Banner/views/CMImage<wbr>Map.as<wbr>Hero<wbr>Banner</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -398,6 +420,9 @@
 						<a href="modules/components_LandscapeBanner_views_CMExternalProduct_asLandscapeBanner.html">components/<wbr>Landscape<wbr>Banner/views/CMExternal<wbr>Product.as<wbr>Landscape<wbr>Banner</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/components_LandscapeBanner_views_CMHTML_asLandscapeBanner.html">components/<wbr>Landscape<wbr>Banner/views/CMHTML.as<wbr>Landscape<wbr>Banner</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/components_LandscapeBanner_views_CMProduct_asLandscapeBanner.html">components/<wbr>Landscape<wbr>Banner/views/CMProduct.as<wbr>Landscape<wbr>Banner</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -435,6 +460,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/components_LeftRightBanner_views_CMExternalProduct_asLeftRightBanner.html">components/<wbr>Left<wbr>Right<wbr>Banner/views/CMExternal<wbr>Product.as<wbr>Left<wbr>Right<wbr>Banner</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_LeftRightBanner_views_CMHTML_asLeftRightBanner.html">components/<wbr>Left<wbr>Right<wbr>Banner/views/CMHTML.as<wbr>Left<wbr>Right<wbr>Banner</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/components_LeftRightBanner_views_CMProduct_asLeftRightBanner.html">components/<wbr>Left<wbr>Right<wbr>Banner/views/CMProduct.as<wbr>Left<wbr>Right<wbr>Banner</a>
@@ -500,6 +528,9 @@
 						<a href="modules/components_Navigation_views_CMExternalChannel_asLinkListItem.html">components/<wbr>Navigation/views/CMExternal<wbr>Channel.as<wbr>Link<wbr>List<wbr>Item</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/components_Navigation_views_CMHTML_asLinkListItem.html">components/<wbr>Navigation/views/CMHTML.as<wbr>Link<wbr>List<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/components_Navigation_views_CMProduct_asLinkListItem.html">components/<wbr>Navigation/views/CMProduct.as<wbr>Link<wbr>List<wbr>Item</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -534,6 +565,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/components_PageGrid_views_CMCollection_asItem.html">components/<wbr>Page<wbr>Grid/views/CMCollection.as<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_PageGrid_views_CMHTML_asItem.html">components/<wbr>Page<wbr>Grid/views/CMHTML.as<wbr>Item</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/components_PageGrid_views_CMSelectionRules_asItem.html">components/<wbr>Page<wbr>Grid/views/CMSelection<wbr>Rules.as<wbr>Item</a>
@@ -581,6 +615,9 @@
 						<a href="modules/components_PortraitBanner_views_CMExternalProduct_asPortraitBanner.html">components/<wbr>Portrait<wbr>Banner/views/CMExternal<wbr>Product.as<wbr>Portrait<wbr>Banner</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/components_PortraitBanner_views_CMHTML_asPortraitBanner.html">components/<wbr>Portrait<wbr>Banner/views/CMHTML.as<wbr>Portrait<wbr>Banner</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/components_PortraitBanner_views_CMProduct_asPortraitBanner.html">components/<wbr>Portrait<wbr>Banner/views/CMProduct.as<wbr>Portrait<wbr>Banner</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -626,10 +663,28 @@
 						<a href="modules/components_RichText_RichtextEmbeddedResponsiveImage.html">components/<wbr>Rich<wbr>Text/<wbr>Richtext<wbr>Embedded<wbr>Responsive<wbr>Image</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/components_RichText_context_RichtextContextProvider.html">components/<wbr>Rich<wbr>Text/context/<wbr>Richtext<wbr>Context<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_RichText_views_CMHTML_asRichtextEmbed.html">components/<wbr>Rich<wbr>Text/views/CMHTML.as<wbr>Richtext<wbr>Embed</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/components_RichText_views_CMPicture_asRichtextEmbed.html">components/<wbr>Rich<wbr>Text/views/CMPicture.as<wbr>Richtext<wbr>Embed</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/components_RichText_views_CMTeasable_asRichtextEmbed.html">components/<wbr>Rich<wbr>Text/views/CMTeasable.as<wbr>Richtext<wbr>Embed</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_Search_Filters_CheckboxFilterEntry.html">components/<wbr>Search/<wbr>Filters/<wbr>Checkbox<wbr>Filter<wbr>Entry</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_Search_Filters_FacetFilters.html">components/<wbr>Search/<wbr>Filters/<wbr>Facet<wbr>Filters</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_Search_Filters_SearchFilter.html">components/<wbr>Search/<wbr>Filters/<wbr>Search<wbr>Filter</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_Search_Filters_StringFilterEntry.html">components/<wbr>Search/<wbr>Filters/<wbr>String<wbr>Filter<wbr>Entry</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/components_Search_HeaderSearchForm.html">components/<wbr>Search/<wbr>Header<wbr>Search<wbr>Form</a>
@@ -641,13 +696,16 @@
 						<a href="modules/components_Search_SearchBanner.html">components/<wbr>Search/<wbr>Search<wbr>Banner</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/components_Search_SearchFilter.html">components/<wbr>Search/<wbr>Search<wbr>Filter</a>
+						<a href="modules/components_Search_SearchFilters.html">components/<wbr>Search/<wbr>Search<wbr>Filters</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/components_Search_SearchQuery.html">components/<wbr>Search/<wbr>Search<wbr>Query</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/components_Search_SearchResult.html">components/<wbr>Search/<wbr>Search<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/components_Search_SortFilter.html">components/<wbr>Search/<wbr>Sort<wbr>Filter</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/components_Search_views_CMTeasable_asSearchResult.html">components/<wbr>Search/views/CMTeasable.as<wbr>Search<wbr>Result</a>
@@ -716,6 +774,9 @@
 						<a href="modules/components_SquareBanner_views_CMExternalProduct_asSquareBanner.html">components/<wbr>Square<wbr>Banner/views/CMExternal<wbr>Product.as<wbr>Square<wbr>Banner</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/components_SquareBanner_views_CMHTML_asSquareBanner.html">components/<wbr>Square<wbr>Banner/views/CMHTML.as<wbr>Square<wbr>Banner</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/components_SquareBanner_views_CMProductTeaser_asSquareBanner.html">components/<wbr>Square<wbr>Banner/views/CMProduct<wbr>Teaser.as<wbr>Square<wbr>Banner</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -749,10 +810,19 @@
 						<a href="modules/container_SearchPage.html">container/<wbr>Search<wbr>Page</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/container_TopicPage.html">container/<wbr>Topic<wbr>Page</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/context_FragmentPreviewContext.html">context/<wbr>Fragment<wbr>Preview<wbr>Context</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/context_PreviewContextProvider.html">context/<wbr>Preview<wbr>Context<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/context_SearchPageContext.html">context/<wbr>Search<wbr>Page<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/context_SearchStateContext.html">context/<wbr>Search<wbr>State<wbr>Context</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/context_SiteContextProvider.html">context/<wbr>Site<wbr>Context<wbr>Provider</a>
@@ -840,6 +910,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/queries_TeasableQuery.html">queries/<wbr>Teasable<wbr>Query</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/queries_fragments_CMHTMLFragment.html">queries/fragments/CMHTMLFragment</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/queries_fragments_CMProductFragment.html">queries/fragments/CMProduct<wbr>Fragment</a>
@@ -939,6 +1012,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/queries_fragments_SelectionRulesFragment.html">queries/fragments/<wbr>Selection<wbr>Rules<wbr>Fragment</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/queries_fragments_TagFragment.html">queries/fragments/<wbr>Tag<wbr>Fragment</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/queries_fragments_TeasableFragment.html">queries/fragments/<wbr>Teasable<wbr>Fragment</a>

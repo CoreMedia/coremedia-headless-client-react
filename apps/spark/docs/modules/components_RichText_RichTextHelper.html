@@ -76,8 +76,9 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="components_RichText_RichTextHelper.html#containsItem" class="tsd-kind-icon">contains<wbr>Item</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="components_RichText_RichTextHelper.html#getAttributeValueFor" class="tsd-kind-icon">get<wbr>Attribute<wbr>Value<wbr>For</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="components_RichText_RichTextHelper.html#handleEmbeddedLinks" class="tsd-kind-icon">handle<wbr>Embedded<wbr>Links</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="components_RichText_RichTextHelper.html#getContentId" class="tsd-kind-icon">get<wbr>Content<wbr>Id</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="components_RichText_RichTextHelper.html#transformAttributes" class="tsd-kind-icon">transform<wbr>Attributes</a></li>
 							</ul>
 						</section>
@@ -86,6 +87,32 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="containsItem" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> contains<wbr>Item</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">contains<wbr>Item<span class="tsd-signature-symbol">(</span>embeddedItems<span class="tsd-signature-symbol">: </span><a href="../interfaces/utils_ViewDispatcher_Dispatchable.Dispatchable.html" class="tsd-signature-type" data-tsd-kind="Interface">Dispatchable</a><span class="tsd-signature-symbol">[]</span>, id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/utils_ViewDispatcher_Dispatchable.Dispatchable.html" class="tsd-signature-type" data-tsd-kind="Interface">Dispatchable</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/7b35c50/apps/spark/src/components/RichText/RichTextHelper.tsx#L40">components/RichText/RichTextHelper.tsx:40</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>embeddedItems: <a href="../interfaces/utils_ViewDispatcher_Dispatchable.Dispatchable.html" class="tsd-signature-type" data-tsd-kind="Interface">Dispatchable</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/utils_ViewDispatcher_Dispatchable.Dispatchable.html" class="tsd-signature-type" data-tsd-kind="Interface">Dispatchable</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="getAttributeValueFor" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Attribute<wbr>Value<wbr>For</h3>
@@ -96,7 +123,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/05fbbc1/apps/spark/src/components/RichText/RichTextHelper.tsx#L15">components/RichText/RichTextHelper.tsx:15</a></li>
+									<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/7b35c50/apps/spark/src/components/RichText/RichTextHelper.tsx#L9">components/RichText/RichTextHelper.tsx:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -113,16 +140,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="handleEmbeddedLinks" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> handle<wbr>Embedded<wbr>Links</h3>
+					<a name="getContentId" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Content<wbr>Id</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">handle<wbr>Embedded<wbr>Links<span class="tsd-signature-symbol">(</span>attributes<span class="tsd-signature-symbol">: </span><a href="../interfaces/components_RichText_RichTextHelper.Attribute.html" class="tsd-signature-type" data-tsd-kind="Interface">Attribute</a><span class="tsd-signature-symbol">[]</span>, children<span class="tsd-signature-symbol">?: </span><a href="../interfaces/components_RichText_RichTextElement.RichTextElementProps.html" class="tsd-signature-type" data-tsd-kind="Interface">RichTextElementProps</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ReactElement</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">JSXElementConstructor</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Content<wbr>Id<span class="tsd-signature-symbol">(</span>attributes<span class="tsd-signature-symbol">: </span><a href="../interfaces/components_RichText_RichTextHelper.Attribute.html" class="tsd-signature-type" data-tsd-kind="Interface">Attribute</a><span class="tsd-signature-symbol">[]</span>, fullString<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/05fbbc1/apps/spark/src/components/RichText/RichTextHelper.tsx#L37">components/RichText/RichTextHelper.tsx:37</a></li>
+									<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/7b35c50/apps/spark/src/components/RichText/RichTextHelper.tsx#L22">components/RichText/RichTextHelper.tsx:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -131,10 +158,10 @@
 									<h5>attributes: <a href="../interfaces/components_RichText_RichTextHelper.Attribute.html" class="tsd-signature-type" data-tsd-kind="Interface">Attribute</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> children: <a href="../interfaces/components_RichText_RichTextElement.RichTextElementProps.html" class="tsd-signature-type" data-tsd-kind="Interface">RichTextElementProps</a><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>fullString: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ReactElement</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">JSXElementConstructor</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -148,7 +175,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/05fbbc1/apps/spark/src/components/RichText/RichTextHelper.tsx#L86">components/RichText/RichTextHelper.tsx:86</a></li>
+									<li>Defined in <a href="https://github.com/CoreMedia/coremedia-headless-client-react/blob/7b35c50/apps/spark/src/components/RichText/RichTextHelper.tsx#L31">components/RichText/RichTextHelper.tsx:31</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -180,10 +207,13 @@
 						<a href="../interfaces/components_RichText_RichTextHelper.Attribute.html" class="tsd-kind-icon">Attribute</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="components_RichText_RichTextHelper.html#containsItem" class="tsd-kind-icon">contains<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="components_RichText_RichTextHelper.html#getAttributeValueFor" class="tsd-kind-icon">get<wbr>Attribute<wbr>Value<wbr>For</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="components_RichText_RichTextHelper.html#handleEmbeddedLinks" class="tsd-kind-icon">handle<wbr>Embedded<wbr>Links</a>
+						<a href="components_RichText_RichTextHelper.html#getContentId" class="tsd-kind-icon">get<wbr>Content<wbr>Id</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="components_RichText_RichTextHelper.html#transformAttributes" class="tsd-kind-icon">transform<wbr>Attributes</a>
