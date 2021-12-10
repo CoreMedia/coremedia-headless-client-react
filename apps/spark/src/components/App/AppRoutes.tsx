@@ -5,6 +5,7 @@ import Page from "../../container/Page";
 import ProductPage from "../../container/ProductPage";
 import CategoryPage from "../../container/CategoryPage";
 import SearchPage from "../../container/SearchPage";
+import TopicPage from "../../container/TopicPage";
 
 /**
  * The site specific routes of the app
@@ -15,6 +16,9 @@ const AppRoutes: FC = () => {
     <Switch>
       {/* Search */}
       <Route path="/:rootSegment/search" component={SearchPage} />
+      {/* Tag */}
+      <Route path="/:rootSegment/tag/:pathSegments+/:title-:id([0-9]+)" component={TopicPage} />
+      <Route path="/:rootSegment/tag/:title-:id([0-9]+)" component={TopicPage} />
       {/* Detail */}
       <Route path="/:pathSegments+/:title-:id([0-9]+)" component={DetailPage} />
       {/* Commerce */}

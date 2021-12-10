@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { match } from "react-router";
+import { match } from "react-router-dom";
 import ProductBySeoSegmentQuery from "../queries/ProductBySeoSegmentQuery";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, ProductNotFoundAlert } from "../components/Error/Alert";

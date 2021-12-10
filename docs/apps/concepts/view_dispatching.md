@@ -57,7 +57,7 @@ The second important information is the type hierarchy. The CoreMedia Headless
 Server offers a list of all types for an interface, from most to least specific, 
 via GraphQL. It is downloaded and stored in 
 [interfaces.json](../../app/src/__downloaded__/interfaces.json) by the script
-`yarn download:interfaces`.
+`pnpm download:interfaces`.
 
 The resulting list looks like this:
 

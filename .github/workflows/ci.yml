@@ -19,27 +19,33 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
+
+    - name: Use pnpm
+      uses: pnpm/action-setup@v2.0.1
+      with:
+        version: 6
 
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-
-    - name: Install Yarn
-      run: npm install -g yarn
+        cache: 'pnpm'
 
     - name: Install dependencies
-      run: yarn install
+      run: pnpm install
 
     - name: Build Workspace (Packages and App)
-      run: yarn build
+      run: pnpm build
+
+    - name: Analyze Code and Style
+      run: pnpm -r lint:ci
 
     - name: Test Workspace
-      run: yarn test
+      run: pnpm test
 

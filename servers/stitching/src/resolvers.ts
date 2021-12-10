@@ -49,7 +49,7 @@ export const resolvers = (coreMediaSchema: GraphQLSchema, catalogSchema: GraphQL
     },
     CategoryImpl: {
       augmentation: {
-        selectionSet: `{ externalId, siteId, breadcrumb{externalId} }`,
+        selectionSet: `{ externalId, siteId, breadcrumb { externalId } }`,
         resolve(category, args: Record<string, string>, context: Record<string, string>, info: GraphQLResolveInfo) {
           const externalId = category.externalId;
           const siteId = category.siteId; // consider info.variableValues.siteId if not available
@@ -109,7 +109,7 @@ export const resolvers = (coreMediaSchema: GraphQLSchema, catalogSchema: GraphQL
     },
     ProductImpl: {
       augmentation: {
-        selectionSet: `{ externalId, siteId, breadcrumb{externalId} }`,
+        selectionSet: `{ externalId, siteId, category { breadcrumb { externalId } } }`,
         resolve(product, args: Record<string, string>, context: Record<string, string>, info: GraphQLResolveInfo) {
           const externalId = product.externalId;
           const siteId = product.siteId; // consider info.variableValues.siteId if not available

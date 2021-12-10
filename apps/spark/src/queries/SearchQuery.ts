@@ -10,6 +10,7 @@ const SEARCH_QUERY = gql`
     $offset: Int
     $limit: Int
     $sortFields: [SortFieldWithOrder]
+    $customFilterQueries: [FilterQueryArg]
     $docTypes: [String]
   ) {
     content {
@@ -19,6 +20,7 @@ const SEARCH_QUERY = gql`
         offset: $offset
         limit: $limit
         sortFields: $sortFields
+        customFilterQueries: $customFilterQueries
         docTypes: $docTypes
       ) {
         numFound
@@ -37,9 +39,10 @@ export default (
   offset?: number | null,
   limit?: number | null,
   sortFields?: (SortFieldWithOrder | null)[] | null,
+  customFilterQueries?: (any | null)[] | null,
   docTypes?: (string | null)[] | null
 ): QueryResult<SearchQuery> => {
   return useQuery<SearchQuery, SearchQueryVariables>(SEARCH_QUERY, {
-    variables: { siteId, query, offset, limit, sortFields, docTypes },
+    variables: { siteId, query, offset, limit, sortFields, customFilterQueries, docTypes },
   });
 };

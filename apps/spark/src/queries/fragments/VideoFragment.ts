@@ -8,10 +8,8 @@ export const videoFragment = gql`
   fragment Video on CMVideo {
     ...Media
     teaserTitle
-    teaserText
     title
     dataUrl
-    ...Linkable
     ...Teasable
     settings(paths: "playerSettings")
     timeLine {

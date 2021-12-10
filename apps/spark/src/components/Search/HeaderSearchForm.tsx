@@ -1,25 +1,31 @@
 import * as React from "react";
-import { FC, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { FC, useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import { getGlobalState } from "../../utils/App/GlobalState";
 
 import "./HeaderSearchForm.scss";
+import { useSearchStateContextState } from "../../context/SearchStateContext";
 
 const HeaderSearchForm: FC = () => {
-  const placeholder = "Search...";
-  const minLength = 3;
-  const [value, setValue] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const history = useHistory();
   const { rootSegment } = getGlobalState();
+  const location = useLocation();
+  const { setQuery } = useSearchStateContextState();
 
-  const handleSubmit = (): void => {
-    history.push(`/${rootSegment}/search`);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    setValue(e.currentTarget.value);
+    setQuery(searchQuery);
+    history.push({
+      pathname: `/${rootSegment}/search`,
+      search: "?query=" + searchQuery,
+    });
   };
+
+  useEffect(() => {
+    const urlSearchParams = new URLSearchParams(location.search);
+    setSearchQuery(urlSearchParams.get("query") || "");
+  }, [location.search]);
 
   return (
     <div id="cmSearchWrapper" className="cm-header__search cm-search">
@@ -38,15 +44,14 @@ const HeaderSearchForm: FC = () => {
             Search
           </label>
           <input
-            onChange={handleChange}
-            id="SimpleSearchForm_SearchTerm"
+            onChange={(event) => setSearchQuery(event.target.value)}
             type="search"
             className="cm-search__form-input"
             name="query"
-            placeholder={placeholder}
+            placeholder="Search..."
             required={true}
-            minLength={minLength}
-            value={value}
+            minLength={3}
+            value={searchQuery}
           />
         </fieldset>
         <button type="submit" className="cm-search__form-button" title="Search">

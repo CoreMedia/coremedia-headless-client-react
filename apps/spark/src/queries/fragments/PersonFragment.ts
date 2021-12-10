@@ -6,7 +6,10 @@ export const personFragment = gql`
   fragment Person on CMPerson {
     ...Linkable
     displayName
-    teaserText
+    teaserText {
+      text
+      plaintext: text(view: "plainFirstParagraph")
+    }
     firstName
     lastName
     picture {

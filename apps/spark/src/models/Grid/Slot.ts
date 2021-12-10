@@ -1,7 +1,7 @@
 import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
-import PreviewMetadata from "../../utils/Preview/MetaData";
+import PreviewMetadata, { getPropertyName } from "../../utils/Preview/MetaData";
 import { PageGridPlacement } from "../../queries/fragments/__generated__/PageGridPlacement";
-import { mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
+import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
 import { Collection } from "../../queries/fragments/__generated__/Collection";
 
 /**
@@ -26,7 +26,10 @@ export const initializeSlotFromPageGridPlacement = (self: PageGridPlacement): Sl
  * @param self
  */
 export const initializeSlotFromCollection = (self: Collection): Slot => {
-  return {
-    ...mapProperties(self, { items: "items", title: "teaserTitle", text: "plainTeaserText" }),
+  const slot: Slot = {
+    ...mapProperties(self, { items: "items", title: "teaserTitle" }),
   };
+  (self.teaserText?.plaintext ?? self.teaserText?.plaintext !== undefined) &&
+    addProperty(slot, "text", self.teaserText?.plaintext, getPropertyName(self, "teaserText"));
+  return slot;
 };

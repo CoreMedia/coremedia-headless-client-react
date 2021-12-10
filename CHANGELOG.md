@@ -1,5 +1,33 @@
 # Changelog
 
+## v2110.0.0
+
+*Released 10.12.2021*
+
+### Features:
+
+- Switched from plain express stitching server to Apollo Server 3 to support Automatic Persisted Queries (APQ)
+- Added link to Apollo Studio in Stitching Server for GraphQL development
+- Added support for doctype `CMHTML`
+- Added support for tags and topic pages
+
+### Breaking Changes:
+
+- Switched package manager from `yarn` to `pnpm`
+- Updated `schema.json`, `interfaces.json`, `metadata.json`, `possibleTypes.json` to CoreMedia Content Cloud v11 - 2110.1
+- Updated mocks and schema to Headless Commerce Server v2
+- Adapted `teaserText` and `detailText` to new RichText API to include embed content into the queries
+
+### Bugfixes and Changes:
+
+- Fixed unwanted page reload in search
+- Optimized fragmented preview for Studio Integration 
+- Updated `nodejs` to 16
+- Updated all other minor dependencies
+- Removed empty scripts with `exit 0`, since `pnpm` workspace script don't need them
+
+---
+
 ## v2107.1.0
 
 *Released 21.07.2021*
@@ -41,7 +69,7 @@
   calls have been removed from headless server and are replaced by mocked data
   from the `mocking` server.
   To have one endpoint, the `stitching` server aggregates both schemas.
-- All components can be started concurrently in the root folder with `yarn start`.
+- All components can be started concurrently in the root folder with `pnpm start`.
 - Added new component ShoppableVideo.
 
 ### Breaking Changes:

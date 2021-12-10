@@ -44,9 +44,13 @@ export interface Banner extends PreviewMetadata {
 export const initializeBanner = (self: Teasable): Banner => {
   const banner: Banner = {
     displayDate: self.extDisplayedDate || self.modificationDate,
-    ...mapProperties(self, { text: "teaserText", title: "teaserTitle", plaintext: "plainTeaserText" }),
+    ...mapProperties(self, { title: "teaserTitle" }),
     overlayRequired: !!(self.teaserOverlaySettings && self.teaserOverlaySettings.enabled),
   };
+  (self.teaserText?.text ?? self.teaserText?.text !== undefined) &&
+    addProperty(banner, "text", self.teaserText?.text, getPropertyName(self, "teaserText"));
+  (self.teaserText?.plaintext ?? self.teaserText?.plaintext !== undefined) &&
+    addProperty(banner, "plaintext", self.teaserText?.plaintext, getPropertyName(self, "teaserText"));
   if (banner.overlayRequired) {
     banner.overlayConfiguration = self.teaserOverlaySettings as OverlayConfiguration;
   }

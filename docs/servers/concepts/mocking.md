@@ -35,7 +35,7 @@ mocks/
   
 ## Pre-fabricated Mocks
 
-If you start the mocking server with `yarn start` the base directory to read the
+If you start the mocking server with `pnpm start` the base directory to read the
 mocks is set to `mocks`.
 
 With the pre-fabricated mock files at least the homepage of the Calista (en-US) site works.

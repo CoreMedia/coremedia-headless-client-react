@@ -30,7 +30,7 @@ consists of query fragments for components, represented in the cache under their
 identifier. The cache needs to be configured with a list of possible types, 
 offered by the Headless Server. It is downloaded and stored in 
 [possibleTypes.json](../../../apps/spark/src/__downloaded__/possibleTypes.json) by the 
-script `yarn download:possible-types`.
+script `pnpm download:possible-types`.
 
 Therefore, some presentational components like banners or the navigation 
 have their own query fragments, only loading the data needed for this specific 

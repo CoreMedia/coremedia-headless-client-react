@@ -5,12 +5,21 @@ import { teasableFragment } from "./TeasableFragment";
 import { videoFragment } from "./VideoFragment";
 import { personFragment } from "./PersonFragment";
 import { collectionFragment } from "./CollectionFragment";
+import { productTeaserFragment } from "./ProductTeaserFragment";
+import { tagFragment } from "./TagFragment";
 
 export const detailTeasableFragment = gql`
   fragment DetailTeasable on CMTeasable {
     id
-    detailText
-    detailTextAsTree
+    detailText {
+      text
+      textAsTree
+      textReferencedContent {
+        ...Picture
+        ...Teasable
+        ...ProductTeaser
+      }
+    }
     pictures {
       ...Picture
     }
@@ -22,10 +31,7 @@ export const detailTeasableFragment = gql`
     extDisplayedDate
     modificationDate
     subjectTaxonomy {
-      ... on CMTaxonomy {
-        value
-      }
-      ...Linkable
+      ...Tag
     }
     authors {
       ...Person
@@ -43,4 +49,6 @@ export const detailTeasableFragment = gql`
   ${videoFragment}
   ${personFragment}
   ${collectionFragment}
+  ${productTeaserFragment}
+  ${tagFragment}
 `;

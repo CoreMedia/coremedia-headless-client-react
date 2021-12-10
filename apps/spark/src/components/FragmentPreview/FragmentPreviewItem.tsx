@@ -1,6 +1,4 @@
 import React, { FC } from "react";
-import expandedIcon from "./assets/expanded.png";
-import collapsedIcon from "./assets/collapsed.png";
 import { useFragmentPreviewContextState } from "../../context/FragmentPreviewContext";
 
 interface FragmentPreviewItemProps {
@@ -16,14 +14,11 @@ const FragmentPreviewItem: FC<FragmentPreviewItemProps> = ({ title, children }) 
   };
 
   return (
-    <div className={"cm-preview-item"}>
+    <div className={`cm-preview-item ${collapsed(view) ? " collapsed" : ""}`}>
       <div
         className={"cm-preview-item__headline"}
         onClick={() => {
           toggleEntry(view);
-        }}
-        style={{
-          background: `url(${collapsed(view) ? collapsedIcon : expandedIcon}) 6px no-repeat #c8c6c6`,
         }}
       >
         {title}

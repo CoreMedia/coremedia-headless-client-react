@@ -188,16 +188,14 @@ $RECYCLE.BIN/
 # Microsoft Office Temporary Files
 ~*.*
 
-# Node, Yarn and Frontend
+# Node, pnpm and Frontend
 node_modules/
 build/
 __generated__/
 coverage/
 
 # Logs:
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+*.log*
 
 #Environment and Development Variables
 .env

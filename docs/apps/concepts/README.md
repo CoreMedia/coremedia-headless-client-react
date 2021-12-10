@@ -43,7 +43,7 @@ for different usages and adds CSS with the same aspect ratio to avoid flickering
 of the page during the download of the images. It also uses the new `loading="lazy"` 
 property, supported by all modern browsers.
 
-The script `yarn apollo:download-crops` will download the available crops and sizes
+The script `pnpm apollo:download-crops` will download the available crops and sizes
 to `src/__downloaded__/image-crops.json`. You can use this file as a reference 
 for your components.
 

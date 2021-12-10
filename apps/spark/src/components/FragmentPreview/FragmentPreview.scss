@@ -4,19 +4,27 @@
   padding: 0;
   height: auto;
 
-
   &-item {
-    margin-top: 2px;
+    margin: 12px;
+    transition: all 0.25s;
+    box-shadow: 0 1px 3px 0 rgba(63, 63, 63, 0.6);
+    background-color: #FFFFFF;
 
     &__headline {
       display: block;
-      padding: 4px 6px 4px 24px;
+      font-family: var(--font-family-studio);
+      font-size: 13px;
       font-weight: 700;
-      font-size: 12px;
-      line-height: 32px;
+      color: #3f3f3f;
+      line-height: 20px;
+      padding: 4px 6px 4px 28px;
       cursor: pointer;
-      color: #000;
       text-decoration: none;
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxNiAxNiIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMTYgMTYiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cjxwb2x5Z29uIHBvaW50cz0iOCA4LjgzIDUuMTcgNiA0LjQ2IDYuNzEgOCAxMC4yNCAxMS41NCA2LjcxIDEwLjgzIDYiLz4KPC9zdmc+Cg==');
+      background-size: 16px;
+      background-position-x: 6px;
+      background-position-y: center;
+      background-repeat: no-repeat;
     }
 
     &__container {
@@ -25,10 +33,6 @@
     }
 
     &__content {
-      padding: 15px;
-      background-color: #fff;
-      transition: box-shadow .25s;
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .6);
       clear: both;
 
       .cm-left-right-banner-container {
@@ -53,6 +57,20 @@
           width: var(--screen-size-max);
           max-width: 100%;
         }
+      }
+    }
+
+    &.collapsed {
+      box-shadow: none;
+      background-color: transparent;
+
+      .cm-preview-item__headline {
+        background-color: transparent;
+        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxNiAxNiIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMTYgMTYiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cjxwb2x5Z29uIHBvaW50cz0iOS41OSA4IDYuNzYgMTAuODMgNy40NiAxMS41NCAxMSA4IDcuNDYgNC40NiA2Ljc2IDUuMTciLz4KPC9zdmc+Cg==');
+      }
+
+      &:hover {
+        background-color: #FFFFFF;
       }
     }
   }

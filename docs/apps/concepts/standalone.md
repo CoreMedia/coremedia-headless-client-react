@@ -37,4 +37,4 @@ This app is build into the library `headlessFragment` and is copied next to the
 the Dockerfile and is available below the path `standalone/`.
 
 This app does not include a development server at the moment. Just run 
-`yarn build` and open the html file and adjust the parameters to get a quick preview.
+`pnpm build` and open the html file and adjust the parameters to get a quick preview.

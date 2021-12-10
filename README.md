@@ -1,6 +1,6 @@
 ![CoreMedia Labs Logo](https://documentation.coremedia.com/badges/banner_coremedia_labs_wide.png)
 
-![CoreMedia Content Cloud Version](https://img.shields.io/static/v1?message=2107&label=CoreMedia%20Content%20Cloud&style=for-the-badge&labelColor=666666&color=672779 
+![CoreMedia Content Cloud Version](https://img.shields.io/static/v1?message=2110&label=CoreMedia%20Content%20Cloud&style=for-the-badge&labelColor=666666&color=672779 
 "This badge shows the CoreMedia version this project is compatible with. 
 Please read the versioning section of the project to see what other CoreMedia versions are supported and how to find them."
 )
@@ -50,7 +50,7 @@ Please refer to the [changelog](CHANGELOG.md) for more details.
 
 ## Quickstart
 
-You need at least Node.js 14.x (LTS), Yarn 1.22.x and a running instance of the CoreMedia Content Cloud.
+You need at least Node.js 16 (LTS), pnpm 6 and a running instance of the CoreMedia Content Cloud.
 Define your environment variables in `.env` file for the stitching server:
 
 [servers/stitching/.env](servers/stitching/.env.example)
@@ -60,17 +60,17 @@ COREMEDIA_ENDPOINT=https://<headless-server.example.com>/graphql
 
 Install and build local environment once:
 ```
-yarn install
-yarn build
+pnpm install
+pnpm build
 ```
 
 You can now start the workspace including the spark app in watch mode:
 ```
-yarn start
+pnpm start
 ```
 
 This will start both servers and the app concurrently. If you want to start just
-one of the apps or servers, navigate to the according folder and run `yarn start`.
+one of the apps or servers, navigate to the according folder and run `pnpm start`.
 
 ## Documentation
 
