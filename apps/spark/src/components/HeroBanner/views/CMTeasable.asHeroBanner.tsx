@@ -1,6 +1,6 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import { Teasable } from "../../../queries/fragments/__generated__/Teasable";
+import { Teasable } from "@coremedia-labs/graphql-layer";
 import HeroBanner from "../HeroBanner";
 import { Banner, initializeBanner } from "../../../models/Banner/Banner";
 

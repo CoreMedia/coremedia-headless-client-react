@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { match } from "react-router-dom";
-import PageByPathQuery from "../queries/PageByPathQuery";
+import { PageByPathQuery } from "@coremedia-labs/graphql-layer";
 import PageGrid from "../components/PageGrid/PageGrid";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, PageNotFoundAlert } from "../components/Error/Alert";

@@ -1,6 +1,6 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import { DetailPerson } from "../../../queries/fragments/__generated__/DetailPerson";
+import { DetailPerson } from "@coremedia-labs/graphql-layer";
 import DetailedPerson from "../DetailedPerson";
 import { initializeDetailAuthor } from "../../../models/Detail/DetailAuthor";
 import SeoHeader from "../../Header/SeoHeader";

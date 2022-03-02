@@ -1,8 +1,8 @@
 import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
 import PreviewMetadata, { getPropertyName } from "../../utils/Preview/MetaData";
-import { PageGridPlacement } from "../../queries/fragments/__generated__/PageGridPlacement";
+import { PageGridPlacement } from "@coremedia-labs/graphql-layer";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
-import { Collection } from "../../queries/fragments/__generated__/Collection";
+import { Collection } from "@coremedia-labs/graphql-layer";
 
 /**
  * @category ViewModels

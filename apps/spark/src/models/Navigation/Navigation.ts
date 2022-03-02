@@ -1,103 +1,101 @@
 import PreviewMetadata, { getPropertyName } from "../../utils/Preview/MetaData";
-import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
-import { initializePicture, Picture } from "../Banner/Picture";
-import { Category } from "../../queries/fragments/Category";
-import { createCategoryHref, createHref, createProductHref } from "../../utils/Link/LinkUtils";
-import { NavigationForNavigation } from "../../queries/fragments/Navigation";
-import { ExternalNavigationForNavigation } from "../../queries/fragments/ExternalNavigation";
+import { LinkAttributes } from "../../components/Link/Link";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
-import { Product } from "../../queries/fragments/__generated__/Product";
-import { TeasableForNavigation } from "../../queries/fragments/navigation/__generated__/TeasableForNavigation";
-import { CMProductForNavigation } from "../../queries/fragments/navigation/__generated__/CMProductForNavigation";
-import { CollectionForNavigation } from "../../queries/fragments/navigation/__generated__/CollectionForNavigation";
+import { getLink } from "../../utils/Link/LinkUtils";
+import { addPicture, initializePicture, SupportsPicture } from "../Banner/Picture";
+import { CategoryRef, Category } from "@coremedia-labs/graphql-layer";
 
-export interface Navigation extends PreviewMetadata {
+export interface Navigation extends PreviewMetadata, LinkAttributes, SupportsPicture {
+  items?: Array<Navigation>;
   title: string | null;
-  items?: Array<Dispatchable | null> | null;
-  related?: Array<Dispatchable | null>;
-  picture?: Picture;
-  linkTarget?: string;
 }
 
-export const initializeNavigationFromCategory = (self: Category): Navigation => {
-  const navigation: Navigation = {
-    ...mapProperties(self, { title: "name", items: "children" }),
-  };
-  self.augmentation.picture &&
-    addProperty(
-      navigation,
-      "picture",
-      initializePicture(self.augmentation.picture),
-      getPropertyName(self.augmentation, "picture")
-    );
-  const linkTarget = createCategoryHref(self);
-  linkTarget && (navigation.linkTarget = linkTarget);
-  return navigation;
-};
+export interface NavigationProps extends Navigation {
+  depth?: number;
+  isTopLevel?: boolean;
+  maxDepth?: number;
+}
 
-export const initializeNavigationFromNavigation = (self: NavigationForNavigation): Navigation => {
-  const navigation: Navigation = {
-    ...mapProperties(self, { title: "teaserTitle", items: "children" }),
-  };
-  self.picture && addProperty(navigation, "picture", initializePicture(self.picture), getPropertyName(self, "picture"));
-  const linkTarget = createHref(self);
-  linkTarget && (navigation.linkTarget = linkTarget);
-  return navigation;
-};
-
-export const initializeNavigationFromExternalNavigation = (self: ExternalNavigationForNavigation): Navigation => {
+export const initializeNavigation = (self: any): Navigation => {
   const navigation: Navigation = {
     ...mapProperties(self, { title: "teaserTitle" }),
+    ...getLink(self),
   };
-  self.picture && addProperty(navigation, "picture", initializePicture(self.picture), getPropertyName(self, "picture"));
-  let items: Array<Dispatchable | null> | null = null;
-  if (self.children && self.children.length > 0) {
-    items = self.children;
-  } else if (self.categoryRef && self.categoryRef.category) {
-    const category: Category = self.categoryRef.category as Category;
-    if (category.children && category.children.length > 0) {
-      items = category.children;
+  addPicture(self, navigation);
+  addChildrenAsItems(self, navigation);
+  addItemsAsItems(self, navigation);
+  addCMProductOverrides(self, navigation);
+  addCommerceTitle(self, navigation);
+  addAugmentationPicture(self, navigation);
+  return navigation;
+};
+
+//A collection is a navigation item. Map collection.items to navigation.items
+export const addItemsAsItems = (self: any, result: Navigation): void => {
+  if ("items" in self) {
+    addProperty(
+      result,
+      "items",
+      self.items.map((child: any) => {
+        return initializeNavigation(child);
+      }),
+      getPropertyName(self, "items")
+    );
+  }
+};
+
+//A cmchannel is a navigation item. Map channel.children to navigation.items
+export const addChildrenAsItems = (self: any, result: Navigation): void => {
+  if ("children" in self && self.children.length > 0) {
+    addProperty(
+      result,
+      "items",
+      self.children.map((child: any) => {
+        return initializeNavigation(child);
+      }),
+      getPropertyName(self, "children")
+    );
+  } else if ("categoryRef" in self && self.categoryRef.category) {
+    const categoryRef: CategoryRef = self.categoryRef;
+    if (categoryRef.category) {
+      const category: Category = categoryRef.category as Category;
+      if (category.children && category.children.length > 0) {
+        addProperty(
+          result,
+          "items",
+          category.children.map((child: any) => {
+            return initializeNavigation(child);
+          }),
+          getPropertyName(self, "children")
+        );
+      }
     }
   }
-  items && addProperty(navigation, "items", items, getPropertyName(self, "children"));
-  const linkTarget = createHref(self);
-  linkTarget && (navigation.linkTarget = linkTarget);
-  return navigation;
 };
 
-export const initializeNavigationFromCollection = (self: CollectionForNavigation): Navigation => {
-  const navigation: Navigation = {
-    ...mapProperties(self, { title: "teaserTitle", items: "items" }),
-  };
-  self.picture && addProperty(navigation, "picture", initializePicture(self.picture), getPropertyName(self, "picture"));
-  return navigation;
+export const addCMProductOverrides = (self: any, result: Navigation): void => {
+  if ("productName" in self) {
+    addProperty(result, "title", self.productName);
+  }
 };
 
-export const initializeNavigationFromCMProduct = (self: CMProductForNavigation): Navigation => {
-  const navigation: Navigation = {
-    ...mapProperties(self, { title: "productName" }),
-  };
-  self.picture && addProperty(navigation, "picture", initializePicture(self.picture), getPropertyName(self, "picture"));
-  const linkTarget = createHref(self);
-  linkTarget && (navigation.linkTarget = linkTarget);
-  return navigation;
+export const addCommerceTitle = (self: any, result: Navigation): void => {
+  if ("name" in self) {
+    addProperty(result, "title", self.name, getPropertyName(self, "name"));
+  } else if ("product" in self && "name" in self.product) {
+    addProperty(result, "title", self.product.name, getPropertyName(self.product, "name"));
+  }
 };
 
-export const initializeNavigationFromProduct = (self: Product): Navigation => {
-  const navigation: Navigation = {
-    title: self.name || null,
-  };
-  const linkTarget = createProductHref(self);
-  linkTarget && (navigation.linkTarget = linkTarget);
-  return navigation;
-};
-
-export const initializeNavigationFromTeasable = (self: TeasableForNavigation): Navigation => {
-  const navigation: Navigation = {
-    ...mapProperties(self, { title: "teaserTitle" }),
-  };
-  self.picture && addProperty(navigation, "picture", initializePicture(self.picture), getPropertyName(self, "picture"));
-  const linkTarget = createHref(self);
-  linkTarget && (navigation.linkTarget = linkTarget);
-  return navigation;
+export const addAugmentationPicture = (self: any, result: Navigation): void => {
+  // try to add product picture, if missing
+  if (!result.picture && "augmentation" in self) {
+    self.augmentation.picture &&
+      addProperty(
+        result,
+        "picture",
+        initializePicture(self.augmentation.picture),
+        getPropertyName(self.augmentation, "picture")
+      );
+  }
 };

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import FragmentPreviewQuery from "../queries/FragmentPreviewQuery";
+import { FragmentPreviewQuery } from "@coremedia-labs/graphql-layer";
 import { Fragment, fragmentsByType } from "../components/FragmentPreview/FragmentsByType";
 import typeHierarchy from "../utils/ViewDispatcher/Interfaces";
 import Loading from "../components/Loading/Loading";

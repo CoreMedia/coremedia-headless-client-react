@@ -1,12 +1,6 @@
-import { Video } from "../../queries/fragments/__generated__/Video";
+import { Video } from "@coremedia-labs/graphql-layer";
 import { Picture } from "../../models/Banner/Picture";
-import { getBackendMediaUri } from "../App/App";
-
-/**
- * Checks if an URL is an absolute URL
- * @param url
- */
-export const isUrlAbsolute = (url: string): boolean => url.indexOf("://") > 0 || url.indexOf("//") === 0;
+import { getFQDN } from "../App/App";
 
 /**
  * Returns an image URL based on the parameters
@@ -19,10 +13,6 @@ export const getImageUrl = (imageUriTemplate: string | null, cropName: string, w
     console.error("Error in getImageUrl. Parameter imageUrl is not set.");
     return "";
   }
-
-  if (!isUrlAbsolute(imageUriTemplate)) {
-    imageUriTemplate = getBackendMediaUri() + imageUriTemplate;
-  }
   return imageUriTemplate.replace("{cropName}", cropName).replace("{width}", String(width));
 };
 
@@ -33,7 +23,7 @@ export const getImageUrl = (imageUriTemplate: string | null, cropName: string, w
 export const getVideoUrl = (media: Video): string | null => {
   let videoLink: string | null = media.dataUrl;
   if (!videoLink && media.data !== undefined) {
-    videoLink = getBackendMediaUri() + media.data?.uri;
+    videoLink = getFQDN() + media.data?.uri;
   }
   return videoLink;
 };
@@ -50,7 +40,7 @@ export const getImageUrlByPicture = (
   cropName: string | undefined,
   width: number | undefined
 ): string => {
-  let imageUrl = getBackendMediaUri() + self?.data?.uri || "";
+  let imageUrl = getFQDN() + self?.data?.uri || "";
   if (self.uriTemplate && cropName !== undefined && width !== undefined) {
     imageUrl = getImageUrl(self.uriTemplate, cropName, width);
   }

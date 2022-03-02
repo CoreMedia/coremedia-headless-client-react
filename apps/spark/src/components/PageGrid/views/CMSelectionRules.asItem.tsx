@@ -1,6 +1,6 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import { SelectionRules } from "../../../queries/fragments/__generated__/SelectionRules";
+import { SelectionRules } from "@coremedia-labs/graphql-layer";
 import Include from "../../../utils/ViewDispatcher/Include";
 
 const CMSelectionRulesTeaser: React.FC<IncludeProps<SelectionRules>> = ({ self }) => {

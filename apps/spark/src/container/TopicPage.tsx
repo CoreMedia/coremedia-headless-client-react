@@ -4,7 +4,7 @@ import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, PageNotFoundAlert } from "../components/Error/Alert";
 import Slot from "../components/Slot/Slot";
 import { getGlobalState } from "../utils/App/GlobalState";
-import SearchQuery from "../queries/SearchQuery";
+import { SearchQuery } from "@coremedia-labs/graphql-layer";
 
 interface DetailViewProps {
   match: match<RouteProps>;

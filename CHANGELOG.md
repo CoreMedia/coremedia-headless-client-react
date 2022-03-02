@@ -1,5 +1,27 @@
 # Changelog
 
+## v2201.0.0
+
+*Released 02.03.2022*
+
+### Features:
+- Added a new package "coremedia-labs/graphql-layer". This package includes all GraphQL queries and fragments, which have been part of the Spark app before.
+- Simplified navigation components with replacing view dispatching logic with view model logic.
+- Simplified link building.
+- Replaced environment variable `REACT_APP_MEDIA_FQDN` for media urls with local proxy.
+
+### Breaking Changes:
+
+- Updated `schema.json`, `interfaces.json`, `metadata.json`, `possibleTypes.json` to CoreMedia Content Cloud v11 - 2201.1
+
+### Bugfixes and Changes:
+
+- Fixed Time Travel, [CMS-21057]
+- Fixed PDP for SFCC, [CMS-20860]
+- Updated minor versions of dependencies
+
+---
+
 ## v2110.0.0
 
 *Released 10.12.2021*
@@ -21,7 +43,7 @@
 ### Bugfixes and Changes:
 
 - Fixed unwanted page reload in search
-- Optimized fragmented preview for Studio Integration 
+- Optimized fragmented preview for Studio Integration
 - Updated `nodejs` to 16
 - Updated all other minor dependencies
 - Removed empty scripts with `exit 0`, since `pnpm` workspace script don't need them
@@ -36,7 +58,7 @@
 
 - Changed augmentation queries to work without commerce connection for faster responses
 - Added support for automatic persisted queries
-- Simplified and enhanced RootQuery to show CMTeasables in collections in the navigation and to reduce the payload of the request  
+- Simplified and enhanced RootQuery to show CMTeasables in collections in the navigation and to reduce the payload of the request
 - Added CSS based text shortening for banners
 - Added support for non-responsive images
 - Added view-dispatchers for Products

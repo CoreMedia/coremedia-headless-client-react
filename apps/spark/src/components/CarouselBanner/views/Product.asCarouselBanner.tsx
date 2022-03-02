@@ -1,6 +1,6 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import { Product } from "../../../queries/fragments/__generated__/Product";
+import { Product } from "@coremedia-labs/graphql-layer";
 import { initializeProductBannerFromProduct, ProductBanner } from "../../../models/Banner/ProductBanner";
 import CarouselProductBanner from "../CarouselProductBanner";
 

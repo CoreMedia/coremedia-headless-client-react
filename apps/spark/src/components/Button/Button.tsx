@@ -7,8 +7,8 @@ interface Props {
   text?: string;
   blockClass?: string;
   additionalClass?: string;
-  openInNewTab: boolean;
-  externalLink: boolean;
+  openInNewTab?: boolean;
+  externalLink?: boolean;
 }
 
 const Button: React.FC<Props> = ({

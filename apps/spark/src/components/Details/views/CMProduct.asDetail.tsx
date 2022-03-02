@@ -1,6 +1,6 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import { DetailCMProduct } from "../../../queries/fragments/__generated__/DetailCMProduct";
+import { DetailCMProduct } from "@coremedia-labs/graphql-layer";
 import DetailedCMProduct from "../DetailedCMProduct";
 import { initializeDetailCMProduct } from "../../../models/Detail/DetailCMProduct";
 import SeoHeader from "../../Header/SeoHeader";

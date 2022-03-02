@@ -1,7 +1,7 @@
 import PreviewMetadata, { getPropertyName } from "../../utils/Preview/MetaData";
 import { Picture } from "./Picture";
-import { Person } from "../../queries/fragments/__generated__/Person";
-import { createHref } from "../../utils/Link/LinkUtils";
+import { Person } from "@coremedia-labs/graphql-layer";
+import { getLink } from "../../utils/Link/LinkUtils";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
 
 /**
@@ -22,7 +22,7 @@ export interface Author extends PreviewMetadata {
 export const initializeAuthor = (person: Person): Author => {
   const author: Author = {
     ...mapProperties(person, { title: "title", picture: "picture" }),
-    linkTarget: createHref(person),
+    ...getLink(person),
   };
   (person.teaserText?.text ?? person.teaserText?.text !== undefined) &&
     addProperty(author, "text", person.teaserText?.text, getPropertyName(person, "teaserText"));

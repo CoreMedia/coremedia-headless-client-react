@@ -1,0 +1,36 @@
+{
+  "name": "@coremedia-labs/graphql-layer",
+  "version": "1.0.0",
+  "private": true,
+  "license": "CoreMedia Open Source License",
+  "scripts": {
+    "build": "pnpm apollo:codegen && tsc --build",
+    "lint": "eslint --fix \"src/**\"",
+    "lint:ci": "eslint \"src/**\"",
+    "prettier": "prettier --write \"src/**/*.+(js|jsx|ts|tsx|json)\"",
+    "apollo:prepare": "pnpm download:possible-types && pnpm download:interfaces && pnpm download:metadata && pnpm download:schema && pnpm apollo:codegen",
+    "apollo:codegen": "apollo client:codegen --globalTypesFile=./src/__generated__/globalTypes.ts --target typescript",
+    "download": "pnpm download:possible-types && pnpm download:interfaces && pnpm download:metadata && pnpm download:schema",
+    "download:schema": "node ./bin/download-schema.js",
+    "download:possible-types": "node ./bin/download-possible-types.js",
+    "download:interfaces": "node ./bin/download-interfaces.js",
+    "download:metadata": "node ./bin/download-metadata.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@apollo/client": "^3.5.8",
+    "apollo": "^2.33.9",
+    "cross-fetch": "^3.1.5",
+    "dotenv": "^10.0.0",
+    "typescript": "^4.5.5"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@typescript-eslint/parser": "^5.11.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
+  }
+}

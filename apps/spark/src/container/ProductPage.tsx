@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import { match } from "react-router-dom";
-import ProductBySeoSegmentQuery from "../queries/ProductBySeoSegmentQuery";
+import { ProductBySeoSegmentQuery } from "@coremedia-labs/graphql-layer";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, ProductNotFoundAlert } from "../components/Error/Alert";
 import DetailedProduct from "../components/Product/DetailedProduct";
 import { DetailProduct } from "../models/Detail/DetailProduct";
 import { initializeGrid } from "../models/Grid/Grid";
-import ProductByIdQuery from "../queries/ProductByIdQuery";
+import { ProductByIdQuery } from "@coremedia-labs/graphql-layer";
 import { getGlobalState } from "../utils/App/GlobalState";
 import { initializePicture, Picture } from "../models/Banner/Picture";
 import SeoHeader from "../components/Header/SeoHeader";

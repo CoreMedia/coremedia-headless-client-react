@@ -1,5 +1,5 @@
-import { ProductTeaser } from "../../queries/fragments/__generated__/ProductTeaser";
-import { ExternalProduct } from "../../queries/fragments/__generated__/ExternalProduct";
+import { ProductTeaser } from "@coremedia-labs/graphql-layer";
+import { ExternalProduct } from "@coremedia-labs/graphql-layer";
 
 /**
  *

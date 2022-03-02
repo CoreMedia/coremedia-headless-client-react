@@ -1,15 +1,15 @@
 import { Detail, initializeDetail } from "./Detail";
-import { DetailCMProduct as GraphQLDetailCMProduct } from "../../queries/fragments/__generated__/DetailCMProduct";
-import { createHref } from "../../utils/Link/LinkUtils";
+import { DetailCMProduct as GraphQLDetailCMProduct } from "@coremedia-labs/graphql-layer";
+import { getLink } from "../../utils/Link/LinkUtils";
 import { getPropertyName } from "../../utils/Preview/MetaData";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
+import { LinkAttributes } from "../../components/Link/Link";
 
 /**
  * @category ViewModels
  */
-export interface Download {
+export interface Download extends LinkAttributes {
   title: string | null;
-  linkTarget: string | null;
 }
 
 /**
@@ -37,7 +37,7 @@ export const initializeDetailCMProduct = (self: GraphQLDetailCMProduct): DetailC
         return (
           download && {
             title: download.teaserTitle,
-            linkTarget: createHref(download),
+            ...getLink(download),
           }
         );
       }),

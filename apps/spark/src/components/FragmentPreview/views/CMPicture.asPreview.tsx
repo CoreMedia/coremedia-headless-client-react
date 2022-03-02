@@ -1,9 +1,6 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import {
-  PreviewPicture as GrpahQLPreviewPicture,
-  PreviewPicture_crops,
-} from "../../../queries/fragments/__generated__/PreviewPicture";
+import { PreviewPicture as GrpahQLPreviewPicture, PreviewPicture_crops } from "@coremedia-labs/graphql-layer";
 import { metaDataElement, metaDataForResponsiveDevices } from "../../../utils/Preview/MetaData";
 import FragmentPreviewItem from "../FragmentPreviewItem";
 import Image from "../../Media/Image";

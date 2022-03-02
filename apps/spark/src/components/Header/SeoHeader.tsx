@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Helmet } from "react-helmet-async";
-import { LinkableWithLocale } from "../../queries/fragments/__generated__/LinkableWithLocale";
+import { LinkableWithLocale } from "@coremedia-labs/graphql-layer";
 import { getLink } from "../../utils/Link/LinkUtils";
 
 interface Props {
@@ -18,9 +18,11 @@ const SeoHeader: FC<Props> = ({ title, description, keywords, alternate }) => {
       {keywords && <meta name="keywords" content={keywords} />}
       <meta name="generator" content="CoreMedia Content Cloud" />
       {alternate?.map((item, index) => {
+        const linkTarget = getLink(item).linkTarget;
         return (
-          item.locale && (
-            <link key={index} rel="alternate" hrefLang={item.locale} href={getLink(item)} title={item.locale} />
+          item.locale &&
+          linkTarget && (
+            <link key={index} rel="alternate" hrefLang={item.locale} href={linkTarget} title={item.locale} />
           )
         );
       })}

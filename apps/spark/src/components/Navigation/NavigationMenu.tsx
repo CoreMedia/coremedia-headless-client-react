@@ -1,26 +1,10 @@
 import React, { FC } from "react";
 import { metaDataElement, metaDataProperty } from "../../utils/Preview/MetaData";
 import Link from "../Link/Link";
-import Include from "../../utils/ViewDispatcher/Include";
-import { AdditionalIncludeParams } from "../../utils/ViewDispatcher/IncludeProps";
-import { Navigation } from "../../models/Navigation/Navigation";
+import { NavigationProps } from "../../models/Navigation/Navigation";
+import NavigationItem from "./NavigationItem";
 
-export const initializeAndConvertParams = (params?: AdditionalIncludeParams) => {
-  return (
-    params && {
-      depth: params?.depth ? Number(params?.depth) : 0,
-      maxDepth: params?.maxDepth ? Number(params?.maxDepth) : 0,
-    }
-  );
-};
-
-interface Props extends Navigation {
-  depth?: number;
-  isTopLevel?: boolean;
-  maxDepth?: number;
-}
-
-const NavigationMenu: FC<Props> = ({
+const NavigationMenu: FC<NavigationProps> = ({
   linkTarget,
   items,
   title,
@@ -32,8 +16,6 @@ const NavigationMenu: FC<Props> = ({
   if (maxDepth < 0) {
     return null;
   }
-  maxDepth -= 1;
-
   return (
     <>
       {items && (
@@ -52,15 +34,12 @@ const NavigationMenu: FC<Props> = ({
             items.map((child, index) => {
               return (
                 child && (
-                  <Include
-                    self={child}
-                    view={"asLinkListItem"}
+                  <NavigationItem
                     key={index}
-                    params={{
-                      isTopLevel: isTopLevel,
-                      depth: depth,
-                      maxDepth: maxDepth,
-                    }}
+                    depth={depth + 1}
+                    isTopLevel={isTopLevel}
+                    maxDepth={maxDepth - 1}
+                    {...child}
                   />
                 )
               );

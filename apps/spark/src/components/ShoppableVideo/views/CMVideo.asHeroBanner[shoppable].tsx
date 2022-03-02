@@ -1,6 +1,6 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import { Video } from "../../../queries/fragments/__generated__/Video";
+import { Video } from "@coremedia-labs/graphql-layer";
 import { initializeShoppableVideoBanner, ShoppableVideoBanner } from "../../../models/Banner/VideoBanner";
 import ShoppableHeroVideo from "../ShoppableHeroVideo";
 

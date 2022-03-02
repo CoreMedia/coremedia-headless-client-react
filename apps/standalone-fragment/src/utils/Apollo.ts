@@ -1,5 +1,5 @@
 import { ApolloClient, ApolloLink, HttpLink, InMemoryCache } from "@apollo/client";
-import possibleTypes from "@coremedia-labs/spark/src/__downloaded__/possibleTypes.json";
+import possibleTypes from "@coremedia-labs/graphql-layer/dist/__downloaded__/possibleTypes.json";
 
 let apolloClient: ApolloClient<unknown>;
 

@@ -1,6 +1,6 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import { Collection } from "../../../queries/fragments/__generated__/Collection";
+import { Collection } from "@coremedia-labs/graphql-layer";
 import CarouselBannerContainer from "../CarouselBannerContainer";
 import { initializeSlotFromCollection } from "../../../models/Grid/Slot";
 

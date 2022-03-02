@@ -7,6 +7,7 @@ import BannerCaption from "../Caption/BannerCaption";
 import CTA from "../CTA/CTA";
 import ProductPricing from "../Product/ProductPricing";
 import { ProductBanner } from "../../models/Banner/ProductBanner";
+import Link from "../Link/Link";
 
 interface Props {
   banner: ProductBanner;
@@ -17,9 +18,11 @@ const HeroBannerProduct: React.FC<Props> = ({ banner }) => {
   return (
     <div className={`cm-hero-banner`} {...metaDataElement(banner.metadata?.root)}>
       {banner.picture && (
-        <div className={`cm-hero-banner__picture`} {...metaDataProperty(banner.metadata?.properties?.picture)}>
-          <HeroResponsiveImage picture={banner.picture} />
-        </div>
+        <Link to={banner.linkTarget} externalLink={banner.externalLink} openInNewTab={banner.openInNewTab}>
+          <div className={`cm-hero-banner__picture`} {...metaDataProperty(banner.metadata?.properties?.picture)}>
+            <HeroResponsiveImage picture={banner.picture} />
+          </div>
+        </Link>
       )}
       {banner.overlayRequired && <OverlayWithCtas {...banner} />}
       {!banner.overlayRequired && (

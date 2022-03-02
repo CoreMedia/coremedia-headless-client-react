@@ -6,6 +6,7 @@ import BannerCaption from "../Caption/BannerCaption";
 import SquareResponsiveImage from "./SquareResponsiveImage";
 import OverlayWithCtas from "../Overlay/OverlayWithCtas";
 import ProductPricing from "../Product/ProductPricing";
+import Link from "../Link/Link";
 
 interface Props {
   banner: ProductBanner;
@@ -15,9 +16,11 @@ const SquareProductBanner: React.FC<Props> = ({ banner }) => {
   return (
     <div className={`cm-square-banner`} {...metaDataElement(banner.metadata?.root)}>
       {banner.picture && (
-        <div className={`cm-square-banner__picture`} {...metaDataProperty(banner.metadata?.properties?.picture)}>
-          <SquareResponsiveImage picture={banner.picture} />
-        </div>
+        <Link to={banner.linkTarget} externalLink={banner.externalLink} openInNewTab={banner.openInNewTab}>
+          <div className={`cm-square-banner__picture`} {...metaDataProperty(banner.metadata?.properties?.picture)}>
+            <SquareResponsiveImage picture={banner.picture} />
+          </div>
+        </Link>
       )}
       {banner.overlayRequired && <OverlayWithCtas {...banner} />}
       {!banner.overlayRequired && (

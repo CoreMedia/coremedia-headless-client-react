@@ -1,7 +1,12 @@
 import React from "react";
 import { Link as ReactLink } from "react-router-dom";
 import { getLink } from "../../utils/Link/LinkUtils";
-import { ExternalLink } from "./ExternalLink";
+
+export interface LinkAttributes {
+  linkTarget?: string;
+  openInNewTab?: boolean;
+  externalLink?: boolean;
+}
 
 export interface LinkProps {
   to: any;
@@ -21,19 +26,28 @@ export const Link: React.FC<LinkProps> = ({
   openInNewTab = false,
   externalLink = false,
 }) => {
+  const linkTarget = getLink(to);
+  if (!linkTarget.linkTarget) {
+    return <>{children}</>;
+  }
   // external link
   if (externalLink) {
+    const openInNewTabProps: { target?: string; rel?: string } = {};
+    if (openInNewTab) {
+      openInNewTabProps.target = "_blank";
+      openInNewTabProps.rel = "noreferrer noopener";
+    }
+
     return (
-      <ExternalLink className={className} to={to} role={role} title={title} openInNewTab={openInNewTab}>
+      <a className={className} href={to} role={role} title={title} {...openInNewTabProps}>
         {children}
-      </ExternalLink>
+      </a>
     );
   }
 
   // internal link
-  const linkTarget = getLink(to);
   return (
-    <ReactLink className={className} to={linkTarget} role={role} title={title}>
+    <ReactLink className={className} to={linkTarget.linkTarget} role={role} title={title}>
       {children}
     </ReactLink>
   );

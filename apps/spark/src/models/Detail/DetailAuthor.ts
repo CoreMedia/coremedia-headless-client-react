@@ -1,6 +1,6 @@
 import { Author, initializeAuthor } from "../Banner/Author";
 import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
-import { DetailPerson as GraphQLDetailPerson } from "../../queries/fragments/__generated__/DetailPerson";
+import { DetailPerson as GraphQLDetailPerson } from "@coremedia-labs/graphql-layer";
 import { getPropertyName } from "../../utils/Preview/MetaData";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
 
