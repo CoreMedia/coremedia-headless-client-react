@@ -22,7 +22,7 @@ const CTA: React.FC<Props> = ({ targets, additionalClass, additionalButtonClass 
             target.callToActionEnabled && (
               <Button
                 key={index}
-                linkTarget={target.target}
+                linkTarget={target.linkTarget}
                 text={target.callToActionText}
                 additionalClass={additionalButtonClass}
                 openInNewTab={target.openInNewTab}

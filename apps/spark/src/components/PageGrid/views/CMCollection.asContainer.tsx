@@ -1,7 +1,7 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 import Include from "../../../utils/ViewDispatcher/Include";
-import { Collection } from "../../../queries/fragments/__generated__/Collection";
+import { Collection } from "@coremedia-labs/graphql-layer";
 
 const CMCollectionAsContainer: React.FC<IncludeProps<Collection>> = ({ self }) => {
   return (

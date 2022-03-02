@@ -1,6 +1,6 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import { CMHTMLFragment as CMHTMLType } from "../../../queries/fragments/__generated__/CMHTMLFragment";
+import { CMHTMLFragment as CMHTMLType } from "@coremedia-labs/graphql-layer";
 import CMHTML from "../../CMHTML/CMHTML";
 
 const CMHTMLAsSquareBanner: React.FC<IncludeProps<CMHTMLType>> = ({ self }) => {

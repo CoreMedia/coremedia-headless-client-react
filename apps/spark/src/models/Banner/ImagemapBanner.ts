@@ -1,5 +1,5 @@
 import { Banner, initializeBanner } from "./Banner";
-import { ImageMap, ImageMap_transformedHotZones_linkedContent } from "../../queries/fragments/__generated__/ImageMap";
+import { ImageMap, ImageMap_transformedHotZones_linkedContent } from "@coremedia-labs/graphql-layer";
 
 /**
  * @category ViewModels

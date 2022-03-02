@@ -6,6 +6,7 @@ import "./HeroBanner.scss";
 import { Banner } from "../../models/Banner/Banner";
 import BannerCaption from "../Caption/BannerCaption";
 import CTA from "../CTA/CTA";
+import Link from "../Link/Link";
 
 interface Props {
   banner: Banner;
@@ -16,9 +17,11 @@ const HeroBanner: React.FC<Props> = ({ banner }) => {
   return (
     <div className={`cm-hero-banner`} {...metaDataElement(banner.metadata?.root)}>
       {banner.picture && (
-        <div className={`cm-hero-banner__picture`} {...metaDataProperty(banner.metadata?.properties?.picture)}>
-          <HeroResponsiveImage picture={banner.picture} />
-        </div>
+        <Link to={banner.linkTarget}>
+          <div className={`cm-hero-banner__picture`} {...metaDataProperty(banner.metadata?.properties?.picture)}>
+            <HeroResponsiveImage picture={banner.picture} />
+          </div>
+        </Link>
       )}
       {banner.overlayRequired && <OverlayWithCtas {...banner} />}
       {!banner.overlayRequired && (

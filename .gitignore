@@ -191,6 +191,7 @@ $RECYCLE.BIN/
 # Node, pnpm and Frontend
 node_modules/
 build/
+storybook-static/
 __generated__/
 coverage/
 

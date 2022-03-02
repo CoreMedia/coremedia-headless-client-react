@@ -1,4 +1,4 @@
-import { getImageUrl, isUrlAbsolute } from "./MediaUrls";
+import { getImageUrl } from "./MediaUrls";
 
 beforeEach(() => {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -6,11 +6,6 @@ beforeEach(() => {
 });
 
 describe("media", () => {
-  it("is url absolute", () => {
-    expect(isUrlAbsolute("https://example.com")).toBe(true);
-    expect(isUrlAbsolute("example.com")).toBe(false);
-  });
-
   it("imageUrl with regular uriTemplate", () => {
     const exampleUriTemplate = "url/{cropName}/{width}";
     const expectedUrl = "url/test_ratio/400";

@@ -1,13 +1,13 @@
 import React, { FC } from "react";
 import { useSearchStateContextState } from "../context/SearchStateContext";
-import { SortFieldWithOrder } from "../__generated__/globalTypes";
+import { SortFieldWithOrder } from "@coremedia-labs/graphql-layer";
 import { getGlobalState } from "../utils/App/GlobalState";
 import Loading from "../components/Loading/Loading";
 import { Alert, ApolloClientAlert } from "../components/Error/Alert";
 import SearchPageContext, { Facet } from "../context/SearchPageContext";
 import SeoHeader from "../components/Header/SeoHeader";
 import Search from "../components/Search/Search";
-import SearchQuery from "../queries/SearchQuery";
+import { SearchQuery } from "@coremedia-labs/graphql-layer";
 
 const asSortFieldWithOrder = (sortFieldName: string | null): SortFieldWithOrder | null => {
   if (Object.values(SortFieldWithOrder).some((col: string) => col === sortFieldName)) {

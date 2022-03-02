@@ -1,5 +1,5 @@
 import { isPreview } from "./Preview";
-import metaDataMapping from "../../__downloaded__/metadata.json";
+import metaDataMapping from "@coremedia-labs/graphql-layer/dist/__downloaded__/metadata.json";
 import { Col } from "../../models/Grid/Grid";
 import { Dispatchable } from "../ViewDispatcher/Dispatchable";
 

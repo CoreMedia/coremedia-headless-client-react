@@ -1,5 +1,5 @@
 import { Banner, initializeBanner } from "./Banner";
-import { CMProduct as GraphQLCMProduct } from "../../queries/fragments/__generated__/CMProduct";
+import { CMProduct as GraphQLCMProduct } from "@coremedia-labs/graphql-layer";
 import { mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
 
 export const initializeCMProduct = (self: GraphQLCMProduct): Banner => {

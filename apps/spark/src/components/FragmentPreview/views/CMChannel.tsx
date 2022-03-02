@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import { Linkable } from "../../../queries/fragments/__generated__/Linkable";
+import { Linkable } from "@coremedia-labs/graphql-layer";
 import { getLink } from "../../../utils/Link/LinkUtils";
 import { usePreviewContextState } from "../../../context/PreviewContextProvider";
 import { isPreview } from "../../../utils/Preview/Preview";
@@ -15,7 +15,7 @@ const CMChannel: React.FC<IncludeProps<Linkable>> = ({ self }) => {
       previewDate: previewDate,
     };
   }
-  return <Redirect to={getLink(self, params)} />;
+  return <Redirect to={getLink(self, params).linkTarget || ""} />;
 };
 
 export default CMChannel;

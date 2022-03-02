@@ -1,6 +1,6 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import { CMProduct } from "../../../queries/fragments/__generated__/CMProduct";
+import { CMProduct } from "@coremedia-labs/graphql-layer";
 import LandscapeBanner from "../LandscapeBanner";
 import { Banner } from "../../../models/Banner/Banner";
 import { initializeCMProduct } from "../../../models/Banner/CMProduct";

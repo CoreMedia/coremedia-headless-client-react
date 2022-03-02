@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useMemo } from "react";
-import { SortFieldWithOrder } from "../../__generated__/globalTypes";
+import { SortFieldWithOrder } from "@coremedia-labs/graphql-layer";
 import { useSearchStateContextState } from "../../context/SearchStateContext";
 import { useHistory, useLocation } from "react-router-dom";
 

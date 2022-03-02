@@ -11,7 +11,7 @@ import { PreviewContextProvider } from "../../context/PreviewContextProvider";
 import { getGlobalState } from "../../utils/App/GlobalState";
 import { HelmetProvider } from "react-helmet-async";
 import SearchStateContextProvider, { SearchSortField } from "../../context/SearchStateContext";
-import { SortFieldWithOrder } from "../../__generated__/globalTypes";
+import { SortFieldWithOrder } from "@coremedia-labs/graphql-layer";
 
 import "./App.scss";
 

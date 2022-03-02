@@ -6,7 +6,7 @@
 import { ApolloClient, ApolloLink, concat, HttpLink, InMemoryCache } from "@apollo/client";
 import { createPersistedQueryLink } from "@apollo/client/link/persisted-queries";
 import { sha256 } from "crypto-hash";
-import possibleTypes from "../../__downloaded__/possibleTypes.json";
+import possibleTypes from "@coremedia-labs/graphql-layer/dist/__downloaded__/possibleTypes.json";
 import { getEndpoint } from "./App";
 import { formatPreviewDate, isPreview } from "../Preview/Preview";
 

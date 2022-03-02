@@ -1,7 +1,7 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 import CarouselBannerContainer from "../CarouselBannerContainer";
-import { PageGridPlacement } from "../../../queries/fragments/__generated__/PageGridPlacement";
+import { PageGridPlacement } from "@coremedia-labs/graphql-layer";
 import { initializeSlotFromPageGridPlacement } from "../../../models/Grid/Slot";
 
 const PageGridPlacementAsContainerCarousel: React.FC<IncludeProps<PageGridPlacement>> = ({ self }) => {

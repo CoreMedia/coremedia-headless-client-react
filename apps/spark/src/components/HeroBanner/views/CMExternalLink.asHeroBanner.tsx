@@ -1,6 +1,6 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import { ExternalLink } from "../../../queries/fragments/__generated__/ExternalLink";
+import { ExternalLink } from "@coremedia-labs/graphql-layer";
 import HeroBanner from "../HeroBanner";
 import { Banner } from "../../../models/Banner/Banner";
 import { initializeExternalLink } from "../../../models/Banner/ExternalLink";

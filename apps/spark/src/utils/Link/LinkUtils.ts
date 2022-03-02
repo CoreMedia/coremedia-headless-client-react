@@ -1,13 +1,18 @@
-import { Product } from "../../queries/fragments/__generated__/Product";
-import { Category } from "../../queries/fragments/Category";
-import { Linkable } from "../../queries/fragments/__generated__/Linkable";
-import { Person } from "../../queries/fragments/__generated__/Person";
-import { ProductTeaser } from "../../queries/fragments/__generated__/ProductTeaser";
-import { ExternalChannel } from "../../queries/fragments/__generated__/ExternalChannel";
+import { Product } from "@coremedia-labs/graphql-layer";
+import { Category } from "@coremedia-labs/graphql-layer";
+import { Linkable } from "@coremedia-labs/graphql-layer";
+import { Person } from "@coremedia-labs/graphql-layer";
+import { Download } from "@coremedia-labs/graphql-layer";
+import { ProductTeaser } from "@coremedia-labs/graphql-layer";
+import { ExternalChannel } from "@coremedia-labs/graphql-layer";
 import { getFQDN } from "../App/App";
 import qs, { StringifiableRecord } from "query-string";
 import { getGlobalState } from "../App/GlobalState";
-import { Tag } from "../../queries/fragments/__generated__/Tag";
+import { Tag } from "@coremedia-labs/graphql-layer";
+import { ExternalLink } from "@coremedia-labs/graphql-layer";
+import { LinkAttributes } from "../../components/Link/Link";
+import { ProductRef } from "@coremedia-labs/graphql-layer";
+import { Teasable } from "@coremedia-labs/graphql-layer";
 
 const hasDetailPage: Array<string> = ["CMArticleImpl", "CMVideoImpl", "CMProductImpl"];
 const hasPage: Array<string> = ["CMChannelImpl", "CMExternalPageImpl"];
@@ -24,15 +29,12 @@ export const formatSegmentForUrl = (segment: string | null | undefined): string 
   if (!segment) {
     return "";
   }
-  segment = segment.split(" ").join("-");
+  segment = segment.split(" ").join("-").replace("?", "");
   segment = segment.toLowerCase();
   return segment;
 };
 
-export const createProductHref = (self: Product, params?: StringifiableRecord): string => {
-  if (!self) {
-    return "";
-  }
+const createProductHref = (self: Product, params?: StringifiableRecord): LinkAttributes => {
   const { rootSegment } = getGlobalState();
 
   let path = "/";
@@ -48,13 +50,12 @@ export const createProductHref = (self: Product, params?: StringifiableRecord): 
       path += self.seoSegment;
     }
   }
-  return makeAbsoluteAndAddParams(path, params);
+  return {
+    linkTarget: makeAbsoluteAndAddParams(path, params),
+  };
 };
 
-export const createCategoryHref = (self: Category, params?: StringifiableRecord): string => {
-  if (!self) {
-    return "";
-  }
+const createCategoryHref = (self: Category, params?: StringifiableRecord): LinkAttributes => {
   const { rootSegment } = getGlobalState();
 
   let path = "/";
@@ -68,14 +69,16 @@ export const createCategoryHref = (self: Category, params?: StringifiableRecord)
       path += self.shortId + "/";
     }
   }
-  return makeAbsoluteAndAddParams(path, params);
+  return {
+    linkTarget: makeAbsoluteAndAddParams(path, params),
+  };
 };
 
-export const createHref = (self: Linkable, params?: StringifiableRecord): string => {
-  if (!self) {
-    return "";
-  }
-  let path = "/";
+const createHref = (self: Linkable, params?: StringifiableRecord): LinkAttributes => {
+  const { rootSegment } = getGlobalState();
+  let path: string | undefined | null = "/";
+  let isExternalLink = false;
+  let openInNewTab = false;
   if (self.__typename) {
     if (hasDetailPage.indexOf(self.__typename) >= 0) {
       self.navigationPath &&
@@ -90,28 +93,33 @@ export const createHref = (self: Linkable, params?: StringifiableRecord): string
           item && (path += `${formatSegmentForUrl(item.segment || item.title)}/`);
           return true;
         });
+    } else if (self.__typename === "CMDownloadImpl") {
+      const download: Download = self as Download;
+      isExternalLink = true;
+      openInNewTab = true;
+      path = download.data?.uri;
+    } else if (self.__typename === "CMExternalLinkImpl") {
+      const externalLink: ExternalLink = self as ExternalLink;
+      isExternalLink = true;
+      openInNewTab = externalLink.openInNewTab !== null ? externalLink.openInNewTab : false;
+      path = externalLink.url || "";
     } else if (self.__typename === "CMPersonImpl") {
       const person: Person = self as Person;
-      self.navigationPath &&
-        self.navigationPath.slice(0, self.navigationPath.length - 1).map((item) => {
-          item && (path += `${formatSegmentForUrl(item.segment || item.title)}/`);
-          return true;
-        });
-      path += `${formatSegmentForUrl(person.displayName || person.firstName + " " + person.lastName)}-${person.id}`;
+      path += `${rootSegment}/author/${formatSegmentForUrl(
+        person.displayName || person.firstName + " " + person.lastName
+      )}-${person.id}`;
     } else if (self.__typename === "CMProductTeaserImpl" || self.__typename === "CMExternalProductImpl") {
       const productTeaser: ProductTeaser = self as ProductTeaser;
       path =
-        (productTeaser.productRef &&
-          productTeaser.productRef.product &&
-          createProductHref(productTeaser.productRef.product as Product)) ||
-        "";
+        productTeaser.productRef &&
+        productTeaser.productRef.product &&
+        createProductHref(productTeaser.productRef.product as Product).linkTarget;
     } else if (self.__typename === "CMExternalChannelImpl") {
       const externalChannel: ExternalChannel = self as ExternalChannel;
       path =
-        (externalChannel.categoryRef &&
-          externalChannel.categoryRef.category &&
-          createCategoryHref(externalChannel.categoryRef.category as Category)) ||
-        "";
+        externalChannel.categoryRef &&
+        externalChannel.categoryRef.category &&
+        createCategoryHref(externalChannel.categoryRef.category as Category).linkTarget;
     } else if (self.__typename === "CMTaxonomyImpl") {
       const tag: Tag = self as Tag;
       self.navigationPath &&
@@ -122,15 +130,34 @@ export const createHref = (self: Linkable, params?: StringifiableRecord): string
       const { rootSegment } = getGlobalState();
       path = `/${rootSegment}/tag${path}`;
       path += `${formatSegmentForUrl(tag.value)}-${tag.id}`;
+    } else if (self.__typename === "CMTeaserImpl") {
+      const teaser: Teasable = self as Teasable;
+      if (teaser.teaserTargets && teaser.teaserTargets[0]?.target) {
+        const { linkTarget } = getLink(teaser.teaserTargets && teaser.teaserTargets[0]?.target);
+        path = linkTarget;
+      }
+    } else if (
+      self.__typename === "CMHTMLImpl" ||
+      self.__typename === "CMCollectionImpl" ||
+      self.__typename === "CMImageMapImpl" ||
+      self.__typename === "CMProductListImpl" ||
+      self.__typename === "CMSelectionRulesImpl"
+    ) {
+      //Do not build links for these items.
+      path = null;
     } else {
       console.debug(`No linkbuilding for ${self.__typename} has been implemented yet`);
     }
   }
-  return makeAbsoluteAndAddParams(path, params);
+  return {
+    linkTarget: (path && makeAbsoluteAndAddParams(path, params)) || undefined,
+    externalLink: isExternalLink,
+    openInNewTab: openInNewTab,
+  };
 };
 
-export const getLink = (to: any, params?: StringifiableRecord): string => {
-  let linkTarget: string;
+export const getLink = (to: any, params?: StringifiableRecord): LinkAttributes => {
+  let linkTarget: LinkAttributes = {};
   if (to) {
     if (to.__typename && to.__typename.startsWith("CM")) {
       const linkable = to as Linkable;
@@ -141,16 +168,14 @@ export const getLink = (to: any, params?: StringifiableRecord): string => {
     } else if (to.__typename === "ProductImpl") {
       const linkable = to as Product;
       linkTarget = createProductHref(linkable, params);
+    } else if (to.__typename === "ProductRef") {
+      const productRef = to as ProductRef;
+      productRef.product && (linkTarget = createProductHref(productRef.product, params));
     } else if (typeof to === "string") {
-      linkTarget = to;
+      linkTarget.linkTarget = to;
     } else {
       console.warn("Ignoring unknown link target", to);
-      return "";
     }
-  } else {
-    console.warn("Cannot get link, no target is defined.");
-    return "";
   }
-
   return linkTarget;
 };

@@ -1,14 +1,11 @@
 import React from "react";
-import Link from "../Link/Link";
+import Link, { LinkAttributes } from "../Link/Link";
 import PreviewMetadata, { metaDataProperty } from "../../utils/Preview/MetaData";
 import "./BannerCaption.scss";
 
-interface Props extends PreviewMetadata {
-  linkTarget?: string;
+interface Props extends PreviewMetadata, LinkAttributes {
   title: string | null;
   plaintext: string | null;
-  openInNewTab: boolean;
-  externalLink: boolean;
 }
 
 const BannerCaption: React.FC<Props> = ({

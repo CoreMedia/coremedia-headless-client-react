@@ -2,11 +2,11 @@ import PreviewMetadata, { getPropertyName } from "../../utils/Preview/MetaData";
 import { Tag } from "../Banner/Tag";
 import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
 import { Author, initializeAuthor } from "../Banner/Author";
-import { DetailTeasable } from "../../queries/fragments/__generated__/DetailTeasable";
+import { DetailTeasable } from "@coremedia-labs/graphql-layer";
 import { readTimeInMinutes } from "../../utils/Richtext/ReadTime";
-import { Person } from "../../queries/fragments/__generated__/Person";
+import { Person } from "@coremedia-labs/graphql-layer";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
-import { createHref } from "../../utils/Link/LinkUtils";
+import { getLink } from "../../utils/Link/LinkUtils";
 
 /**
  * @category ViewModels
@@ -55,7 +55,7 @@ export const initializeDetail = (self: DetailTeasable): Detail => {
         return (
           tag && {
             name: tag.value || undefined,
-            linkTarget: createHref(tag),
+            ...getLink(tag),
             ...mapProperties(self, { tag: "value" }),
           }
         );

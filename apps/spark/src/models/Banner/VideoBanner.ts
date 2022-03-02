@@ -1,11 +1,11 @@
 import { Banner, initializeBanner } from "./Banner";
-import { Video } from "../../queries/fragments/__generated__/Video";
+import { Video } from "@coremedia-labs/graphql-layer";
 import { getVideoUrl } from "../../utils/Media/MediaUrls";
 import { addProperty } from "../../utils/ViewDispatcher/ModelHelper";
 import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
-import { TimeLine } from "../../queries/fragments/__generated__/TimeLine";
+import { TimeLine } from "@coremedia-labs/graphql-layer";
 import { initializeProductBannerFromProductTeaser, ProductBanner } from "./ProductBanner";
-import { ProductTeaser } from "../../queries/fragments/__generated__/ProductTeaser";
+import { ProductTeaser } from "@coremedia-labs/graphql-layer";
 
 export interface TimelineEntry {
   startTime: number;

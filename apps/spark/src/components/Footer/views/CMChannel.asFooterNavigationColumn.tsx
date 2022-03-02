@@ -2,7 +2,7 @@ import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 import Include from "../../../utils/ViewDispatcher/Include";
 import Link from "../../Link/Link";
-import { Navigation } from "../../../queries/fragments/Navigation";
+import { Navigation } from "@coremedia-labs/graphql-layer";
 
 const CMChannelAsFooterNavigationColumn: React.FC<IncludeProps<Navigation>> = ({ self }) => {
   return (

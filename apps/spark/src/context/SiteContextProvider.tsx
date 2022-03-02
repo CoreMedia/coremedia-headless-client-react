@@ -1,15 +1,15 @@
 import React, { ReactNode } from "react";
-import { PageGridPlacement } from "../queries/fragments/__generated__/PageGridPlacement";
-import RootQuery from "../queries/RootQuery";
-import { NavigationForNavigation as Navigation } from "../queries/fragments/Navigation";
+import { PageGridPlacement } from "@coremedia-labs/graphql-layer";
+import { RootQuery } from "@coremedia-labs/graphql-layer";
 import Loading from "../components/Loading/Loading";
 import { metaDataForResponsiveDevices } from "../utils/Preview/MetaData";
-import { LinkableWithLocale } from "../queries/fragments/__generated__/LinkableWithLocale";
+import { LinkableWithLocale } from "@coremedia-labs/graphql-layer";
 import { ApolloClientAlert, PageNotFoundAlert } from "../components/Error/Alert";
 import Header from "../components/Header/Header";
 import FooterNavigation from "../components/Footer/FooterNavigation";
 import Footer from "../components/Footer/Footer";
 import { setGlobalState } from "../utils/App/GlobalState";
+import { initializeNavigation, Navigation } from "../models/Navigation/Navigation";
 
 interface SiteContext {
   navigation?: Navigation;
@@ -52,14 +52,18 @@ export const SiteContextProvider: React.FC<Props> = ({ children, rootSegment, cu
   }
 
   const siteContextValue: SiteContext = {
-    navigation: data.content.pageByPath as Navigation,
+    navigation: initializeNavigation(data.content.pageByPath),
     placements: data.content.pageByPath.grid?.placements,
     localizedVariants: data.content.pageByPath.localizedVariants as Array<LinkableWithLocale>,
     currentNavigation: currentNavigation?.split("/").filter((item) => {
       return item !== null && item !== "";
     }),
   };
-  setGlobalState({ useSeo: rootSegment !== "apparelhomepage", rootSegment: rootSegment, siteId: data.content.site.id });
+  setGlobalState({
+    useSeo: rootSegment?.startsWith("calista") || rootSegment?.startsWith("aurora"),
+    rootSegment: rootSegment,
+    siteId: data.content.site.id,
+  });
 
   return (
     <siteContext.Provider value={siteContextValue}>

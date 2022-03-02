@@ -68,7 +68,7 @@ const makeGatewaySchema = async () => {
 
     return stitchSchemas({
       subschemas: [wrapSchema({ schema: coreMediaSchema, executor: executor }), catalogSchema],
-      resolvers: resolvers(coreMediaSchema, catalogSchema),
+      resolvers: resolvers(wrapSchema({ schema: coreMediaSchema, executor: executor }), catalogSchema),
       typeDefs: linkSchemaDefs,
     });
   } catch (error) {
@@ -79,20 +79,33 @@ const makeGatewaySchema = async () => {
 };
 
 // Executor to query subschema endpoint. Forwards headers from the context
+// For some reason when running graphiql, the headers hide within context.headers, for all other calls within context.request.headers
 const executor: Executor = async ({ document, variables, context }) => {
   const query = print(document);
-  const newHeaders = { ...context.request.headers };
+  let newHeaders = {};
+  let method = "POST";
+  if (context.request) {
+    newHeaders = { ...context.request.headers };
+    method = context.request.method;
+  } else if (context.headers) {
+    newHeaders = { ...context.headers };
+    method = context.method;
+  }
   // remove host header to prevent issues with subschema service accepting it.
   newHeaders["host"] = "";
   // set correct content length for changed request.
   newHeaders["content-length"] = JSON.stringify({ query, variables }).length;
-  const fetchResult = await fetch(coreMediaHeadlessServerEndpoint(), {
-    method: context.request.method,
-    headers: {
-      ...newHeaders,
-    },
-    body: JSON.stringify({ query, variables }),
-  });
+  let requestInit = undefined;
+  if (method !== "GET" && method !== "HEAD") {
+    requestInit = {
+      method: method,
+      headers: {
+        ...newHeaders,
+      },
+      body: JSON.stringify({ query, variables }),
+    };
+  }
+  const fetchResult = await fetch(coreMediaHeadlessServerEndpoint(), requestInit);
   return fetchResult.json();
 };
 

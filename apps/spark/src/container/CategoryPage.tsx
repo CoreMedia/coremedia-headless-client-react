@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import { match } from "react-router-dom";
-import CategoryBySeoSegmentQuery from "../queries/CategoryBySeoSegmentQuery";
+import { CategoryBySeoSegmentQuery } from "@coremedia-labs/graphql-layer";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, CategoryNotFoundAlert } from "../components/Error/Alert";
 import DetailedCategory from "../components/Category/DetailedCategory";
 import { DetailCategory } from "../models/Detail/DetailCategory";
 import { initializeGrid } from "../models/Grid/Grid";
-import CategoryByIdQuery from "../queries/CategoryByIdQuery";
+import { CategoryByIdQuery } from "@coremedia-labs/graphql-layer";
 import { getGlobalState } from "../utils/App/GlobalState";
 import SeoHeader from "../components/Header/SeoHeader";
 import RootPreviewId from "../components/FragmentPreview/RootPreviewId";

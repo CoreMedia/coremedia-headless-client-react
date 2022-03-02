@@ -1,7 +1,6 @@
-export interface Target {
-  target?: string;
+import { LinkAttributes } from "../../components/Link/Link";
+
+export interface Target extends LinkAttributes {
   callToActionEnabled?: boolean;
   callToActionText?: string;
-  openInNewTab: boolean;
-  externalLink: boolean;
 }

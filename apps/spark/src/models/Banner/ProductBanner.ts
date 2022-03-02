@@ -1,12 +1,12 @@
 import { Banner, initializeBanner } from "./Banner";
-import { Product as GraphQLProduct } from "../../queries/fragments/__generated__/Product";
+import { Product as GraphQLProduct } from "@coremedia-labs/graphql-layer";
 import { initializePicture } from "./Picture";
 import { getPropertyName } from "../../utils/Preview/MetaData";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
-import { ProductTeaser } from "../../queries/fragments/__generated__/ProductTeaser";
+import { ProductTeaser } from "@coremedia-labs/graphql-layer";
 import { isShopNowEnabled } from "../../utils/Commerce/Shopping";
-import { ExternalProduct } from "../../queries/fragments/__generated__/ExternalProduct";
-import { createProductHref } from "../../utils/Link/LinkUtils";
+import { ExternalProduct } from "@coremedia-labs/graphql-layer";
+import { getLink } from "../../utils/Link/LinkUtils";
 
 /**
  * @category ViewModels
@@ -128,6 +128,7 @@ export const initializeProductBannerFromProduct = (product: GraphQLProduct): Pro
     ),
     overlayRequired: false,
     shopNowConfiguration: false,
+    ...getLink(product),
   };
   productBanner = mapProperties(
     product,
@@ -140,6 +141,5 @@ export const initializeProductBannerFromProduct = (product: GraphQLProduct): Pro
     });
   product.augmentation.picture &&
     addProperty(productBanner, "picture", initializePicture(product.augmentation.picture));
-  productBanner.linkTarget = createProductHref(product);
   return productBanner;
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import { CMHTMLFragment } from "../../../queries/fragments/__generated__/CMHTMLFragment";
+import { CMHTMLFragment } from "@coremedia-labs/graphql-layer";
 
 const CMHTMLAsFooterNavigationColumn: React.FC<IncludeProps<CMHTMLFragment>> = ({ self }) => {
   return (

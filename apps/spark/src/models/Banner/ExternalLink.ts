@@ -1,6 +1,7 @@
 import { Banner, initializeBanner } from "./Banner";
-import { ExternalLink as GraphQLExternalLink } from "../../queries/fragments/__generated__/ExternalLink";
+import { ExternalLink as GraphQLExternalLink } from "@coremedia-labs/graphql-layer";
 import { mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
+import { getLink } from "../../utils/Link/LinkUtils";
 
 export const initializeExternalLink = (self: GraphQLExternalLink): Banner => {
   const banner: Banner = initializeBanner(self);
@@ -13,13 +14,14 @@ export const initializeExternalLink = (self: GraphQLExternalLink): Banner => {
       },
       banner
     ),
+    ...getLink(self),
   };
   externalLink.externalLink = true;
 
   if (externalLink.targets) {
-    externalLink.targets[0].target = self.url ?? "";
-    externalLink.targets[0].openInNewTab = self.openInNewTab || false;
-    externalLink.targets[0].externalLink = true;
+    externalLink.targets[0] = {
+      ...getLink(self),
+    };
   }
   return externalLink;
 };

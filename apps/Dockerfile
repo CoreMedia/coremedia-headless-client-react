@@ -1,6 +1,7 @@
 FROM nginx:1.19-alpine
 
 COPY spark/build /usr/share/nginx/html
+COPY spark/storybook-static /usr/share/nginx/html/storybook
 COPY standalone-fragment/dist /usr/share/nginx/html/standalone
 COPY spark/nginx /etc/nginx/templates
 

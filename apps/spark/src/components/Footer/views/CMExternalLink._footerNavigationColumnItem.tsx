@@ -2,7 +2,7 @@ import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 import Link from "../../Link/Link";
 import { metaDataElement } from "../../../utils/Preview/MetaData";
-import { ExternalLink } from "../../../queries/fragments/__generated__/ExternalLink";
+import { ExternalLink } from "@coremedia-labs/graphql-layer";
 
 const FooterNavigationColumnItem: React.FC<IncludeProps<ExternalLink>> = ({ self }) => {
   return (

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { match } from "react-router-dom";
-import DetailQuery from "../queries/DetailQuery";
+import { DetailQuery } from "@coremedia-labs/graphql-layer";
 import Include from "../utils/ViewDispatcher/Include";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, PageNotFoundAlert } from "../components/Error/Alert";

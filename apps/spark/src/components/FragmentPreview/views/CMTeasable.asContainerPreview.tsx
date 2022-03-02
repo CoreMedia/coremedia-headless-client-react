@@ -1,13 +1,13 @@
 import React from "react";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import { Teasable } from "../../../queries/fragments/__generated__/Teasable";
+import { Teasable } from "@coremedia-labs/graphql-layer";
 import Include from "../../../utils/ViewDispatcher/Include";
 import { Dispatchable } from "../../../utils/ViewDispatcher/Dispatchable";
-import { PageGridPlacement, PageGridPlacement_items } from "../../../queries/fragments/__generated__/PageGridPlacement";
+import { PageGridPlacement, PageGridPlacement_items } from "@coremedia-labs/graphql-layer";
 
 const getContainer = (items: Array<Dispatchable>): PageGridPlacement => {
   return {
-    __typename: "PageGridPlacement",
+    __typename: "PageGridPlacementImpl",
     items: items as PageGridPlacement_items[],
     name: "custom",
     viewtype: null,
