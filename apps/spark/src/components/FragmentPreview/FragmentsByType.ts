@@ -22,7 +22,7 @@ export const fragmentsByType: {
       title: "Hero",
       viewName: "asContainerPreview",
       viewParams: {
-        containerView: "asContainer[hero]",
+        containerView: "hero",
       },
     },
   ],
@@ -35,42 +35,42 @@ export const fragmentsByType: {
       title: "Hero",
       viewName: "asContainerPreview",
       viewParams: {
-        containerView: "asContainer[hero]",
+        containerView: "hero",
       },
     },
     {
       title: "Portrait",
       viewName: "asContainerPreview",
       viewParams: {
-        containerView: "asContainer[portrait]",
+        containerView: "portrait",
       },
     },
     {
       title: "Landscape",
       viewName: "asContainerPreview",
       viewParams: {
-        containerView: "asContainer[landscape]",
+        containerView: "landscape",
       },
     },
     {
       title: "Square",
       viewName: "asContainerPreview",
       viewParams: {
-        containerView: "asContainer[square]",
+        containerView: "square",
       },
     },
     {
       title: "Left-Right",
       viewName: "asContainerPreview",
       viewParams: {
-        containerView: "asContainer[left-right]",
+        containerView: "left-right",
       },
     },
     {
       title: "Carousel",
       viewName: "asContainerPreview",
       viewParams: {
-        containerView: "asContainer[carousel]",
+        containerView: "carousel",
       },
     },
   ],
@@ -79,42 +79,42 @@ export const fragmentsByType: {
       title: "Hero",
       viewName: "asContainerPreview",
       viewParams: {
-        containerView: "asContainer[hero]",
+        containerView: "hero",
       },
     },
     {
       title: "Portrait",
       viewName: "asContainerPreview",
       viewParams: {
-        containerView: "asContainer[portrait]",
+        containerView: "portrait",
       },
     },
     {
       title: "Landscape",
       viewName: "asContainerPreview",
       viewParams: {
-        containerView: "asContainer[landscape]",
+        containerView: "landscape",
       },
     },
     {
       title: "Square",
       viewName: "asContainerPreview",
       viewParams: {
-        containerView: "asContainer[square]",
+        containerView: "square",
       },
     },
     {
       title: "Left-Right",
       viewName: "asContainerPreview",
       viewParams: {
-        containerView: "asContainer[left-right]",
+        containerView: "left-right",
       },
     },
     {
       title: "Carousel",
       viewName: "asContainerPreview",
       viewParams: {
-        containerView: "asContainer[carousel]",
+        containerView: "carousel",
       },
     },
   ],
@@ -127,35 +127,53 @@ export const fragmentsByType: {
   CMCollection: [
     {
       title: "Default",
-      viewName: "asContainer",
+      viewName: "asContainerPreview",
     },
     {
       title: "Hero",
-      viewName: "asContainer[hero]",
+      viewName: "asContainerPreview",
+      viewParams: {
+        containerView: "hero",
+      },
     },
     {
       title: "Portrait",
-      viewName: "asContainer[portrait]",
+      viewName: "asContainerPreview",
+      viewParams: {
+        containerView: "portrait",
+      },
     },
     {
       title: "Landscape",
-      viewName: "asContainer[landscape]",
+      viewName: "asContainerPreview",
+      viewParams: {
+        containerView: "landscape",
+      },
     },
     {
       title: "Square",
-      viewName: "asContainer[square]",
+      viewName: "asContainerPreview",
+      viewParams: {
+        containerView: "square",
+      },
     },
     {
       title: "Left-Right",
-      viewName: "asContainer[left-right]",
+      viewName: "asContainerPreview",
+      viewParams: {
+        containerView: "left-right",
+      },
     },
     {
       title: "Carousel",
-      viewName: "asContainer[carousel]",
+      viewName: "asContainerPreview",
+      viewParams: {
+        containerView: "carousel",
+      },
     },
   ],
-  CMExternalProduct: {
+  CMHTML: {
     viewName: "asPreview",
-    title: "Full Page",
+    title: "Default",
   },
 };

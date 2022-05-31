@@ -19,7 +19,7 @@ import { createActuator } from "./actuator";
 import { print } from "graphql";
 import { wrapSchema } from "@graphql-tools/wrap";
 import { Executor } from "@graphql-tools/utils";
-import fetch from "cross-undici-fetch";
+import { fetch } from "cross-undici-fetch";
 import { graphqlHTTP } from "express-graphql";
 import { defaultQueryString } from "./graphiqlDefaultQuery";
 
@@ -91,8 +91,10 @@ const executor: Executor = async ({ document, variables, context }) => {
     newHeaders = { ...context.headers };
     method = context.method;
   }
-  // remove host header to prevent issues with subschema service accepting it.
-  newHeaders["host"] = "";
+  // remove host and connection header to prevent issues with subschema service accepting it.
+  delete newHeaders["host"];
+  delete newHeaders["connection"];
+
   // set correct content length for changed request.
   newHeaders["content-length"] = JSON.stringify({ query, variables }).length;
   let requestInit = undefined;

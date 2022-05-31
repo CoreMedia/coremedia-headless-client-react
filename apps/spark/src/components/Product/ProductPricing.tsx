@@ -1,5 +1,6 @@
 import React from "react";
-import { ProductBanner } from "../../models/Banner/ProductBanner";
+import styled, { css } from "styled-components";
+import { Banner } from "../../models/Banner/Banner";
 
 export const formatPrice = (price: number | null, currency: string | null, locale: string | null): string | null => {
   if (price && currency) {
@@ -11,12 +12,31 @@ export const formatPrice = (price: number | null, currency: string | null, local
   return null;
 };
 
-interface Props extends ProductBanner {
+interface Props extends Banner {
   showListPrice?: boolean;
   showOfferPrice?: boolean;
-  classListPrice?: string;
-  classOfferPrice?: string;
 }
+
+export const StyledPricing = styled.div``;
+export const Price = styled.div`
+  font-size: var(--font-size-text-small);
+  line-height: var(--line-height);
+
+  + div {
+    margin-left: 8px;
+  }
+`;
+export const ListPrice = styled(Price)<{ showOfferPrice: boolean }>`
+  display: inline-block;
+  ${(props) =>
+    props.showOfferPrice &&
+    css`
+      text-decoration: line-through;
+    `};
+`;
+export const OfferPrice = styled(Price)`
+  display: inline-block;
+`;
 
 const ProductPricing: React.FC<Props> = ({
   currency,
@@ -25,8 +45,6 @@ const ProductPricing: React.FC<Props> = ({
   offerPrice,
   showListPrice = true,
   showOfferPrice = true,
-  classListPrice = "",
-  classOfferPrice = "",
 }) => {
   let listPriceFormatted: string | null = null;
   let offerPriceFormatted: string | null = null;
@@ -42,14 +60,10 @@ const ProductPricing: React.FC<Props> = ({
   showListPrice = showListPrice && listPriceFormatted !== null;
   showOfferPrice = showOfferPrice && offerPriceFormatted !== null && (!showListPrice || offerPrice !== listPrice);
   return (
-    <div className={`cm-pricing`}>
-      {showOfferPrice && <div className={`cm-price ${classOfferPrice}`}>{offerPriceFormatted}</div>}
-      {showListPrice && (
-        <div className={`cm-price ${classListPrice} ${showOfferPrice ? " cm-price--old" : ""}`}>
-          {listPriceFormatted}
-        </div>
-      )}
-    </div>
+    <StyledPricing>
+      {showOfferPrice && <OfferPrice>{offerPriceFormatted}</OfferPrice>}
+      {showListPrice && <ListPrice showOfferPrice={showOfferPrice}>{listPriceFormatted}</ListPrice>}
+    </StyledPricing>
   );
 };
 export default ProductPricing;

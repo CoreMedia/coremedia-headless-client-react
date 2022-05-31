@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import NotFoundIcon from "./assets/not-found.svg";
-import "./Alert.scss";
 import { ApolloError, ServerError } from "@apollo/client";
+import styled from "styled-components";
 import { getEndpoint } from "../../utils/App/App";
 import { isPreview } from "../../utils/Preview/Preview";
+import NotFoundIcon from "./assets/not-found.svg";
 
 interface Props {
   errorCode?: number;
@@ -13,17 +13,40 @@ interface Props {
   error?: ApolloError;
 }
 
+export const StyledAlert = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  flex-grow: 1;
+  width: 100%;
+
+  img {
+    height: 15vw;
+  }
+
+  h1 {
+    margin-top: 0;
+    font-size: var(--font-size-heading-1);
+  }
+
+  p {
+    max-height: 25vh;
+    overflow: auto;
+  }
+`;
+
 export const Alert: FC<Props> = ({ errorCode = 404, title = "Alert", message = "", icon = NotFoundIcon }) => {
   return (
-    <div className={"cm-alert"}>
-      {icon && <img className={"cm-alert__icon"} src={icon} alt="" />}
+    <StyledAlert>
+      {icon && <img src={icon} alt="" />}
       {title && (
-        <h1 className={"cm-alert__title"}>
+        <h1>
           {errorCode} - {title}
         </h1>
       )}
-      {message && <p className={"cm-alert__message"}>{message}</p>}
-    </div>
+      {message && <p>{message}</p>}
+    </StyledAlert>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
-import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 import { PreviewPicture as GrpahQLPreviewPicture, PreviewPicture_crops } from "@coremedia-labs/graphql-layer";
+import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 import { metaDataElement, metaDataForResponsiveDevices } from "../../../utils/Preview/MetaData";
 import FragmentPreviewItem from "../FragmentPreviewItem";
 import Image from "../../Media/Image";
@@ -17,7 +17,7 @@ const findBestSuitablePreviewSize = (crop: PreviewPicture_crops): number | undef
 const CMPictureAsPreview: React.FC<IncludeProps<GrpahQLPreviewPicture>> = ({ self }) => {
   const picture: Picture = initializePicture(self);
   return (
-    <div className={"cm-preview"} {...metaDataElement(picture.metadata?.root)} {...metaDataForResponsiveDevices()}>
+    <div {...metaDataElement(picture.metadata?.root)} {...metaDataForResponsiveDevices()}>
       <FragmentPreviewContextProvider type={self.__typename}>
         {self.crops.map((crop, index) => {
           return (

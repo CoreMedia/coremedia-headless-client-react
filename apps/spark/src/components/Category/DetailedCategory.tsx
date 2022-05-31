@@ -1,25 +1,42 @@
 import React from "react";
-import "./Category.scss";
+import styled from "styled-components";
 import { colByName } from "../../utils/PageGrid/PageGridUtil";
 import Col from "../PageGrid/Col";
 import { DetailCategory } from "../../models/Detail/DetailCategory";
+import { Headline, StyledDetail } from "../Details/Detail";
+
+const StyledRow = styled.div`
+  display: flex;
+`;
+
+const Sidebar = styled.div`
+  flex: 1;
+  padding-right: 6px;
+  > div {
+    width: 100%;
+  }
+`;
+const Content = styled.div`
+  flex: 3;
+  > div {
+    width: 100%;
+  }
+`;
 
 const DetailedCategory: React.FC<DetailCategory> = ({ name, grid }) => {
   return (
-    <div className={`cm-details-container`}>
-      <div className={`cm-details cm-clp`}>
-        <Col col={colByName(grid, "hero")} />
-        <h1 className={`cm-details__headline cm-category-details`}>{name}</h1>
-        <div className="cm-row">
-          <div className={`cm-details__sidebar`}>
-            <Col col={colByName(grid, "sidebar")} />
-          </div>
-          <div className={`cm-details__content`}>
-            <Col col={colByName(grid, "main")} />
-          </div>
-        </div>
-      </div>
-    </div>
+    <StyledDetail>
+      <Col col={colByName(grid, "hero")} />
+      <Headline>{name}</Headline>
+      <StyledRow>
+        <Sidebar>
+          <Col col={colByName(grid, "sidebar")} />
+        </Sidebar>
+        <Content>
+          <Col col={colByName(grid, "main")} />
+        </Content>
+      </StyledRow>
+    </StyledDetail>
   );
 };
 export default DetailedCategory;

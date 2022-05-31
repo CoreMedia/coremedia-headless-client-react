@@ -1,10 +1,17 @@
 import React, { FC } from "react";
+import styled from "styled-components";
 import { Alert } from "../Error/Alert";
+import { Grid } from "../../models/Grid/Grid";
 import Row from "./Row";
 import Col from "./Col";
-import { Grid } from "../../models/Grid/Grid";
 
-import "./PageGrid.scss";
+export const StyledGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  --grid-gap: var(--padding-medium);
+`;
 
 const PageGrid: FC<Grid> = ({ rows = [] }) => {
   if (!rows) {

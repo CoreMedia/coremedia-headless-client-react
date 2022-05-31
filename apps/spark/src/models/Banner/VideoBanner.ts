@@ -1,16 +1,15 @@
-import { Banner, initializeBanner } from "./Banner";
-import { Video } from "@coremedia-labs/graphql-layer";
+import { Teasable, TimeLine } from "@coremedia-labs/graphql-layer";
 import { getVideoUrl } from "../../utils/Media/MediaUrls";
-import { addProperty } from "../../utils/ViewDispatcher/ModelHelper";
+import { PreviewMetadata } from "../../utils/Preview/MetaData";
 import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
-import { TimeLine } from "@coremedia-labs/graphql-layer";
-import { initializeProductBannerFromProductTeaser, ProductBanner } from "./ProductBanner";
-import { ProductTeaser } from "@coremedia-labs/graphql-layer";
+import { addProperty } from "../../utils/ViewDispatcher/ModelHelper";
+import { Banner, initializeBanner } from "./Banner";
+import { initializeVideo } from "./Media";
 
 export interface TimelineEntry {
   startTime: number;
   endTime: number | undefined;
-  entry: ProductBanner;
+  entry: Banner;
   activeIdForBlock: number;
 }
 
@@ -29,12 +28,12 @@ const addOrUpdate = (
   }
 };
 
-export const getSortedTimeLineSequences = (timeLine: TimeLine): Array<TimelineEntry> => {
+export const getSortedTimeLineSequences = (timeLine: TimeLine, rootSegment: string): Array<TimelineEntry> => {
   const sequenceEntries: {
     [key: number]: Array<Dispatchable>;
   } = {};
 
-  const defaultTarget = timeLine.defaultTarget;
+  const defaultTarget = timeLine && timeLine.defaultTarget;
   if (defaultTarget) {
     addOrUpdate(sequenceEntries, 0, defaultTarget);
   }
@@ -58,7 +57,7 @@ export const getSortedTimeLineSequences = (timeLine: TimeLine): Array<TimelineEn
       timeLineEntries.push({
         startTime: Number(key) / 1000,
         endTime: endTime,
-        entry: initializeProductBannerFromProductTeaser(item as ProductTeaser),
+        entry: initializeBanner(item as Teasable, rootSegment),
         activeIdForBlock: elementToActivate,
       });
       return true;
@@ -79,32 +78,48 @@ export interface PlayerSettings {
   muted: boolean;
 }
 
-/**
- * @category ViewModels
- */
-export interface VideoBanner extends Banner {
+export interface Video {
   playerSettings?: PlayerSettings;
   videoUrl?: string;
 }
 
-export interface ShoppableVideoBanner extends VideoBanner {
+export interface SupportsVideo extends PreviewMetadata {
+  video?: Video;
+}
+
+export interface SupportsTimeline extends PreviewMetadata {
   timeline?: Array<TimelineEntry>;
 }
 
-/**
- * Returns a [[VideoBanner]] object based on the GraphQL [[Video]]
- * @param video
- */
-export const initializeVideoBanner = (video: Video): VideoBanner => {
-  const banner: VideoBanner = initializeBanner(video);
-  video.settings && (banner.playerSettings = video.settings.playerSettings);
-  const videoUrl = getVideoUrl(video);
-  videoUrl && (banner.videoUrl = videoUrl);
-  return banner;
+export const supportsVideo = (object: any): object is SupportsVideo => {
+  return "video" in object;
 };
 
-export const initializeShoppableVideoBanner = (video: Video): ShoppableVideoBanner => {
-  const banner: ShoppableVideoBanner = initializeVideoBanner(video);
-  video.timeLine && addProperty(banner, "timeline", getSortedTimeLineSequences(video.timeLine));
-  return banner;
+export const addVideo = (self: any, result: SupportsVideo): void => {
+  const videoUrl = getVideoUrl(self);
+
+  //in case self is directly a video
+  if (videoUrl) {
+    const video: Video = { videoUrl: videoUrl };
+
+    if ("settings" in self) {
+      const settings: any = self.settings;
+      if (settings && "playerSettings" in settings) {
+        video.playerSettings = settings.playerSettings;
+      }
+    }
+    result.video = video;
+  } else if ("media" in self) {
+    const video =
+      self.media && self.media[0] && self.media[0].__typename === "CMVideoImpl" && initializeVideo(self.media[0]);
+    if (video) {
+      result.video = video.video;
+    }
+  }
+};
+
+export const addTimeline = (self: any, result: SupportsTimeline, rootSegment: string): void => {
+  if ("timeLine" in self) {
+    addProperty(result, "timeline", getSortedTimeLineSequences(self.timeLine, rootSegment));
+  }
 };

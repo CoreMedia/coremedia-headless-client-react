@@ -1,8 +1,11 @@
 import React, { FC } from "react";
+import styled from "styled-components";
+import ReactPlayer from "react-player";
+import { SupportsVideo } from "../../models/Banner/VideoBanner";
 import { metaDataElement, metaDataProperty } from "../../utils/Preview/MetaData";
-import { VideoBanner } from "../../models/Banner/VideoBanner";
+import { ImageBox } from "./ResponsiveImage";
 
-const initializePlayerSettings = (
+export const initializePlayerSettings = (
   controls: boolean,
   autoPlay: boolean,
   muted: boolean,
@@ -11,44 +14,53 @@ const initializePlayerSettings = (
 ) => {
   return {
     controls: settings && settings.hideControls !== undefined ? !settings.hideControls : controls,
-    autoPlay: settings && settings.autoplay !== undefined ? settings.autoplay : autoPlay,
+    playing: settings && settings.autoplay !== undefined ? settings.autoplay : autoPlay,
     muted: settings && settings.muted !== undefined ? settings.muted : muted,
     loop: settings && settings.loop !== undefined ? settings.loop : loop,
   };
 };
 
-interface Props {
-  banner: VideoBanner;
-  layoutClassName?: string;
+export interface Props extends SupportsVideo {
   controls?: boolean;
   autoPlay?: boolean;
   muted?: boolean;
   loop?: boolean;
+  setTimestamp?: (payload: any) => void;
 }
 
+const StyledVideo = styled(ReactPlayer)`
+  video {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+`;
+
 const VideoPlayer: FC<Props> = ({
-  banner,
-  layoutClassName = "",
+  video,
   controls = true,
   autoPlay = false,
   muted = true,
   loop = false,
+  setTimestamp,
+  metadata,
 }) => {
   return (
-    <div className={`cm-image-box ${layoutClassName}`} {...metaDataElement(banner.metadata?.root)}>
-      {banner.videoUrl && (
-        <>
-          <video
-            src={banner.videoUrl}
-            className="cm-video"
-            {...initializePlayerSettings(controls, autoPlay, muted, loop, banner.playerSettings)}
-            {...metaDataProperty("properties.data")}
-          >
-            No video available.
-          </video>
-        </>
+    <ImageBox {...metaDataElement(metadata?.root)}>
+      {video && video.videoUrl && (
+        <StyledVideo
+          url={video.videoUrl}
+          width={"100%"}
+          height={"100%"}
+          {...(setTimestamp && { onProgress: setTimestamp })}
+          {...initializePlayerSettings(controls, autoPlay, muted, loop, video.playerSettings)}
+          {...metaDataProperty("properties.data")}
+        />
       )}
-    </div>
+    </ImageBox>
   );
 };
 

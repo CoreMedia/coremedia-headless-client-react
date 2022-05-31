@@ -1,8 +1,34 @@
 import React, { ChangeEvent, useMemo } from "react";
 import { SortFieldWithOrder } from "@coremedia-labs/graphql-layer";
-import { useSearchStateContextState } from "../../context/SearchStateContext";
 import { useHistory, useLocation } from "react-router-dom";
+import styled from "styled-components";
+import { useSearchStateContextState } from "../../context/SearchStateContext";
 
+const StyledSort = styled.div`
+  height: 74px;
+
+  @media screen and (min-width: 768px) {
+    float: right;
+    width: 100%;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    text-align: right;
+  }
+
+  label {
+    padding: 5px 10px 5px 0;
+    font-weight: 700;
+  }
+
+  select {
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    text-align: left;
+    height: 34px;
+    border: 1px solid #000;
+    border-radius: 2px;
+  }
+`;
 const SortFilter: React.FC = () => {
   const history = useHistory();
   const location = useLocation();
@@ -26,16 +52,9 @@ const SortFilter: React.FC = () => {
   return (
     <>
       {sortFields && (
-        <div className="cm-search__sort">
-          <label htmlFor="cm-search-sort" className="cm-search__sort-label">
-            Sort by
-          </label>
-          <select
-            id="cm-search-sort"
-            className="cm-search__sort--dropdown"
-            onChange={onSortChange}
-            value={sortField || ""}
-          >
+        <StyledSort>
+          <label htmlFor="cm-search-sort">Sort by</label>
+          <select id="cm-search-sort" onChange={onSortChange} value={sortField || ""}>
             {sortFields.map(({ label, value }) => {
               return (
                 <option key={value} value={value || ""}>
@@ -44,7 +63,7 @@ const SortFilter: React.FC = () => {
               );
             })}
           </select>
-        </div>
+        </StyledSort>
       )}
     </>
   );

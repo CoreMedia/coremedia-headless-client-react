@@ -1,11 +1,14 @@
 import React from "react";
-import { metaDataProperty } from "../../utils/Preview/MetaData";
 import { convert, ZonedDateTime } from "@js-joda/core";
+import styled from "styled-components";
+import { metaDataProperty } from "../../utils/Preview/MetaData";
 import "@js-joda/timezone";
 
 interface Props {
   date: string | undefined;
 }
+
+export const Time = styled.time``;
 
 const Date: React.FC<Props> = ({ date }) => {
   let parsedDate: string | undefined = "";
@@ -15,9 +18,9 @@ const Date: React.FC<Props> = ({ date }) => {
     parsedDate = jsDate.toLocaleDateString("en-US");
   }
   return (
-    <time className={"cm-date"} dateTime={parsedDate} {...metaDataProperty("properties.extDisplayedDate")}>
+    <Time dateTime={parsedDate} {...metaDataProperty("properties.extDisplayedDate")}>
       {parsedDate}
-    </time>
+    </Time>
   );
 };
 

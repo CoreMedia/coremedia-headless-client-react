@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import { FragmentPreviewQuery } from "@coremedia-labs/graphql-layer";
+import ViewDispatcher, { defaultView } from "@coremedia-labs/view-dispatcher";
+import { match } from "react-router-dom";
 import { Fragment, fragmentsByType } from "../components/FragmentPreview/FragmentsByType";
 import typeHierarchy from "../utils/ViewDispatcher/Interfaces";
 import Loading from "../components/Loading/Loading";
-import ViewDispatcher, { defaultView } from "@coremedia-labs/view-dispatcher";
 import { ApolloClientAlert, PageNotFoundAlert } from "../components/Error/Alert";
-import { match } from "react-router-dom";
 import FragmentPreview from "../components/FragmentPreview/FragmentPreview";
 
 // Initialize the viewDispatcher

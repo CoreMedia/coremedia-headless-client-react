@@ -9,7 +9,7 @@ module.exports = {
   devServer: whenDev(() => ({
     proxy:{
       '/caas': {
-        target: process.env.REACT_APP_API_ENDPOINT,
+        target: process.env.REACT_APP_API_ENDPOINT || "http://localhost:4000",
         secure: false,
         changeOrigin: true,
       },

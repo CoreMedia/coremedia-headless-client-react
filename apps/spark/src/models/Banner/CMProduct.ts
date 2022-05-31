@@ -1,10 +1,8 @@
-import { Banner, initializeBanner } from "./Banner";
-import { CMProduct as GraphQLCMProduct } from "@coremedia-labs/graphql-layer";
-import { mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
+import { addProperty } from "../../utils/ViewDispatcher/ModelHelper";
+import { Banner } from "./Banner";
 
-export const initializeCMProduct = (self: GraphQLCMProduct): Banner => {
-  const banner: Banner = initializeBanner(self);
-  return {
-    ...mapProperties(self, { title: "productName" }, banner),
-  };
+export const addCMProductOverrides = (self: any, result: Banner): void => {
+  if ("productName" in self) {
+    addProperty(result, "title", self.productName);
+  }
 };

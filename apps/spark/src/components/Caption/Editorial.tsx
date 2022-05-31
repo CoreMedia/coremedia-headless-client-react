@@ -1,22 +1,25 @@
 import React from "react";
+import styled from "styled-components";
 import Link from "../Link/Link";
-import PreviewMetadata, { metaDataElement, metaDataProperty } from "../../utils/Preview/MetaData";
+import { metaDataElement, metaDataProperty, PreviewMetadata } from "../../utils/Preview/MetaData";
 import Date from "../Date/Date";
 import { Author } from "../../models/Banner/Author";
 
 interface Props extends PreviewMetadata {
   displayDate?: string;
   authors?: Array<Author | null> | null;
-  teaserBlockClass?: string; //todo use atomic design with a proper css class here instead of passing css classes
 }
 
-const Editorial: React.FC<Props> = ({ displayDate, authors, teaserBlockClass = "", metadata = {} }) => {
+export const StyledEditorial = styled.p``;
+export const StyledAuthor = styled(Link)``;
+
+const Editorial: React.FC<Props> = ({ displayDate, authors, metadata = {} }) => {
   return (
     <>
       {(displayDate || (authors && authors.length > 0)) && (
-        <p className={`${teaserBlockClass}__editorial`}>
+        <StyledEditorial>
           {displayDate && (
-            <span className={`${teaserBlockClass}__time`} {...metaDataProperty(metadata.properties?.displayDate)}>
+            <span {...metaDataProperty(metadata.properties?.displayDate)}>
               <Date date={displayDate} />
             </span>
           )}
@@ -26,19 +29,18 @@ const Editorial: React.FC<Props> = ({ displayDate, authors, teaserBlockClass = "
                 author &&
                 author.displayName && (
                   <span key={index} {...metaDataElement(author.metadata?.root)}>
-                    <Link
+                    <StyledAuthor
                       to={author.linkTarget}
                       key={index}
-                      className={`${teaserBlockClass}__author`}
                       {...metaDataProperty(author.metadata?.properties?.displayName)}
                     >
                       {author.displayName}
-                    </Link>
+                    </StyledAuthor>
                   </span>
                 )
               );
             })}
-        </p>
+        </StyledEditorial>
       )}
     </>
   );

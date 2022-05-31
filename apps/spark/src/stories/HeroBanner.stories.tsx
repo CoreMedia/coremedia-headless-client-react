@@ -3,9 +3,9 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import HeroBannerContainer from "../components/HeroBanner/HeroBannerContainer";
 import {
+  createBannerWithOverlay,
   createMixedItemCollection,
   createSlot,
-  createTeasableWithOverlay,
   createVideoWithOverlay,
 } from "./helper/ModelHelper";
 
@@ -30,7 +30,7 @@ MixedItems.args = {
 };
 
 TeaserOverlayEnabled.args = {
-  items: [createTeasableWithOverlay()],
+  items: [createBannerWithOverlay()],
 };
 
 VideoHero.args = {

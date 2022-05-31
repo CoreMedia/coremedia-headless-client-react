@@ -39,10 +39,11 @@ export const SearchQuery = (
   offset?: number | null,
   limit?: number | null,
   sortFields?: (SortFieldWithOrder | null)[] | null,
-  customFilterQueries?: (any | null)[] | null,
+  customFilterQueries?: (unknown | null)[] | null,
   docTypes?: (string | null)[] | null
 ): QueryResult<Query> => {
   return useQuery<Query, SearchQueryVariables>(SEARCH_QUERY, {
     variables: { siteId, query, offset, limit, sortFields, customFilterQueries, docTypes },
+    notifyOnNetworkStatusChange: true,
   });
 };

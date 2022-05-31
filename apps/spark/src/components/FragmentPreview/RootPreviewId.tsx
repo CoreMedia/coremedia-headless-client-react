@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { metaDataElement, MetadataRoot } from "../../utils/Preview/MetaData";
 import React from "react";
+import { metaDataElement, MetadataRoot } from "../../utils/Preview/MetaData";
 import { isPreview } from "../../utils/Preview/Preview";
 
 interface Props {

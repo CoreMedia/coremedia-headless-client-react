@@ -1,23 +1,22 @@
-import React from "react";
-import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 import { Teasable } from "@coremedia-labs/graphql-layer";
-import Include from "../../../utils/ViewDispatcher/Include";
+import React from "react";
+import { useSiteContextState } from "../../../context/SiteContextProvider";
+import { initializeBannerFor } from "../../../models/Banner/Banner";
+import { Slot } from "../../../models/Grid/Slot";
+import { slotByName } from "../../../utils/PageGrid/PageGridUtil";
 import { Dispatchable } from "../../../utils/ViewDispatcher/Dispatchable";
-import { PageGridPlacement, PageGridPlacement_items } from "@coremedia-labs/graphql-layer";
+import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
+import { notEmpty } from "../../../utils/Helpers";
 
-const getContainer = (items: Array<Dispatchable>): PageGridPlacement => {
+const getContainer = (items: Array<Dispatchable>, rootSegment: string): Slot => {
   return {
-    __typename: "PageGridPlacementImpl",
-    items: items as PageGridPlacement_items[],
-    name: "custom",
-    viewtype: null,
-    id: "unique",
+    items: items.map((item) => initializeBannerFor(item, rootSegment)).filter(notEmpty),
   };
 };
 
 const CMTeasableAsContainerPreview: React.FC<IncludeProps<Teasable>> = ({ self, params }) => {
-  return (
-    <Include self={getContainer([self])} view={(params?.containerView as string) || ""} params={{ infinite: false }} />
-  );
+  const { rootSegment } = useSiteContextState();
+  const Container = slotByName(params?.containerView as string);
+  return <Container {...getContainer([self], rootSegment)} />;
 };
 export default CMTeasableAsContainerPreview;

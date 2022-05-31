@@ -3,19 +3,46 @@
  * apollo client
  * @packageDocumentation
  */
-import { ApolloClient, ApolloLink, concat, HttpLink, InMemoryCache } from "@apollo/client";
+import { ApolloClient, ApolloLink, concat, FieldPolicy, HttpLink, InMemoryCache } from "@apollo/client";
 import { createPersistedQueryLink } from "@apollo/client/link/persisted-queries";
 import { sha256 } from "crypto-hash";
 import possibleTypes from "@coremedia-labs/graphql-layer/dist/__downloaded__/possibleTypes.json";
-import { getEndpoint } from "./App";
 import { formatPreviewDate, isPreview } from "../Preview/Preview";
+import { getEndpoint } from "./App";
 
 /**
  * Global singleton instance of the ApolloClient.
  * @category Apollo
  */
 let apolloClient: ApolloClient<unknown>;
+type KeyArgs = FieldPolicy<any>["keyArgs"];
+// A basic field policy that uses options.args.{offset,limit} to splice
+// the incoming data into the existing array. If your arguments are called
+// something different (like args.{start,count}), feel free to copy/paste
+// this implementation and make the appropriate changes.
+export function offsetLimitPagination(keyArgs: KeyArgs = false): FieldPolicy {
+  return {
+    keyArgs,
+    merge(existing, incoming, { args }) {
+      const merged = existing && existing.result ? existing.result.slice(0) : [];
+      if (args) {
+        const { offset = 0 } = args;
+        for (let i = 0; i < incoming.result.length; ++i) {
+          merged[offset + i] = incoming.result[i];
+        }
+      } else {
+        // It's unusual (probably a mistake) for a paginated field not
+        // to receive any arguments, so you might prefer to throw an
+        // exception here, instead of recovering by appending incoming
+        // onto the existing array.
+        // eslint-disable-next-line prefer-spread
+        merged.push.apply(merged, incoming.result);
+      }
 
+      return { ...incoming, result: merged };
+    },
+  };
+}
 /**
  * @category Apollo
  * @internal
@@ -34,6 +61,19 @@ const createInMemoryCache = (): InMemoryCache => {
           commerce: {
             merge: true,
           },
+        },
+      },
+      ContentRoot: {
+        fields: {
+          search: offsetLimitPagination(["query", "siteId", "sortFields", "customFilterQueries", "docTypes"]),
+          facetedSearch: offsetLimitPagination([
+            "query",
+            "siteId",
+            "sortFields",
+            "customFilterQueries",
+            "facetLimit",
+            "facetFilters",
+          ]),
         },
       },
     },

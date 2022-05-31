@@ -1,7 +1,7 @@
 import React, { FC } from "react";
+import { ImageProps, Source } from "../../models/Banner/Picture";
 import { getImageUrl } from "../../utils/Media/MediaUrls";
 import ResponsiveImage from "../Media/ResponsiveImage";
-import { ImageProps, Source } from "../../models/Banner/Picture";
 
 const RichtextEmbeddedResponsiveImage: FC<ImageProps> = ({ picture }) => {
   let sources: Array<Source> = [];

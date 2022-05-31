@@ -3,10 +3,10 @@ import { TeasableForNavigation } from "./navigation/__generated__/TeasableForNav
 
 export interface Navigation extends GeneratedNavigation {
   __typename: "CMAbstractCategoryImpl" | "CMChannelImpl" | "CMExternalPageImpl" | "CMNavigationImpl";
-  children: Array<any | null> | null;
+  children: Array<Navigation | null> | null;
 }
 
 export interface NavigationForNavigation extends TeasableForNavigation {
   __typename: "CMAbstractCategoryImpl" | "CMChannelImpl" | "CMExternalPageImpl" | "CMNavigationImpl";
-  children: Array<any | null> | null;
+  children: Array<NavigationForNavigation | null> | null;
 }

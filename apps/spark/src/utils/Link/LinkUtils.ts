@@ -1,18 +1,20 @@
-import { Product } from "@coremedia-labs/graphql-layer";
-import { Category } from "@coremedia-labs/graphql-layer";
-import { Linkable } from "@coremedia-labs/graphql-layer";
-import { Person } from "@coremedia-labs/graphql-layer";
-import { Download } from "@coremedia-labs/graphql-layer";
-import { ProductTeaser } from "@coremedia-labs/graphql-layer";
-import { ExternalChannel } from "@coremedia-labs/graphql-layer";
-import { getFQDN } from "../App/App";
+import {
+  Product,
+  Category,
+  Linkable,
+  Person,
+  Download,
+  ProductTeaser,
+  ExternalChannel,
+  Tag,
+  ExternalLink,
+  ProductRef,
+  Teasable,
+} from "@coremedia-labs/graphql-layer";
 import qs, { StringifiableRecord } from "query-string";
+import { getFQDN } from "../App/App";
 import { getGlobalState } from "../App/GlobalState";
-import { Tag } from "@coremedia-labs/graphql-layer";
-import { ExternalLink } from "@coremedia-labs/graphql-layer";
 import { LinkAttributes } from "../../components/Link/Link";
-import { ProductRef } from "@coremedia-labs/graphql-layer";
-import { Teasable } from "@coremedia-labs/graphql-layer";
 
 const hasDetailPage: Array<string> = ["CMArticleImpl", "CMVideoImpl", "CMProductImpl"];
 const hasPage: Array<string> = ["CMChannelImpl", "CMExternalPageImpl"];
@@ -44,11 +46,7 @@ const createProductHref = (self: Product, params?: StringifiableRecord): LinkAtt
         return formatSegmentForUrl(item?.name);
       })
       .join("/")}/`;
-    if (!getGlobalState().useSeo) {
-      path += `${self.shortId}/`;
-    } else if (self.seoSegment) {
-      path += self.seoSegment;
-    }
+    path += `${self.shortId}/`;
   }
   return {
     linkTarget: makeAbsoluteAndAddParams(path, params),
@@ -65,9 +63,7 @@ const createCategoryHref = (self: Category, params?: StringifiableRecord): LinkA
         return formatSegmentForUrl(item?.name);
       })
       .join("/")}/`;
-    if (!getGlobalState().useSeo) {
-      path += self.shortId + "/";
-    }
+    path += self.shortId + "/";
   }
   return {
     linkTarget: makeAbsoluteAndAddParams(path, params),
@@ -133,7 +129,7 @@ const createHref = (self: Linkable, params?: StringifiableRecord): LinkAttribute
     } else if (self.__typename === "CMTeaserImpl") {
       const teaser: Teasable = self as Teasable;
       if (teaser.teaserTargets && teaser.teaserTargets[0]?.target) {
-        const { linkTarget } = getLink(teaser.teaserTargets && teaser.teaserTargets[0]?.target);
+        const { linkTarget } = getLink(teaser.teaserTargets && teaser.teaserTargets[0]?.target, rootSegment);
         path = linkTarget;
       }
     } else if (
@@ -156,7 +152,7 @@ const createHref = (self: Linkable, params?: StringifiableRecord): LinkAttribute
   };
 };
 
-export const getLink = (to: any, params?: StringifiableRecord): LinkAttributes => {
+export const getLink = (to: any, rootSegment: string, params?: StringifiableRecord): LinkAttributes => {
   let linkTarget: LinkAttributes = {};
   if (to) {
     if (to.__typename && to.__typename.startsWith("CM")) {
@@ -174,7 +170,7 @@ export const getLink = (to: any, params?: StringifiableRecord): LinkAttributes =
     } else if (typeof to === "string") {
       linkTarget.linkTarget = to;
     } else {
-      console.warn("Ignoring unknown link target", to);
+      //console.warn("Ignoring unknown link target", to);
     }
   }
   return linkTarget;

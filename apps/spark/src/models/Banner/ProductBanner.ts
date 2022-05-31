@@ -1,120 +1,98 @@
-import { Banner, initializeBanner } from "./Banner";
-import { Product as GraphQLProduct } from "@coremedia-labs/graphql-layer";
-import { initializePicture } from "./Picture";
-import { getPropertyName } from "../../utils/Preview/MetaData";
-import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
-import { ProductTeaser } from "@coremedia-labs/graphql-layer";
-import { isShopNowEnabled } from "../../utils/Commerce/Shopping";
-import { ExternalProduct } from "@coremedia-labs/graphql-layer";
+import { Product as GraphQLProduct, ProductRef } from "@coremedia-labs/graphql-layer";
 import { getLink } from "../../utils/Link/LinkUtils";
+import { PreviewMetadata } from "../../utils/Preview/MetaData";
+import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
+import { addAugmentationPicture } from "../Navigation/Navigation";
+import { Banner } from "./Banner";
+import { initializePicture } from "./Picture";
 
 /**
  * @category ViewModels
  */
-export interface ProductBanner extends Banner {
+
+export interface SupportsShopNow extends PreviewMetadata {
   shopNowConfiguration: boolean;
+}
+
+export interface SupportsPricing extends PreviewMetadata {
   offerPrice?: any | null;
   listPrice?: any | null;
   currency?: string | null;
   locale?: string | null;
 }
 
-/**
- * Returns an [[ProductBanner]] object based on the GraphQL [[ProductTeaser]]
- * @param productTeaser
- */
-export const initializeProductBannerFromProductTeaser = (productTeaser: ProductTeaser): ProductBanner => {
-  const productBanner: ProductBanner = {
-    ...initializeBanner(productTeaser),
-    shopNowConfiguration: isShopNowEnabled(productTeaser),
-  };
-
-  if (productTeaser.productRef && productTeaser.productRef.product) {
-    const product = productTeaser.productRef.product;
-
-    // add additional properties
-    addProperty(productBanner, "offerPrice", product.offerPrice);
-    addProperty(productBanner, "listPrice", product.listPrice);
-    addProperty(productBanner, "currency", product.currency);
-    addProperty(productBanner, "locale", product.locale);
-
-    // add product properties, if not augmented
-    !productBanner.title && addProperty(productBanner, "title", product.name);
-    !productBanner.text && addProperty(productBanner, "text", product.shortDescription);
-    !productBanner.plaintext && addProperty(productBanner, "plaintext", product.shortDescription);
-
-    // try to add product picture, if missing
-    if (!productBanner.picture) {
-      //1. try augmentation picture
-      product.augmentation &&
-        product.augmentation.picture &&
-        addProperty(
-          productBanner,
-          "picture",
-          initializePicture(product.augmentation.picture),
-          getPropertyName(product.augmentation, "picture")
-        );
-    }
-  }
-  return productBanner;
+export const supportsPricing = (object: any): object is SupportsPricing => {
+  return "offerPrice" in object || "listPrice" in object;
 };
 
-/**
- * Returns an [[ProductBanner]] object based on the GraphQL [[ExternalProduct]]
- * @param productTeaser
- */
-export const initializeProductBannerFromExternalProduct = (productTeaser: ExternalProduct): ProductBanner => {
-  const productBanner: ProductBanner = {
-    ...initializeBanner(productTeaser),
-    shopNowConfiguration: isShopNowEnabled(productTeaser),
-  };
-
-  if (productTeaser.productRef && productTeaser.productRef.product) {
-    const product = productTeaser.productRef.product;
-
-    // add additional properties
-    addProperty(productBanner, "offerPrice", product.offerPrice);
-    addProperty(productBanner, "listPrice", product.listPrice);
-    addProperty(productBanner, "currency", product.currency);
-    addProperty(productBanner, "locale", product.locale);
-
-    // add product properties, if not augmented
-    !productBanner.title && addProperty(productBanner, "title", product.name);
-    !productBanner.text && addProperty(productBanner, "text", product.shortDescription);
-    !productBanner.plaintext && addProperty(productBanner, "plaintext", product.shortDescription);
-
-    // try to add product picture, if missing
-    if (!productBanner.picture) {
-      //1. try augmentation picture
-      product.augmentation &&
-        product.augmentation.picture &&
-        addProperty(
-          productBanner,
-          "picture",
-          initializePicture(product.augmentation.picture),
-          getPropertyName(product.augmentation, "picture")
-        );
-      //2. try external product default catalog picture
-      !productBanner.picture &&
-        product.thumbnailUrl &&
-        addProperty(
-          productBanner,
-          "picture",
-          {
-            title: "title",
-            alt: "alt",
-            uriTemplate: product.thumbnailUrl,
-            data: "data",
-          },
-          "picture"
-        );
-    }
-  }
-  return productBanner;
+export const supportsShopNow = (object: any): object is SupportsShopNow => {
+  return "shopNowConfiguration" in object;
 };
 
-export const initializeProductBannerFromProduct = (product: GraphQLProduct): ProductBanner => {
-  let productBanner: ProductBanner = {
+export const addShopNow = (self: any, result: SupportsShopNow): void => {
+  result.shopNowConfiguration = false;
+  if ("shopNowSetting" in self) {
+    result.shopNowConfiguration = true;
+    const showNowSetting: { shopNow: string } = self.shopNowSetting;
+    showNowSetting &&
+      showNowSetting.shopNow &&
+      showNowSetting.shopNow === "disabled" &&
+      (result.shopNowConfiguration = false);
+  }
+};
+
+export const addPricing = (self: any, result: SupportsPricing): void => {
+  if ("productRef" in self) {
+    const productRef: ProductRef = self.productRef;
+    if (productRef && productRef.product) {
+      const product = productRef.product;
+
+      // add additional properties
+      addProperty(result, "offerPrice", product.offerPrice);
+      addProperty(result, "listPrice", product.listPrice);
+      addProperty(result, "currency", product.currency);
+      addProperty(result, "locale", product.locale);
+    }
+  }
+};
+
+export const addProductOverrides = (self: any, result: Banner): void => {
+  if ("productRef" in self) {
+    const productRef: ProductRef = self.productRef;
+    if (productRef && productRef.product) {
+      const product = productRef.product;
+      if (product) {
+        // add product properties, if not augmented
+        !result.title && addProperty(result, "title", product.name);
+        !result.text && addProperty(result, "text", product.shortDescription);
+        !result.plaintext && addProperty(result, "plaintext", product.shortDescription);
+
+        // try to add product picture, if missing
+        if (!result.picture) {
+          //1. try augmentation picture
+          addAugmentationPicture(product, result);
+          //2. try external product default catalog picture
+          !result.picture &&
+            product.thumbnailUrl &&
+            addProperty(
+              result,
+              "picture",
+              {
+                title: "title",
+                alt: "alt",
+                uriTemplate: product.thumbnailUrl,
+                data: "data",
+              },
+              "picture"
+            );
+        }
+      }
+    }
+  }
+};
+
+export const initializeProductBannerFromProduct = (product: GraphQLProduct, rootSegment: string): Banner => {
+  let productBanner: Banner = {
     ...mapProperties(
       product,
       {
@@ -126,10 +104,10 @@ export const initializeProductBannerFromProduct = (product: GraphQLProduct): Pro
       {},
       "commerce"
     ),
+    ...getLink(product, rootSegment),
     overlayRequired: false,
-    shopNowConfiguration: false,
-    ...getLink(product),
   };
+  addShopNow(product, productBanner);
   productBanner = mapProperties(
     product,
     { title: "name", plaintext: "shortDescription", text: "shortDescription" },

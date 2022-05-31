@@ -1,7 +1,12 @@
-import {MemoryRouter} from "react-router-dom";
 import React from "react";
-import "../src/components/App/App.scss"
-import "../src/components/PageGrid/PageGrid.scss"
+import { MemoryRouter } from "react-router-dom";
+import { GlobalStyle } from "../src/components/App/App";
+import { StyledGrid } from "../src/components/PageGrid/PageGrid";
+import { StyledCol } from "../src/components/PageGrid/Col";
+import styled from "styled-components";
+import { StyledNavigation } from "../src/components/Navigation/Navigation";
+import { ImageBox } from "../src/components/Media/ResponsiveImage";
+import { StyledImage } from "../src/components/Media/Image";
 
 export const parameters = {
   actions: {argTypesRegex: "^on[A-Z].*"},
@@ -19,16 +24,36 @@ export const parameters = {
   },
 }
 
+const StyledStoryBook = styled.div`
+  ${ImageBox} > ${StyledImage} {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center center;
+  }
+  ${StyledNavigation} {
+    ${StyledImage} {
+      max-width: 204px;
+    }
+  }
+`;
+
 export const decorators = [
   (Story) => (
-    <MemoryRouter>
-      <div className={"cm-grid cm-grid--multislot"}>
-      <div
-        className={`cm-placement cm-placement--main cm-placement__width-12`}
-      >
-        <Story/>
-      </div>
-      </div>
-    </MemoryRouter>
+    <>
+      <GlobalStyle/>
+      <MemoryRouter>
+        <StyledStoryBook>
+          <StyledGrid>
+            <StyledCol zone={"main"}>
+              <Story/>
+            </StyledCol>
+          </StyledGrid>
+        </StyledStoryBook>
+      </MemoryRouter>
+    </>
   ),
 ];

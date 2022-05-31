@@ -19,13 +19,13 @@ const AppRoutes: FC = () => {
       {/* Tag */}
       <Route path="/:rootSegment/tag/:pathSegments+/:title-:id([0-9]+)" component={TopicPage} />
       <Route path="/:rootSegment/tag/:title-:id([0-9]+)" component={TopicPage} />
-      {/* Detail */}
-      <Route path="/:pathSegments+/:title-:id([0-9]+)" component={DetailPage} />
       {/* Commerce */}
       <Route path="/:rootSegment/product/:seoSegment" exact component={ProductPage} />
       <Route path="/:rootSegment/product/:catalogPath+/:seoSegment" component={ProductPage} />
       <Route path="/:rootSegment/category/:catalogPath+/:seoSegment" component={CategoryPage} />
       <Route path="/:rootSegment/category/:seoSegment" component={CategoryPage} />
+      {/* Detail */}
+      <Route path="/:pathSegments+/:title-:id([0-9]+)" component={DetailPage} />
       {/* Page, Catch-All */}
       <Route path="/:pathSegments+" component={Page} />
     </Switch>

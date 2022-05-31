@@ -20,9 +20,11 @@ export interface SearchPageContextData {
   availableFacets?: Array<Facet>;
   result: Array<any | null> | null;
   onLoadMore: MouseEventHandler;
+  isLoading: boolean;
 }
 
 const SearchPageContext = createContext<SearchPageContextData>({
+  isLoading: false,
   query: "",
   totalCount: 0,
   availableFacets: [],
@@ -38,9 +40,11 @@ const SearchResultContextProvider: React.FC<SearchPageContextData> = ({
   availableFacets,
   result,
   onLoadMore,
+  isLoading,
   children,
 }) => {
   const contextValues: SearchPageContextData = {
+    isLoading: isLoading,
     query: query,
     totalCount: totalCount,
     availableFacets: availableFacets,

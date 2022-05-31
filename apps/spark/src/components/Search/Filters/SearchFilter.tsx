@@ -1,7 +1,10 @@
 import React from "react";
+import styled, { css } from "styled-components";
+import { SearchFacet, useSearchStateContextState } from "../../../context/SearchStateContext";
+import Chevron from "../assets/chevron.svg";
+import ArrowBack from "../assets/arrow-back.svg";
 import CheckboxFilterEntry from "./CheckboxFilterEntry";
 import StringFilterEntry from "./StringFilterEntry";
-import { SearchFacet, useSearchStateContextState } from "../../../context/SearchStateContext";
 
 type FilterType = "checkbox" | "text";
 
@@ -36,32 +39,102 @@ export const isActiveGroup = (selectedFacets: Array<SearchFacet>, title: string)
   });
 };
 
+const StyledSearchFilter = styled.div`
+  width: 100%;
+  max-width: 300px;
+  padding: 0 20px 20px 0;
+  box-sizing: border-box;
+`;
+
+const SearchFilterTitle = styled.h3<{ isClosed: boolean }>`
+  cursor: pointer;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  i {
+    margin-left: 10px;
+    vertical-align: text-top;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-image: url(${Chevron});
+    transform: ${(props) => (props.isClosed ? css`rotate(0deg)` : css`rotate(180deg)`)};
+    transition: all 0.2s ease;
+  }
+`;
+
+const SearchFilterList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+export const SearchFilterListItem = styled.li`
+  line-height: 1.714;
+`;
+
+export const SearchFilterListLink = styled.span<{ checked: boolean }>`
+  margin: 0;
+  cursor: pointer;
+  color: #222;
+  text-decoration: underline;
+`;
+
+export const SearchFilterListCount = styled.span`
+  &:before {
+    content: "(";
+  }
+
+  &:after {
+    content: ")";
+  }
+`;
+
+const SearchFilterAllItems = styled.li`
+  margin: 0;
+  cursor: pointer;
+  color: #222;
+  text-decoration: underline;
+`;
+
+const AllIcon = styled.i`
+  vertical-align: text-top;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url(${ArrowBack});
+`;
+
 const SearchFilter: React.FC<Props> = ({ title, entries, filterType = "checkbox" }) => {
   const { removeFacets, selectedFacets } = useSearchStateContextState();
 
   const [isOpen, setIsOpen] = React.useState(true);
 
   return (
-    <div className="cm-search__filter" onClick={() => setIsOpen(!isOpen)}>
-      <h3 className={`cm-search__filter-title ${!isOpen ? "cm-search__filter-title--list-collapsed" : ""}`}>
+    <StyledSearchFilter onClick={() => setIsOpen(!isOpen)}>
+      <SearchFilterTitle isClosed={!isOpen}>
         {title}
-        <i className="cm-search__filter-title-icon" />
-      </h3>
-      <form className={"cm-search__filter-listing"} style={!isOpen ? { display: "none" } : {}}>
-        <ul className="cm-search__filter-list">
+        <i />
+      </SearchFilterTitle>
+      <form style={!isOpen ? { display: "none" } : {}}>
+        <SearchFilterList>
           {isActiveGroup(selectedFacets, title) && (
-            <li>
-              <i className="cm-button__icon cm-search__filter-all-icon" />
-              <span
-                className="cm-search__filter-list-link cm-search__link"
-                onClick={(e) => {
-                  removeFacets(title);
-                  e.stopPropagation();
-                }}
-              >
-                All types
-              </span>
-            </li>
+            <SearchFilterAllItems
+              onClick={(e) => {
+                removeFacets(title);
+                e.stopPropagation();
+              }}
+            >
+              <AllIcon />
+              <span>All types</span>
+            </SearchFilterAllItems>
           )}
           {entries?.map((item, index) => {
             return (
@@ -87,9 +160,9 @@ const SearchFilter: React.FC<Props> = ({ title, entries, filterType = "checkbox"
               </>
             );
           })}
-        </ul>
+        </SearchFilterList>
       </form>
-    </div>
+    </StyledSearchFilter>
   );
 };
 

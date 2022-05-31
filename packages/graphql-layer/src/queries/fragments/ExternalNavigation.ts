@@ -4,10 +4,10 @@ import { ExternalChannelForNavigation } from "./navigation/__generated__/Externa
 
 export interface ExternalNavigation extends GeneratedExternalChannel, Navigation {
   __typename: "CMExternalChannelImpl";
-  children: Array<any | null> | null;
+  children: Array<ExternalNavigation | null> | null;
 }
 
 export interface ExternalNavigationForNavigation extends ExternalChannelForNavigation {
   __typename: "CMExternalChannelImpl";
-  children: Array<any | null> | null;
+  children: Array<ExternalChannelForNavigation | null> | null;
 }

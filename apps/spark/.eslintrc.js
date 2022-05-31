@@ -4,6 +4,8 @@ module.exports = {
     "react-app",
     "plugin:react/recommended", // Uses the recommended rules from @eslint-plugin-react
     "plugin:@typescript-eslint/recommended", // Uses the recommended rules from @typescript-eslint/eslint-plugin
+    "plugin:import/recommended",
+    "plugin:import/typescript",
     "plugin:prettier/recommended", // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
   ],
   parserOptions: {
@@ -30,6 +32,8 @@ module.exports = {
     ".eslintrc.js"
   ],
   rules: {
+    "import/order": ["error"],
+    "import/newline-after-import": ["error"],
     "import/no-anonymous-default-export": [2, {"allowArrowFunction": true}], // used in queries
     "react/prop-types": "off",
     "@typescript-eslint/camelcase": "off", // disable for generated interfaces by apollo

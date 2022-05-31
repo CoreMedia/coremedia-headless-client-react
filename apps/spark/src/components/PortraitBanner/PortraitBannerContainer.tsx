@@ -1,13 +1,26 @@
 import React from "react";
+import styled from "styled-components";
 import { Slot as SlotProps } from "../../models/Grid/Slot";
-import Slot from "../Slot/Slot";
+import Slot, { StyledSlot } from "../Slot/Slot";
+import PortraitBanner from "./PortraitBanner";
 
-interface Props {
-  slot: SlotProps;
-}
+const StyledPortraitBanner = styled.div`
+  ${StyledSlot} {
+    --number-items: 2;
+    --gap-width: var(--padding-medium);
 
-const PortraitBannerContainer: React.FC<Props> = ({ slot }) => {
-  return <Slot className={"cm-portrait-banner"} viewName={"asPortraitBanner"} {...slot} />;
+    @media screen and (min-width: 1024px) {
+      --number-items: 4;
+    }
+  }
+`;
+
+const PortraitBannerContainer: React.FC<SlotProps> = (slot) => {
+  return (
+    <StyledPortraitBanner>
+      <Slot {...slot} BannerComponent={PortraitBanner} />
+    </StyledPortraitBanner>
+  );
 };
 
 export default PortraitBannerContainer;

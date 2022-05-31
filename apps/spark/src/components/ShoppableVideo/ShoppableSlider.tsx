@@ -20,7 +20,7 @@ const ShoppableSlider: React.FC<Props> = ({ config, children }) => {
   }, [internalSlider, activeBlock]);
 
   return (
-    <ReactSlider {...(setInternalSlider && { ref: setInternalSlider })} className={`cm-slick-carousel`} {...config}>
+    <ReactSlider {...(setInternalSlider && { ref: setInternalSlider })} {...config}>
       {children}
     </ReactSlider>
   );

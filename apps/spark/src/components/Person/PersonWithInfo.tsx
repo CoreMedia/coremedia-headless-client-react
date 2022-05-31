@@ -1,60 +1,86 @@
 import React from "react";
-import PreviewMetadata, { metaDataProperty } from "../../utils/Preview/MetaData";
+import styled from "styled-components";
+import { metaDataProperty, PreviewMetadata } from "../../utils/Preview/MetaData";
 import Link from "../Link/Link";
-import Image from "../Media/Image";
+import Image, { StyledImage } from "../Media/Image";
 import { Picture } from "../../models/Banner/Picture";
+import Envelop from "./assets/envelope.svg";
 
 interface Props extends PreviewMetadata {
   displayName: string | null;
   picture: Picture | null;
-  cssClass?: string;
   jobTitle: string | null;
   organization: string | null;
   eMail: string | null;
 }
 
-const PersonWithInfo: React.FC<Props> = ({
-  picture,
-  displayName,
-  jobTitle,
-  organization,
-  eMail,
-  cssClass = "cm-person",
-  metadata = {},
-}) => {
+const Introduction = styled.div`
+  display: flex;
+  padding: 0;
+  margin: 30px auto;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 10%;
+  }
+`;
+
+const PersonPicture = styled.div`
+  min-width: 100px;
+  width: 25%;
+  max-width: 200px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-right: 15px;
+
+  ${StyledImage} {
+    border-radius: 50%;
+    background-color: var(--color-background-image);
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-right: 30px;
+  }
+`;
+
+const Name = styled.h1`
+  margin-top: 0;
+  margin-bottom: 6px;
+  font-size: var(--font-size-heading-1);
+`;
+
+const EmailIcon = styled.span`
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url(${Envelop});
+  height: 18px;
+  width: 18px;
+  margin-right: 6px;
+  vertical-align: bottom;
+`;
+
+const PersonWithInfo: React.FC<Props> = ({ picture, displayName, jobTitle, organization, eMail, metadata = {} }) => {
   return (
-    <div className={`${cssClass}__introduction`}>
+    <Introduction>
       {picture && (
-        <div className={`${cssClass}__picture-person`}>
+        <PersonPicture>
           <Image picture={picture} cropName={"portrait_ratio1x1"} width={200} />
-        </div>
+        </PersonPicture>
       )}
-      <div className={`${cssClass}__description`}>
-        {displayName && (
-          <h1 className={`${cssClass}__name`} {...metaDataProperty(metadata.properties?.displayName)}>
-            {displayName}
-          </h1>
-        )}
-        {jobTitle && (
-          <h2 className={`${cssClass}__job`} {...metaDataProperty(metadata.properties?.jobTitle)}>
-            {jobTitle}
-          </h2>
-        )}
-        {organization && (
-          <p className={`${cssClass}__organization`} {...metaDataProperty(metadata.properties?.organization)}>
-            {organization}
-          </p>
-        )}
+      <div>
+        {displayName && <Name {...metaDataProperty(metadata.properties?.displayName)}>{displayName}</Name>}
+        {jobTitle && <h2 {...metaDataProperty(metadata.properties?.jobTitle)}>{jobTitle}</h2>}
+        {organization && <p {...metaDataProperty(metadata.properties?.organization)}>{organization}</p>}
         {eMail && (
-          <p className={`${cssClass}__email`} {...metaDataProperty(metadata.properties?.eMail)}>
+          <p {...metaDataProperty(metadata.properties?.eMail)}>
             <Link to={`mailto:${eMail}`}>
-              <span className={`${cssClass}__email-icon`} />
-              <span className={`${cssClass}__email-text`}>{eMail}</span>
+              <EmailIcon />
+              <span>{eMail}</span>
             </Link>
           </p>
         )}
       </div>
-    </div>
+    </Introduction>
   );
 };
 export default PersonWithInfo;

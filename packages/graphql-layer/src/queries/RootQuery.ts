@@ -1,7 +1,6 @@
 import { gql, QueryResult, useQuery } from "@apollo/client";
 import { RootQuery as Query, RootQueryVariables } from "./__generated__/RootQuery";
 import { teasableFragment } from "./fragments/TeasableFragment";
-import { navigationFragment } from "./fragments/NavigationFragment";
 import { collectionFragment } from "./fragments/CollectionFragment";
 import { categoryFragment } from "./fragments/CategoryFragment";
 import { externalChannelFragment } from "./fragments/ExternalChannelFragment";
@@ -19,6 +18,7 @@ export const ROOT_QUERY = gql`
     content {
       site(rootSegment: $rootSegment) {
         id
+        locale
       }
       pageByPath(path: $rootSegment) {
         grid {
@@ -105,7 +105,6 @@ export const ROOT_QUERY = gql`
   }
   ${teasableFragment}
   ${linkableWithLocaleFragment}
-  ${navigationFragment}
   ${collectionFragment}
   ${categoryFragment}
   ${externalChannelFragment}

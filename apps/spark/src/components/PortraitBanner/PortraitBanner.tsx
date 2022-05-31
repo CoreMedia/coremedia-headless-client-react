@@ -1,31 +1,71 @@
 import React from "react";
+import styled from "styled-components";
 import { metaDataElement, metaDataProperty } from "../../utils/Preview/MetaData";
-import PortraitResponsiveImage from "./PortraitResponsiveImage";
 import { Banner } from "../../models/Banner/Banner";
-import BannerCaption from "../Caption/BannerCaption";
-import CTA from "../CTA/CTA";
-import "./PortraitBanner.scss";
+import BannerCaption, { Text } from "../Caption/BannerCaption";
+import CTA, { StyledCTA } from "../CTA/CTA";
+import { supportsPricing, supportsShopNow } from "../../models/Banner/ProductBanner";
 import Link from "../Link/Link";
+import { Caption, StyledBanner } from "../LandscapeBanner/LandscapeBanner";
+import { ImageBox } from "../Media/ResponsiveImage";
+import ShopNowButton, { ShowNow } from "../Product/ShopNowButton";
+import ProductPricing from "../Product/ProductPricing";
+import StaticCode from "../StaticCode/StaticCode";
+import { supportsVideo } from "../../models/Banner/VideoBanner";
+import ModalVideo, { PlayButton } from "../Media/ModalVideo";
+import PortraitResponsiveImage from "./PortraitResponsiveImage";
 
-interface Props {
-  banner: Banner;
-}
+export const StyledPortraitBanner = styled(StyledBanner)`
+  ${ImageBox} {
+    --aspect-ratio: 1 * 1;
 
-const PortraitBanner: React.FC<Props> = ({ banner }) => {
+    @media screen and (min-width: 768px) {
+      --aspect-ratio: 2 * 3;
+    }
+  }
+
+  ${StyledCTA} {
+    margin-top: auto;
+  }
+
+  ${Text} {
+    --max-lines: 3;
+  }
+
+  ${ShowNow}:before, ${PlayButton}:before {
+    padding-top: calc(3 / 2 * 100%);
+  }
+`;
+
+export const PortraitCaption = styled(Caption)`
+  bottom: 50%;
+`;
+
+const PortraitBanner: React.FC<Banner> = (banner) => {
+  if (banner.code) {
+    return <StaticCode {...banner} />;
+  }
   return (
-    <div className={"cm-portrait-banner"} {...metaDataElement(banner.metadata?.root)}>
+    <StyledPortraitBanner {...metaDataElement(banner.metadata?.root)}>
       {banner.picture && (
-        <Link to={banner.linkTarget} externalLink={banner.externalLink} openInNewTab={banner.openInNewTab}>
-          <div className={`cm-portrait-banner__picture`} {...metaDataProperty(banner.metadata?.properties?.picture)}>
+        <Link
+          to={supportsVideo(banner) === true ? "" : banner.linkTarget}
+          externalLink={banner.externalLink}
+          openInNewTab={banner.openInNewTab}
+        >
+          <div {...metaDataProperty(banner.metadata?.properties?.picture)}>
             <PortraitResponsiveImage picture={banner.picture} />
+            {supportsVideo(banner) && <ModalVideo banner={banner} />}
           </div>
         </Link>
       )}
-      <div className={`cm-portrait-banner__caption`}>
+      <PortraitCaption>
         <BannerCaption {...banner} />
-        {banner.targets && <CTA targets={banner.targets} additionalClass={`cm-portrait-banner__cta`} />}
-      </div>
-    </div>
+        {supportsPricing(banner) && <ProductPricing {...banner} />}
+        {banner.targets && <CTA targets={banner.targets} />}
+      </PortraitCaption>
+      {supportsShopNow(banner) && <ShopNowButton banner={banner} />}
+    </StyledPortraitBanner>
   );
 };
 

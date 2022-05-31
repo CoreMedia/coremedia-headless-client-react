@@ -1,6 +1,4 @@
 interface globalStateType {
-  useSeo: boolean;
-  siteId: string;
   rootSegment: string;
 }
 
@@ -8,9 +6,7 @@ interface globalStateType {
  * defaults are using seo urls for commerce links and the site "calista"
  */
 let globalState: globalStateType = {
-  useSeo: true,
   rootSegment: "calista",
-  siteId: "",
 };
 
 export const getGlobalState = () => {

@@ -1,6 +1,6 @@
-import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
-import PreviewMetadata, { initializeMetadata } from "../../utils/Preview/MetaData";
 import { PageGrid } from "@coremedia-labs/graphql-layer";
+import { PreviewMetadata, initializeMetadata } from "../../utils/Preview/MetaData";
+import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
 
 /**
  * @category ViewModels

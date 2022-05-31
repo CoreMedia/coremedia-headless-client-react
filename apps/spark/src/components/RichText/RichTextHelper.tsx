@@ -1,4 +1,4 @@
-import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
+import { Banner } from "../../models/Banner/Banner";
 
 export interface Attribute {
   _type: string;
@@ -37,11 +37,8 @@ export const transformAttributes = (attributes?: Array<Attribute>): { class: str
   }
 };
 
-export const containsItem = (embeddedItems: Array<Dispatchable>, id: string): Dispatchable | undefined => {
-  return embeddedItems.find((item: any) => {
-    if ("id" in item) {
-      return item.id === id;
-    }
-    return false;
+export const containsItem = (embeddedItems: Array<Banner>, id: string): Banner | undefined => {
+  return embeddedItems.find((item: Banner) => {
+    return item.metadata?.root.id === id;
   });
 };

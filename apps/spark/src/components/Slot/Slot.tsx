@@ -1,37 +1,47 @@
 import React from "react";
-import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
-import Include from "../../utils/ViewDispatcher/Include";
-import "./Slot.scss";
-import SlotHeader from "./SlotHeader";
+import styled from "styled-components";
+import { Banner } from "../../models/Banner/Banner";
 import { Slot as SlotProps } from "../../models/Grid/Slot";
 import { metaDataElement, metaDataProperty } from "../../utils/Preview/MetaData";
+import SlotHeader from "./SlotHeader";
 
 interface Props extends SlotProps {
-  items: Array<Dispatchable | null> | null;
-  className?: string;
-  viewName: string;
+  BannerComponent: React.FC<Banner>;
 }
 
-const Slot: React.FC<Props> = ({ items, className = "cm-banner", viewName, text, title, metadata }) => {
+export const StyledSlot = styled.div`
+  --number-items: 1;
+  --gap-width: 0;
+`;
+
+export const Items = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap-width);
+`;
+
+export const Item = styled.div`
+  --item-width: calc(1 / var(--number-items) * 100%);
+  --gap-width-per-item: calc(var(--gap-width) * (var(--number-items) - 1) / var(--number-items));
+  width: calc(var(--item-width) - var(--gap-width-per-item));
+`;
+
+const Slot: React.FC<Props> = ({ items, text, title, BannerComponent, metadata }) => {
   return (
-    <div className={`cm-slot ${className}-container`} {...metaDataElement(metadata?.root)}>
+    <StyledSlot {...metaDataElement(metadata?.root)}>
       <SlotHeader title={title} text={text} metadata={metadata} />
-      <div className={`cm-slot__items`} {...metaDataProperty(metadata?.properties?.items)}>
+      <Items {...metaDataProperty(metadata?.properties?.items)}>
         {items &&
           items.map((item, index) => {
             return (
-              item && (
-                <Include
-                  self={item}
-                  key={index}
-                  view={"_gridItem"}
-                  params={{ includeView: viewName, className: className }}
-                />
-              )
+              <Item key={index} {...metaDataElement(item.metadata?.root)}>
+                <BannerComponent key={index} {...item} />
+              </Item>
             );
           })}
-      </div>
-    </div>
+      </Items>
+    </StyledSlot>
   );
 };
 

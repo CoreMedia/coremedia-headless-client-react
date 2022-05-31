@@ -1,35 +1,61 @@
 import React from "react";
+import styled from "styled-components";
 import { metaDataElement, metaDataProperty } from "../../utils/Preview/MetaData";
 import Link from "../Link/Link";
-import Image from "../Media/Image";
-import "./Person.scss";
+import Image, { StyledImage } from "../Media/Image";
 import { Author } from "../../models/Banner/Author";
+
+const Person = styled.div`
+  display: flex;
+  margin-bottom: var(--padding-medium);
+  padding: var(--padding-medium);
+  border-radius: var(--padding-small);
+  background-color: var(--color-background-light-grey);
+`;
+
+const PersonPicture = styled(Link)`
+  display: block;
+  margin-right: var(--padding-medium);
+
+  ${StyledImage} {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+`;
+
+const PersonDescription = styled.div`
+  > a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    > h3 {
+      font-size: var(--font-size-heading-3);
+      margin: var(--padding-small) 0;
+    }
+  }
+`;
 
 const PersonBlurb: React.FC<Author> = ({ displayName, text, picture, linkTarget, metadata = {} }) => {
   return (
-    <div className={"cm-author"} {...metaDataElement(metadata.root)}>
+    <Person {...metaDataElement(metadata.root)}>
       {picture && (
-        <Link to={linkTarget} className={`cm-author__picture`}>
+        <PersonPicture to={linkTarget}>
           <Image picture={picture} cropName={"portrait_ratio1x1"} width={200} />
-        </Link>
+        </PersonPicture>
       )}
-      <div className={`cm-author__description`}>
+      <PersonDescription>
         {displayName && (
-          <Link to={linkTarget} className={`cm-author__link`}>
-            <h3 className={`cm-author__headline`} {...metaDataProperty(metadata?.properties?.displayName)}>
-              {displayName}
-            </h3>
+          <Link to={linkTarget}>
+            <h3 {...metaDataProperty(metadata?.properties?.displayName)}>{displayName}</h3>
           </Link>
         )}
-        {text && (
-          <p
-            className={`cm-author__short-text`}
-            {...metaDataProperty(metadata?.properties?.text)}
-            dangerouslySetInnerHTML={{ __html: text }}
-          />
-        )}
-      </div>
-    </div>
+        {text && <div {...metaDataProperty(metadata?.properties?.text)} dangerouslySetInnerHTML={{ __html: text }} />}
+      </PersonDescription>
+    </Person>
   );
 };
 export default PersonBlurb;

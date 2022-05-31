@@ -1,6 +1,5 @@
 import React from "react";
 import { Link as ReactLink } from "react-router-dom";
-import { getLink } from "../../utils/Link/LinkUtils";
 
 export interface LinkAttributes {
   linkTarget?: string;
@@ -17,7 +16,7 @@ export interface LinkProps {
   externalLink?: boolean;
 }
 
-export const Link: React.FC<LinkProps> = ({
+const Link: React.FC<LinkProps> = ({
   to,
   className,
   role,
@@ -26,8 +25,7 @@ export const Link: React.FC<LinkProps> = ({
   openInNewTab = false,
   externalLink = false,
 }) => {
-  const linkTarget = getLink(to);
-  if (!linkTarget.linkTarget) {
+  if (to === undefined || to === "") {
     return <>{children}</>;
   }
   // external link
@@ -47,7 +45,7 @@ export const Link: React.FC<LinkProps> = ({
 
   // internal link
   return (
-    <ReactLink className={className} to={linkTarget.linkTarget} role={role} title={title}>
+    <ReactLink className={className} to={to} role={role} title={title}>
       {children}
     </ReactLink>
   );

@@ -1,19 +1,21 @@
 import React from "react";
+import styled from "styled-components";
+import { Banner } from "../../models/Banner/Banner";
 import { metaDataElement } from "../../utils/Preview/MetaData";
-import OverlayWithCtas from "../Overlay/OverlayWithCtas";
-import { ShoppableVideoBanner } from "../../models/Banner/VideoBanner";
-import BannerCaption from "../Caption/BannerCaption";
 import CTA from "../CTA/CTA";
-import "./Shoppable.scss";
+import BannerCaption from "../Caption/BannerCaption";
+import OverlayWithCtas from "../Overlay/OverlayWithCtas";
 import { Settings } from "../Slider/Slider";
-import TimelineEntry from "./TimelineEntry";
-import ShoppableVideoContextProvider from "./ShoppableVideoContext";
+import { ImageBox } from "../Media/ResponsiveImage";
 import ShoppableSlider from "./ShoppableSlider";
+import ShoppableVideoContextProvider from "./ShoppableVideoContext";
 import ShoppableVideoPlayer from "./ShoppableVideoPlayer";
+import TimelineEntry from "./TimelineEntry";
 
 interface Props {
-  banner: ShoppableVideoBanner;
+  banner: Banner;
 }
+
 const sliderConfig: Settings = {
   slidesToShow: 10,
   infinite: false,
@@ -31,34 +33,41 @@ const sliderConfig: Settings = {
   ],
 };
 
-const ShoppableHeroVideo: React.FC<Props> = ({ banner }) => {
-  const teaserBlockClass = "cm-shoppable cm-hero-banner";
+const StyledShoppableVideo = styled.div`
+  position: relative;
 
+  ${ImageBox} {
+    --aspect-ratio: 16 * 9;
+  }
+`;
+
+const ShoppableHeroVideo: React.FC<Props> = ({ banner }) => {
   return (
     <ShoppableVideoContextProvider timeline={banner.timeline}>
-      <div className={"cm-shoppable cm-shoppable__horizontal"}>
-        <div className={teaserBlockClass} {...metaDataElement(banner.metadata?.root)}>
-          <ShoppableVideoPlayer
-            banner={banner}
-            layoutClassName={"cm-image-box"}
-            controls={false}
-            autoPlay={true}
-            muted={true}
-            loop={true}
-          />
+      <div>
+        <StyledShoppableVideo {...metaDataElement(banner.metadata?.root)}>
+          <ShoppableVideoPlayer {...banner} controls={false} autoPlay={true} muted={true} loop={true} />
           {banner.overlayRequired && <OverlayWithCtas {...banner} />}
           {!banner.overlayRequired && (
-            <div className={`${teaserBlockClass}__caption`}>
+            <div>
               <BannerCaption {...banner} />
-              {banner.targets && <CTA targets={banner.targets} additionalClass={`${teaserBlockClass}__cta`} />}
+              {banner.targets && <CTA targets={banner.targets} />}
             </div>
           )}
-        </div>
+        </StyledShoppableVideo>
         {banner.timeline && (
           <ShoppableSlider config={sliderConfig}>
             {banner.timeline &&
-              banner.timeline.map((entry, index) => {
-                return <TimelineEntry key={index} {...entry} />;
+              banner.timeline.map((item, index) => {
+                return (
+                  <TimelineEntry
+                    key={index}
+                    entry={item.entry}
+                    startTime={item.startTime}
+                    endTime={item.endTime}
+                    activeIdForBlock={item.activeIdForBlock}
+                  />
+                );
               })}
           </ShoppableSlider>
         )}

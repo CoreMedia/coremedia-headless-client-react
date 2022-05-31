@@ -1,6 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 import { useSearchStateContextState } from "../../../context/SearchStateContext";
-import { isFacetValueSelected } from "./SearchFilter";
+import Checked from "../assets/checked.svg";
+import Unchecked from "../assets/unchecked.svg";
+import {
+  isFacetValueSelected,
+  SearchFilterListCount,
+  SearchFilterListItem,
+  SearchFilterListLink,
+} from "./SearchFilter";
 
 interface Props {
   title: string;
@@ -9,12 +17,21 @@ interface Props {
   count?: number;
 }
 
+const SearchFilterCheckbox = styled.span<{ checked: boolean }>`
+  vertical-align: text-top;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url(${(props) => (props.checked ? Checked : Unchecked)});
+`;
+
 const CheckboxFilterEntry: React.FC<Props> = ({ title, label, query, count }) => {
   const { addFacet, removeFacet, selectedFacets } = useSearchStateContextState();
   const isSelected = isFacetValueSelected(selectedFacets, title, query);
   return (
-    <li
-      className="cm-search__filter-list-item"
+    <SearchFilterListItem
       onClick={(e) => {
         if (isSelected) {
           removeFacet({ facetCategory: title, facetLabel: label, facetQuery: query });
@@ -24,24 +41,12 @@ const CheckboxFilterEntry: React.FC<Props> = ({ title, label, query, count }) =>
         e.stopPropagation();
       }}
     >
-      <span
-        className={
-          isSelected
-            ? "cm-search__filter-list-checkbox-icon cm-search__filter-list-checkbox-icon--checked"
-            : "cm-search__filter-list-checkbox-icon"
-        }
-      />
-      <span
-        className={
-          isSelected
-            ? "cm-search__filter-list-link cm-search__filter-list-link--checked"
-            : "cm-search__filter-list-link"
-        }
-      >
+      <SearchFilterCheckbox checked={isSelected} />
+      <SearchFilterListLink checked={isSelected}>
         {label}
-        {count && count > 0 && <span className="cm-search__filter-list-count">{count}</span>}
-      </span>
-    </li>
+        {count && count > 0 && <SearchFilterListCount>{count}</SearchFilterListCount>}
+      </SearchFilterListLink>
+    </SearchFilterListItem>
   );
 };
 

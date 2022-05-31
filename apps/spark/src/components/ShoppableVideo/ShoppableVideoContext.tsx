@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
-import { ShoppableVideoReducer } from "./ShoppableVideoReducer";
 import { TimelineEntry } from "../../models/Banner/VideoBanner";
+import { ShoppableVideoReducer } from "./ShoppableVideoReducer";
 
 export interface ShoppableVideoContextData {
   activeBlock: number;

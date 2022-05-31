@@ -1,5 +1,4 @@
-import { ProductTeaser } from "@coremedia-labs/graphql-layer";
-import { ExternalProduct } from "@coremedia-labs/graphql-layer";
+import { ProductTeaser, ExternalProduct } from "@coremedia-labs/graphql-layer";
 
 /**
  *

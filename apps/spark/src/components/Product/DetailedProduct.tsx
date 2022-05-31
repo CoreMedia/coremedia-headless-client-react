@@ -1,22 +1,25 @@
 import React from "react";
-import Col from "../PageGrid/Col";
+import styled from "styled-components";
+import Col, { StyledCol } from "../PageGrid/Col";
 import { colByName } from "../../utils/PageGrid/PageGridUtil";
 import { DetailProduct } from "../../models/Detail/DetailProduct";
+import { StyledDetail } from "../Details/Detail";
 import ProductDetails from "./ProductDetails";
 import ProductAssets from "./ProductAssets";
 
-import "./Product.scss";
-
+const StyledDetailProduct = styled(StyledDetail)`
+  display: flex;
+`;
 const DetailedProduct: React.FC<DetailProduct> = ({ name, shortDescription, longDescription, pictures, grid }) => {
   return (
     <>
       <Col col={colByName(grid, "banner")} />
-      <div className="cm-placement cm-placement--main">
-        <div className={`cm-details cm-pdp`}>
+      <StyledCol zone={"main"}>
+        <StyledDetailProduct>
           {<ProductAssets pictures={pictures} />}
           {<ProductDetails name={name} shortDescription={shortDescription} longDescription={longDescription} />}
-        </div>
-      </div>
+        </StyledDetailProduct>
+      </StyledCol>
       <Col col={colByName(grid, "tab")} />
       <Col col={colByName(grid, "additional")} />
     </>

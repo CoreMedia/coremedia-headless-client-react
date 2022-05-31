@@ -4,7 +4,7 @@ module.exports = {
     includes: ["src/**/*.ts", "../app/src/queries/**/*.ts"],
     service: {
       name: "headless",
-      localSchemaFile: "../spark/src/__downloaded__/schema.json",
+      localSchemaFile: "../../packages/graphql-layer/src/__downloaded__/schema.json",
     },
     tagName: "gql",
     passthroughCustomScalars: true,
