@@ -1,24 +1,29 @@
 import React, { ReactNode } from "react";
-import { PageGridPlacement } from "@coremedia-labs/graphql-layer";
-import { RootQuery } from "@coremedia-labs/graphql-layer";
+import { LinkableWithLocale, PageGridPlacement, RootQuery } from "@coremedia-labs/graphql-layer";
 import Loading from "../components/Loading/Loading";
 import { metaDataForResponsiveDevices } from "../utils/Preview/MetaData";
-import { LinkableWithLocale } from "@coremedia-labs/graphql-layer";
 import { ApolloClientAlert, PageNotFoundAlert } from "../components/Error/Alert";
 import Header from "../components/Header/Header";
 import FooterNavigation from "../components/Footer/FooterNavigation";
 import Footer from "../components/Footer/Footer";
 import { setGlobalState } from "../utils/App/GlobalState";
 import { initializeNavigation, Navigation } from "../models/Navigation/Navigation";
+import { StyledGrid } from "../components/PageGrid/PageGrid";
+import { initializeFooterContainer, initializeFooterNavigationContainer } from "../models/Footer/Footer";
 
 interface SiteContext {
   navigation?: Navigation;
+  footer?: Navigation;
+  footerNavigation?: Navigation;
   placements?: Array<PageGridPlacement | null> | null;
   localizedVariants?: Array<LinkableWithLocale>;
   currentNavigation?: Array<string>;
+  siteId: string;
+  siteLocale: string;
+  rootSegment: string;
 }
 
-const siteContext = React.createContext<SiteContext>({});
+const siteContext = React.createContext<SiteContext>({ siteId: "", siteLocale: "en", rootSegment: "calista" });
 
 export const useSiteContextState = (): SiteContext => {
   const context = React.useContext(siteContext);
@@ -52,27 +57,30 @@ export const SiteContextProvider: React.FC<Props> = ({ children, rootSegment, cu
   }
 
   const siteContextValue: SiteContext = {
-    navigation: initializeNavigation(data.content.pageByPath),
+    navigation: initializeNavigation(data.content.pageByPath, rootSegment),
+    footerNavigation: initializeFooterNavigationContainer(data.content.pageByPath.grid?.placements, rootSegment),
+    footer: initializeFooterContainer(data.content.pageByPath.grid?.placements, rootSegment),
     placements: data.content.pageByPath.grid?.placements,
     localizedVariants: data.content.pageByPath.localizedVariants as Array<LinkableWithLocale>,
     currentNavigation: currentNavigation?.split("/").filter((item) => {
       return item !== null && item !== "";
     }),
+    siteId: data.content.site.id,
+    siteLocale: data.content.site.locale,
+    rootSegment: rootSegment,
   };
   setGlobalState({
-    useSeo: rootSegment?.startsWith("calista") || rootSegment?.startsWith("aurora"),
     rootSegment: rootSegment,
-    siteId: data.content.site.id,
   });
 
   return (
     <siteContext.Provider value={siteContextValue}>
-      <div className={"cm-grid"} {...metaDataForResponsiveDevices()}>
+      <StyledGrid {...metaDataForResponsiveDevices()}>
         <Header />
         {children}
         <FooterNavigation />
         <Footer />
-      </div>
+      </StyledGrid>
     </siteContext.Provider>
   );
 };

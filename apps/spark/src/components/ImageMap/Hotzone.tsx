@@ -1,34 +1,42 @@
 import React from "react";
-import { HotZoneProps, OverlayConfiguration } from "./ImageMapHelpers";
+import styled from "styled-components";
+import { HotZoneProps, ImagemapOverlayConfiguration } from "../../models/Banner/ImagemapBanner";
 import useModal from "../Modal/Modal";
 import ModalComponent from "../Modal/ModalComponent";
-import Include from "../../utils/ViewDispatcher/Include";
-import "./Imagemap.scss";
+import PopupBanner from "../Popup/PopupBanner";
+import ImageMapIcon from "./assets/imagemap-icon.svg";
+import ImageMapIconHover from "./assets/imagemap-icon-hover.svg";
 
 interface Props {
-  hotZone?: HotZoneProps | null | undefined;
-  cssClass?: string | undefined;
-  overlayConfiguration?: OverlayConfiguration;
+  hotZone: HotZoneProps;
+  overlayConfiguration?: ImagemapOverlayConfiguration;
 }
 
-const Hotzone: React.FC<Props> = ({ hotZone, cssClass, overlayConfiguration }) => {
-  const { isShowing, toggle } = useModal();
+const HotzoneIcon = styled.span`
+  position: absolute;
+  z-index: 3;
+  border: 0;
+  padding: 0;
+  display: block;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background: transparent url(${ImageMapIcon}) no-repeat 50%;
+  border-radius: 50%;
+  cursor: pointer;
 
-  const overlay: OverlayConfiguration = {
-    displayTitle: true,
-    displayShortText: true,
-    displayPicture: true,
-    displayDefaultPrice: true,
-    displayDiscountedPrice: true,
-    displayOutOfStockLink: true,
-    ...overlayConfiguration,
-  };
+  :hover {
+    background-image: url(${ImageMapIconHover});
+  }
+`;
+
+const Hotzone: React.FC<Props> = ({ hotZone, overlayConfiguration }) => {
+  const { isShowing, toggle } = useModal();
 
   return (
     <>
-      {hotZone && hotZone.position && (
-        <span
-          className={cssClass}
+      {hotZone.position && (
+        <HotzoneIcon
           style={{
             top: hotZone.position.y + "%",
             left: hotZone.position.x + "%",
@@ -36,11 +44,9 @@ const Hotzone: React.FC<Props> = ({ hotZone, cssClass, overlayConfiguration }) =
           onClick={toggle}
         />
       )}
-      {hotZone && hotZone.self && (
-        <ModalComponent isShowing={isShowing} hide={toggle}>
-          <Include self={hotZone.self} view={"asPopup"} params={{ ...overlay }} />
-        </ModalComponent>
-      )}
+      <ModalComponent isShowing={isShowing} hide={toggle}>
+        <PopupBanner banner={hotZone.self} overlay={overlayConfiguration} />
+      </ModalComponent>
     </>
   );
 };

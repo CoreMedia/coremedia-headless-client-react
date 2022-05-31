@@ -1,27 +1,24 @@
-import { Author, initializeAuthor } from "../Banner/Author";
-import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
-import { DetailPerson as GraphQLDetailPerson } from "@coremedia-labs/graphql-layer";
 import { getPropertyName } from "../../utils/Preview/MetaData";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
+import { Author, initializeAuthor } from "../Banner/Author";
+import { addRelated, SupportsRelated } from "./Detail";
 
 /**
  * @category ViewModels
  */
-export interface DetailAuthor extends Author {
+export interface DetailAuthor extends Author, SupportsRelated {
   jobTitle: string | null;
   organization: string | null;
   eMail: string | null;
   structuredText: any | null;
-  related?: Array<Dispatchable | null> | null;
 }
 
 /**
  * Returns an [[DetailAuthor]] object based on the GraphQL [[DetailPerson]]
- * @param self
  */
-export const initializeDetailAuthor = (self: GraphQLDetailPerson): DetailAuthor => {
+export const initializeDetailAuthor = (self: any, rootSegment: string): DetailAuthor => {
   const detail: DetailAuthor = {
-    ...initializeAuthor(self),
+    ...initializeAuthor(self, rootSegment),
     ...mapProperties(self, {
       organization: "organization",
       jobTitle: "jobTitle",
@@ -30,6 +27,6 @@ export const initializeDetailAuthor = (self: GraphQLDetailPerson): DetailAuthor 
   };
   (self.detailText?.textAsTree ?? self.detailText?.textAsTree !== undefined) &&
     addProperty(detail, "structuredText", self.detailText.textAsTree, getPropertyName(self, "detailText"));
-  self.related && addProperty(detail, "related", self.related, getPropertyName(self, "related"));
+  addRelated(self, detail, rootSegment);
   return detail;
 };

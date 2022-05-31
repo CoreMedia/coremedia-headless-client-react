@@ -1,8 +1,8 @@
-import { Grid } from "../Grid/Grid";
+import { Banner } from "../Banner/Banner";
 import { Picture } from "../Banner/Picture";
-import { ProductBanner } from "../Banner/ProductBanner";
+import { Grid } from "../Grid/Grid";
 
-export interface DetailProduct extends ProductBanner {
+export interface DetailProduct extends Banner {
   name: string | null;
   shortDescription: string | null;
   longDescription: string | null;

@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react";
-import { Dispatchable } from "../../../utils/ViewDispatcher/Dispatchable";
+import { Banner } from "../../../models/Banner/Banner";
 
 interface RichtextContext {
-  embeddedItems: Array<Dispatchable>;
+  embeddedItems: Array<Banner>;
 }
 
 const richtextContext = React.createContext<RichtextContext>({ embeddedItems: [] });
@@ -17,16 +17,12 @@ export const useRichtextContextState = (): RichtextContext => {
 
 interface Props {
   children: ReactNode;
-  items?: Array<Dispatchable | null>;
-}
-
-function notEmpty<TValue>(value: TValue | null | undefined): value is TValue {
-  return !(value === null || value === undefined) && "id" in value;
+  items?: Array<Banner>;
 }
 
 export const RichtextContextProvider: React.FC<Props> = ({ children, items }) => {
   const richtextContextValue: RichtextContext = {
-    embeddedItems: items?.filter(notEmpty) || [],
+    embeddedItems: items || [],
   };
 
   return <richtextContext.Provider value={richtextContextValue}>{children}</richtextContext.Provider>;

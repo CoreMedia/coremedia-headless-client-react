@@ -1,6 +1,7 @@
 server {
   listen       8080;
   server_name  localhost;
+  port_in_redirect off;
 
   location / {
     root   /usr/share/nginx/html;

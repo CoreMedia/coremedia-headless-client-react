@@ -1,6 +1,12 @@
 import React from "react";
-import { isActiveGroup, isFacetValueSelected } from "./SearchFilter";
 import { useSearchStateContextState } from "../../../context/SearchStateContext";
+import {
+  isActiveGroup,
+  isFacetValueSelected,
+  SearchFilterListCount,
+  SearchFilterListItem,
+  SearchFilterListLink,
+} from "./SearchFilter";
 
 interface Props {
   title: string;
@@ -14,8 +20,7 @@ const StringFilterEntry: React.FC<Props> = ({ title, label, query, count }) => {
   const isSelected = isFacetValueSelected(selectedFacets, title, query);
   const hasSelectedItem = isActiveGroup(selectedFacets, title);
   return (
-    <li
-      className="cm-search__filter-list-item"
+    <SearchFilterListItem
       onClick={(e) => {
         if (hasSelectedItem) {
           removeFacets(title);
@@ -25,13 +30,13 @@ const StringFilterEntry: React.FC<Props> = ({ title, label, query, count }) => {
       }}
     >
       {!isSelected && (
-        <span className="cm-search__filter-list-link cm-search__link">
+        <SearchFilterListLink checked={false}>
           {label}
-          {count && count > 0 && <span className="cm-search__filter-list-count">{count}</span>}
-        </span>
+          {count && count > 0 && <SearchFilterListCount>{count}</SearchFilterListCount>}
+        </SearchFilterListLink>
       )}
       {isSelected && label}
-    </li>
+    </SearchFilterListItem>
   );
 };
 

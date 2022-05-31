@@ -1,7 +1,6 @@
-import { isPreview } from "./Preview";
 import metaDataMapping from "@coremedia-labs/graphql-layer/dist/__downloaded__/metadata.json";
-import { Col } from "../../models/Grid/Grid";
 import { Dispatchable } from "../ViewDispatcher/Dispatchable";
+import { isPreview } from "./Preview";
 
 /**
  * @internal
@@ -17,7 +16,7 @@ export interface PreviewMetadataProps<T> {
   root: MetadataRoot;
 }
 
-export default interface PreviewMetadata {
+export interface PreviewMetadata {
   metadata?: PreviewMetadataProps<this>;
 }
 
@@ -69,17 +68,17 @@ export const metaDataProperty = (property: string | undefined): metadata => {
 
 /**
  * Generates the CoreMedia metadata JSON for a [[PageGridPlacement]].
- * @param placement The given placement
+ * @param name The name of the placement
+ * @param hasItems Wether this placement has items or not
  */
-export const metaDataForPlacement = (placement: Col): metadata => {
+export const metaDataForPlacement = (name: string, hasItems?: boolean): metadata => {
   if (!isPreview()) {
     return undefined;
   }
-  const hasItems = placement.items.length > 0;
   const metadata = [
-    { _: `properties.placement-${placement.name}` },
+    { _: `properties.placement-${name}` },
     {
-      placementRequest: [{ isInLayout: true, hasItems: hasItems, placementName: placement.name }],
+      placementRequest: [{ isInLayout: true, hasItems: hasItems || false, placementName: name }],
     },
   ];
 

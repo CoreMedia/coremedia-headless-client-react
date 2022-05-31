@@ -1,7 +1,8 @@
 import React from "react";
 import { Slot } from "../../models/Grid/Slot";
-import Include from "../../utils/ViewDispatcher/Include";
+import ShoppableHeroVideo from "../ShoppableVideo/ShoppableHeroVideo";
 import Slider, { Settings } from "../Slider/Slider";
+import HeroBanner from "./HeroBanner";
 
 const heroConfig: Settings = {
   fade: true,
@@ -9,20 +10,14 @@ const heroConfig: Settings = {
 
 const HeroBannerContainer: React.FC<Slot> = ({ items }) => {
   return (
-    <Slider className={"cm-hero-banner-container"} innerArrows={true} config={heroConfig}>
-      {items &&
-        items.map((content, index) => {
-          return (
-            content && (
-              <Include
-                key={index}
-                self={content}
-                view={"_gridItem"}
-                params={{ includeView: "asHeroBanner", className: "cm-hero-banner" }}
-              />
-            )
-          );
-        })}
+    <Slider innerArrows={true} config={heroConfig}>
+      {items.map((content, index) => {
+        //Hero is supporting shoppable videos. check if the viewtype is set
+        if (content.viewtype && content.viewtype === "shoppable") {
+          return <ShoppableHeroVideo banner={content} key={index} />;
+        }
+        return <HeroBanner banner={content} key={index} />;
+      })}
     </Slider>
   );
 };

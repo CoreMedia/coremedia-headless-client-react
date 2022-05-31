@@ -1,16 +1,15 @@
+import { CategoryByIdQuery } from "@coremedia-labs/graphql-layer";
 import React, { FC } from "react";
 import { match } from "react-router-dom";
-import { CategoryBySeoSegmentQuery } from "@coremedia-labs/graphql-layer";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, CategoryNotFoundAlert } from "../components/Error/Alert";
 import DetailedCategory from "../components/Category/DetailedCategory";
 import { DetailCategory } from "../models/Detail/DetailCategory";
 import { initializeGrid } from "../models/Grid/Grid";
-import { CategoryByIdQuery } from "@coremedia-labs/graphql-layer";
-import { getGlobalState } from "../utils/App/GlobalState";
 import SeoHeader from "../components/Header/SeoHeader";
 import RootPreviewId from "../components/FragmentPreview/RootPreviewId";
 import { initializeMetadata } from "../utils/Preview/MetaData";
+import { useSiteContextState } from "../context/SiteContextProvider";
 
 interface PageProps {
   match: match<RouteProps>;
@@ -22,25 +21,15 @@ interface RouteProps {
 }
 
 const CategoryPage: FC<PageProps> = ({ match }) => {
-  let category = null;
-  const { useSeo, siteId } = getGlobalState();
-  if (useSeo) {
-    const { data, loading, error } = CategoryBySeoSegmentQuery(match.params.seoSegment, siteId);
-    if (loading) return <Loading />;
-    if (error) return <ApolloClientAlert error={error} />;
-    if (!data || !data.categoryBySeoSegment) {
-      return <CategoryNotFoundAlert />;
-    }
-    category = data.categoryBySeoSegment;
-  } else {
-    const { data, loading, error } = CategoryByIdQuery(match.params.seoSegment, siteId);
-    if (loading) return <Loading />;
-    if (error) return <ApolloClientAlert error={error} />;
-    if (!data || !data.category) {
-      return <CategoryNotFoundAlert />;
-    }
-    category = data.category;
+  const { siteId } = useSiteContextState();
+
+  const { data, loading, error } = CategoryByIdQuery(match.params.seoSegment, siteId);
+  if (loading) return <Loading />;
+  if (error) return <ApolloClientAlert error={error} />;
+  if (!data || !data.category) {
+    return <CategoryNotFoundAlert />;
   }
+  const category = data.category;
 
   const detailCategory: DetailCategory = {
     ...category,

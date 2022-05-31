@@ -1,5 +1,5 @@
+import { PreviewMetadata } from "../../utils/Preview/MetaData";
 import { Grid } from "../Grid/Grid";
-import PreviewMetadata from "../../utils/Preview/MetaData";
 
 export interface DetailCategory extends PreviewMetadata {
   shortId: string | null;

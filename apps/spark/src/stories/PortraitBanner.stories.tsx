@@ -16,15 +16,15 @@ export const SixItems = Template.bind({});
 export const MixedItems = Template.bind({});
 
 Standard.args = {
-  slot: createSlot(),
+  ...createSlot(),
 };
 
 SixItems.args = {
-  slot: createSlot("Slot", 6),
+  ...createSlot("Slot", 6),
 };
 
 MixedItems.args = {
-  slot: {
+  ...{
     items: createMixedItemCollection(),
   },
 };

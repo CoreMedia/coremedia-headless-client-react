@@ -1,12 +1,15 @@
 export * from "./queries/CategoryByIdQuery";
-export * from "./queries/CategoryBySeoSegmentQuery";
 export * from "./queries/DetailQuery";
+export * from "./queries/FacetedSearchQuery";
+export * from "./queries/__generated__/FacetedSearchQuery";
 export * from "./queries/FragmentPreviewQuery";
 export * from "./queries/PageByPathQuery";
 export * from "./queries/ProductByIdQuery";
-export * from "./queries/ProductBySeoSegmentQuery";
 export * from "./queries/RootQuery";
 export * from "./queries/SearchQuery";
+export * from "./queries/StandaloneFragmentQuery";
+export * from "./queries/SuggestQuery";
+export * from "./queries/__generated__/SuggestQuery";
 export * from "./queries/TeasableQuery";
 
 export * from "./queries/fragments/__generated__/CMHTMLFragment";
@@ -38,6 +41,8 @@ export * from "./queries/fragments/__generated__/PreviewPicture";
 export * from "./queries/fragments/__generated__/Product";
 export * from "./queries/fragments/__generated__/ProductRef";
 export * from "./queries/fragments/__generated__/ProductTeaser";
+export * from "./queries/fragments/__generated__/SearchFacet";
+export * from "./queries/fragments/__generated__/SearchFacetValue";
 export * from "./queries/fragments/__generated__/SelectionRules";
 export * from "./queries/fragments/__generated__/Tag";
 export * from "./queries/fragments/__generated__/Teasable";

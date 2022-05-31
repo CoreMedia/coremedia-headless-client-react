@@ -1,10 +1,15 @@
 import React, { FC } from "react";
 import { match } from "react-router-dom";
+import { SearchQuery } from "@coremedia-labs/graphql-layer";
+import { NetworkStatus } from "@apollo/client";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, PageNotFoundAlert } from "../components/Error/Alert";
-import Slot from "../components/Slot/Slot";
-import { getGlobalState } from "../utils/App/GlobalState";
-import { SearchQuery } from "@coremedia-labs/graphql-layer";
+import { StyledCol } from "../components/PageGrid/Col";
+import { MoreButton } from "../components/Search/SearchResult";
+import LandscapeBannerContainer from "../components/LandscapeBanner/LandscapeBannerContainer";
+import { useSiteContextState } from "../context/SiteContextProvider";
+import { notEmpty } from "../utils/Helpers";
+import { initializeBannerFor } from "../models/Banner/Banner";
 
 interface DetailViewProps {
   match: match<RouteProps>;
@@ -16,9 +21,10 @@ interface RouteProps {
 }
 
 const TopicPage: FC<DetailViewProps> = ({ match }) => {
-  const { siteId } = getGlobalState();
+  const { siteId } = useSiteContextState();
+  const { rootSegment } = useSiteContextState();
 
-  const { data, loading, error, fetchMore } = SearchQuery(
+  const { data, loading, error, fetchMore, networkStatus } = SearchQuery(
     siteId,
     "*",
     null,
@@ -28,7 +34,9 @@ const TopicPage: FC<DetailViewProps> = ({ match }) => {
     ["CMArticle", "CMProductTeaser"]
   );
 
-  if (loading) {
+  const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
+
+  if (loading && !loadingMorePosts) {
     return <Loading />;
   }
   if (error) {
@@ -50,50 +58,28 @@ const TopicPage: FC<DetailViewProps> = ({ match }) => {
             data.content.search.result.length) ||
           0,
       },
-      updateQuery: (prev, { fetchMoreResult }) => {
-        if (
-          !fetchMoreResult ||
-          !fetchMoreResult.content ||
-          !prev.content ||
-          !prev.content.search ||
-          !prev.content.search.result ||
-          !fetchMoreResult.content.search ||
-          !fetchMoreResult.content.search.result
-        ) {
-          return prev;
-        }
-
-        return Object.assign({}, fetchMoreResult, {
-          content: {
-            ...fetchMoreResult.content,
-            search: {
-              ...fetchMoreResult.content.search,
-              result: [...prev.content.search.result, ...fetchMoreResult.content.search.result],
-            },
-          },
-        });
-      },
     });
   };
 
   return (
-    <div id="cm-placement-main" className="cm-placement cm-placement--main">
-      <div className="cm-details-container">
-        <Slot
-          title={`${data.content.search.numFound} result${data.content.search.numFound > 1 ? "s" : ""} found for tag ${
-            match.params.title
-          }`}
-          className={"cm-landscape-banner"}
-          viewName={"asLandscapeBanner"}
-          items={data.content.search.result}
-        />
-      </div>
+    <StyledCol zone={"main"}>
+      <LandscapeBannerContainer
+        title={`${data.content.search.numFound} result${data.content.search.numFound > 1 ? "s" : ""} found for tag ${
+          match.params.title
+        }`}
+        items={
+          data?.content?.search?.result
+            ?.filter(notEmpty)
+            .map((item: any) => initializeBannerFor(item, rootSegment))
+            .filter(notEmpty) || []
+        }
+      />
       {data.content.search.result && data.content.search.result.length < data?.content?.search?.numFound && (
-        <button className="cm-search__more" onClick={onLoadMore}>
-          Load More
-        </button>
+        <MoreButton onClick={onLoadMore} disabled={loadingMorePosts}>
+          {loadingMorePosts ? "Loading..." : "Show More"}
+        </MoreButton>
       )}
-    </div>
+    </StyledCol>
   );
 };
 

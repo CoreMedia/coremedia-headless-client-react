@@ -12,7 +12,7 @@ const Row: FC<RowProps> = ({ children }) => {
       return <>{children}</>;
     }
   }
-  return <div className={`cm-row`}>{children}</div>;
+  return <div>{children}</div>;
 };
 
 export default Row;

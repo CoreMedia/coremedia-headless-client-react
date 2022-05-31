@@ -1,8 +1,7 @@
-import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
-import PreviewMetadata, { getPropertyName } from "../../utils/Preview/MetaData";
-import { PageGridPlacement } from "@coremedia-labs/graphql-layer";
-import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
-import { Collection } from "@coremedia-labs/graphql-layer";
+import { PreviewMetadata, getPropertyName } from "../../utils/Preview/MetaData";
+import { addProperty } from "../../utils/ViewDispatcher/ModelHelper";
+import { Banner, initializeBannerFor } from "../Banner/Banner";
+import { notEmpty } from "../../utils/Helpers";
 
 /**
  * @category ViewModels
@@ -10,26 +9,31 @@ import { Collection } from "@coremedia-labs/graphql-layer";
 export interface Slot extends PreviewMetadata {
   text?: string;
   title?: string;
-  items: Array<Dispatchable | null> | null;
+  items: Array<Banner>;
 }
 
 /**
  * Returns an [[Slot]] object based on the GraphQL [[PageGridPlacement]]
- * @param self
  */
-export const initializeSlotFromPageGridPlacement = (self: PageGridPlacement): Slot => {
-  return { items: self.items };
-};
+export const initializeSlot = (self: any, rootSegment: string): Slot => {
+  const slot: Slot = { items: [] };
+  if ("teaserTitle" in self) {
+    addProperty(slot, "title", self.teaserTitle, getPropertyName(self, "teaserTitle"));
+  }
+  if ("plainTeaserText" in self) {
+    addProperty(slot, "text", self.plainTeaserText, getPropertyName(self, "plainTeaserText"));
+  }
+  if ("items" in self) {
+    addProperty(
+      slot,
+      "items",
+      self.items
+        .filter(notEmpty)
+        .map((item: any) => initializeBannerFor(item, rootSegment))
+        .filter(notEmpty),
+      getPropertyName(self, "items")
+    );
+  }
 
-/**
- * Returns an [[Slot]] object based on the GraphQL [[Collection]]
- * @param self
- */
-export const initializeSlotFromCollection = (self: Collection): Slot => {
-  const slot: Slot = {
-    ...mapProperties(self, { items: "items", title: "teaserTitle" }),
-  };
-  (self.teaserText?.plaintext ?? self.teaserText?.plaintext !== undefined) &&
-    addProperty(slot, "text", self.teaserText?.plaintext, getPropertyName(self, "teaserText"));
   return slot;
 };

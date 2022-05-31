@@ -1,13 +1,21 @@
 import React from "react";
+import styled from "styled-components";
 import { useSearchPageContextState } from "../../../context/SearchPageContext";
 import SearchFilter from "./SearchFilter";
 
+const Filters = styled.div`
+  margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    /* width: 25%;*/
+    float: left;
+  }
+`;
 const FacetFilters: React.FC = () => {
   const { availableFacets } = useSearchPageContextState();
   return (
     <>
       {availableFacets && availableFacets.length > 0 && (
-        <div className="cm-search__filters">
+        <Filters>
           {availableFacets &&
             availableFacets.map((facet, index) => {
               return (
@@ -21,7 +29,7 @@ const FacetFilters: React.FC = () => {
                 />
               );
             })}
-        </div>
+        </Filters>
       )}
     </>
   );

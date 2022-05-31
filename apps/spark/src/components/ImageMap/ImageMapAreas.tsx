@@ -1,38 +1,67 @@
 import React from "react";
-import { createHotZoneList } from "./ImageMapHelpers";
-import HotzoneRect from "./HotzoneRect";
-import { Hotzone as HotzoneProps } from "../../models/Banner/ImagemapBanner";
+import styled from "styled-components";
+import { HotZoneProps, ImagemapOverlayConfiguration } from "../../models/Banner/ImagemapBanner";
 import Hotzone from "./Hotzone";
+import HotzoneRect from "./HotzoneRect";
 
 interface Props {
   cropName: string;
-  hotzones?: Array<HotzoneProps>;
-  overlayConfiguration?: any;
+  hotzones?: Array<Array<HotZoneProps>>;
+  imagemapOverlayConfiguration?: ImagemapOverlayConfiguration;
 }
 
-const ImageMapAreas: React.FC<Props> = ({ overlayConfiguration, hotzones, cropName }) => {
-  const hotZonePropsList = createHotZoneList(cropName || undefined, hotzones);
+const Areas = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: none;
+  max-height: none;
+
+  svg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none;
+    max-height: none;
+
+    opacity: 0;
+
+    a {
+      z-index: 2;
+    }
+  }
+`;
+
+const ImageMapAreas: React.FC<Props> = ({ imagemapOverlayConfiguration, hotzones, cropName }) => {
+  const zones: Array<HotZoneProps> = [];
+  hotzones?.forEach((entry) => {
+    entry
+      .filter((listEntry) => listEntry.name === cropName)
+      .forEach((item) => {
+        zones.push(item);
+      });
+  });
   return (
-    <div className={"cm-imagemap__areas"}>
-      {hotZonePropsList && (
+    <Areas>
+      {zones.length > 0 && (
         <svg version={"1.1"}>
-          {hotZonePropsList.map((p, index) => {
+          {zones.map((p, index) => {
             return <HotzoneRect hotZone={p} key={index} />;
           })}
         </svg>
       )}
-      {hotZonePropsList &&
-        hotZonePropsList.map((p, index) => {
-          return (
-            <Hotzone
-              hotZone={p}
-              key={index}
-              overlayConfiguration={{ ...overlayConfiguration.overlay }}
-              cssClass={"cm-imagemap__hotzone cm-imagemap__hotzone--icon"}
-            />
-          );
-        })}
-    </div>
+      {zones.map((p, index) => {
+        return <Hotzone hotZone={p} key={index} overlayConfiguration={imagemapOverlayConfiguration} />;
+      })}
+    </Areas>
   );
 };
 

@@ -1,26 +1,28 @@
 import React from "react";
-import PreviewMetadata, { metaDataProperty } from "../../utils/Preview/MetaData";
+import styled from "styled-components";
+import { metaDataProperty, PreviewMetadata } from "../../utils/Preview/MetaData";
 
 interface Props extends PreviewMetadata {
   title?: string;
   text?: string;
 }
 
+const Headline = styled.h2`
+  font-family: var(--font-family-headline);
+  font-size: var(--font-size-heading-1);
+  text-align: center;
+  line-height: 1;
+  margin-top: var(--padding-medium);
+  margin-bottom: var(--padding-medium);
+`;
+
+const Text = styled.div``;
+
 const SlotHeader: React.FC<Props> = ({ title, text, metadata }) => {
   return (
     <>
-      {title && (
-        <h2 className={`cm-slot__headline`} {...metaDataProperty(metadata?.properties?.title)}>
-          {title}
-        </h2>
-      )}
-      {text && (
-        <div
-          className={`cm-slot__text`}
-          {...metaDataProperty(metadata?.properties?.text)}
-          dangerouslySetInnerHTML={{ __html: text }}
-        />
-      )}
+      {title && <Headline {...metaDataProperty(metadata?.properties?.title)}>{title}</Headline>}
+      {text && <Text {...metaDataProperty(metadata?.properties?.text)} dangerouslySetInnerHTML={{ __html: text }} />}
     </>
   );
 };

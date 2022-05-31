@@ -1,10 +1,31 @@
 # Changelog
 
+## v2204.0.0
+
+*Released 31.05.2022*
+
+### Features:
+
+- Introduced View Model Layer. This layer is an abstraction between the GraphQL model and the components model.
+- Introduced `styled-components` for styling the Spark app. All `scss` have been removed.
+
+### Breaking Changes:
+
+- Updated `schema.json`, `interfaces.json`, `metadata.json`, `possibleTypes.json` to CoreMedia Content Cloud v11 - 2204.1
+
+### Bugfixes and Changes:
+
+- Fixing standalone fragment app
+- Updated minor versions of dependencies
+
+---
+
 ## v2201.0.0
 
 *Released 02.03.2022*
 
 ### Features:
+
 - Added a new package "coremedia-labs/graphql-layer". This package includes all GraphQL queries and fragments, which have been part of the Spark app before.
 - Simplified navigation components with replacing view dispatching logic with view model logic.
 - Simplified link building.

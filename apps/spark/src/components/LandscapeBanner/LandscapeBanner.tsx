@@ -1,31 +1,93 @@
 import React from "react";
+import styled from "styled-components";
 import { metaDataElement, metaDataProperty } from "../../utils/Preview/MetaData";
-import LandscapeResponsiveImage from "./LandscapeResponsiveImage";
-import "./LandscapeBanner.scss";
 import { Banner } from "../../models/Banner/Banner";
-import BannerCaption from "../Caption/BannerCaption";
-import CTA from "../CTA/CTA";
+import BannerCaption, { Text } from "../Caption/BannerCaption";
+import CTA, { StyledCTA } from "../CTA/CTA";
+import { supportsPricing, supportsShopNow } from "../../models/Banner/ProductBanner";
 import Link from "../Link/Link";
+import { ImageBox } from "../Media/ResponsiveImage";
+import ShopNowButton, { ShowNow } from "../Product/ShopNowButton";
+import ProductPricing from "../Product/ProductPricing";
+import StaticCode from "../StaticCode/StaticCode";
+import { supportsVideo } from "../../models/Banner/VideoBanner";
+import ModalVideo, { PlayButton } from "../Media/ModalVideo";
+import LandscapeResponsiveImage from "./LandscapeResponsiveImage";
 
-interface Props {
-  banner: Banner;
-}
+export const StyledBanner = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
 
-const LandscapeBanner: React.FC<Props> = ({ banner }) => {
+  ${StyledCTA} {
+    margin-top: auto;
+  }
+
+  @media screen and (min-width: 768px) and (orientation: landscape), screen and (min-width: 1200px) {
+    :hover > ${ShowNow} {
+      display: block;
+    }
+  }
+`;
+
+const StyledLandscapeBanner = styled(StyledBanner)`
+  ${ImageBox} {
+    --aspect-ratio: 16 * 9;
+  }
+
+  ${Text} {
+    --max-lines: 3;
+  }
+
+  ${ShowNow}:before,${PlayButton}:before { {
+    padding-top: calc(9 / 16 * 100%);
+  }
+`;
+
+export const Caption = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  position: static;
+  transform: none;
+  box-sizing: border-box;
+  font-size: var(--font-size-text-small);
+  flex: 1 1 auto;
+  flex-grow: 1;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+`;
+
+const LandscapeBanner: React.FC<Banner> = (banner) => {
+  if (banner.code) {
+    return <StaticCode {...banner} />;
+  }
   return (
-    <div className={`cm-landscape-banner`} {...metaDataElement(banner.metadata?.root)}>
+    <StyledLandscapeBanner {...metaDataElement(banner.metadata?.root)}>
       {banner.picture && (
-        <Link to={banner.linkTarget} externalLink={banner.externalLink} openInNewTab={banner.openInNewTab}>
-          <div className={`cm-landscape-banner__picture`} {...metaDataProperty(banner.metadata?.properties?.picture)}>
+        <Link
+          to={supportsVideo(banner) === true ? "" : banner.linkTarget}
+          externalLink={banner.externalLink}
+          openInNewTab={banner.openInNewTab}
+        >
+          <div {...metaDataProperty(banner.metadata?.properties?.picture)}>
             <LandscapeResponsiveImage picture={banner.picture} />
+            {supportsVideo(banner) && <ModalVideo banner={banner} />}
           </div>
         </Link>
       )}
-      <div className={`cm-landscape-banner__caption`}>
+      <Caption>
         <BannerCaption {...banner} />
-        {banner.targets && <CTA targets={banner.targets} additionalClass={`cm-landscape-banner__cta`} />}
-      </div>
-    </div>
+        {supportsPricing(banner) && <ProductPricing {...banner} />}
+        {banner.targets && <CTA targets={banner.targets} />}
+      </Caption>
+      {supportsShopNow(banner) && <ShopNowButton banner={banner} />}
+    </StyledLandscapeBanner>
   );
 };
 

@@ -1,17 +1,16 @@
 import React, { FC } from "react";
 import { match } from "react-router-dom";
-import { ProductBySeoSegmentQuery } from "@coremedia-labs/graphql-layer";
+import { ProductByIdQuery } from "@coremedia-labs/graphql-layer";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, ProductNotFoundAlert } from "../components/Error/Alert";
 import DetailedProduct from "../components/Product/DetailedProduct";
 import { DetailProduct } from "../models/Detail/DetailProduct";
 import { initializeGrid } from "../models/Grid/Grid";
-import { ProductByIdQuery } from "@coremedia-labs/graphql-layer";
-import { getGlobalState } from "../utils/App/GlobalState";
 import { initializePicture, Picture } from "../models/Banner/Picture";
 import SeoHeader from "../components/Header/SeoHeader";
 import RootPreviewId from "../components/FragmentPreview/RootPreviewId";
 import { initializeProductBannerFromProduct } from "../models/Banner/ProductBanner";
+import { useSiteContextState } from "../context/SiteContextProvider";
 
 interface PageProps {
   match: match<RouteProps>;
@@ -23,25 +22,16 @@ interface RouteProps {
 }
 
 const ProductPage: FC<PageProps> = ({ match }) => {
-  let product = null;
-  const { useSeo, siteId } = getGlobalState();
-  if (useSeo) {
-    const { data, loading, error } = ProductBySeoSegmentQuery(match.params.seoSegment, siteId);
-    if (loading) return <Loading />;
-    if (error) return <ApolloClientAlert error={error} />;
-    if (!data || !data.productBySeoSegment) {
-      return <ProductNotFoundAlert />;
-    }
-    product = data.productBySeoSegment;
-  } else {
-    const { data, loading, error } = ProductByIdQuery(match.params.seoSegment, siteId);
-    if (loading) return <Loading />;
-    if (error) return <ApolloClientAlert error={error} />;
-    if (!data || !data.product) {
-      return <ProductNotFoundAlert />;
-    }
-    product = data.product;
+  const { siteId } = useSiteContextState();
+  const { rootSegment } = useSiteContextState();
+
+  const { data, loading, error } = ProductByIdQuery(match.params.seoSegment, siteId);
+  if (loading) return <Loading />;
+  if (error) return <ApolloClientAlert error={error} />;
+  if (!data || !data.product) {
+    return <ProductNotFoundAlert />;
   }
+  const product = data.product;
 
   if (!product) {
     return <ProductNotFoundAlert />;
@@ -59,7 +49,7 @@ const ProductPage: FC<PageProps> = ({ match }) => {
   }
 
   const detailProduct: DetailProduct = {
-    ...initializeProductBannerFromProduct(product),
+    ...initializeProductBannerFromProduct(product, rootSegment),
     name: product.name,
     shortDescription: product.shortDescription,
     longDescription: product.longDescription,

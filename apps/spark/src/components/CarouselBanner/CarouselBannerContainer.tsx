@@ -1,9 +1,11 @@
 import React from "react";
-import Include from "../../utils/ViewDispatcher/Include";
+import styled from "styled-components";
 import SlotHeader from "../Slot/SlotHeader";
 import Slider, { Settings } from "../Slider/Slider";
 import { Slot } from "../../models/Grid/Slot";
 import { metaDataElement } from "../../utils/Preview/MetaData";
+import { Item } from "../Slot/Slot";
+import CarouselBanner from "./CarouselBanner";
 
 const carouselConfig = (infinite = true): Settings => {
   return {
@@ -62,26 +64,50 @@ interface Props extends Slot {
   infinite?: boolean;
 }
 
+const StyledBanner = styled.div`
+  box-sizing: border-box;
+  overflow: hidden;
+
+  // reset slider buttons
+  @media screen and (min-width: 768px) {
+    margin: 0 25px;
+    overflow: initial;
+  }
+`;
+
+const StyledSlider = styled(Slider)`
+  .slick-track {
+    display: flex;
+  }
+
+  .slick-slide {
+    height: unset;
+
+    > div {
+      margin: 0 6px;
+      height: 100%;
+
+      @media screen and (min-width: 768px) and (orientation: landscape), screen and (min-width: 1200px) {
+        margin: 0 12px;
+      }
+    }
+
+    ${Item} {
+      height: 100%;
+    }
+  }
+`;
+
 const CarouselBannerContainer: React.FC<Props> = ({ items, title, text, infinite = false, metadata }) => {
   return (
-    <div className={"cm-carousel-banner-container"} {...metaDataElement(metadata?.root)}>
+    <StyledBanner {...metaDataElement(metadata?.root)}>
       <SlotHeader title={title} text={text} metadata={metadata} />
-      <Slider className={"cm-slick-carousel--multiple"} config={carouselConfig(infinite)}>
-        {items &&
-          items.map((content, index) => {
-            return (
-              content && (
-                <Include
-                  key={index}
-                  self={content}
-                  view={"_gridItem"}
-                  params={{ includeView: "asCarouselBanner", className: "cm-carousel-banner" }}
-                />
-              )
-            );
-          })}
-      </Slider>
-    </div>
+      <StyledSlider config={carouselConfig(infinite)}>
+        {items.map((content, index) => {
+          return <CarouselBanner banner={content} key={index} />;
+        })}
+      </StyledSlider>
+    </StyledBanner>
   );
 };
 

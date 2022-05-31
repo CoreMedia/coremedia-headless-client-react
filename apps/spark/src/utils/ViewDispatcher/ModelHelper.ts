@@ -1,4 +1,4 @@
-import PreviewMetadata, { getPropertyName, initializeMetadata } from "../Preview/MetaData";
+import { PreviewMetadata, getPropertyName, initializeMetadata } from "../Preview/MetaData";
 import { Dispatchable } from "./Dispatchable";
 
 /**

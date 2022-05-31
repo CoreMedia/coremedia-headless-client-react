@@ -1,28 +1,55 @@
 import React, { FC } from "react";
-import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
-import Include from "../../utils/ViewDispatcher/Include";
+import styled from "styled-components";
 import { useSiteContextState } from "../../context/SiteContextProvider";
+import { StyledCol } from "../PageGrid/Col";
 import { metaDataForPlacement } from "../../utils/Preview/MetaData";
-import { Col } from "../../models/Grid/Grid";
+import FooterNavigationColumn from "./FooterNavigationColumn";
+
+const StyledFooterNavigation = styled.div`
+  background-color: var(--color-background-light-grey);
+`;
+
+const Columns = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: var(--screen-size-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--grid-gap);
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  > div {
+    flex: 1; // same width for all columns
+    h2 {
+      margin-top: 25px;
+      margin-bottom: 0;
+      padding-left: 12px;
+      border-left: 4px solid var(--color-background-dark);
+      font-size: var(--font-size-heading-2);
+      color: var(--color-background-dark);
+    }
+  }
+`;
 
 const FooterNavigation: FC = () => {
-  const name = "footer-navigation";
-  const { placements } = useSiteContextState();
-  const placement: Col | null | undefined = placements?.find((item) => item && item.name === name);
-  const items: Dispatchable[] | null | undefined = placement && placement?.items;
+  const { footerNavigation } = useSiteContextState();
+  const name = footerNavigation?.metadata?.root.id || "footer-navigation";
 
   return (
-    <div className={`cm-placement cm-placement--${name}`} {...(placement && metaDataForPlacement(placement))}>
-      {items && (
-        <div className="cm-footer-navigation">
-          <div className="cm-footer-navigation__columns">
-            {items.map((column, index) => {
-              return <Include self={column} key={index} view={"asFooterNavigationColumn"} />;
+    <StyledCol zone={name} {...(footerNavigation && metaDataForPlacement(name, !!footerNavigation?.items?.length))}>
+      {footerNavigation?.items && (
+        <StyledFooterNavigation>
+          <Columns>
+            {footerNavigation.items.map((column, index) => {
+              return <FooterNavigationColumn key={index} {...column} />;
             })}
-          </div>
-        </div>
+          </Columns>
+        </StyledFooterNavigation>
       )}
-    </div>
+    </StyledCol>
   );
 };
 

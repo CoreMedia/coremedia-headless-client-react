@@ -1,9 +1,9 @@
-import { Detail, initializeDetail } from "./Detail";
 import { DetailCMProduct as GraphQLDetailCMProduct } from "@coremedia-labs/graphql-layer";
+import { LinkAttributes } from "../../components/Link/Link";
 import { getLink } from "../../utils/Link/LinkUtils";
 import { getPropertyName } from "../../utils/Preview/MetaData";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
-import { LinkAttributes } from "../../components/Link/Link";
+import { Detail, initializeDetail } from "./Detail";
 
 /**
  * @category ViewModels
@@ -22,10 +22,9 @@ export interface DetailCMProduct extends Detail {
 
 /**
  * Returns a [[DetailCMProduct]] object based on the GraphQL [[DetailCMProduct]]
- * @param self
  */
-export const initializeDetailCMProduct = (self: GraphQLDetailCMProduct): DetailCMProduct => {
-  const details: Detail = initializeDetail(self);
+export const initializeDetailCMProduct = (self: GraphQLDetailCMProduct, rootSegment: string): DetailCMProduct => {
+  const details: Detail = initializeDetail(self, rootSegment);
   const productDetails: DetailCMProduct = {
     ...mapProperties(self, { title: "productName", productCode: "productCode" }, details),
   };
@@ -37,7 +36,7 @@ export const initializeDetailCMProduct = (self: GraphQLDetailCMProduct): DetailC
         return (
           download && {
             title: download.teaserTitle,
-            ...getLink(download),
+            ...getLink(download, rootSegment),
           }
         );
       }),

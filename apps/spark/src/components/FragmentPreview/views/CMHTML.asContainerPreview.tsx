@@ -1,10 +1,10 @@
 import React from "react";
-import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 import { CMHTMLFragment as CMHTMLType } from "@coremedia-labs/graphql-layer";
-import CMHTML from "../../CMHTML/CMHTML";
+import StaticCode from "../../StaticCode/StaticCode";
+import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 
 const CMHTMLAsContainerPreview: React.FC<IncludeProps<CMHTMLType>> = ({ self }) => {
-  return <CMHTML self={self} />;
+  return <StaticCode code={self.html} />;
 };
 
 export default CMHTMLAsContainerPreview;

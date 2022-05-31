@@ -1,8 +1,6 @@
-import { getLink } from "./LinkUtils";
+import { Linkable, Download, ExternalLink } from "@coremedia-labs/graphql-layer";
 import { LinkAttributes } from "../../components/Link/Link";
-import { Linkable } from "@coremedia-labs/graphql-layer";
-import { Download } from "@coremedia-labs/graphql-layer";
-import { ExternalLink } from "@coremedia-labs/graphql-layer";
+import { getLink } from "./LinkUtils";
 
 beforeEach(() => {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -27,7 +25,7 @@ describe("linkutil", () => {
       linkTarget: "/root-segment/parent-segment/segment-1234",
       openInNewTab: false,
     };
-    const resultUrl = getLink(teaser);
+    const resultUrl = getLink(teaser, "root-segment");
     expect(resultUrl).toEqual(expectedResult);
   });
 
@@ -48,7 +46,7 @@ describe("linkutil", () => {
       linkTarget: "/root-segment/parent-segment/segment/",
       openInNewTab: false,
     };
-    const resultUrl = getLink(channel);
+    const resultUrl = getLink(channel, "root-segment");
     expect(resultUrl).toEqual(expectedResult);
   });
 
@@ -65,6 +63,7 @@ describe("linkutil", () => {
       authors: null,
       extDisplayedDate: null,
       modificationDate: "",
+      media: null,
       teaserTargets: null,
       data: { uri: "/my/download/uri", __typename: "Blob" },
       navigationPath: [
@@ -78,7 +77,7 @@ describe("linkutil", () => {
       linkTarget: "/my/download/uri",
       openInNewTab: true,
     };
-    const resultUrl = getLink(download);
+    const resultUrl = getLink(download, "root-segment");
     expect(resultUrl).toEqual(expectedResult);
   });
 
@@ -91,6 +90,7 @@ describe("linkutil", () => {
       picture: null,
       teaserText: null,
       teaserTitle: null,
+      media: null,
       teaserOverlaySettings: null,
       authors: null,
       extDisplayedDate: null,
@@ -109,7 +109,7 @@ describe("linkutil", () => {
       linkTarget: "www.coremedia.com",
       openInNewTab: true,
     };
-    const resultUrl = getLink(download);
+    const resultUrl = getLink(download, "root-segment");
     expect(resultUrl).toEqual(expectedResult);
   });
 });

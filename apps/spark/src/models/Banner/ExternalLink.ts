@@ -1,27 +1,15 @@
-import { Banner, initializeBanner } from "./Banner";
-import { ExternalLink as GraphQLExternalLink } from "@coremedia-labs/graphql-layer";
-import { mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
-import { getLink } from "../../utils/Link/LinkUtils";
+import { addProperty } from "../../utils/ViewDispatcher/ModelHelper";
+import { Banner } from "./Banner";
 
-export const initializeExternalLink = (self: GraphQLExternalLink): Banner => {
-  const banner: Banner = initializeBanner(self);
-  const externalLink: Banner = {
-    ...mapProperties(
-      self,
-      {
-        linkTarget: "url",
-        openInNewTab: "openInNewTab",
-      },
-      banner
-    ),
-    ...getLink(self),
-  };
-  externalLink.externalLink = true;
+export const addExternalLinkOverrides = (self: any, result: Banner): void => {
+  if ("openInNewTab" in self) {
+    addProperty(result, "openInNewTab", self.openInNewTab);
+    result.externalLink = true;
 
-  if (externalLink.targets) {
-    externalLink.targets[0] = {
-      ...getLink(self),
-    };
+    if (result.targets) {
+      result.targets[0].linkTarget = self.url ?? "";
+      result.targets[0].openInNewTab = self.openInNewTab || false;
+      result.targets[0].externalLink = true;
+    }
   }
-  return externalLink;
 };

@@ -1,4 +1,4 @@
-FROM nginx:1.19-alpine
+FROM nginx:1.21-alpine
 
 COPY spark/build /usr/share/nginx/html
 COPY spark/storybook-static /usr/share/nginx/html/storybook

@@ -1,9 +1,12 @@
 import React, { createElement } from "react";
-import { Attribute, containsItem, getAttributeValueFor, getContentId, transformAttributes } from "./RichTextHelper";
-import DynamicComponent from "./DynamicComponent";
-import { useRichtextContextState } from "./context/RichtextContextProvider";
+import styled from "styled-components";
+import LeftRightBanner from "../LeftRightBanner/LeftRightBanner";
 import Link from "../Link/Link";
-import Include from "../../utils/ViewDispatcher/Include";
+import { ImageBox } from "../Media/ResponsiveImage";
+import DynamicComponent from "./DynamicComponent";
+import { Attribute, containsItem, getAttributeValueFor, getContentId, transformAttributes } from "./RichTextHelper";
+import RichtextEmbeddedResponsiveImage from "./RichtextEmbeddedResponsiveImage";
+import { useRichtextContextState } from "./context/RichtextContextProvider";
 
 export interface RichTextElementProps {
   _type: string;
@@ -12,6 +15,45 @@ export interface RichTextElementProps {
   children?: Array<RichTextElementProps>;
   data?: string;
 }
+
+const EmbeddedTeasable = styled.div`
+  break-inside: avoid;
+  margin: var(--padding-large) auto;
+
+  ${ImageBox} {
+    overflow: inherit;
+
+    &:before {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 100%;
+      top: -10px;
+      left: 0;
+      height: 10px;
+      background: var(--color-green-highlight);
+
+      @media (min-width: 768px) {
+        left: -36px;
+      }
+    }
+
+    &:after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 100%;
+      bottom: -10px;
+      left: 0;
+      height: 10px;
+      background: var(--color-green-highlight);
+
+      @media (min-width: 768px) {
+        left: 36px;
+      }
+    }
+  }
+`;
 
 const RichTextElement: React.FC<RichTextElementProps> = ({ _type, name, attributes, children, data }) => {
   const { embeddedItems } = useRichtextContextState();
@@ -51,7 +93,15 @@ const RichTextElement: React.FC<RichTextElementProps> = ({ _type, name, attribut
           const dataSrc = getContentId(attributes, "data-src");
           if (dataSrc) {
             const content = containsItem(embeddedItems, dataSrc);
-            return <>{content && <Include self={content} view={"asRichtextEmbed"} />}</>;
+            return (
+              <>
+                {content && content.picture && (
+                  <EmbeddedTeasable>
+                    <RichtextEmbeddedResponsiveImage picture={content.picture} />
+                  </EmbeddedTeasable>
+                )}
+              </>
+            );
           } else {
             //embedded content into richtext
             const contentId = getContentId(attributes, "data-href");
@@ -59,7 +109,15 @@ const RichTextElement: React.FC<RichTextElementProps> = ({ _type, name, attribut
               const content = containsItem(embeddedItems, contentId);
               const embeddingType = getAttributeValueFor(attributes, "data-show");
               if (embeddingType === "embed") {
-                return <>{content && <Include self={content} view={"asRichtextEmbed"} />}</>;
+                return (
+                  <>
+                    {content && (
+                      <EmbeddedTeasable>
+                        <LeftRightBanner {...content} />
+                      </EmbeddedTeasable>
+                    )}
+                  </>
+                );
               } else {
                 return <>{content && <Link to={content}>{childrenToRender}</Link>}</>;
               }

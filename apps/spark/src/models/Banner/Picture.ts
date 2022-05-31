@@ -1,6 +1,16 @@
-import PreviewMetadata, { getPropertyName } from "../../utils/Preview/MetaData";
 import { Picture as GraphQLPicture } from "@coremedia-labs/graphql-layer";
+import { PreviewMetadata, getPropertyName } from "../../utils/Preview/MetaData";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
+
+export interface SupportsPicture extends PreviewMetadata {
+  picture?: Picture;
+}
+
+export const addPicture = (self: any, result: SupportsPicture): void => {
+  if ("picture" in self) {
+    self.picture && addProperty(result, "picture", initializePicture(self.picture), getPropertyName(self, "picture"));
+  }
+};
 
 /**
  * @category ViewModels
@@ -52,14 +62,4 @@ export const initializePicture = (picture: GraphQLPicture): Picture => {
       data: "data",
     }),
   };
-};
-
-export interface SupportsPicture extends PreviewMetadata {
-  picture: Picture | null;
-}
-
-export const addPicture = (self: any, result: SupportsPicture): void => {
-  if ("picture" in self) {
-    self.picture && addProperty(result, "picture", initializePicture(self.picture), getPropertyName(self, "picture"));
-  }
 };

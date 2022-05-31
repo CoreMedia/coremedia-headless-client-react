@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { metaDataProperty } from "../../utils/Preview/MetaData";
 import Button from "../Button/Button";
 import { Target } from "../../models/Banner/Target";
@@ -9,12 +10,16 @@ interface Props {
   additionalButtonClass?: string;
 }
 
+export const StyledCTA = styled.div`
+  display: inline-flex;
+  justify-content: center;
+  margin: 10px;
+  text-shadow: none;
+`;
+
 const CTA: React.FC<Props> = ({ targets, additionalClass, additionalButtonClass }) => {
   return (
-    <div
-      className={`cm-cta ${additionalClass !== undefined ? additionalClass : ""}`}
-      {...metaDataProperty("properties.targets")}
-    >
+    <StyledCTA className={additionalClass} {...metaDataProperty("properties.targets")}>
       {targets &&
         targets.map((target, index) => {
           return (
@@ -31,7 +36,7 @@ const CTA: React.FC<Props> = ({ targets, additionalClass, additionalButtonClass 
             )
           );
         })}
-    </div>
+    </StyledCTA>
   );
 };
 
