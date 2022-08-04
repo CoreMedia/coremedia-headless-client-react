@@ -1,0 +1,42 @@
+fragment CMTeasable on CMTeasable {
+  id
+  title
+  segment
+  navigationPath {
+    id
+    segment
+    title
+  }
+  picture {
+    ...CMPicture
+  }
+  media {
+    ...CMPicture
+    ...CMVideo
+  }
+  teaserTitle
+  teaserText {
+    text
+    plaintext: text(view: "plainFirstParagraph")
+  }
+  teaserOverlaySettings {
+    ... on TeaserOverlaySettings {
+      style
+      enabled
+      positionX
+      positionY
+      width
+    }
+  }
+  authors {
+    ...CMPerson
+  }
+  extDisplayedDate
+  modificationDate
+  teaserTargets {
+    ...TeaserTarget
+  }
+  subjectTaxonomy {
+    ...CMTaxonomy
+  }
+}

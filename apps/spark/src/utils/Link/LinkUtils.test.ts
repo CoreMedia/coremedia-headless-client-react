@@ -1,4 +1,4 @@
-import { Linkable, Download, ExternalLink } from "@coremedia-labs/graphql-layer";
+import { CmLinkableFragment, CmDownloadFragment, CmExternalLinkFragment } from "@coremedia-labs/graphql-layer";
 import { LinkAttributes } from "../../components/Link/Link";
 import { getLink } from "./LinkUtils";
 
@@ -9,7 +9,7 @@ beforeEach(() => {
 
 describe("linkutil", () => {
   it("getLink for teasable", () => {
-    const teaser: Linkable = {
+    const teaser: CmLinkableFragment = {
       __typename: "CMArticleImpl",
       id: "1234",
       title: "Title",
@@ -30,7 +30,7 @@ describe("linkutil", () => {
   });
 
   it("getLink for channel", () => {
-    const channel: Linkable = {
+    const channel: CmLinkableFragment = {
       __typename: "CMChannelImpl",
       id: "1234",
       title: "Title",
@@ -51,7 +51,7 @@ describe("linkutil", () => {
   });
 
   it("getLink for download", () => {
-    const download: Download = {
+    const download: CmDownloadFragment = {
       __typename: "CMDownloadImpl",
       id: "1234",
       title: "Title",
@@ -71,6 +71,7 @@ describe("linkutil", () => {
         { __typename: "CMChannelImpl", segment: "Parent Segment", id: "Parent id", title: "Parent" },
         { __typename: "CMDownloadImpl", segment: "Segment", id: "1234", title: "Title" },
       ],
+      subjectTaxonomy: null,
     };
     const expectedResult: LinkAttributes = {
       externalLink: true,
@@ -82,7 +83,7 @@ describe("linkutil", () => {
   });
 
   it("getLink for external link", () => {
-    const download: ExternalLink = {
+    const download: CmExternalLinkFragment = {
       __typename: "CMExternalLinkImpl",
       id: "1234",
       title: "Title",
@@ -103,6 +104,7 @@ describe("linkutil", () => {
         { __typename: "CMChannelImpl", segment: "Parent Segment", id: "Parent id", title: "Parent" },
         { __typename: "CMDownloadImpl", segment: "Segment", id: "1234", title: "Title" },
       ],
+      subjectTaxonomy: null,
     };
     const expectedResult: LinkAttributes = {
       externalLink: true,

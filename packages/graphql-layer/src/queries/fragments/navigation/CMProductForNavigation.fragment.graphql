@@ -1,0 +1,4 @@
+fragment CMProductForNavigation on CMProduct {
+  ...CMTeasableForNavigation
+  productName
+}

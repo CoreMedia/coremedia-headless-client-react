@@ -1,4 +1,4 @@
-import { Product as GraphQLProduct, ProductRef } from "@coremedia-labs/graphql-layer";
+import { ProductImpl, ProductRef } from "@coremedia-labs/graphql-layer";
 import { getLink } from "../../utils/Link/LinkUtils";
 import { PreviewMetadata } from "../../utils/Preview/MetaData";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
@@ -91,7 +91,7 @@ export const addProductOverrides = (self: any, result: Banner): void => {
   }
 };
 
-export const initializeProductBannerFromProduct = (product: GraphQLProduct, rootSegment: string): Banner => {
+export const initializeProductBannerFromProduct = (product: ProductImpl, rootSegment: string): Banner => {
   let productBanner: Banner = {
     ...mapProperties(
       product,
@@ -114,10 +114,15 @@ export const initializeProductBannerFromProduct = (product: GraphQLProduct, root
     productBanner
   );
   product.thumbnailUrl &&
-    addProperty(productBanner, "picture", {
-      uriTemplate: product.thumbnailUrl,
-    });
+    addProperty(
+      productBanner,
+      "picture",
+      {
+        uriTemplate: product.thumbnailUrl,
+      },
+      "properties.pictures[0]"
+    );
   product.augmentation.picture &&
-    addProperty(productBanner, "picture", initializePicture(product.augmentation.picture));
+    addProperty(productBanner, "picture", initializePicture(product.augmentation.picture), "properties.pictures[0]");
   return productBanner;
 };

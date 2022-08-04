@@ -1,16 +1,17 @@
 import React, { FC } from "react";
 import { match } from "react-router-dom";
-import { ProductByIdQuery } from "@coremedia-labs/graphql-layer";
+import { ProductImpl, useProductByIdQuery } from "@coremedia-labs/graphql-layer";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, ProductNotFoundAlert } from "../components/Error/Alert";
-import DetailedProduct from "../components/Product/DetailedProduct";
 import { DetailProduct } from "../models/Detail/DetailProduct";
-import { initializeGrid } from "../models/Grid/Grid";
+import { Placements } from "../models/Grid/Grid";
 import { initializePicture, Picture } from "../models/Banner/Picture";
 import SeoHeader from "../components/Header/SeoHeader";
 import RootPreviewId from "../components/FragmentPreview/RootPreviewId";
 import { initializeProductBannerFromProduct } from "../models/Banner/ProductBanner";
 import { useSiteContextState } from "../context/SiteContextProvider";
+import DetailedProduct from "../components/Product/DetailedProduct";
+import ProductPageContext from "../context/ProductPageContext";
 
 interface PageProps {
   match: match<RouteProps>;
@@ -22,16 +23,23 @@ interface RouteProps {
 }
 
 const ProductPage: FC<PageProps> = ({ match }) => {
-  const { siteId } = useSiteContextState();
-  const { rootSegment } = useSiteContextState();
-
-  const { data, loading, error } = ProductByIdQuery(match.params.seoSegment, siteId);
-  if (loading) return <Loading />;
-  if (error) return <ApolloClientAlert error={error} />;
+  const { siteId, rootSegment } = useSiteContextState();
+  const { data, loading, error } = useProductByIdQuery({
+    variables: {
+      externalId: match.params.seoSegment,
+      siteId: siteId,
+    },
+  });
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
+    return <ApolloClientAlert error={error} />;
+  }
   if (!data || !data.product) {
     return <ProductNotFoundAlert />;
   }
-  const product = data.product;
+  const { product } = data;
 
   if (!product) {
     return <ProductNotFoundAlert />;
@@ -49,21 +57,22 @@ const ProductPage: FC<PageProps> = ({ match }) => {
   }
 
   const detailProduct: DetailProduct = {
-    ...initializeProductBannerFromProduct(product, rootSegment),
+    ...initializeProductBannerFromProduct(product as ProductImpl, rootSegment),
+    id: product.shortId,
     name: product.name,
     shortDescription: product.shortDescription,
     longDescription: product.longDescription,
     shopNowConfiguration: true,
     pictures: media,
-    grid: product.augmentation && initializeGrid(product.augmentation.grid),
   };
+  const placements = product?.augmentation?.pdpPagegrid?.placements as Placements;
 
   return (
-    <>
+    <ProductPageContext media={media} product={detailProduct}>
       <SeoHeader title={detailProduct.name} />
       <RootPreviewId metadataRoot={detailProduct.metadata?.root} />
-      <DetailedProduct {...detailProduct} />
-    </>
+      <DetailedProduct placements={placements} />
+    </ProductPageContext>
   );
 };
 

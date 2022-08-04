@@ -1,4 +1,4 @@
-import { Picture as GraphQLPicture } from "@coremedia-labs/graphql-layer";
+import { CmPicture } from "@coremedia-labs/graphql-layer";
 import { PreviewMetadata, getPropertyName } from "../../utils/Preview/MetaData";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
 
@@ -16,8 +16,8 @@ export const addPicture = (self: any, result: SupportsPicture): void => {
  * @category ViewModels
  */
 export interface Picture extends PreviewMetadata {
-  title: string | null;
-  alt: string | null;
+  title?: string | null;
+  alt?: string | null;
   uriTemplate: string | null;
   data: { uri: string | null } | null;
 }
@@ -53,7 +53,7 @@ export interface Source {
  * Returns a [[Picture]] object based on the GraphQL picture
  * @param picture
  */
-export const initializePicture = (picture: GraphQLPicture): Picture => {
+export const initializePicture = (picture: CmPicture): Picture => {
   return {
     ...mapProperties(picture, {
       title: "title",

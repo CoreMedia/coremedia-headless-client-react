@@ -1,4 +1,4 @@
-import { Teasable, TimeLine } from "@coremedia-labs/graphql-layer";
+import { CmTeasableFragment, TimeLine } from "@coremedia-labs/graphql-layer";
 import { getVideoUrl } from "../../utils/Media/MediaUrls";
 import { PreviewMetadata } from "../../utils/Preview/MetaData";
 import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
@@ -57,7 +57,7 @@ export const getSortedTimeLineSequences = (timeLine: TimeLine, rootSegment: stri
       timeLineEntries.push({
         startTime: Number(key) / 1000,
         endTime: endTime,
-        entry: initializeBanner(item as Teasable, rootSegment),
+        entry: initializeBanner(item as CmTeasableFragment, rootSegment),
         activeIdForBlock: elementToActivate,
       });
       return true;

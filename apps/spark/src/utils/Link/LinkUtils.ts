@@ -1,19 +1,19 @@
 import {
-  Product,
   Category,
-  Linkable,
-  Person,
-  Download,
-  ProductTeaser,
-  ExternalChannel,
-  Tag,
-  ExternalLink,
+  Product,
   ProductRef,
-  Teasable,
+  CmLinkableImpl,
+  CmDownload,
+  CmProductTeaser,
+  CmExternalChannel,
+  CmTaxonomy,
+  CmExternalLink,
+  CmTeasable,
+  CmLinkableFragment,
+  CmPerson,
 } from "@coremedia-labs/graphql-layer";
 import qs, { StringifiableRecord } from "query-string";
 import { getFQDN } from "../App/App";
-import { getGlobalState } from "../App/GlobalState";
 import { LinkAttributes } from "../../components/Link/Link";
 
 const hasDetailPage: Array<string> = ["CMArticleImpl", "CMVideoImpl", "CMProductImpl"];
@@ -36,9 +36,7 @@ export const formatSegmentForUrl = (segment: string | null | undefined): string 
   return segment;
 };
 
-const createProductHref = (self: Product, params?: StringifiableRecord): LinkAttributes => {
-  const { rootSegment } = getGlobalState();
-
+const createProductHref = (self: Product, rootSegment: string, params?: StringifiableRecord): LinkAttributes => {
   let path = "/";
   if (self.category?.breadcrumb) {
     path += `${rootSegment}/product/${self.category?.breadcrumb
@@ -53,9 +51,7 @@ const createProductHref = (self: Product, params?: StringifiableRecord): LinkAtt
   };
 };
 
-const createCategoryHref = (self: Category, params?: StringifiableRecord): LinkAttributes => {
-  const { rootSegment } = getGlobalState();
-
+const createCategoryHref = (self: Category, rootSegment: string, params?: StringifiableRecord): LinkAttributes => {
   let path = "/";
   if (self?.breadcrumb) {
     path = `/${rootSegment}/category/${self.breadcrumb
@@ -70,8 +66,7 @@ const createCategoryHref = (self: Category, params?: StringifiableRecord): LinkA
   };
 };
 
-const createHref = (self: Linkable, params?: StringifiableRecord): LinkAttributes => {
-  const { rootSegment } = getGlobalState();
+const createHref = (self: CmLinkableFragment, rootSegment: string, params?: StringifiableRecord): LinkAttributes => {
   let path: string | undefined | null = "/";
   let isExternalLink = false;
   let openInNewTab = false;
@@ -90,44 +85,43 @@ const createHref = (self: Linkable, params?: StringifiableRecord): LinkAttribute
           return true;
         });
     } else if (self.__typename === "CMDownloadImpl") {
-      const download: Download = self as Download;
+      const download: CmDownload = self as CmDownload;
       isExternalLink = true;
       openInNewTab = true;
       path = download.data?.uri;
     } else if (self.__typename === "CMExternalLinkImpl") {
-      const externalLink: ExternalLink = self as ExternalLink;
+      const externalLink: CmExternalLink = self as CmExternalLink;
       isExternalLink = true;
-      openInNewTab = externalLink.openInNewTab !== null ? externalLink.openInNewTab : false;
+      openInNewTab = externalLink.openInNewTab ? externalLink.openInNewTab : false;
       path = externalLink.url || "";
     } else if (self.__typename === "CMPersonImpl") {
-      const person: Person = self as Person;
+      const person: CmPerson = self as CmPerson;
       path += `${rootSegment}/author/${formatSegmentForUrl(
         person.displayName || person.firstName + " " + person.lastName
       )}-${person.id}`;
     } else if (self.__typename === "CMProductTeaserImpl" || self.__typename === "CMExternalProductImpl") {
-      const productTeaser: ProductTeaser = self as ProductTeaser;
+      const productTeaser: CmProductTeaser = self as CmProductTeaser;
       path =
         productTeaser.productRef &&
         productTeaser.productRef.product &&
-        createProductHref(productTeaser.productRef.product as Product).linkTarget;
+        createProductHref(productTeaser.productRef.product, rootSegment).linkTarget;
     } else if (self.__typename === "CMExternalChannelImpl") {
-      const externalChannel: ExternalChannel = self as ExternalChannel;
+      const externalChannel: CmExternalChannel = self as CmExternalChannel;
       path =
         externalChannel.categoryRef &&
         externalChannel.categoryRef.category &&
-        createCategoryHref(externalChannel.categoryRef.category as Category).linkTarget;
+        createCategoryHref(externalChannel.categoryRef.category as Category, rootSegment).linkTarget;
     } else if (self.__typename === "CMTaxonomyImpl") {
-      const tag: Tag = self as Tag;
+      const tag: CmTaxonomy = self as CmTaxonomy;
       self.navigationPath &&
         self.navigationPath.slice(0, self.navigationPath.length - 1).map((item) => {
-          item && (path += `${formatSegmentForUrl((item as Tag).value)}/`);
+          item && (path += `${formatSegmentForUrl((item as CmTaxonomy).value)}/`);
           return true;
         });
-      const { rootSegment } = getGlobalState();
       path = `/${rootSegment}/tag${path}`;
       path += `${formatSegmentForUrl(tag.value)}-${tag.id}`;
     } else if (self.__typename === "CMTeaserImpl") {
-      const teaser: Teasable = self as Teasable;
+      const teaser: CmTeasable = self as CmTeasable;
       if (teaser.teaserTargets && teaser.teaserTargets[0]?.target) {
         const { linkTarget } = getLink(teaser.teaserTargets && teaser.teaserTargets[0]?.target, rootSegment);
         path = linkTarget;
@@ -156,17 +150,17 @@ export const getLink = (to: any, rootSegment: string, params?: StringifiableReco
   let linkTarget: LinkAttributes = {};
   if (to) {
     if (to.__typename && to.__typename.startsWith("CM")) {
-      const linkable = to as Linkable;
-      linkTarget = createHref(linkable, params);
+      const linkable = to as CmLinkableImpl;
+      linkTarget = createHref(linkable, rootSegment, params);
     } else if (to.__typename === "CategoryImpl") {
       const linkable = to as Category;
-      linkTarget = createCategoryHref(linkable, params);
+      linkTarget = createCategoryHref(linkable, rootSegment, params);
     } else if (to.__typename === "ProductImpl") {
       const linkable = to as Product;
-      linkTarget = createProductHref(linkable, params);
+      linkTarget = createProductHref(linkable, rootSegment, params);
     } else if (to.__typename === "ProductRef") {
       const productRef = to as ProductRef;
-      productRef.product && (linkTarget = createProductHref(productRef.product, params));
+      productRef.product && (linkTarget = createProductHref(productRef.product, rootSegment, params));
     } else if (typeof to === "string") {
       linkTarget.linkTarget = to;
     } else {

@@ -1,0 +1,19 @@
+fragment CMTaxonomy on CMTaxonomy {
+  id
+  title
+  segment
+  navigationPath {
+    id
+    segment
+    title
+  }
+  value
+  navigationPath {
+    segment
+    id
+    title
+    ... on CMTaxonomy {
+      value
+    }
+  }
+}

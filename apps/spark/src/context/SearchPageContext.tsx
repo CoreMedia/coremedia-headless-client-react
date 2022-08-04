@@ -1,4 +1,5 @@
 import React, { createContext, MouseEventHandler } from "react";
+import { Banner } from "../models/Banner/Banner";
 
 export interface FacetValues {
   hitCount?: number;
@@ -18,7 +19,7 @@ export interface SearchPageContextData {
   query?: string;
   totalCount: number;
   availableFacets?: Array<Facet>;
-  result: Array<any | null> | null;
+  result?: Array<Banner> | null;
   onLoadMore: MouseEventHandler;
   isLoading: boolean;
 }

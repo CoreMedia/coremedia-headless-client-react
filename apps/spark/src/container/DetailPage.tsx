@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { match } from "react-router-dom";
-import { DetailQuery } from "@coremedia-labs/graphql-layer";
+import { useDetailQuery } from "@coremedia-labs/graphql-layer";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, PageNotFoundAlert } from "../components/Error/Alert";
 import { StyledCol } from "../components/PageGrid/Col";
@@ -19,7 +19,11 @@ interface RouteProps {
 
 const DetailPage: FC<DetailViewProps> = ({ match }) => {
   const { rootSegment } = useSiteContextState();
-  const { data, loading, error } = DetailQuery(match.params.id);
+  const { data, loading, error } = useDetailQuery({
+    variables: {
+      id: match.params.id,
+    },
+  });
 
   if (loading) return <Loading />;
   if (error) return <ApolloClientAlert error={error} />;

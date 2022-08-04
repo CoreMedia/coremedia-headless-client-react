@@ -1,0 +1,18 @@
+query Teasable($id: String!) {
+  content {
+    content(id: $id) {
+      ...CMTeasable
+      ...CMPicture
+      ...CMProductTeaser
+      ...CMImageMap
+      ...CMVideo
+      ...CMProduct
+      ...CMExternalLink
+      ... on CMTaxonomy {
+        value
+      }
+      ...CMCollection
+      ...CMExternalProduct
+    }
+  }
+}

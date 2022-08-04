@@ -5,6 +5,7 @@ import { useSiteContextState } from "../../context/SiteContextProvider";
 
 import Link from "../Link/Link";
 
+import { getLink } from "../../utils/Link/LinkUtils";
 import SeoHeader from "./SeoHeader";
 
 export const LanguageToggle = styled.button`
@@ -227,7 +228,7 @@ const LanguageChooser: React.FC = () => {
                 me.locale &&
                 item.locale && (
                   <li key={index}>
-                    <Link to={item}>
+                    <Link to={getLink(item, rootSegment).linkTarget}>
                       {countryCode && <StyledFlag code={countryCode} size="m" hasBorder={false} />}
                       {localeDisplayName(item.locale)}
                     </Link>

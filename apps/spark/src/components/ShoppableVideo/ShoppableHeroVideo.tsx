@@ -7,6 +7,7 @@ import BannerCaption from "../Caption/BannerCaption";
 import OverlayWithCtas from "../Overlay/OverlayWithCtas";
 import { Settings } from "../Slider/Slider";
 import { ImageBox } from "../Media/ResponsiveImage";
+import { Caption } from "../SquareBanner/SquareBanner";
 import ShoppableSlider from "./ShoppableSlider";
 import ShoppableVideoContextProvider from "./ShoppableVideoContext";
 import ShoppableVideoPlayer from "./ShoppableVideoPlayer";
@@ -21,13 +22,11 @@ const sliderConfig: Settings = {
   infinite: false,
   arrows: false,
   responsive: [
-    { breakpoint: 1200, settings: { slidesToShow: 4 } },
     {
-      breakpoint: 420,
+      breakpoint: 1024,
       settings: {
-        centerMode: true,
-        centerPadding: "0px",
-        variableWidth: true,
+        arrows: false,
+        slidesToShow: 4,
       },
     },
   ],
@@ -49,10 +48,10 @@ const ShoppableHeroVideo: React.FC<Props> = ({ banner }) => {
           <ShoppableVideoPlayer {...banner} controls={false} autoPlay={true} muted={true} loop={true} />
           {banner.overlayRequired && <OverlayWithCtas {...banner} />}
           {!banner.overlayRequired && (
-            <div>
+            <Caption>
               <BannerCaption {...banner} />
               {banner.targets && <CTA targets={banner.targets} />}
-            </div>
+            </Caption>
           )}
         </StyledShoppableVideo>
         {banner.timeline && (

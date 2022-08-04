@@ -1,0 +1,15 @@
+fragment CMCollection on CMCollection {
+  ...CMTeasable
+  viewtype
+  items {
+    ...CMTeasable
+    ...CMProductTeaser
+    ...CMImageMap
+    ...CMExternalChannel
+    ...CMProduct
+    ...CMExternalLink
+    ...ProductRef
+    ...CMExternalProduct
+    ...CMDownload
+  }
+}

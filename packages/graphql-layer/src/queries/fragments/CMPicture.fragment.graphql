@@ -1,0 +1,9 @@
+fragment CMPicture on CMPicture {
+  id
+  title
+  data {
+    uri
+  }
+  alt
+  uriTemplate
+}

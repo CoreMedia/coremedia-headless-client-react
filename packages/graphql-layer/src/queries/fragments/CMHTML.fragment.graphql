@@ -1,0 +1,7 @@
+fragment CMHTML on CMHTML {
+  id
+  teaserTitle
+  type
+  description
+  html
+}

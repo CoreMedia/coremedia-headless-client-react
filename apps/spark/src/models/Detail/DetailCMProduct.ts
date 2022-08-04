@@ -1,29 +1,29 @@
-import { DetailCMProduct as GraphQLDetailCMProduct } from "@coremedia-labs/graphql-layer";
-import { LinkAttributes } from "../../components/Link/Link";
+import { CmProductDetailFragment } from "@coremedia-labs/graphql-layer";
 import { getLink } from "../../utils/Link/LinkUtils";
 import { getPropertyName } from "../../utils/Preview/MetaData";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
+import { LinkAttributes } from "../../components/Link/Link";
 import { Detail, initializeDetail } from "./Detail";
 
 /**
  * @category ViewModels
  */
 export interface Download extends LinkAttributes {
-  title: string | null;
+  title?: string;
 }
 
 /**
  * @category ViewModels
  */
 export interface DetailCMProduct extends Detail {
-  downloads?: Array<Download | null> | null;
   productCode: string | null;
+  downloads?: Array<Download | null> | null;
 }
 
 /**
  * Returns a [[DetailCMProduct]] object based on the GraphQL [[DetailCMProduct]]
  */
-export const initializeDetailCMProduct = (self: GraphQLDetailCMProduct, rootSegment: string): DetailCMProduct => {
+export const initializeDetailCMProduct = (self: CmProductDetailFragment, rootSegment: string): DetailCMProduct => {
   const details: Detail = initializeDetail(self, rootSegment);
   const productDetails: DetailCMProduct = {
     ...mapProperties(self, { title: "productName", productCode: "productCode" }, details),
@@ -32,7 +32,7 @@ export const initializeDetailCMProduct = (self: GraphQLDetailCMProduct, rootSegm
     addProperty(
       productDetails,
       "downloads",
-      self.downloads.map((download): Download | null => {
+      self.downloads.map((download) => {
         return (
           download && {
             title: download.teaserTitle,

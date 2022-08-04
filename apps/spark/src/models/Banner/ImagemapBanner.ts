@@ -1,7 +1,7 @@
 /**
  * @category ViewModels
  */
-import { Teasable } from "@coremedia-labs/graphql-layer";
+import { CmTeasableFragment } from "@coremedia-labs/graphql-layer";
 import { PreviewMetadata } from "../../utils/Preview/MetaData";
 import { notEmpty } from "../../utils/Helpers";
 import { Banner, initializeBanner } from "./Banner";
@@ -30,7 +30,7 @@ export interface Hotzone {
   target: string | null;
   displayAsInlineOverlay: boolean | null;
   inlineOverlayTheme: string | null;
-  linkedContent: Teasable;
+  linkedContent: CmTeasableFragment;
 }
 
 export interface ImagemapOverlayConfiguration {

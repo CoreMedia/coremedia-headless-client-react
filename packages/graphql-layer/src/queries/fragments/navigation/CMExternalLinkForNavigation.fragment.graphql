@@ -1,0 +1,5 @@
+fragment CMExternalLinkForNavigation on CMExternalLink {
+  ...CMTeasableForNavigation
+  url
+  openInNewTab
+}

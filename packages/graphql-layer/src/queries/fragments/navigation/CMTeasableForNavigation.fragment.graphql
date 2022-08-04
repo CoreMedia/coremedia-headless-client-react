@@ -1,0 +1,17 @@
+fragment CMTeasableForNavigation on CMTeasable {
+  id
+  teaserTitle
+  title
+  segment
+  navigationPath {
+    segment
+    id
+    title
+  }
+  picture {
+    ...CMPicture
+  }
+  teaserTargets {
+    ...TeaserTarget
+  }
+}

@@ -1,6 +1,5 @@
 import { PageGridPlacement } from "@coremedia-labs/graphql-layer";
 import CarouselBannerContainer from "../../components/CarouselBanner/CarouselBannerContainer";
-import DetailContainer from "../../components/Details/DetailContainer";
 import HeroBannerContainer from "../../components/HeroBanner/HeroBannerContainer";
 import LandscapeBannerContainer from "../../components/LandscapeBanner/LandscapeBannerContainer";
 import LeftRightBannerContainer from "../../components/LeftRightBanner/LeftRightBannerContainer";
@@ -17,10 +16,6 @@ export const slotByName = (viewtype?: string | null) => {
     }
     case "carousel": {
       container = CarouselBannerContainer;
-      break;
-    }
-    case "full-details": {
-      container = DetailContainer;
       break;
     }
     case "landscape": {

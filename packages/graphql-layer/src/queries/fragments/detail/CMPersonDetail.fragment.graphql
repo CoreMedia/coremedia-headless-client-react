@@ -1,0 +1,7 @@
+fragment CMPersonDetail on CMPerson {
+  ...CMTeasableDetail
+  ...CMPerson
+  jobTitle
+  organization
+  eMail
+}

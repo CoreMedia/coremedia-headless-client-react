@@ -35,7 +35,8 @@ export const StyledBanner = styled.div`
       --aspect-ratio: 8 * 3;
     }
 
-    @media screen and (orientation: portrait) and (min-width: 768px) {
+    //Tablet Portrait --> 16:9
+    @media screen and (orientation: portrait) and (min-width: 768px) and (max-width: 1199px) {
       --aspect-ratio: 16 * 9;
     }
   }

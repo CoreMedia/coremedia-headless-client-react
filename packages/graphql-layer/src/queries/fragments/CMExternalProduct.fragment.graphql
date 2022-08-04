@@ -1,0 +1,7 @@
+fragment CMExternalProduct on CMExternalProduct {
+  ...CMTeasable
+  productRef {
+    ...ProductRef
+  }
+  shopNowSetting: settings(paths: ["shopNow"])
+}

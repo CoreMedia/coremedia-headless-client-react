@@ -1,0 +1,33 @@
+fragment PageGridPlacement on PageGridPlacement {
+  id
+  name
+  colspan
+  viewtype
+  items {
+    id
+    ...CMTeasable
+    ...CMCollection
+    ...CMVideo
+    ...ShoppableVideo
+    ...CMImageMap
+    ...CMProductTeaser
+    ...CMExternalChannel
+    ...CMSelectionRules
+    ...CMProduct
+    ...CMExternalLink
+    ...CMHTML
+    ...CMPlaceholder
+    ...CMExternalProduct
+    ...CMDownload
+    #Navigation fragment is required to load children when being placed in footer or footer-navigation
+    ... on CMNavigation {
+      children {
+        ...CMTeasable
+        ...CMNavigation
+        ...CMCollection
+        ...CMProduct
+        ...CMExternalLink
+      }
+    }
+  }
+}

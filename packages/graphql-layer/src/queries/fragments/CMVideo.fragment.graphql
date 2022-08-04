@@ -1,0 +1,9 @@
+fragment CMVideo on CMVideo {
+  id
+  title
+  data {
+    uri
+  }
+  dataUrl
+  settings(paths: "playerSettings")
+}

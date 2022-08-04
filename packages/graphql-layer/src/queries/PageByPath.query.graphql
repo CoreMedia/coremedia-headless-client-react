@@ -1,0 +1,11 @@
+query PageByPath($path: String!) {
+  content {
+    pageByPath(path: $path) {
+      grid {
+        ...PageGrid
+      }
+      id
+      title
+    }
+  }
+}

@@ -1,0 +1,22 @@
+query StandaloneFragment($contentId: String!) {
+  content {
+    content(id: $contentId) {
+      ...StandaloneTeasable
+    }
+  }
+}
+fragment StandaloneTeasable on CMTeasable {
+  id
+  teaserTitle
+  teaserText {
+    plaintext: text(view: "plainFirstParagraph")
+  }
+  picture {
+    ...StandalonePicture
+  }
+}
+fragment StandalonePicture on CMPicture {
+  id
+  alt
+  uriTemplate
+}

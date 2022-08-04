@@ -1,0 +1,12 @@
+fragment CommerceFacet on CommerceFacet {
+  hitCount
+  label
+  key
+  multiSelect
+  values {
+    hitCount
+    label
+    query
+    selected
+  }
+}

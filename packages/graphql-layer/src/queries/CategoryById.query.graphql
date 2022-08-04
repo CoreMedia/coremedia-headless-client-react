@@ -1,0 +1,25 @@
+query CategoryById(
+  $externalId: String!
+  $siteId: String!
+  $searchTerm: String!
+  $orderBy: String
+  $offset: Int
+  $limit: Int
+  $filterFacets: [String]
+  $catalogId: String
+) {
+  category(categoryId: $externalId, siteId: $siteId, catalogId: $catalogId) {
+    ...CategoryDetail
+  }
+  searchProducts(
+    searchTerm: $searchTerm
+    siteId: $siteId
+    categoryId: $externalId
+    orderBy: $orderBy
+    offset: $offset
+    limit: $limit
+    filterFacets: $filterFacets
+  ) {
+    ...ProductSearchResult
+  }
+}

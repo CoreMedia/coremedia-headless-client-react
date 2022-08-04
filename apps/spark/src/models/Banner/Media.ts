@@ -1,4 +1,4 @@
-import { Video as GraphQLVideo } from "@coremedia-labs/graphql-layer";
+import { CmVideo } from "@coremedia-labs/graphql-layer";
 import { PreviewMetadata } from "../../utils/Preview/MetaData";
 import { mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
 import { initializePicture, Picture } from "./Picture";
@@ -12,7 +12,7 @@ export interface Video extends SupportsVideo, PreviewMetadata {
   alt: string | null;
 }
 
-export const initializeVideo = (video: GraphQLVideo): Video => {
+export const initializeVideo = (video: CmVideo): Video => {
   const result: Video = {
     ...mapProperties(video, {
       title: "title",

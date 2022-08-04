@@ -3,7 +3,7 @@ import { addProperty } from "../../utils/ViewDispatcher/ModelHelper";
 import { Banner } from "./Banner";
 
 export interface SupportsStaticCode extends PreviewMetadata {
-  code: string | null;
+  code?: string | null;
 }
 
 export const addStaticCode = (self: any, result: Banner): void => {

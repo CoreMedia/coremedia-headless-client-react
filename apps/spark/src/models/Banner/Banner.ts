@@ -1,4 +1,4 @@
-import { Teasable, Linkable, ProductRef } from "@coremedia-labs/graphql-layer";
+import { CmLinkable, ProductRef, CmTeasableFragment, ProductImpl } from "@coremedia-labs/graphql-layer";
 import { LinkAttributes } from "../../components/Link/Link";
 import { getLink } from "../../utils/Link/LinkUtils";
 import { PreviewMetadata, getPropertyName } from "../../utils/Preview/MetaData";
@@ -18,6 +18,7 @@ import {
   SupportsPricing,
   SupportsShopNow,
 } from "./ProductBanner";
+import { addTags, Tag } from "./Tag";
 import { Target } from "./Target";
 import { addTimeline, addVideo, SupportsTimeline, SupportsVideo } from "./VideoBanner";
 
@@ -54,6 +55,7 @@ export interface Banner
   overlayRequired: boolean;
   overlayConfiguration?: OverlayConfiguration;
   text?: string;
+  tags?: Array<Tag | null>;
 }
 
 export interface SupportsTitle extends PreviewMetadata {
@@ -73,7 +75,7 @@ const addViewtype = (self: any, result: SupportsViewtype) => {
 /**
  * Returns a [[Banner]] object based on the GraphQL [[Teasable]]
  */
-export const initializeBanner = (self: Teasable, rootSegment: string): Banner => {
+export const initializeBanner = (self: CmTeasableFragment, rootSegment: string): Banner => {
   const banner: Banner = {
     displayDate: self.extDisplayedDate || self.modificationDate,
     ...mapProperties(self, { title: "teaserTitle" }),
@@ -97,13 +99,13 @@ export const initializeBanner = (self: Teasable, rootSegment: string): Banner =>
   addCMProductOverrides(self, banner);
   addImagemap(self, banner, rootSegment);
   addTimeline(self, banner, rootSegment);
-
+  addTags(self, banner, rootSegment);
   if (self.teaserTargets) {
     const targets = self.teaserTargets
       .map((teaserTarget) => {
         return (
           teaserTarget && {
-            ...getLink(teaserTarget.target as Linkable, rootSegment),
+            ...getLink(teaserTarget.target as CmLinkable, rootSegment),
             callToActionEnabled: teaserTarget.callToActionEnabled && true ? teaserTarget.callToActionEnabled : false,
             callToActionText: teaserTarget.callToActionText || undefined,
           }
@@ -120,11 +122,19 @@ export const initializeBanner = (self: Teasable, rootSegment: string): Banner =>
 };
 
 export const initializeBannerFor = (self: Dispatchable, rootSegment: string): Banner | null => {
-  if (self.__typename.indexOf("CM") >= 0) {
-    return initializeBanner(self as Teasable, rootSegment);
-  } else if (self.__typename.indexOf("ProductRef") >= 0) {
+  const type = self.__typename;
+  if (type && type.indexOf("CM") >= 0) {
+    return initializeBanner(self as CmTeasableFragment, rootSegment);
+  } else if (type && type.indexOf("ProductRef") >= 0) {
     const productRef: ProductRef = self as ProductRef;
-    return productRef && productRef.product && initializeProductBannerFromProduct(productRef.product, rootSegment);
+    return (
+      (productRef &&
+        productRef.product &&
+        initializeProductBannerFromProduct(productRef.product as ProductImpl, rootSegment)) ||
+      null
+    );
+  } else if (type && type.indexOf("ProductImpl") >= 0) {
+    return initializeProductBannerFromProduct(self as ProductImpl, rootSegment);
   }
   return null;
 };

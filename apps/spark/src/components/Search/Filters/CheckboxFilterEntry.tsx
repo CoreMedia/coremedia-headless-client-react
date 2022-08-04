@@ -18,13 +18,14 @@ interface Props {
 }
 
 const SearchFilterCheckbox = styled.span<{ checked: boolean }>`
-  vertical-align: text-top;
   width: 16px;
   height: 16px;
   display: inline-block;
   background-repeat: no-repeat;
   background-position: 50%;
   background-image: url(${(props) => (props.checked ? Checked : Unchecked)});
+  margin-right: 5px;
+  vertical-align: middle;
 `;
 
 const CheckboxFilterEntry: React.FC<Props> = ({ title, label, query, count }) => {

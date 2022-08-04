@@ -1,0 +1,14 @@
+query ProductById($externalId: String!, $siteId: String!) {
+  product(externalId: $externalId, siteId: $siteId) {
+    ...ProductDetail
+    augmentation {
+      id
+      pdpPagegrid {
+        id
+        placements(excludeNames: ["header", "footer", "footer-navigation"]) {
+          ...PageGridPlacement
+        }
+      }
+    }
+  }
+}

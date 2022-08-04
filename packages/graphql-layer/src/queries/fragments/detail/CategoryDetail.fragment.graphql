@@ -1,0 +1,20 @@
+fragment CategoryDetail on Category {
+  ...Category
+  shortDescription
+  longDescription
+  children {
+    ...Category
+  }
+  augmentation {
+    id
+    grid {
+      id
+      placements(excludeNames: ["header", "footer", "footer-navigation"]) {
+        ...PageGridPlacement
+      }
+    }
+    content {
+      id
+    }
+  }
+}

@@ -1,0 +1,37 @@
+fragment CMTeasableDetail on CMTeasable {
+  id
+  detailText {
+    text
+    textAsTree
+    textReferencedContent {
+      ...CMPicture
+      ...CMTeasable
+      ...CMVideo
+      ...CMProductTeaser
+      ...CMExternalProduct
+      ...CMProduct
+    }
+  }
+  pictures {
+    ...CMPicture
+  }
+  media {
+    ...CMPicture
+    ...CMVideo
+  }
+  title
+  extDisplayedDate
+  modificationDate
+  subjectTaxonomy {
+    ...CMTaxonomy
+  }
+  authors {
+    ...CMPerson
+  }
+  related {
+    ...CMPicture
+    ...CMTeasable
+    ...CMCollection
+    ...CMProduct
+  }
+}

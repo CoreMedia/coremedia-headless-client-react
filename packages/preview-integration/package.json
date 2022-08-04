@@ -6,8 +6,7 @@
   "scripts": {
     "build": "webpack --mode=production",
     "lint": "eslint --fix \"src/**\"",
-    "lint:ci": "eslint \"src/**\"",
-    "prettier": "prettier --write \"src/*.+(js|jsx|ts|tsx|json)\""
+    "lint:ci": "eslint \"src/**\""
   },
   "main": "dist/coremedia.preview.js",
   "main:src": "src/preview.js",
@@ -15,17 +14,17 @@
     "dist/*"
   ],
   "devDependencies": {
-    "@babel/core": "^7.17.10",
-    "@babel/preset-env": "^7.17.10",
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
     "babel-loader": "8.1.0",
     "css-loader": "^5.2.7",
-    "eslint": "^7.32.0",
+    "eslint": "^7.11.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.6.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
     "style-loader": "^2.0.0",
     "webpack": "4.44.2",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.10.0"
   },
   "browserslist": [
     "last 1 Chrome version",

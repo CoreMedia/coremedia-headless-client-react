@@ -1,0 +1,9 @@
+fragment ProductSearchResult on ProductSearchResult {
+  totalCount
+  items {
+    ...Product
+  }
+  resultFacets {
+    ...CommerceFacet
+  }
+}

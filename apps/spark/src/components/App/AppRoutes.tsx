@@ -6,6 +6,7 @@ import ProductPage from "../../container/ProductPage";
 import CategoryPage from "../../container/CategoryPage";
 import SearchPage from "../../container/SearchPage";
 import TopicPage from "../../container/TopicPage";
+import AuthorPage from "../../container/AuthorPage";
 
 /**
  * The site specific routes of the app
@@ -19,6 +20,8 @@ const AppRoutes: FC = () => {
       {/* Tag */}
       <Route path="/:rootSegment/tag/:pathSegments+/:title-:id([0-9]+)" component={TopicPage} />
       <Route path="/:rootSegment/tag/:title-:id([0-9]+)" component={TopicPage} />
+      {/* Author */}
+      <Route path="/:rootSegment/author/:title-:id([0-9]+)" component={AuthorPage} />
       {/* Commerce */}
       <Route path="/:rootSegment/product/:seoSegment" exact component={ProductPage} />
       <Route path="/:rootSegment/product/:catalogPath+/:seoSegment" component={ProductPage} />

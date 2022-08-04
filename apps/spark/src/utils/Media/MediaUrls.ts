@@ -1,4 +1,4 @@
-import { Video } from "@coremedia-labs/graphql-layer";
+import { CmVideo } from "@coremedia-labs/graphql-layer";
 import { Picture } from "../../models/Banner/Picture";
 import { getFQDN } from "../App/App";
 
@@ -20,8 +20,8 @@ export const getImageUrl = (imageUriTemplate: string | null, cropName: string, w
  * Return the URL of a video
  * @param media
  */
-export const getVideoUrl = (media: Video): string | null => {
-  let videoLink: string | null = media.dataUrl;
+export const getVideoUrl = (media: CmVideo) => {
+  let videoLink = media.dataUrl;
   if (!videoLink && media.data !== undefined) {
     videoLink = getFQDN() + media.data?.uri;
   }

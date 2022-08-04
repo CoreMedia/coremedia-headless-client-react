@@ -1,10 +1,10 @@
 {
-  "name": "CoreMedia Headless Server Schema",
-  "schemaPath": "app/__generated__/schema.graphql",
+  "name": "CoreMedia Headless Stitching Server Schema",
+  "schemaPath": "packages/graphql-layer/src/__downloaded__/schema.graphql",
   "extensions": {
     "endpoints": {
       "GraphQL Endpoint": {
-        "url": "https://<headless-server.example/graphql-endpoint>",
+        "url": "http://localhost:4000/graphql",
         "headers": {
           "user-agent": "JS GraphQL"
         },

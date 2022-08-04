@@ -1,0 +1,4 @@
+fragment LocalizedVariant on CMLinkable {
+  ...CMLinkable
+  locale
+}

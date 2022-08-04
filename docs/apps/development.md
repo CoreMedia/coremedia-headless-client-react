@@ -42,8 +42,8 @@ pnpm build
 ```
 
 You need to build the workspace once before you can start it. The build script 
-builds the necessary packages, and it runs `pnpm apollo:prepare` to 
-download and generate the type definitions for the GraphQL queries.
+builds the necessary packages, and generates the type definitions for the GraphQL 
+queries.
 
 ## Workflow
 
@@ -69,15 +69,9 @@ type definitions and saves them to the `__downloaded__` folder.
 If no Headless Server is defined for `REACT_APP_API_ENDPOINT`, the script will 
 skip the download.
 
-### `pnpm apollo:codegen`
-
-Apollo generates all required type definitions in `__generated__` folders. You
-should generate them everytime you change the GraphQL queries or fragments. 
-
 ### `pnpm build`
 
-Builds the app for production to the `build` folder. It calls `pnpm apollo:codegen`
-as prebuild step. See the section about [deployment](deployment.md) for more information.
+Builds the app for production to the `dist` folder.
 
 ### `pnpm lint`
 

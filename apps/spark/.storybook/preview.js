@@ -1,6 +1,6 @@
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
-import { GlobalStyle } from "../src/components/App/App";
+import { GlobalStyle } from "../src/components/App/GlobalStyle";
 import { StyledGrid } from "../src/components/PageGrid/PageGrid";
 import { StyledCol } from "../src/components/PageGrid/Col";
 import styled from "styled-components";

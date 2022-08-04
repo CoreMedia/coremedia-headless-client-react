@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { StandaloneQuery } from "@coremedia-labs/graphql-layer";
+import { StandaloneTeasableFragment, useStandaloneFragmentQuery } from "@coremedia-labs/graphql-layer";
 import Loading from "./Loading";
 
 import "./StandaloneFragment.css";
@@ -10,24 +10,24 @@ interface Props {
 }
 
 const StandaloneFragment: FC<Props> = ({ contentId, caasUri }) => {
-  const { data, loading, error } = StandaloneQuery(contentId);
+  const { data, loading, error } = useStandaloneFragmentQuery({ variables: { contentId } });
 
   if (loading) return <Loading />;
   if (error) return <></>;
   if (!data || !data.content || !data.content.content) return <></>;
 
+  const content = data.content.content as StandaloneTeasableFragment;
+
   // model
   const banner = {
-    teaserTitle: data.content.content.teaserTitle,
-    teaserText: data.content.content.plainTeaserText,
+    teaserTitle: content.teaserTitle,
+    teaserText: content.teaserText?.plaintext,
     picture: {
-      alt: data.content.content.picture?.alt || "",
+      alt: content.picture?.alt || "",
       url:
-        data.content.content?.picture !== null
+        content.picture !== null
           ? caasUri +
-            data.content.content.picture.uriTemplate
-              .replace("{cropName}", "landscape_ratio8x3")
-              .replace("{width}", "1144")
+            content.picture?.uriTemplate?.replace("{cropName}", "landscape_ratio8x3").replace("{width}", "1144")
           : "",
     },
   };

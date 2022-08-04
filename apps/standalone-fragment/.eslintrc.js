@@ -25,10 +25,5 @@ module.exports = {
     "node_nodules/",
     "*.config.js",
     ".eslintrc.js"
-  ],
-  rules: {
-    "import/no-anonymous-default-export": [2, {"allowArrowFunction": true}], // used in queries
-    "react/prop-types": "off",
-    "@typescript-eslint/camelcase": "off"
-  },
+  ]
 };

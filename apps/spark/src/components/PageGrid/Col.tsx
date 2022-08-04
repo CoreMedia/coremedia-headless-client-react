@@ -7,6 +7,8 @@ import { initializeSlot, Slot } from "../../models/Grid/Slot";
 import { slotByName } from "../../utils/PageGrid/PageGridUtil";
 import { flattenItems, notEmpty } from "../../utils/Helpers";
 import { metaDataForPlacement } from "../../utils/Preview/MetaData";
+import { initializeDetail } from "../../models/Detail/Detail";
+import DetailContainer from "../Details/DetailContainer";
 
 interface PageGridPlacementProps {
   col?: ColProps;
@@ -77,6 +79,18 @@ const Col: FC<PageGridPlacementProps> = ({ col }) => {
     return null;
   }
 
+  //Flatten items if a viewtype has been set and it is full-details
+  if (col.viewtype && col.viewtype === "full-details") {
+    const items = flattenItems(col.items)
+      .map((banner) => initializeDetail(banner, rootSegment))
+      .filter(notEmpty);
+
+    return (
+      <StyledCol zone={col.name} {...metaDataForPlacement(col.name, !!col.items)}>
+        <DetailContainer {...col} items={items} />
+      </StyledCol>
+    );
+  }
   //Flatten items if a viewtype has been set and it is not default
   if (col.viewtype && col.viewtype !== "default") {
     const Container = slotByName(col.viewtype);

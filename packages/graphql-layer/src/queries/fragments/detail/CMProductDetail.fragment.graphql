@@ -1,0 +1,8 @@
+fragment CMProductDetail on CMProduct {
+  ...CMTeasableDetail
+  productName
+  productCode
+  downloads {
+    ...CMDownload
+  }
+}

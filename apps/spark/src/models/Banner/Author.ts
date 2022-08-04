@@ -1,4 +1,4 @@
-import { Person } from "@coremedia-labs/graphql-layer";
+import { CmPersonFragment } from "@coremedia-labs/graphql-layer";
 import { getLink } from "../../utils/Link/LinkUtils";
 import { PreviewMetadata, getPropertyName } from "../../utils/Preview/MetaData";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
@@ -13,7 +13,7 @@ export const addAuthors = (self: any, result: SupportsAuthors, rootSegment: stri
     addProperty(
       result,
       "authors",
-      self.authors.map((author: Person) => {
+      self.authors.map((author: CmPersonFragment) => {
         return initializeAuthor(author, rootSegment);
       }),
       getPropertyName(self, "authors")
@@ -24,7 +24,6 @@ export const addAuthors = (self: any, result: SupportsAuthors, rootSegment: stri
  * @category ViewModels
  */
 export interface Author extends PreviewMetadata {
-  title: string | null; // what is this for?
   displayName: string | null;
   linkTarget: string | null;
   text: string | null;
@@ -34,12 +33,12 @@ export interface Author extends PreviewMetadata {
 /**
  * Returns an [[Author]] object based on the GraphQL [[Person]]
  */
-export const initializeAuthor = (person: Person, rootSegment: string): Author => {
+export const initializeAuthor = (person: CmPersonFragment, rootSegment: string): Author => {
   const author: Author = {
-    ...mapProperties(person, { title: "title", picture: "picture" }),
+    ...mapProperties(person, { picture: "picture" }),
     ...getLink(person, rootSegment),
   };
-  (person.teaserText?.text ?? person.teaserText?.text !== undefined) &&
+  person.teaserText?.text &&
     addProperty(author, "text", person.teaserText?.text, getPropertyName(person, "teaserText"));
   const displayName: string | undefined =
     ((person.displayName || person.firstName || person.lastName) && person.displayName) ||

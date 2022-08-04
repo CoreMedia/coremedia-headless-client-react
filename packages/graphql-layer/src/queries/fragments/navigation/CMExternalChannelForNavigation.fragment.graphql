@@ -1,0 +1,6 @@
+fragment CMExternalChannelForNavigation on CMExternalChannel {
+  ...CMTeasableForNavigation
+  categoryRef {
+    ...CategoryRef
+  }
+}

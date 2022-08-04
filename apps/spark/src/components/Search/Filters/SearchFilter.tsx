@@ -87,7 +87,7 @@ export const SearchFilterListLink = styled.span<{ checked: boolean }>`
 
 export const SearchFilterListCount = styled.span`
   &:before {
-    content: "(";
+    content: " (";
   }
 
   &:after {
@@ -110,6 +110,7 @@ const AllIcon = styled.i`
   background-repeat: no-repeat;
   background-position: 50%;
   background-image: url(${ArrowBack});
+  margin-right: 5px;
 `;
 
 const SearchFilter: React.FC<Props> = ({ title, entries, filterType = "checkbox" }) => {
@@ -137,28 +138,23 @@ const SearchFilter: React.FC<Props> = ({ title, entries, filterType = "checkbox"
             </SearchFilterAllItems>
           )}
           {entries?.map((item, index) => {
-            return (
-              <>
-                {filterType === "checkbox" && (
-                  <CheckboxFilterEntry
-                    key={index}
-                    title={title}
-                    label={item.label}
-                    query={item.query}
-                    count={item.count}
-                  />
-                )}
-                {filterType === "text" && (
-                  <StringFilterEntry
-                    key={index}
-                    title={title}
-                    label={item.label}
-                    query={item.query}
-                    count={item.count}
-                  />
-                )}
-              </>
-            );
+            let components = null;
+            if (filterType === "checkbox") {
+              components = (
+                <CheckboxFilterEntry
+                  key={index}
+                  title={title}
+                  label={item.label}
+                  query={item.query}
+                  count={item.count}
+                />
+              );
+            } else if (filterType === "text") {
+              components = (
+                <StringFilterEntry key={index} title={title} label={item.label} query={item.query} count={item.count} />
+              );
+            }
+            return components;
           })}
         </SearchFilterList>
       </form>

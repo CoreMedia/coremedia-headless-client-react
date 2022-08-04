@@ -5,11 +5,8 @@ import SearchFilter from "./SearchFilter";
 
 const Filters = styled.div`
   margin-bottom: 40px;
-  @media screen and (min-width: 768px) {
-    /* width: 25%;*/
-    float: left;
-  }
 `;
+
 const FacetFilters: React.FC = () => {
   const { availableFacets } = useSearchPageContextState();
   return (

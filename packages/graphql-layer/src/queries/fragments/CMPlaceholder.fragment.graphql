@@ -1,0 +1,6 @@
+fragment CMPlaceholder on CMPlaceholder {
+  ...CMLinkable
+  ...CMTeasable
+  viewtype
+  finderConfiguration: settings(paths: ["finderConfiguration"])
+}

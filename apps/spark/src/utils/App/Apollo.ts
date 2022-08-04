@@ -10,39 +10,14 @@ import possibleTypes from "@coremedia-labs/graphql-layer/dist/__downloaded__/pos
 import { formatPreviewDate, isPreview } from "../Preview/Preview";
 import { getEndpoint } from "./App";
 
+type KeyArgs = FieldPolicy<any>["keyArgs"];
+
 /**
  * Global singleton instance of the ApolloClient.
  * @category Apollo
  */
 let apolloClient: ApolloClient<unknown>;
-type KeyArgs = FieldPolicy<any>["keyArgs"];
-// A basic field policy that uses options.args.{offset,limit} to splice
-// the incoming data into the existing array. If your arguments are called
-// something different (like args.{start,count}), feel free to copy/paste
-// this implementation and make the appropriate changes.
-export function offsetLimitPagination(keyArgs: KeyArgs = false): FieldPolicy {
-  return {
-    keyArgs,
-    merge(existing, incoming, { args }) {
-      const merged = existing && existing.result ? existing.result.slice(0) : [];
-      if (args) {
-        const { offset = 0 } = args;
-        for (let i = 0; i < incoming.result.length; ++i) {
-          merged[offset + i] = incoming.result[i];
-        }
-      } else {
-        // It's unusual (probably a mistake) for a paginated field not
-        // to receive any arguments, so you might prefer to throw an
-        // exception here, instead of recovering by appending incoming
-        // onto the existing array.
-        // eslint-disable-next-line prefer-spread
-        merged.push.apply(merged, incoming.result);
-      }
 
-      return { ...incoming, result: merged };
-    },
-  };
-}
 /**
  * @category Apollo
  * @internal
@@ -61,6 +36,7 @@ const createInMemoryCache = (): InMemoryCache => {
           commerce: {
             merge: true,
           },
+          searchProducts: offsetLimitPaginationForItems(["categoryId", "filterFacets"]),
         },
       },
       ContentRoot: {
@@ -139,4 +115,60 @@ export const initializeApollo = (newPreviewDate: string | undefined, apqEnabled:
     apolloClient = createApolloClient(link);
   }
   return apolloClient;
+};
+
+/**
+ * A basic field policy that uses options.args.{offset,limit} to splice
+ * the incoming data into the existing array. If your arguments are called
+ * something different (like args.{start,count}), feel free to copy/paste
+ * this implementation and make the appropriate changes.
+ *
+ * @param keyArgs
+ */
+export const offsetLimitPagination = (keyArgs: KeyArgs = false): FieldPolicy => {
+  return {
+    keyArgs,
+    merge(existing, incoming, { args }) {
+      const merged = existing && existing.result ? existing.result.slice(0) : [];
+      if (args) {
+        const { offset = 0 } = args;
+        for (let i = 0; i < incoming.result.length; ++i) {
+          merged[offset + i] = incoming.result[i];
+        }
+      } else {
+        // It's unusual (probably a mistake) for a paginated field not
+        // to receive any arguments, so you might prefer to throw an
+        // exception here, instead of recovering by appending incoming
+        // onto the existing array.
+        // eslint-disable-next-line prefer-spread
+        merged.push.apply(merged, incoming.result);
+      }
+
+      return { ...incoming, result: merged };
+    },
+  };
+};
+
+export const offsetLimitPaginationForItems = (keyArgs: KeyArgs = false): FieldPolicy => {
+  return {
+    keyArgs,
+    merge(existing, incoming, { args }) {
+      const merged = existing && existing.items ? existing.items.slice(0) : [];
+      if (args) {
+        const { offset = 0 } = args;
+        for (let i = 0; i < incoming.items.length; ++i) {
+          merged[offset + i] = incoming.items[i];
+        }
+      } else {
+        // It's unusual (probably a mistake) for a paginated field not
+        // to receive any arguments, so you might prefer to throw an
+        // exception here, instead of recovering by appending incoming
+        // onto the existing array.
+        // eslint-disable-next-line prefer-spread
+        merged.push.apply(merged, incoming.items);
+      }
+
+      return { ...incoming, items: merged };
+    },
+  };
 };

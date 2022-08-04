@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Banner } from "../../models/Banner/Banner";
+import { StyledButton } from "../Button/Button";
 import Link from "../Link/Link";
-import { CMButton } from "../Button/Button";
 
 interface Props {
   banner: Banner;
@@ -24,31 +24,28 @@ export const ShowNow = styled.div`
   }
 `;
 
-const Button = styled(CMButton)`
+const Button = styled(StyledButton)`
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-text-small);
+  background-color: hsla(0, 0%, 100%, 0.75);
+  &:hover {
+    background-color: (--color-background-light);
+    color: var(--color-cta-font-hover);
+  }
+  &:active,
+  &:focus {
+    background-color: #fff;
+    box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, 0.75), inset 0 0 0 2px #000;
+  }
   position: absolute;
   bottom: 50%;
   right: 50%;
   transform: translate(50%, 50%);
-  pointer-events: auto;
-  box-sizing: border-box;
   padding: 14px;
-  text-transform: uppercase;
   white-space: nowrap;
-  text-decoration: none;
   color: #000;
-  background-color: hsla(0, 0%, 100%, 0.75);
   transition: all 0.1s ease;
   text-align: center;
-
-  &:hover {
-    background-color: #fff;
-  }
-
-  &:active,
-  &:focus {
-    background-color: #fff;
-    box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 2px #000;
-  }
 `;
 
 const ShopNowButton: React.FC<Props> = ({ banner }) => {

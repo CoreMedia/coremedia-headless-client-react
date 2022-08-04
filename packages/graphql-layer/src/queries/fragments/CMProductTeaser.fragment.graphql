@@ -1,0 +1,8 @@
+fragment CMProductTeaser on CMProductTeaser {
+  ...CMTeasable
+  productRef {
+    ...ProductRef
+  }
+  shopNowSetting: settings(paths: ["shopNow"])
+  ctaSettings: settings(paths: ["callToActionDisabled", "callToActionCustomText", "callToActionStyle"])
+}

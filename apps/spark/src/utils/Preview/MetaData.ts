@@ -7,7 +7,7 @@ import { isPreview } from "./Preview";
  */
 type metadata = { "data-cm-metadata": string } | undefined;
 export interface MetadataRoot {
-  id: string | null;
+  id?: string | null;
   type?: string;
 }
 
@@ -20,7 +20,7 @@ export interface PreviewMetadata {
   metadata?: PreviewMetadataProps<this>;
 }
 
-export const initializeMetadata = (id: string | null, type = "content"): PreviewMetadata => {
+export const initializeMetadata = (id: string | null | undefined, type = "content"): PreviewMetadata => {
   return { metadata: { root: { id: id, type: type }, properties: {} } };
 };
 
@@ -115,13 +115,11 @@ export const metaDataForResponsiveDevices = (): metadata => {
  * @param propertyName The name of of the property
  */
 export function getPropertyName<S extends Dispatchable>(type: S, propertyName: keyof S): string {
+  let property = "properties." + (propertyName as string);
   const mapping: { [key: string]: any } = metaDataMapping;
-  const metaDataMappingElement: { [key: string]: string } = mapping[type.__typename];
-  let property: string =
-    (metaDataMappingElement && metaDataMappingElement[propertyName as string]) || (propertyName as string);
-  //fallback to default
-  if (!property) {
-    property = "properties." + (propertyName as string);
+  if (type.__typename) {
+    const metaDataMappingElement: { [key: string]: string } = mapping[type.__typename];
+    property = (metaDataMappingElement && metaDataMappingElement[propertyName as string]) || (propertyName as string);
   }
   return property;
 }
