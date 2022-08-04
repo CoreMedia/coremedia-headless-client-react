@@ -3,8 +3,7 @@ FROM node:16 AS deps
 # pnpm 6.x
 RUN npm install -g pnpm@6
 WORKDIR /app
-COPY package.json ./
-COPY pnpm-lock.yaml ./
+COPY package.json pnpm-lock.* ./
 RUN pnpm install
 
 # Build Stitching Server

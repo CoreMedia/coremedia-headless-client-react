@@ -15,7 +15,7 @@
     "coverage": "jest --coverage",
     "download:crops": "node ./bin/download-crops.js",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public -o build/storybook"
   },
   "dependencies": {
     "@apollo/client": "^3.6.2",
