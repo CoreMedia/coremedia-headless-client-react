@@ -1,0 +1,6 @@
+fragment CMExternalChannel on CMExternalChannel {
+  ...CMTeasable
+  categoryRef {
+    ...CategoryRef
+  }
+}

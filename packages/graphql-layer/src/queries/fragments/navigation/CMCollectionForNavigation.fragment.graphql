@@ -1,0 +1,12 @@
+fragment CMCollectionForNavigation on CMCollection {
+  ...CMTeasableForNavigation
+  viewtype
+  items {
+    ...CMTeasableForNavigation
+    ...CMExternalChannelForNavigation
+    ...CMProductForNavigation
+    ...CMExternalLinkForNavigation
+    ...ProductRef
+    ...CMExternalProduct
+  }
+}

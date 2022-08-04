@@ -1,0 +1,94 @@
+query Site($rootSegment: String!) {
+  content {
+    site(rootSegment: $rootSegment) {
+      id
+      locale
+    }
+    pageByPath(path: $rootSegment) {
+      grid {
+        id
+        placements(names: ["header", "footer", "footer-navigation"]) {
+          ...PageGridPlacement
+        }
+      }
+      localizedVariants {
+        ...CMLinkable
+        locale
+      }
+      ...CMTeasableForNavigation
+      ... on CMExternalChannel {
+        id
+        categoryRef {
+          id
+          category {
+            children {
+              ...Category
+              children {
+                ...Category
+              }
+            }
+          }
+        }
+      }
+      children {
+        ...CMTeasableForNavigation
+        ...CMExternalChannelForNavigation
+        ...CMCollectionForNavigation
+        ...CMProductForNavigation
+        ...CMExternalLinkForNavigation
+        ... on CMCollection {
+          items {
+            ...CMTeasableForNavigation
+            ...CMExternalChannelForNavigation
+            ...CMProductForNavigation
+            ...CMExternalLinkForNavigation
+            ...ProductRef
+            ...CMExternalProduct
+            ... on CMCollection {
+              items {
+                ...CMTeasableForNavigation
+                ...CMExternalChannelForNavigation
+                ...CMProductForNavigation
+                ...CMExternalLinkForNavigation
+                ...ProductRef
+                ...CMExternalProduct
+              }
+            }
+          }
+        }
+        ... on CMExternalChannel {
+          id
+          categoryRef {
+            id
+            category {
+              children {
+                ...Category
+                children {
+                  ...Category
+                }
+              }
+            }
+          }
+        }
+        ... on CMNavigation {
+          children {
+            ...CMTeasableForNavigation
+            ...CMExternalChannelForNavigation
+            ...CMCollectionForNavigation
+            ...CMProductForNavigation
+            ...CMExternalLinkForNavigation
+            ... on CMNavigation {
+              children {
+                ...CMTeasableForNavigation
+                ...CMExternalChannelForNavigation
+                ...CMCollectionForNavigation
+                ...CMProductForNavigation
+                ...CMExternalLinkForNavigation
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

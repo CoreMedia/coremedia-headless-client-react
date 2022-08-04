@@ -1,6 +1,6 @@
-FROM nginx:1.21-alpine
+FROM nginx:1.22-alpine
 
-COPY spark/build /usr/share/nginx/html
+COPY spark/dist /usr/share/nginx/html
 COPY standalone-fragment/dist /usr/share/nginx/html/standalone
 COPY spark/nginx /etc/nginx/templates
 

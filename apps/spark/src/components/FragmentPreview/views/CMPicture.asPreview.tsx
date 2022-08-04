@@ -1,5 +1,5 @@
 import React from "react";
-import { PreviewPicture as GrpahQLPreviewPicture, PreviewPicture_crops } from "@coremedia-labs/graphql-layer";
+import { CmPicture, CmPicturePreviewFragment, Crop } from "@coremedia-labs/graphql-layer";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 import { metaDataElement, metaDataForResponsiveDevices } from "../../../utils/Preview/MetaData";
 import FragmentPreviewItem from "../FragmentPreviewItem";
@@ -7,15 +7,15 @@ import Image from "../../Media/Image";
 import { initializePicture, Picture } from "../../../models/Banner/Picture";
 import { FragmentPreviewContextProvider } from "../../../context/FragmentPreviewContext";
 
-const findBestSuitablePreviewSize = (crop: PreviewPicture_crops): number | undefined => {
+const findBestSuitablePreviewSize = (crop: Crop): number | undefined => {
   const max = crop.sizes.reduce(function (prev, current) {
     return prev && current && prev?.width > current?.width ? prev : current;
   });
   return max ? max.width : crop.minWidth;
 };
 
-const CMPictureAsPreview: React.FC<IncludeProps<GrpahQLPreviewPicture>> = ({ self }) => {
-  const picture: Picture = initializePicture(self);
+const CMPictureAsPreview: React.FC<IncludeProps<CmPicturePreviewFragment>> = ({ self }) => {
+  const picture: Picture = initializePicture(self as CmPicture);
   return (
     <div {...metaDataElement(picture.metadata?.root)} {...metaDataForResponsiveDevices()}>
       <FragmentPreviewContextProvider type={self.__typename}>

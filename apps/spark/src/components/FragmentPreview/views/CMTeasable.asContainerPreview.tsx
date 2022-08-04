@@ -1,5 +1,5 @@
-import { Teasable } from "@coremedia-labs/graphql-layer";
 import React from "react";
+import { CmTeasable } from "@coremedia-labs/graphql-layer";
 import { useSiteContextState } from "../../../context/SiteContextProvider";
 import { initializeBannerFor } from "../../../models/Banner/Banner";
 import { Slot } from "../../../models/Grid/Slot";
@@ -14,7 +14,7 @@ const getContainer = (items: Array<Dispatchable>, rootSegment: string): Slot => 
   };
 };
 
-const CMTeasableAsContainerPreview: React.FC<IncludeProps<Teasable>> = ({ self, params }) => {
+const CMTeasableAsContainerPreview: React.FC<IncludeProps<CmTeasable>> = ({ self, params }) => {
   const { rootSegment } = useSiteContextState();
   const Container = slotByName(params?.containerView as string);
   return <Container {...getContainer([self], rootSegment)} />;

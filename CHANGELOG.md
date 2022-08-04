@@ -1,5 +1,28 @@
 # Changelog
 
+## v2207.0.0
+
+*Released 04.08.2022*
+
+### Features:
+
+- Use the latest endpoint for categories based on a faceted product search. This will enable a proper category listing view.
+- Added environment variable `COREMEDIA_CLOUD_ACCESS_TOKEN` for stitching server to run with protected cloud instances
+
+### Breaking Changes:
+
+- Changed codegen tooling from `apollo` to `@graphql-codegen/cli`. The new tooling is faster and generates gql and React Hooks automatically. All queries and fragments in the package `coremedia-labs/graphql-layer` have been changed to `.graphql` files. Therefore, we changed the version to 2.0.0.
+- Updated `schema.json`, and `interfaces.json` to CoreMedia Content Cloud v11 - 2207.1
+- Updated package manager "pnpm" tp version 7
+
+### Bugfixes and Changes:
+
+- Updated `graphql` to version 16
+- Updated `dotenv` to v16
+- Updated minor versions of dependencies
+
+---
+
 ## v2204.0.1
 
 *Released 04.08.2022*
@@ -8,6 +31,7 @@
 
 - Fixing docker builds for spark and stitching server
 
+---
 
 ## v2204.0.0
 
@@ -15,8 +39,9 @@
 
 ### Features:
 
-- Introduced View Model Layer. This layer is an abstraction between the GraphQL model and the components model.
+- Introduced View Model Layer. This layer is an abstraction between the GraphQL model and the components model. 
 - Introduced `styled-components` for styling the Spark app. All `scss` have been removed.
+- Added the faceted search feature of headless server and added search suggestions
 
 ### Breaking Changes:
 

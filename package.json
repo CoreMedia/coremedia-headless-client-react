@@ -1,6 +1,6 @@
 {
   "name": "@coremedia-labs/headless-client-workspace",
-  "version": "2204.0.1",
+  "version": "2207.0.0",
   "description": "Spark - The React client workspace for the CoreMedia Headless Server",
   "private": true,
   "license": "CoreMedia Open Source License",
@@ -10,16 +10,15 @@
     "build": "pnpm -r build",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint",
-    "prettier": "pnpm -r prettier",
     "docs": "pnpm -r docs",
     "download": "pnpm -r download",
-    "start": "concurrently \"pnpm start --filter @coremedia-labs/headless-server-mocking\" \"pnpm start --filter @coremedia-labs/headless-server-stitching\" \"pnpm start --filter @coremedia-labs/spark\""
+    "start": "concurrently \"pnpm --filter @coremedia-labs/headless-server-mocking start\" \"pnpm --filter @coremedia-labs/headless-server-stitching start\" \"pnpm --filter @coremedia-labs/spark start\""
   },
   "engines": {
-    "node": ">=16",
-    "pnpm": "6"
+    "node": "^16",
+    "pnpm": "^7"
   },
-  "packageManager": "pnpm@6",
+  "packageManager": "pnpm@7",
   "repository": {
     "type": "git",
     "url": "https://github.com/CoreMedia/coremedia-headless-client-react.git"
@@ -39,10 +38,10 @@
     "spark"
   ],
   "dependencies": {
-    "concurrently": "^7.1.0"
+    "concurrently": "^7.3.0"
   },
   "devDependencies": {
-    "husky": "^7.0.4"
+    "husky": "^8.0.1"
   },
   "pnpm": {
     "peerDependencyRules": {

@@ -1,0 +1,20 @@
+fragment CMPerson on CMPerson {
+  id
+  title
+  segment
+  navigationPath {
+    id
+    segment
+    title
+  }
+  displayName
+  teaserText {
+    text
+    plaintext: text(view: "plainFirstParagraph")
+  }
+  firstName
+  lastName
+  picture {
+    ...CMPicture
+  }
+}

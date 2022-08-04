@@ -1,10 +1,10 @@
-import { ProductTeaser, ExternalProduct } from "@coremedia-labs/graphql-layer";
+import { CmProductTeaserFragment, CmExternalProductFragment } from "@coremedia-labs/graphql-layer";
 
 /**
  *
  * @param productTeaser
  */
-export const isShopNowEnabled = (productTeaser: ProductTeaser | ExternalProduct): boolean => {
+export const isShopNowEnabled = (productTeaser: CmProductTeaserFragment | CmExternalProductFragment): boolean => {
   if (productTeaser.shopNowSetting) {
     const showNowSetting: { shopNow: string } = productTeaser.shopNowSetting;
     if (showNowSetting.shopNow) {

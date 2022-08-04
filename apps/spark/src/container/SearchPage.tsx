@@ -3,18 +3,19 @@ import {
   SortFieldWithOrder,
   FacetedSearchQuery,
   FacetedSearchQueryVariables,
-  FACETED_SEARCH_QUERY,
   FacetFilter,
+  FacetedSearchDocument,
 } from "@coremedia-labs/graphql-layer";
 import { NetworkStatus, useQuery } from "@apollo/client";
 import { useSearchStateContextState } from "../context/SearchStateContext";
 import Loading from "../components/Loading/Loading";
 import { Alert, ApolloClientAlert } from "../components/Error/Alert";
-import SearchPageContext, { Facet } from "../context/SearchPageContext";
+import SearchPageContext, { Facet, FacetValues } from "../context/SearchPageContext";
 import SeoHeader from "../components/Header/SeoHeader";
 import Search from "../components/Search/Search";
 import { useSiteContextState } from "../context/SiteContextProvider";
 import { notEmpty } from "../utils/Helpers";
+import { Banner } from "../models/Banner/Banner";
 
 const asSortFieldWithOrder = (sortFieldName: string | null): SortFieldWithOrder | null => {
   if (Object.values(SortFieldWithOrder).some((col: string) => col === sortFieldName)) {
@@ -26,13 +27,9 @@ const asSortFieldWithOrder = (sortFieldName: string | null): SortFieldWithOrder 
 const SearchPage: FC = () => {
   const { siteId } = useSiteContextState();
   const { query } = useSearchStateContextState();
-
   const { sortField, limit, selectedFacets } = useSearchStateContextState();
 
   const currentFacets: Array<FacetFilter> = [];
-  // if (types) {
-  //   currentFacets.push({ facetAlias: "type", filterValues: types });
-  // }
   selectedFacets.forEach((value) => {
     const index = currentFacets.findIndex((facet) => facet.facetAlias === value.facetCategory);
     if (index > 0) {
@@ -51,11 +48,9 @@ const SearchPage: FC = () => {
     }
   });
 
-  console.log(currentFacets);
-
   const sortFieldWithOrder = asSortFieldWithOrder(sortField);
   const { data, loading, error, fetchMore, networkStatus } = useQuery<FacetedSearchQuery, FacetedSearchQueryVariables>(
-    FACETED_SEARCH_QUERY,
+    FacetedSearchDocument,
     {
       variables: {
         siteId: siteId,
@@ -101,9 +96,14 @@ const SearchPage: FC = () => {
     label: entry.alias,
     values:
       (entry.values &&
-        entry.values
-          .filter(notEmpty)
-          .map((value) => ({ label: value.value, query: value.query, hitCount: value.hitCount }))) ||
+        entry.values.filter(notEmpty).map((value) => {
+          const facetValue: FacetValues = {
+            label: value.value,
+            query: value.query,
+            hitCount: value.hitCount || undefined,
+          };
+          return facetValue;
+        })) ||
       [],
   }));
 
@@ -112,7 +112,7 @@ const SearchPage: FC = () => {
       query={query}
       totalCount={data?.content?.facetedSearch?.numFound}
       availableFacets={facets}
-      result={data?.content?.facetedSearch?.result}
+      result={data?.content?.facetedSearch?.result as Array<Banner>}
       onLoadMore={onLoadMore}
       isLoading={loadingMorePosts}
     >

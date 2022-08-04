@@ -1,39 +1,56 @@
 import React from "react";
 import styled from "styled-components";
-import { colByName } from "../../utils/PageGrid/PageGridUtil";
+import { placementByName } from "../../utils/PageGrid/PageGridUtil";
 import Col from "../PageGrid/Col";
-import { DetailCategory } from "../../models/Detail/DetailCategory";
-import { Headline, StyledDetail } from "../Details/Detail";
+import { StyledDetail } from "../Details/Detail";
+import { Col as ColPlacement, Placements } from "../../models/Grid/Grid";
+import FacetFilters from "../Search/Filters/FacetFilters";
+import CategoryHeader from "./CategoryHeader";
+import SubCategoryList from "./SubCategoryList";
+import ProductList from "./ProductList";
 
 const StyledRow = styled.div`
   display: flex;
+  width: 100%;
 `;
 
 const Sidebar = styled.div`
-  flex: 1;
+  flex: 1 0 auto;
   padding-right: 6px;
+  max-width: 25%;
+
   > div {
-    width: 100%;
+    max-width: 100%;
   }
 `;
 const Content = styled.div`
-  flex: 3;
+  flex: 3 0 auto;
+  max-width: 75%;
+
   > div {
-    width: 100%;
+    max-width: 100%;
   }
 `;
 
-const DetailedCategory: React.FC<DetailCategory> = ({ name, grid }) => {
+interface Props {
+  name?: string | null;
+  placements: Placements;
+}
+
+const DetailedCategory: React.FC<Props> = ({ name, placements }) => {
   return (
     <StyledDetail>
-      <Col col={colByName(grid, "hero")} />
-      <Headline>{name}</Headline>
+      <Col col={placementByName(placements, "hero") as ColPlacement} />
+      <CategoryHeader>{name}</CategoryHeader>
       <StyledRow>
         <Sidebar>
-          <Col col={colByName(grid, "sidebar")} />
+          <SubCategoryList />
+          <FacetFilters />
+          <Col col={placementByName(placements, "sidebar") as ColPlacement} />
         </Sidebar>
         <Content>
-          <Col col={colByName(grid, "main")} />
+          <ProductList />
+          <Col col={placementByName(placements, "main") as ColPlacement} />
         </Content>
       </StyledRow>
     </StyledDetail>

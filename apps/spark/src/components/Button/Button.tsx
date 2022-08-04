@@ -10,7 +10,7 @@ interface Props {
   externalLink?: boolean;
 }
 
-const StyledButton = styled(Link)`
+export const StyledButton = styled(Link)`
   display: inline-block;
   position: relative;
   text-decoration: none;

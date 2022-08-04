@@ -1,4 +1,4 @@
 export interface Dispatchable {
-  __typename: string;
+  __typename?: string;
   viewtype?: string | null;
 }

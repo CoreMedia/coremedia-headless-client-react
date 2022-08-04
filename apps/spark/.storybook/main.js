@@ -10,7 +10,13 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials"
   ],
+  staticDirs: [
+    '../public'
+  ],
   framework: "@storybook/react",
+  core: {
+    disableTelemetry: true,
+  },
   webpackFinal: async (config) => {
     config.plugins.push(
       new ViewLoaderPlugin({

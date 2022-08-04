@@ -1,0 +1,5 @@
+fragment CMExternalLink on CMExternalLink {
+  ...CMTeasable
+  url
+  openInNewTab
+}

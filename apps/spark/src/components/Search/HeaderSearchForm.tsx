@@ -1,9 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import styled from "styled-components";
-
-import { SUGGEST_QUERY, SuggestQuery, SuggestQueryVariables } from "@coremedia-labs/graphql-layer";
-import { useLazyQuery } from "@apollo/client";
+import { useSuggestLazyQuery } from "@coremedia-labs/graphql-layer";
 import { useSearchStateContextState } from "../../context/SearchStateContext";
 import Hamburger from "../Header/Hamburger";
 import { useSiteContextState } from "../../context/SiteContextProvider";
@@ -199,7 +197,7 @@ const HeaderSearchForm: FC = () => {
 
   const [suggestions, setSuggestions] = useState<Array<any>>([]);
 
-  const [getSuggestionQuery, { error }] = useLazyQuery<SuggestQuery, SuggestQueryVariables>(SUGGEST_QUERY);
+  const [getSuggestionQuery, { error }] = useSuggestLazyQuery();
   const { siteId } = useSiteContextState();
 
   const onChangeHandler = (text: string) => {

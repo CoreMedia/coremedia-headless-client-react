@@ -5,6 +5,7 @@ import Link from "../Link/Link";
 import { Tag } from "../../models/Banner/Tag";
 
 interface Props extends PreviewMetadata {
+  renderHeadline?: boolean;
   tags: Array<Tag | null>;
 }
 
@@ -14,7 +15,7 @@ const Headline = styled.h3`
   text-align: center;
 `;
 
-const Items = styled.ul`
+export const Items = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
@@ -22,7 +23,7 @@ const Items = styled.ul`
   text-align: center;
 `;
 
-const Item = styled.li`
+export const Item = styled.li`
   display: inline-block;
   padding: var(--padding-small) var(--padding-medium);
   background: var(--color-background-light);
@@ -45,12 +46,12 @@ const Item = styled.li`
   }
 `;
 
-const TagList: React.FC<Props> = ({ tags }) => {
+const TagList: React.FC<Props> = ({ tags, renderHeadline = true }) => {
   return (
     <>
       {tags && tags.length > 0 && (
         <div>
-          <Headline>Tags</Headline>
+          {renderHeadline && <Headline>Tags</Headline>}
           <Items>
             {tags.map((taxonomy, index) => {
               return (

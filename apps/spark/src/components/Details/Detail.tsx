@@ -12,8 +12,9 @@ import TagList from "../Tags/Taglist";
 import DetailedMedia from "./DetailedMedia";
 
 export const StyledDetail = styled.div`
-  max-width: var(--screen-size-max);
-  margin: var(--padding-large) auto;
+  @media screen and (min-width: 1200px) {
+    width: var(--screen-size-max);
+  }
 `;
 
 export const Article = styled.article`
@@ -50,6 +51,10 @@ export const Text = styled.div`
 
   @media screen and (min-width: 768px) {
     padding: 0 15%;
+  }
+
+  ${ImageBox} {
+    --aspect-ratio: 4 * 3;
   }
 `;
 

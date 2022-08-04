@@ -1,0 +1,16 @@
+fragment Category on Category {
+  id
+  siteId
+  externalId
+  name
+  shortId
+  breadcrumb {
+    name
+    externalId
+  }
+  augmentation {
+    picture {
+      ...CMPicture
+    }
+  }
+}

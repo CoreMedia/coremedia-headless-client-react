@@ -1,0 +1,26 @@
+fragment CMImageMap on CMImageMap {
+  ...CMTeasable
+  overlayConfiguration: settings(paths: ["overlay"])
+  transformedHotZones {
+    crops {
+      name
+      coords {
+        x
+        y
+      }
+    }
+    points {
+      x
+      y
+    }
+    alt
+    shape
+    target
+    displayAsInlineOverlay
+    inlineOverlayTheme
+    linkedContent {
+      ...CMTeasable
+      ...CMProductTeaser
+    }
+  }
+}

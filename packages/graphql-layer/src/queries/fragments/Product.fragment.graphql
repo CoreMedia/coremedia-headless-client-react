@@ -1,0 +1,19 @@
+  fragment Product on Product {
+    id
+    siteId
+    name
+    shortDescription
+    offerPrice
+    listPrice
+    currency
+    locale
+    externalId
+    ...ProductLink
+    thumbnailUrl
+    augmentation {
+      id
+      picture {
+        ...CMPicture
+      }
+    }
+  }

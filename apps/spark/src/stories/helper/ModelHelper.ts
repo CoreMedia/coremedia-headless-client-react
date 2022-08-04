@@ -38,7 +38,6 @@ export const createPicture = (prefix = "Picture"): Picture => {
 
 const createAuthor = (prefix = "Author"): Author => {
   return {
-    title: prefix + "Author",
     displayName: "Elle Quin",
     linkTarget: link,
     text: "<div><p>Fashion Journalist for Calista during the day, instagram fashion spy at night.</p></div>",

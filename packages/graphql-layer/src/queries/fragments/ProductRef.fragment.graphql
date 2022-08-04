@@ -1,0 +1,9 @@
+fragment ProductRef on ProductRef {
+  siteId
+  storeId
+  locale
+  externalId
+  product {
+    ...Product
+  }
+}

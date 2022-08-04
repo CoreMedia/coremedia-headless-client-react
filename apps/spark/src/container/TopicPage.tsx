@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { match } from "react-router-dom";
-import { SearchQuery } from "@coremedia-labs/graphql-layer";
+import { useSearchQuery } from "@coremedia-labs/graphql-layer";
 import { NetworkStatus } from "@apollo/client";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, PageNotFoundAlert } from "../components/Error/Alert";
@@ -24,15 +24,15 @@ const TopicPage: FC<DetailViewProps> = ({ match }) => {
   const { siteId } = useSiteContextState();
   const { rootSegment } = useSiteContextState();
 
-  const { data, loading, error, fetchMore, networkStatus } = SearchQuery(
-    siteId,
-    "*",
-    null,
-    6,
-    null,
-    [{ SUBJ_TAXONOMY_OR: [match.params.id] }],
-    ["CMArticle", "CMProductTeaser"]
-  );
+  const { data, loading, error, fetchMore, networkStatus } = useSearchQuery({
+    variables: {
+      siteId: siteId,
+      query: "*",
+      limit: 6,
+      customFilterQueries: [{ SUBJ_TAXONOMY_OR: [match.params.id] }],
+      docTypes: ["CMArticle", "CMProductTeaser"],
+    },
+  });
 
   const loadingMorePosts = networkStatus === NetworkStatus.fetchMore;
 

@@ -1,0 +1,6 @@
+fragment PageGrid on PageGrid {
+  id
+  rows {
+    ...PageGridRow
+  }
+}

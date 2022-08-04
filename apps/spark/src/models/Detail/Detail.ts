@@ -1,6 +1,4 @@
-import { Teasable } from "@coremedia-labs/graphql-layer";
-import { LinkAttributes } from "../../components/Link/Link";
-import { getLink } from "../../utils/Link/LinkUtils";
+import { CmTeasableDetailFragment, CmTeasableFragment } from "@coremedia-labs/graphql-layer";
 import { PreviewMetadata, getPropertyName } from "../../utils/Preview/MetaData";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
 import { addAuthors, SupportsAuthors } from "../Banner/Author";
@@ -9,7 +7,8 @@ import { initializeMedia, Video } from "../Banner/Media";
 import { Picture } from "../Banner/Picture";
 import { addTags, SupportsTags } from "../Banner/Tag";
 import { addCMProductOverrides } from "../Navigation/Navigation";
-import { notEmpty } from "../../utils/Helpers";
+import { flattenItems, notEmpty } from "../../utils/Helpers";
+import { readTimeInMinutes } from "../../utils/Richtext/ReadTime";
 import { DetailAuthor, initializeDetailAuthor } from "./DetailAuthor";
 
 export interface SupportsRelated extends PreviewMetadata {
@@ -25,28 +24,12 @@ export interface Detail extends PreviewMetadata, SupportsAuthors, SupportsTags, 
   structuredTextLinks: Array<Banner>;
   displayDate?: string;
   media: Array<Video | Picture | null> | null;
-  downloads?: Array<Download | null> | null;
 }
-
-export interface Download extends LinkAttributes {
-  title: string | null;
-}
-
-const readTimeInMinutes = (text: string | null): number | null => {
-  if (!text) {
-    return null;
-  }
-  text = text.replace(/(^\s*)|(\s*$)/gi, "");
-  text = text.replace(/[ ]{2,}/gi, " ");
-  text = text.replace(/\n /, "\n");
-  const words = text.split(" ").length;
-  return Math.ceil(words / 130);
-};
 
 /**
  * Returns a [[Detail]] object based on the GraphQL [[DetailTeasable]]
  */
-export const initializeDetail = (self: any, rootSegment: string): Detail => {
+export const initializeDetail = (self: CmTeasableDetailFragment, rootSegment: string): Detail => {
   const detail: Detail = {
     ...mapProperties(self, { title: "title", media: "media" }),
     displayDate: self.extDisplayedDate || self.modificationDate,
@@ -57,8 +40,8 @@ export const initializeDetail = (self: any, rootSegment: string): Detail => {
     addProperty(
       detail,
       "structuredTextLinks",
-      self.detailText.textReferencedContent.map((item: Teasable) => {
-        return initializeBanner(item, rootSegment);
+      self?.detailText.textReferencedContent?.map((item) => {
+        return initializeBanner(item as CmTeasableFragment, rootSegment);
       })
     );
   (self.detailText?.text ?? self.detailText?.text !== undefined) &&
@@ -76,20 +59,6 @@ export const initializeDetail = (self: any, rootSegment: string): Detail => {
   addTags(self, detail, rootSegment);
   addCMProductOverrides(self, detail);
   addRelated(self, detail, rootSegment);
-  "downloads" in self &&
-    addProperty(
-      detail,
-      "downloads",
-      self.downloads.map((download: Teasable): Download | null => {
-        return (
-          download && {
-            title: download.teaserTitle,
-            ...getLink(download, rootSegment),
-          }
-        );
-      }),
-      getPropertyName(self, "downloads")
-    );
   return detail;
 };
 
@@ -99,7 +68,7 @@ export const addRelated = (self: any, result: SupportsRelated, rootSegment: stri
     addProperty(
       result,
       "related",
-      self.related
+      flattenItems(self.related)
         .filter(notEmpty)
         .map((item: any) => initializeBannerFor(item, rootSegment))
         .filter(notEmpty),
@@ -110,7 +79,7 @@ export const addRelated = (self: any, result: SupportsRelated, rootSegment: stri
 export const initializeDetailFor = (self: any, rootSegment: string): Detail | DetailAuthor | null => {
   if (self.__typename.indexOf("CMPerson") >= 0) {
     return initializeDetailAuthor(self, rootSegment);
-  } else if (self.__typename.indexOf("ProductRef") >= 0) {
+  } else if (self.__typename.indexOf("CM") >= 0) {
     return initializeDetail(self, rootSegment);
   }
   return null;

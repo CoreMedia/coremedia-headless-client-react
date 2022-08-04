@@ -1,27 +1,33 @@
 import React from "react";
 import styled from "styled-components";
 import Col, { StyledCol } from "../PageGrid/Col";
-import { colByName } from "../../utils/PageGrid/PageGridUtil";
-import { DetailProduct } from "../../models/Detail/DetailProduct";
+import { placementByName } from "../../utils/PageGrid/PageGridUtil";
 import { StyledDetail } from "../Details/Detail";
+import { Col as ColPlacement, Placements } from "../../models/Grid/Grid";
+import { DetailProduct } from "../../models/Detail/DetailProduct";
 import ProductDetails from "./ProductDetails";
 import ProductAssets from "./ProductAssets";
 
 const StyledDetailProduct = styled(StyledDetail)`
   display: flex;
 `;
-const DetailedProduct: React.FC<DetailProduct> = ({ name, shortDescription, longDescription, pictures, grid }) => {
+
+interface Props {
+  product?: DetailProduct;
+  placements: Placements;
+}
+const DetailedProduct: React.FC<Props> = ({ placements }) => {
   return (
     <>
-      <Col col={colByName(grid, "banner")} />
+      <Col col={placementByName(placements, "banner") as ColPlacement} />
       <StyledCol zone={"main"}>
         <StyledDetailProduct>
-          {<ProductAssets pictures={pictures} />}
-          {<ProductDetails name={name} shortDescription={shortDescription} longDescription={longDescription} />}
+          <ProductAssets />
+          <ProductDetails />
         </StyledDetailProduct>
       </StyledCol>
-      <Col col={colByName(grid, "tab")} />
-      <Col col={colByName(grid, "additional")} />
+      <Col col={placementByName(placements, "tab") as ColPlacement} />
+      <Col col={placementByName(placements, "additional") as ColPlacement} />
     </>
   );
 };

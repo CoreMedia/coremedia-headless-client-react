@@ -1,15 +1,15 @@
 # Install dependencies only when needed
 FROM node:16 AS deps
-# pnpm 6.x
-RUN npm install -g pnpm@6
+# pnpm
+RUN npm install --location=global pnpm@7
 WORKDIR /app
-COPY package.json pnpm-lock.* ./
-RUN pnpm install
+COPY .npmrc package.json pnpm-lock.* ./
+RUN pnpm install --prod
 
 # Build Stitching Server
 FROM node:16 AS builder
-# pnpm 6.x
-RUN npm install -g pnpm@6
+# pnpm
+RUN npm install --location=global pnpm@7
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .

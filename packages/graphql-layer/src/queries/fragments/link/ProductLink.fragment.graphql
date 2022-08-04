@@ -1,0 +1,7 @@
+fragment ProductLink on Product {
+  seoSegment
+  shortId
+  category {
+    ...CategoryLink
+  }
+}

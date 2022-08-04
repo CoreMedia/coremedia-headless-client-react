@@ -4,6 +4,7 @@ import Include from "../../utils/ViewDispatcher/Include";
 import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
 import { FragmentPreviewContextProvider } from "../../context/FragmentPreviewContext";
 import { metaDataForResponsiveDevices } from "../../utils/Preview/MetaData";
+import SeoHeader from "../Header/SeoHeader";
 import FragmentPreviewItem from "./FragmentPreviewItem";
 import { Fragment } from "./FragmentsByType";
 
@@ -24,9 +25,9 @@ const FragmentPreview: React.FC<Props> = ({ self, fragments }) => {
     return <Include self={self} view={fragments.viewName} />;
   }
 
-  document.body.classList.add("cm-app--preview");
   return (
     <StyledPreview {...metaDataForResponsiveDevices()}>
+      <SeoHeader isPreview={true} />
       <FragmentPreviewContextProvider type={self.__typename}>
         {fragments.map((fragment, index) => (
           <FragmentPreviewItem key={index} title={fragment.title}>

@@ -1,0 +1,7 @@
+fragment CategoryLink on Category {
+  shortId
+  breadcrumb {
+    name
+    externalId
+  }
+}

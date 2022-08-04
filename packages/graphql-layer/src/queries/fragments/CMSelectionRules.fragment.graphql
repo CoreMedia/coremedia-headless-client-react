@@ -1,0 +1,10 @@
+fragment CMSelectionRules on CMSelectionRules {
+  id
+  defaultContent {
+    ...CMTeasable
+    ...CMCollection
+    ...CMVideo
+    ...CMImageMap
+    ...CMProductTeaser
+  }
+}

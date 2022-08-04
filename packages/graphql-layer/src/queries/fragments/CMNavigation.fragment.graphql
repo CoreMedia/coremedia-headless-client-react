@@ -1,0 +1,9 @@
+fragment CMNavigation on CMNavigation {
+  id
+  picture {
+    ...CMPicture
+  }
+  segment
+  ...CMTeasable
+  ...CMLinkable
+}

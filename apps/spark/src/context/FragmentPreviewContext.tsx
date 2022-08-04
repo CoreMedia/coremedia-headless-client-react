@@ -8,7 +8,7 @@ export interface FragmentPreviewEntry {
 
 export interface FragmentPreviewContextData {
   items: Array<FragmentPreviewEntry>;
-  type: string;
+  type?: string;
 }
 
 export interface FragmentPreviewContextDataAndFunctions extends FragmentPreviewContextData {
@@ -69,7 +69,7 @@ export const FragmentPreviewReducer = (
 };
 
 interface Props {
-  type: string;
+  type?: string;
 }
 
 export const FragmentPreviewContextProvider: React.FC<Props> = ({ type, children }) => {

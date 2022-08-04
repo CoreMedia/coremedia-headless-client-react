@@ -18,6 +18,7 @@ module.exports = {
     "dist/",
     "node_nodules/",
     "*.config.js",
-    ".eslintrc.js"
+    ".eslintrc.js",
+    "*.graphql"
   ],
 };

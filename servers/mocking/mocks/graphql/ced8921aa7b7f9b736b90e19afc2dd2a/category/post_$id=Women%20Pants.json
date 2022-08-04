@@ -23,7 +23,8 @@
           "__typename": "CategoryImpl"
         }
       ],
-      "__typename": "CategoryImpl"
+      "__typename": "CategoryImpl",
+      "children": []
     }
   }
 }

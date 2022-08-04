@@ -46,6 +46,7 @@ const ProductPricing: React.FC<Props> = ({
   showListPrice = true,
   showOfferPrice = true,
 }) => {
+  currency = currency ? currency : "USD";
   let listPriceFormatted: string | null = null;
   let offerPriceFormatted: string | null = null;
   if (currency && locale) {

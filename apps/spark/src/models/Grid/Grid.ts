@@ -1,4 +1,4 @@
-import { PageGrid } from "@coremedia-labs/graphql-layer";
+import { PageGrid, PageGridPlacement } from "@coremedia-labs/graphql-layer";
 import { PreviewMetadata, initializeMetadata } from "../../utils/Preview/MetaData";
 import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
 
@@ -7,6 +7,7 @@ import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
  */
 export interface Col extends Dispatchable, PreviewMetadata {
   name: string;
+  colspan: number;
   items: Array<Dispatchable>;
 }
 
@@ -15,15 +16,17 @@ export interface Col extends Dispatchable, PreviewMetadata {
  */
 export interface Row extends PreviewMetadata {
   rowId: number;
-  cols: Array<Col> | null;
+  cols?: Array<Col> | null;
 }
 
 /**
  * @category ViewModels
  */
 export interface Grid extends PreviewMetadata {
-  rows: Array<Row> | null;
+  rows?: Array<Row> | null;
 }
+
+export type Placements = Array<PageGridPlacement | null> | undefined | null;
 
 /**
  * Returns a [[Grid]] object based on the GraphQL [[PageGrid]]

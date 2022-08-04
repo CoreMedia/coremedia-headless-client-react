@@ -37,7 +37,9 @@ export const getRootSegment = (path: string): string | undefined => {
   const navigationPath = path.split("/").filter((item) => {
     return item !== null && item !== "";
   });
-  return navigationPath[0] !== "preview" ? navigationPath[0] : navigationPath[1];
+  return navigationPath[0] !== "preview" && navigationPath[0] !== "commercepreview"
+    ? navigationPath[0]
+    : navigationPath[1];
 };
 
 /**

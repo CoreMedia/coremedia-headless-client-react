@@ -1,12 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Picture } from "../../models/Banner/Picture";
 import Image from "../Media/Image";
 import { StyledMedia } from "../Details/DetailedMedia";
-
-interface Props {
-  pictures: Array<Picture | null> | null;
-}
+import { useProductPageContextState } from "../../context/ProductPageContext";
 
 const StyledProductAssets = styled(StyledMedia)`
   flex: 2;
@@ -22,11 +18,12 @@ const StyledProductAsset = styled.div`
   padding: 2px;
 `;
 
-const ProductAssets: React.FC<Props> = ({ pictures }) => {
+const ProductAssets: React.FC = () => {
+  const { media } = useProductPageContextState();
   return (
     <StyledProductAssets>
-      {pictures &&
-        pictures.map((picture, index) => {
+      {media &&
+        media.map((picture, index) => {
           return (
             picture && (
               <StyledProductAsset key={index}>

@@ -1,0 +1,10 @@
+fragment CategoryRef on CategoryRef {
+  id
+  siteId
+  storeId
+  locale
+  externalId
+  category {
+    ...Category
+  }
+}

@@ -1,0 +1,9 @@
+fragment SearchFacet on Facet {
+  alias
+  field
+  values {
+    value
+    query
+    hitCount
+  }
+}

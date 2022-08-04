@@ -1,0 +1,16 @@
+fragment CMPicturePreview on CMPicture {
+  crops {
+    aspectRatio {
+      width
+      height
+    }
+    name
+    minWidth
+    minHeight
+    sizes {
+      width
+      height
+    }
+  }
+  ...CMPicture
+}

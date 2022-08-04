@@ -1,0 +1,10 @@
+fragment CMLinkable on CMLinkable {
+  id
+  title
+  segment
+  navigationPath {
+    segment
+    id
+    title
+  }
+}

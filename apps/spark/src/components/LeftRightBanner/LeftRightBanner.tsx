@@ -13,6 +13,7 @@ import ProductPricing from "../Product/ProductPricing";
 import StaticCode from "../StaticCode/StaticCode";
 import { supportsVideo } from "../../models/Banner/VideoBanner";
 import VideoPlayer from "../Media/VideoPlayer";
+import TagList, { Item, Items } from "../Tags/Taglist";
 import LeftRightResponsiveImage from "./LeftRightResponsiveImage";
 
 export const StyledPicture = styled.div``;
@@ -37,7 +38,39 @@ export const StyledCaption = styled.div`
     margin-bottom: 0;
   }
 `;
+export const StyledTags = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  visibility: hidden;
 
+  ${Items} {
+    display: flex;
+    padding: 0 10px;
+    box-sizing: border-box;
+    align-items: flex-end;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    ${Item} {
+      background-color: var(--color-background-dark);
+
+      padding: 1px 10px;
+      font-size: 14px;
+      margin: 0 10px 5px 0;
+
+      a {
+        color: var(--color-font-cta-hover);
+        padding: inherit;
+
+        &:before {
+          content: "#";
+        }
+      }
+    }
+  }
+`;
 export const StyledLeftRightBanner = styled.div`
   position: relative;
   @media screen and (min-width: 768px) {
@@ -92,6 +125,12 @@ export const StyledLeftRightBanner = styled.div`
       display: block;
     }
   }
+
+  &:hover ${StyledTags} {
+    @media screen and (min-width: 768px) {
+      visibility: visible;
+    }
+  }
 `;
 
 const LeftRightBanner: React.FC<Banner> = (banner) => {
@@ -128,6 +167,11 @@ const LeftRightBanner: React.FC<Banner> = (banner) => {
         {banner.targets && <CTA targets={banner.targets} />}
       </StyledCaption>
       {supportsShopNow(banner) && <ShopNowButton banner={banner} />}
+      {banner.tags && (
+        <StyledTags>
+          <TagList tags={banner.tags} renderHeadline={false} />
+        </StyledTags>
+      )}
     </StyledLeftRightBanner>
   );
 };

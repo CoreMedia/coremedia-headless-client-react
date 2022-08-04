@@ -1,0 +1,6 @@
+fragment CMDownload on CMDownload {
+  ...CMTeasable
+  data {
+    uri
+  }
+}

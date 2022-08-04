@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { FragmentPreviewQuery } from "@coremedia-labs/graphql-layer";
+import { useFragmentPreviewQuery } from "@coremedia-labs/graphql-layer";
 import ViewDispatcher, { defaultView } from "@coremedia-labs/view-dispatcher";
 import { match } from "react-router-dom";
 import { Fragment, fragmentsByType } from "../components/FragmentPreview/FragmentsByType";
@@ -24,7 +24,11 @@ interface RouteProps {
 }
 
 const PreviewPage: FC<FragmentPreviewProps> = ({ match }) => {
-  const { data, loading, error } = FragmentPreviewQuery(match.params.id);
+  const { data, loading, error } = useFragmentPreviewQuery({
+    variables: {
+      contentId: match.params.id,
+    },
+  });
 
   if (loading) return <Loading />;
   if (error) return <ApolloClientAlert error={error} />;

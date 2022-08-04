@@ -1,0 +1,27 @@
+query Search(
+  $siteId: String!
+  $query: String!
+  $offset: Int
+  $limit: Int
+  $sortFields: [SortFieldWithOrder]
+  $customFilterQueries: [FilterQueryArg]
+  $docTypes: [String]
+) {
+  content {
+    search(
+      siteId: $siteId
+      query: $query
+      offset: $offset
+      limit: $limit
+      sortFields: $sortFields
+      customFilterQueries: $customFilterQueries
+      docTypes: $docTypes
+    ) {
+      numFound
+      result {
+        ...CMTeasable
+        ...CMProduct
+      }
+    }
+  }
+}

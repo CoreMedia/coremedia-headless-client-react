@@ -1,0 +1,15 @@
+fragment ShoppableVideo on CMVideo {
+  viewtype
+  timeLine {
+    defaultTarget {
+      ...CMTeasable
+    }
+    sequences {
+      startTimeMillis
+      link {
+        ...CMTeasable
+        ...CMProductTeaser
+      }
+    }
+  }
+}

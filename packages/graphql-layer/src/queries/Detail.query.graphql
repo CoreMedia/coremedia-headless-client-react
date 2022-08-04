@@ -1,0 +1,10 @@
+query Detail($id: String!) {
+  content {
+    content(id: $id) {
+      id
+      ...CMTeasableDetail
+      ...CMPersonDetail
+      ...CMProductDetail
+    }
+  }
+}

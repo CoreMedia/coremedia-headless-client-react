@@ -6,35 +6,34 @@
   "scripts": {
     "build": "webpack --mode=production",
     "lint": "eslint --fix \"src/**/*.+(ts|tsx)\"",
-    "lint:ci": "eslint \"src/**/*.+(ts|tsx)\"",
-    "prettier": "prettier --write \"src/**/*.+(ts|tsx)\""
+    "lint:ci": "eslint \"src/**/*.+(ts|tsx)\""
   },
   "dependencies": {
-    "@apollo/client": "^3.6.2",
-    "@coremedia-labs/graphql-layer": "workspace:^1.0.0",
-    "graphql": "^15.8.0",
+    "@apollo/client": "^3.6.9",
+    "@coremedia-labs/graphql-layer": "workspace:^2.0.0",
+    "graphql": "^16.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.10",
-    "@types/react": "^17.0.44",
-    "@types/react-dom": "^17.0.16",
-    "@typescript-eslint/eslint-plugin": "^5.22.0",
-    "@typescript-eslint/parser": "^5.22.0",
+    "@babel/core": "^7.18.10",
+    "@types/react": "^17.0.48",
+    "@types/react-dom": "^17.0.17",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
     "babel-loader": "8.1.0",
     "babel-preset-react-app": "^10.0.1",
     "copy-webpack-plugin": "^6.4.1",
     "css-loader": "^5.2.7",
-    "eslint": "^7.32.0",
+    "eslint": "^7.11.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.29.4",
-    "prettier": "^2.6.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "prettier": "^2.7.1",
     "style-loader": "^2.0.0",
-    "typescript": "^4.6.4",
+    "typescript": "^4.7.4",
     "webpack": "4.44.2",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.10.0"
   },
   "browserslist": {
     "production": [

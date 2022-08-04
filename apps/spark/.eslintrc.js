@@ -34,9 +34,6 @@ module.exports = {
   rules: {
     "import/order": ["error"],
     "import/newline-after-import": ["error"],
-    "import/no-anonymous-default-export": [2, {"allowArrowFunction": true}], // used in queries
-    "react/prop-types": "off",
-    "@typescript-eslint/camelcase": "off", // disable for generated interfaces by apollo
     "@typescript-eslint/no-explicit-any" : "off", //disable for CI
     "@typescript-eslint/explicit-module-boundary-types": "off" //disable for CI
   },

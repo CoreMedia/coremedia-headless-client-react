@@ -1,0 +1,7 @@
+fragment PageGridRow on PageGridRow {
+  id
+  rowId
+  placements {
+    ...PageGridPlacement
+  }
+}

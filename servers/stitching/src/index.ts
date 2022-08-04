@@ -4,7 +4,7 @@ import proxy from "express-http-proxy";
 import cors from "cors";
 import { resolvers } from "./resolvers";
 import { stitchSchemas } from "@graphql-tools/stitch";
-import { config } from "dotenv";
+import "dotenv/config";
 import { ApolloServer } from "apollo-server-express";
 import {
   ApolloServerPluginDrainHttpServer,
@@ -16,22 +16,26 @@ import { UrlLoader } from "@graphql-tools/url-loader";
 import * as http from "http";
 import { Server } from "http";
 import { createActuator } from "./actuator";
-import { print } from "graphql";
 import { wrapSchema } from "@graphql-tools/wrap";
-import { Executor } from "@graphql-tools/utils";
-import { fetch } from "cross-undici-fetch";
 import { graphqlHTTP } from "express-graphql";
 import { defaultQueryString } from "./graphiqlDefaultQuery";
+import { executor } from "./executor";
+import { commerceCatalogEndpoint, coreMediaHeadlessServerEndpoint, proxyEndpoint } from "./endpoints";
 
-const makeGatewaySchema = async () => {
-  config();
-
+const fetchSchemas = async () => {
   try {
     logger.info("Fetching schemas from both GraphQL endpoints");
+
+    if (process.env.COREMEDIA_CLOUD_ACCESS_TOKEN) {
+      logger.debug("Connecting Cloud Instance via 'CoreMedia-AccessToken'");
+    }
 
     logger.info(`Loading schema from ${coreMediaHeadlessServerEndpoint()} (Headless Server).`);
     const coreMediaSchema = await loadSchema(coreMediaHeadlessServerEndpoint(), {
       loaders: [new UrlLoader()],
+      headers: {
+        "CoreMedia-AccessToken": process.env.COREMEDIA_CLOUD_ACCESS_TOKEN || "",
+      },
     });
     logger.info(`Successfully loaded schema from coreMediaHeadlessServerEndpoint.`);
 
@@ -78,91 +82,38 @@ const makeGatewaySchema = async () => {
   }
 };
 
-// Executor to query subschema endpoint. Forwards headers from the context
-// For some reason when running graphiql, the headers hide within context.headers, for all other calls within context.request.headers
-const executor: Executor = async ({ document, variables, context }) => {
-  const query = print(document);
-  let newHeaders = {};
-  let method = "POST";
-  if (context.request) {
-    newHeaders = { ...context.request.headers };
-    method = context.request.method;
-  } else if (context.headers) {
-    newHeaders = { ...context.headers };
-    method = context.method;
-  }
-  // remove host and connection header to prevent issues with subschema service accepting it.
-  delete newHeaders["host"];
-  delete newHeaders["connection"];
-
-  // set correct content length for changed request.
-  newHeaders["content-length"] = JSON.stringify({ query, variables }).length;
-  let requestInit = undefined;
-  if (method !== "GET" && method !== "HEAD") {
-    requestInit = {
-      method: method,
-      headers: {
-        ...newHeaders,
-      },
-      body: JSON.stringify({ query, variables }),
-    };
-  }
-  const fetchResult = await fetch(coreMediaHeadlessServerEndpoint(), requestInit);
-  return fetchResult.json();
-};
-
-const coreMediaHeadlessServerEndpoint = () => {
-  let coreMediaEndpoint = process.env.COREMEDIA_ENDPOINT || "";
-  // use local headless server as fallback in development
-  if (!coreMediaEndpoint && process.env.NODE_ENV !== "production") {
-    coreMediaEndpoint = "http://localhost:41180/graphql";
-  }
-  // check for missing graphql
-  if (!coreMediaEndpoint.endsWith("/graphql")) {
-    coreMediaEndpoint = `${coreMediaEndpoint}/graphql`;
-  }
-  return coreMediaEndpoint;
-};
-
-const commerceCatalogEndpoint = () => {
-  let catalogEndpoint = process.env.CATALOG_ENDPOINT || "";
-  // use local headless server as default in development
-  if (!catalogEndpoint && process.env.NODE_ENV !== "production") {
-    catalogEndpoint = "http://localhost:5000/graphql";
-  }
-  // check for missing graphql
-  if (!catalogEndpoint.endsWith("/graphql")) {
-    catalogEndpoint = `${catalogEndpoint}/graphql`;
-  }
-  return catalogEndpoint;
-};
-
-const proxyEndpoint = () => {
-  return coreMediaHeadlessServerEndpoint().replace("/graphql", "");
-};
-
 const createServer = async (schema) => {
-  const app = express()
-    .disable("x-powered-by")
-    .use(cors())
-    .use(
-      "/caas",
-      proxy(proxyEndpoint(), {
-        limit: "25mb",
-        proxyReqPathResolver: (req) => {
-          return "/caas" + req.url;
-        },
-      })
-    );
+  // create express server with cors
+  const app = express().disable("x-powered-by").use(cors());
 
+  // add graphiql endpoint
   if (process.env.COREMEDIA_STITCHING_ENABLE_GRAPHIQL) {
     app.use("/graphiql", graphqlHTTP({ schema, graphiql: { defaultQuery: defaultQueryString } }));
   }
 
+  // add actuator endpoint
   if (process.env.NODE_ENV === "production") {
     app.use(createActuator());
   }
 
+  // add poxy endpoint for images and blobs
+  app.use(
+    "/caas",
+    proxy(proxyEndpoint(), {
+      limit: "25mb",
+      proxyReqPathResolver: (req) => {
+        return "/caas" + req.url;
+      },
+      proxyReqOptDecorator: (requestOptions) => {
+        if (process.env.COREMEDIA_CLOUD_ACCESS_TOKEN) {
+          requestOptions.headers["CoreMedia-AccessToken"] = process.env.COREMEDIA_CLOUD_ACCESS_TOKEN;
+        }
+        return requestOptions;
+      },
+    })
+  );
+
+  // add apollo server
   const httpServer = http.createServer(app);
   const server = new ApolloServer({
     schema: schema,
@@ -188,7 +139,7 @@ const startServer = (app: Server, port = 4000, host = "localhost") => {
 };
 
 // start the server after retrieving the schemas and stitching them
-makeGatewaySchema().then((schema) => {
+fetchSchemas().then((schema) => {
   createServer(schema).then((app) => {
     startServer(app);
   });
