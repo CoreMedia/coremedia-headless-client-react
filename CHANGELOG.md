@@ -1,5 +1,14 @@
 # Changelog
 
+## v2204.0.1
+
+*Released 04.08.2022*
+
+### Bugfixes:
+
+- Fixing docker builds for spark and stitching server
+
+
 ## v2204.0.0
 
 *Released 31.05.2022*
