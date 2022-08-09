@@ -1,5 +1,5 @@
 import { delegateToSchema } from "@graphql-tools/delegate";
-import { GraphQLResolveInfo, GraphQLSchema, Kind, OperationTypeNode } from "graphql";
+import { GraphQLResolveInfo, GraphQLSchema, Kind } from "graphql";
 import { WrapQuery } from "@graphql-tools/wrap";
 import logger from "./logger";
 
@@ -14,7 +14,7 @@ export const resolvers = (coreMediaSchema: GraphQLSchema, catalogSchema: GraphQL
           logger.debug("ProductRef#product " + externalId + ":" + siteId);
           return delegateToSchema({
             schema: catalogSchema,
-            operation: OperationTypeNode.QUERY,
+            operation: "query",
             fieldName: "product",
             args: {
               externalId: externalId,
@@ -35,7 +35,7 @@ export const resolvers = (coreMediaSchema: GraphQLSchema, catalogSchema: GraphQL
           logger.debug("CategoryRef#category " + externalId + ":" + siteId);
           return delegateToSchema({
             schema: catalogSchema,
-            operation: OperationTypeNode.QUERY,
+            operation: "query",
             fieldName: "category",
             args: {
               categoryId: externalId,
@@ -57,7 +57,7 @@ export const resolvers = (coreMediaSchema: GraphQLSchema, catalogSchema: GraphQL
           logger.debug("CategoryImpl#augmentation " + externalId + ":" + siteId + ":" + breadcrumb);
           return delegateToSchema({
             schema: coreMediaSchema,
-            operation: OperationTypeNode.QUERY,
+            operation: "query",
             fieldName: "content",
             context,
             info,
@@ -117,7 +117,7 @@ export const resolvers = (coreMediaSchema: GraphQLSchema, catalogSchema: GraphQL
           logger.debug("ProductImpl#augmentation " + externalId + ":" + siteId + ":" + breadcrumb);
           return delegateToSchema({
             schema: coreMediaSchema,
-            operation: OperationTypeNode.QUERY,
+            operation: "query",
             fieldName: "content",
             context,
             info,
