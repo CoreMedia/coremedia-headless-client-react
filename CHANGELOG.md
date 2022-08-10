@@ -1,5 +1,16 @@
 # Changelog
 
+## v2207.0.1
+
+*Released 09.08.2022*
+
+### Bugfixes and Changes:
+
+- Downgraded `graphql` to v15 in stitching server. v16 is not compatible with server components
+- Fix output folder `dist` for app Spark
+
+---
+
 ## v2207.0.0
 
 *Released 04.08.2022*
