@@ -1618,6 +1618,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -1871,7 +1887,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -3258,6 +3274,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -4974,6 +5006,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -5227,7 +5275,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -6390,6 +6438,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -7860,6 +7924,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -8113,7 +8193,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -9271,6 +9351,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -9420,6 +9510,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -10831,6 +10937,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -11025,6 +11141,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -11278,7 +11410,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -12651,6 +12783,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -14326,6 +14474,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -14579,7 +14743,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -15902,6 +16066,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -17502,6 +17682,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -17755,7 +17951,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -18954,6 +19150,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -20460,6 +20672,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -20713,7 +20941,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -22021,6 +22249,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -23626,6 +23870,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -23879,7 +24139,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -25273,6 +25533,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -26994,6 +27270,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -27247,7 +27539,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -28434,6 +28726,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -29928,6 +30236,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -30181,7 +30505,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -31563,6 +31887,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -33267,6 +33607,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -33520,7 +33876,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -34719,6 +35075,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -36225,6 +36597,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -36478,7 +36866,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -37820,6 +38208,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -39474,6 +39878,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -39727,7 +40147,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -40885,6 +41305,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -41046,6 +41476,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -42457,6 +42903,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -42656,6 +43112,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -42928,6 +43400,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -43222,6 +43710,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -43475,7 +43979,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -44706,6 +45210,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -46249,6 +46769,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -46502,7 +47038,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -47660,6 +48196,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -47833,6 +48379,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -49244,6 +49806,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -49467,6 +50039,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -49720,7 +50308,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -50443,6 +51031,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -51327,6 +51931,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -51580,7 +52200,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -52917,6 +53537,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -54605,6 +55241,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -55043,6 +55695,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -55301,6 +55969,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -55554,7 +56238,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -56712,6 +57396,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -56884,6 +57578,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -58295,6 +59005,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -58511,6 +59231,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -58764,7 +59500,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -60044,6 +60780,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -61616,6 +62368,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -61924,6 +62692,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -62035,6 +62819,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -62295,7 +63095,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -63530,6 +64330,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -65072,6 +65888,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -65325,7 +66157,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -66483,6 +67315,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -66742,6 +67584,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -68153,6 +69011,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -68505,6 +69373,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -68758,7 +69642,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -69890,6 +70774,22 @@
               "kind": "INTERFACE",
               "name": "CMNavigation",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "placeholderId",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -69928,6 +70828,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -71313,6 +72229,22 @@
               "kind": "INTERFACE",
               "name": "CMNavigation",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "placeholderId",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -71391,6 +72323,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -71644,7 +72592,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -72859,6 +73807,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -74381,6 +75345,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -74634,7 +75614,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -76189,6 +77169,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -78066,6 +79062,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -78319,7 +79331,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -79506,6 +80518,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -81000,6 +82028,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -81253,7 +82297,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -82697,6 +83741,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -84453,6 +85513,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -84706,6 +85782,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -84988,6 +86080,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -85241,7 +86349,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -86582,6 +87690,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -88240,6 +89364,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -88456,7 +89596,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -88524,6 +89664,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -88837,6 +89993,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -89065,7 +90237,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -89133,6 +90305,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -89458,6 +90646,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -89711,7 +90915,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -90869,6 +92073,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -91058,6 +92272,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -92469,6 +93699,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -92747,6 +93987,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -93000,7 +94256,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -94269,6 +95525,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -95879,6 +97151,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -96132,7 +97420,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -97455,6 +98743,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -98959,6 +100263,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -99212,7 +100532,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -100380,6 +101700,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -101850,6 +103186,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -102103,7 +103455,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -103261,6 +104613,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -103446,6 +104808,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -104857,6 +106235,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -105131,6 +106519,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -105384,7 +106788,7 @@
           },
           {
             "name": "settings",
-            "description": null,
+            "description": "Retrieves settings as JSON by a list of list with path segments, e.g. settings(path: [[\"path1-segment1\", \"path1-segment2\"], [\"path2-segment1\", \"path2-segment2\"]]. Supports \"\\*\" as a wildcard to retrieve all settings at once: settings(path: \"\\*\")",
             "args": [
               {
                 "name": "paths",
@@ -106542,6 +107946,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -106735,6 +108149,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -108146,6 +109576,16 @@
                 "type": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -109631,7 +111071,7 @@
             "args": [
               {
                 "name": "id",
-                "description": "The content id as `integer` or formatted as *coremedia:///cap/content/<id>*.",
+                "description": "The content id as `integer` or formatted as *coremedia:///cap/content/<id>* or its UUID.",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -109668,7 +111108,7 @@
             "args": [
               {
                 "name": "id",
-                "description": "The content id as `integer` or formatted as *coremedia:///cap/content/<id>*.",
+                "description": "The content id as `integer` or formatted as *coremedia:///cap/content/<id>* or its UUID.",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -109695,7 +111135,7 @@
             "args": [
               {
                 "name": "id",
-                "description": "The content id as `integer` or formatted as *coremedia:///cap/content/<id>*.",
+                "description": "The content id as `integer` or formatted as *coremedia:///cap/content/<id>* or its UUID.",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -109722,7 +111162,7 @@
             "args": [
               {
                 "name": "id",
-                "description": "The content id as `integer` or formatted as *coremedia:///cap/content/<id>*.",
+                "description": "The content id as `integer` or formatted as *coremedia:///cap/content/<id>*  or its UUID.",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -110032,7 +111472,7 @@
               },
               {
                 "name": "facetFilters",
-                "description": "List of `FacetFilter` input objects: [{facetName: \"type\" args: [\"CMArticle\"]}, {facetName: \"subject\" args: [\"1234\", \"5678\"]}, ...].\nIf no `FacetFilter` is given, all configured facets are returned.",
+                "description": "List of `FacetFilter` input objects: [{facetAlias: \"type\", filterValues: [\"CMArticle\"]}, {facetAlias: \"subject\", filterValues: [\"1234\", \"5678\"]}, ...].\nIf no `FacetFilter` is given, all configured facets are returned.",
                 "type": {
                   "kind": "LIST",
                   "name": null,
@@ -110125,7 +111565,7 @@
             "args": [
               {
                 "name": "id",
-                "description": "The content id as `integer` or formatted as *coremedia:///cap/content/<id>*.",
+                "description": "The content id as `integer` or formatted as *coremedia:///cap/content/<id>* or its UUID.",
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -110556,6 +111996,22 @@
             "deprecationReason": null
           },
           {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creationDate",
             "description": null,
             "args": [],
@@ -110862,6 +112318,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -113439,6 +114911,16 @@
                   "ofType": null
                 },
                 "defaultValue": null
+              },
+              {
+                "name": "suppressRootTag",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null
               }
             ],
             "type": {
@@ -114098,6 +115580,16 @@
         "possibleTypes": null
       },
       {
+        "kind": "SCALAR",
+        "name": "UUID",
+        "description": "A universally unique identifier compliant UUID Scalar",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
         "kind": "OBJECT",
         "name": "ViewTypeHeroCollection",
         "description": null,
@@ -114112,6 +115604,22 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "uuid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "UUID",
                 "ofType": null
               }
             },
@@ -119223,7 +120731,7 @@
       {
         "kind": "OBJECT",
         "name": "__Type",
-        "description": "The fundamental unit of any GraphQL Schema is the type. There are many kinds of types in GraphQL as represented by the `__TypeKind` enum.\n\nDepending on the kind of a type, certain fields describe information about that type. Scalar types provide no information beyond a name, description and optional `specifiedByURL`, while Enum types provide their values. Object and Interface types provide the fields they describe. Abstract types, Union and Interface, provide the Object types possible at runtime. List and NonNull types compose other types.",
+        "description": "The fundamental unit of any GraphQL Schema is the type. There are many kinds of types in GraphQL as represented by the `__TypeKind` enum.\n\nDepending on the kind of a type, certain fields describe information about that type. Scalar types provide no information beyond a name, description and optional `specifiedByUrl`, while Enum types provide their values. Object and Interface types provide the fields they describe. Abstract types, Union and Interface, provide the Object types possible at runtime. List and NonNull types compose other types.",
         "fields": [
           {
             "name": "kind",
@@ -119266,7 +120774,7 @@
             "deprecationReason": null
           },
           {
-            "name": "specifiedByURL",
+            "name": "specifiedByUrl",
             "description": null,
             "args": [],
             "type": {
@@ -120082,14 +121590,14 @@
       },
       {
         "name": "specifiedBy",
-        "description": "Exposes a URL that specifies the behavior of this scalar.",
+        "description": "Exposes a URL that specifies the behaviour of this scalar.",
         "locations": [
           "SCALAR"
         ],
         "args": [
           {
             "name": "url",
-            "description": "The URL that specifies the behavior of this scalar.",
+            "description": "The URL that specifies the behaviour of this scalar.",
             "type": {
               "kind": "NON_NULL",
               "name": null,

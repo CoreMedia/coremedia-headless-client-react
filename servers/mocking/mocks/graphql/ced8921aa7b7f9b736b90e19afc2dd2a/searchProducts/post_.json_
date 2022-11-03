@@ -1,19 +1,19 @@
 {
   "data": {
     "searchProducts": {
-      "totalCount": 39,
+      "totalCount": 4,
       "items": [
         {
-          "id": "ibm:///catalog/product/AuroraWMDRS-1",
+          "id": "mock:///catalog/product/AuroraWMDRS-1",
           "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
-          "name": "Hermitage Fit and Flare Dress",
-          "shortDescription": "<div>Jewel-toned cocktail dress with fitted bodice and gently flared skirt</div>",
+          "name": "Product AuroraWMDRS-1",
+          "shortDescription": "<div>An awesome product to buy</div>",
           "offerPrice": 100,
           "listPrice": 250,
           "currency": "USD",
           "locale": "en_US",
           "externalId": "AuroraWMDRS-1",
-          "seoSegment": "hermitage-fit-and-flare-dress",
+          "seoSegment": "AuroraWMDRS-1-product",
           "shortId": "AuroraWMDRS-1",
           "category": {
             "shortId": "Dresses",
@@ -36,20 +36,18 @@
             ],
             "__typename": "CategoryImpl"
           },
-          "__typename": "ProductImpl",
-          "thumbnailUrl": "//{cmsHost}/catalogimage/product/12051/en_US/thumbnail/AuroraWMDRS-1.jpg"
-        },
+          "__typename": "ProductImpl"        },
         {
-          "id": "ibm:///catalog/product/AuroraWMDRS-2",
+          "id": "mock:///catalog/product/AuroraWMDRS-2",
           "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
-          "name": "Versatil Empire Waist Sundress",
-          "shortDescription": "<div>Empire waist sundress with flower print and frilly sleeves</div>",
-          "offerPrice": 50,
-          "listPrice": 50,
+          "name": "Product AuroraWMDRS-2",
+          "shortDescription": "<div>An awesome product to buy</div>",
+          "offerPrice": 100,
+          "listPrice": 250,
           "currency": "USD",
           "locale": "en_US",
           "externalId": "AuroraWMDRS-2",
-          "seoSegment": "versatil-empire-waist-sundress",
+          "seoSegment": "AuroraWMDRS-2-product",
           "shortId": "AuroraWMDRS-2",
           "category": {
             "shortId": "Dresses",
@@ -72,20 +70,18 @@
             ],
             "__typename": "CategoryImpl"
           },
-          "__typename": "ProductImpl",
-          "thumbnailUrl": "//{cmsHost}/catalogimage/product/12051/en_US/thumbnail/AuroraWMDRS-2.jpg"
-        },
+          "__typename": "ProductImpl"        },
         {
-          "id": "ibm:///catalog/product/AuroraWMDRS-3",
+          "id": "mock:///catalog/product/AuroraWMDRS-3",
           "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
-          "name": "Luigi Valenti Empire Waist Slip Dress",
-          "shortDescription": "<div>Empire waist slip dress with a V-neck and long flared sleeves</div>",
+          "name": "Product AuroraWMDRS-3",
+          "shortDescription": "<div>An awesome product to buy</div>",
           "offerPrice": 100,
-          "listPrice": 100,
+          "listPrice": 250,
           "currency": "USD",
           "locale": "en_US",
           "externalId": "AuroraWMDRS-3",
-          "seoSegment": "luigi-valenti-empire-waist-slip-dress",
+          "seoSegment": "AuroraWMDRS-3-product",
           "shortId": "AuroraWMDRS-3",
           "category": {
             "shortId": "Dresses",
@@ -108,20 +104,18 @@
             ],
             "__typename": "CategoryImpl"
           },
-          "__typename": "ProductImpl",
-          "thumbnailUrl": "//{cmsHost}/catalogimage/product/12051/en_US/thumbnail/AuroraWMDRS-3.jpg"
-        },
+          "__typename": "ProductImpl"        },
         {
-          "id": "ibm:///catalog/product/AuroraWMDRS-4",
+          "id": "mock:///catalog/product/AuroraWMDRS-4",
           "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
-          "name": "Hermitage Pencil Dress",
-          "shortDescription": "<div>Pencil dress with fabric detailing and three-quarter sleeve</div>",
-          "offerPrice": 250,
+          "name": "Product AuroraWMDRS-4",
+          "shortDescription": "<div>An awesome product to buy</div>",
+          "offerPrice": 100,
           "listPrice": 250,
           "currency": "USD",
           "locale": "en_US",
           "externalId": "AuroraWMDRS-4",
-          "seoSegment": "hermitage-pencil-dress",
+          "seoSegment": "AuroraWMDRS-4-product",
           "shortId": "AuroraWMDRS-4",
           "category": {
             "shortId": "Dresses",
@@ -144,297 +138,7 @@
             ],
             "__typename": "CategoryImpl"
           },
-          "__typename": "ProductImpl",
-          "thumbnailUrl": "//{cmsHost}/catalogimage/product/12051/en_US/thumbnail/AuroraWMDRS-4.jpg"
-        },
-        {
-          "id": "ibm:///catalog/product/AuroraWMDRS-5",
-          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
-          "name": "Albini Straight Cocktail Dress",
-          "shortDescription": "<div>Straight cocktail dress with round neck and sequence work</div>",
-          "offerPrice": 250,
-          "listPrice": 250,
-          "currency": "USD",
-          "locale": "en_US",
-          "externalId": "AuroraWMDRS-5",
-          "seoSegment": "albini-straight-cocktail-dress",
-          "shortId": "AuroraWMDRS-5",
-          "category": {
-            "shortId": "Dresses",
-            "breadcrumb": [
-              {
-                "name": "Apparel",
-                "externalId": "Apparel",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Women",
-                "externalId": "Women",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Dresses",
-                "externalId": "Dresses",
-                "__typename": "CategoryImpl"
-              }
-            ],
-            "__typename": "CategoryImpl"
-          },
-          "__typename": "ProductImpl",
-          "thumbnailUrl": "//{cmsHost}/catalogimage/product/12051/en_US/thumbnail/AuroraWMDRS-5.jpg"
-        },
-        {
-          "id": "ibm:///catalog/product/AuroraWMDRS-6",
-          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
-          "name": "Luigi Valenti Strapless Cocktail Dress",
-          "shortDescription": "<div>Strapless cocktail dress with appliqued roses and tassels at the hem</div>",
-          "offerPrice": 100,
-          "listPrice": 250,
-          "currency": "USD",
-          "locale": "en_US",
-          "externalId": "AuroraWMDRS-6",
-          "seoSegment": "luigi-valenti-strapless-cocktail-dress",
-          "shortId": "AuroraWMDRS-6",
-          "category": {
-            "shortId": "Dresses",
-            "breadcrumb": [
-              {
-                "name": "Apparel",
-                "externalId": "Apparel",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Women",
-                "externalId": "Women",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Dresses",
-                "externalId": "Dresses",
-                "__typename": "CategoryImpl"
-              }
-            ],
-            "__typename": "CategoryImpl"
-          },
-          "__typename": "ProductImpl",
-          "thumbnailUrl": "//{cmsHost}/catalogimage/product/12051/en_US/thumbnail/AuroraWMDRS-6.jpg"
-        },
-        {
-          "id": "ibm:///catalog/product/AuroraWMDRS-7",
-          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
-          "name": "Albini Sleeveless Slip Dress",
-          "shortDescription": "<div>V-necked casual slip dress with spaghetti straps and flowery print</div>",
-          "offerPrice": 50,
-          "listPrice": 50,
-          "currency": "USD",
-          "locale": "en_US",
-          "externalId": "AuroraWMDRS-7",
-          "seoSegment": "albini-sleeveless-slip-dress",
-          "shortId": "AuroraWMDRS-7",
-          "category": {
-            "shortId": "Dresses",
-            "breadcrumb": [
-              {
-                "name": "Apparel",
-                "externalId": "Apparel",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Women",
-                "externalId": "Women",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Dresses",
-                "externalId": "Dresses",
-                "__typename": "CategoryImpl"
-              }
-            ],
-            "__typename": "CategoryImpl"
-          },
-          "__typename": "ProductImpl",
-          "thumbnailUrl": "//{cmsHost}/catalogimage/product/12051/en_US/thumbnail/AuroraWMDRS-7.jpg"
-        },
-        {
-          "id": "ibm:///catalog/product/AuroraWMDRS-8",
-          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
-          "name": "Luigi Valenti Sleeveless Slip Dress",
-          "shortDescription": "<div>Halter V-necked  dress with layered skirt</div>",
-          "offerPrice": 50,
-          "listPrice": 50,
-          "currency": "USD",
-          "locale": "en_US",
-          "externalId": "AuroraWMDRS-8",
-          "seoSegment": "luigi-valenti-sleeveless-slip-dress",
-          "shortId": "AuroraWMDRS-8",
-          "category": {
-            "shortId": "Dresses",
-            "breadcrumb": [
-              {
-                "name": "Apparel",
-                "externalId": "Apparel",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Women",
-                "externalId": "Women",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Dresses",
-                "externalId": "Dresses",
-                "__typename": "CategoryImpl"
-              }
-            ],
-            "__typename": "CategoryImpl"
-          },
-          "__typename": "ProductImpl",
-          "thumbnailUrl": "//{cmsHost}/catalogimage/product/12051/en_US/thumbnail/AuroraWMDRS-8.jpg"
-        },
-        {
-          "id": "ibm:///catalog/product/AuroraWMDRS-9",
-          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
-          "name": "Albini A-line Cotton Dress",
-          "shortDescription": "<div>Double-color casual short sleeve dress with soft collar</div>",
-          "offerPrice": 50,
-          "listPrice": 50,
-          "currency": "USD",
-          "locale": "en_US",
-          "externalId": "AuroraWMDRS-9",
-          "seoSegment": "albini-a-line-cotton-dress",
-          "shortId": "AuroraWMDRS-9",
-          "category": {
-            "shortId": "Dresses",
-            "breadcrumb": [
-              {
-                "name": "Apparel",
-                "externalId": "Apparel",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Women",
-                "externalId": "Women",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Dresses",
-                "externalId": "Dresses",
-                "__typename": "CategoryImpl"
-              }
-            ],
-            "__typename": "CategoryImpl"
-          },
-          "__typename": "ProductImpl",
-          "thumbnailUrl": "//{cmsHost}/catalogimage/product/12051/en_US/thumbnail/AuroraWMDRS-9.jpg"
-        },
-        {
-          "id": "ibm:///catalog/product/AuroraWMDRS-10",
-          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
-          "name": "Gusso Casual Strapless Dress",
-          "shortDescription": "<div>Strapless slip dress with layered skirt</div>",
-          "offerPrice": 50,
-          "listPrice": 50,
-          "currency": "USD",
-          "locale": "en_US",
-          "externalId": "AuroraWMDRS-10",
-          "seoSegment": "gusso-casual-strapless-dress",
-          "shortId": "AuroraWMDRS-10",
-          "category": {
-            "shortId": "Dresses",
-            "breadcrumb": [
-              {
-                "name": "Apparel",
-                "externalId": "Apparel",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Women",
-                "externalId": "Women",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Dresses",
-                "externalId": "Dresses",
-                "__typename": "CategoryImpl"
-              }
-            ],
-            "__typename": "CategoryImpl"
-          },
-          "__typename": "ProductImpl",
-          "thumbnailUrl": "//{cmsHost}/catalogimage/product/12051/en_US/thumbnail/AuroraWMDRS-10.jpg"
-        },
-        {
-          "id": "ibm:///catalog/product/AuroraWMDRS-11",
-          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
-          "name": "Versatil Strapless Sundress",
-          "shortDescription": "<div>Strapless sundress with smoked bodice and flowery print</div>",
-          "offerPrice": 40,
-          "listPrice": 50,
-          "currency": "USD",
-          "locale": "en_US",
-          "externalId": "AuroraWMDRS-11",
-          "seoSegment": "versatil-strapless-sundress",
-          "shortId": "AuroraWMDRS-11",
-          "category": {
-            "shortId": "Dresses",
-            "breadcrumb": [
-              {
-                "name": "Apparel",
-                "externalId": "Apparel",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Women",
-                "externalId": "Women",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Dresses",
-                "externalId": "Dresses",
-                "__typename": "CategoryImpl"
-              }
-            ],
-            "__typename": "CategoryImpl"
-          },
-          "__typename": "ProductImpl",
-          "thumbnailUrl": "//{cmsHost}/catalogimage/product/12051/en_US/thumbnail/AuroraWMDRS-11.jpg"
-        },
-        {
-          "id": "ibm:///catalog/product/AuroraWMDRS-12",
-          "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
-          "name": "Versatil Short Sleeved Wrap Dress",
-          "shortDescription": "<div>Short sleeved wrap dress with flared skirt</div>",
-          "offerPrice": 100,
-          "listPrice": 100,
-          "currency": "USD",
-          "locale": "en_US",
-          "externalId": "AuroraWMDRS-12",
-          "seoSegment": "versatil-short-sleeved-wrap-dress",
-          "shortId": "AuroraWMDRS-12",
-          "category": {
-            "shortId": "Dresses",
-            "breadcrumb": [
-              {
-                "name": "Apparel",
-                "externalId": "Apparel",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Women",
-                "externalId": "Women",
-                "__typename": "CategoryImpl"
-              },
-              {
-                "name": "Dresses",
-                "externalId": "Dresses",
-                "__typename": "CategoryImpl"
-              }
-            ],
-            "__typename": "CategoryImpl"
-          },
-          "__typename": "ProductImpl",
-          "thumbnailUrl": "//{cmsHost}/catalogimage/product/12051/en_US/thumbnail/AuroraWMDRS-12.jpg"
-        }
+          "__typename": "ProductImpl"        }
       ],
       "resultFacets": [
         {
@@ -444,88 +148,44 @@
           "multiSelect": true,
           "values": [
             {
-              "hitCount": 31,
-              "label": "({* TO 100])",
+              "hitCount": 0,
+              "label": "* TO 100",
               "query": "price_USD%3A%28%7B*+TO+100%5D%29",
               "selected": false,
               "__typename": "CommerceFacetValue"
             },
             {
-              "hitCount": 0,
-              "label": "({100 TO 200])",
+              "hitCount": 4,
+              "label": "100 TO 200",
               "query": "price_USD%3A%28%7B100+TO+200%5D%29",
               "selected": false,
               "__typename": "CommerceFacetValue"
             },
             {
-              "hitCount": 8,
-              "label": "({200 TO 300])",
+              "hitCount": 0,
+              "label": "200 TO 300",
               "query": "price_USD%3A%28%7B200+TO+300%5D%29",
               "selected": false,
               "__typename": "CommerceFacetValue"
             },
             {
               "hitCount": 0,
-              "label": "({300 TO 400])",
+              "label": "300 TO 400",
               "query": "price_USD%3A%28%7B300+TO+400%5D%29",
               "selected": false,
               "__typename": "CommerceFacetValue"
             },
             {
               "hitCount": 0,
-              "label": "({400 TO 500])",
+              "label": "400 TO 500",
               "query": "price_USD%3A%28%7B400+TO+500%5D%29",
               "selected": false,
               "__typename": "CommerceFacetValue"
             },
             {
               "hitCount": 0,
-              "label": "({500 TO *})",
+              "label": "500 TO *",
               "query": "price_USD%3A%28%7B500+TO+*%7D%29",
-              "selected": false,
-              "__typename": "CommerceFacetValue"
-            }
-          ],
-          "__typename": "CommerceFacet"
-        },
-        {
-          "hitCount": 0,
-          "label": "Brand",
-          "key": "mfName_ntk_cs",
-          "multiSelect": true,
-          "values": [
-            {
-              "hitCount": 8,
-              "label": "Albini",
-              "query": "mfName_ntk_cs%3A%22Albini%22",
-              "selected": false,
-              "__typename": "CommerceFacetValue"
-            },
-            {
-              "hitCount": 8,
-              "label": "Gusso",
-              "query": "mfName_ntk_cs%3A%22Gusso%22",
-              "selected": false,
-              "__typename": "CommerceFacetValue"
-            },
-            {
-              "hitCount": 8,
-              "label": "Luigi Valenti",
-              "query": "mfName_ntk_cs%3A%22Luigi+Valenti%22",
-              "selected": false,
-              "__typename": "CommerceFacetValue"
-            },
-            {
-              "hitCount": 8,
-              "label": "Versatil",
-              "query": "mfName_ntk_cs%3A%22Versatil%22",
-              "selected": false,
-              "__typename": "CommerceFacetValue"
-            },
-            {
-              "hitCount": 7,
-              "label": "Hermitage Collection",
-              "query": "mfName_ntk_cs%3A%22Hermitage+Collection%22",
               "selected": false,
               "__typename": "CommerceFacetValue"
             }

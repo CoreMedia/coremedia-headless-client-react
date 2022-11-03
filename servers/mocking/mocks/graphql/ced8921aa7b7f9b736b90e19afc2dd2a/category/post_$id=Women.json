@@ -1,7 +1,7 @@
 {
   "data": {
     "category": {
-      "id": "ibm:///catalog/category/Women",
+      "id": "mock:///catalog/category/Women",
       "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
       "externalId": "Women",
       "shortId": "Women",
@@ -21,7 +21,7 @@
       "__typename": "CategoryImpl",
       "children": [
         {
-          "id": "ibm:///catalog/category/Dresses",
+          "id": "mock:///catalog/category/Dresses",
           "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
           "externalId": "Dresses",
           "shortId": "Dresses",
@@ -47,7 +47,7 @@
           "children": []
         },
         {
-          "id": "ibm:///catalog/category/Women Shirts Blouses",
+          "id": "mock:///catalog/category/Women Shirts Blouses",
           "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
           "externalId": "Women Shirts Blouses",
           "shortId": "Women Shirts Blouses",
@@ -73,7 +73,7 @@
           "children": []
         },
         {
-          "id": "ibm:///catalog/category/Women Sweaters",
+          "id": "mock:///catalog/category/Women Sweaters",
           "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
           "externalId": "Women Sweaters",
           "shortId": "Women Sweaters",
@@ -99,7 +99,7 @@
           "children": []
         },
         {
-          "id": "ibm:///catalog/category/Women Skirts",
+          "id": "mock:///catalog/category/Women Skirts",
           "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
           "externalId": "Women Skirts",
           "shortId": "Women Skirts",
@@ -125,7 +125,7 @@
           "children": []
         },
         {
-          "id": "ibm:///catalog/category/Women Pants",
+          "id": "mock:///catalog/category/Women Pants",
           "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
           "externalId": "Women Pants",
           "shortId": "Women Pants",
@@ -151,7 +151,7 @@
           "children": []
         },
         {
-          "id": "ibm:///catalog/category/Women Shoes",
+          "id": "mock:///catalog/category/Women Shoes",
           "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
           "externalId": "Women Shoes",
           "shortId": "Women Shoes",
@@ -177,7 +177,7 @@
           "children": []
         },
         {
-          "id": "ibm:///catalog/category/Women Handbags",
+          "id": "mock:///catalog/category/Women Handbags",
           "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
           "externalId": "Women Handbags",
           "shortId": "Women Handbags",
@@ -203,7 +203,7 @@
           "children": []
         },
         {
-          "id": "ibm:///catalog/category/Women Accessories",
+          "id": "mock:///catalog/category/Women Accessories",
           "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
           "externalId": "Women Accessories",
           "shortId": "Women Accessories",

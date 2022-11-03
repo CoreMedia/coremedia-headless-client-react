@@ -18,8 +18,8 @@ const CMPictureAsPreview: React.FC<IncludeProps<CmPicturePreviewFragment>> = ({ 
   const picture: Picture = initializePicture(self as CmPicture);
   return (
     <div {...metaDataElement(picture.metadata?.root)} {...metaDataForResponsiveDevices()}>
-      <FragmentPreviewContextProvider type={self.__typename}>
-        {self.crops.map((crop, index) => {
+      <FragmentPreviewContextProvider type={self?.__typename}>
+        {self?.crops.map((crop, index) => {
           return (
             <FragmentPreviewItem key={index} title={crop.name}>
               <Image picture={picture} cropName={crop.name} width={findBestSuitablePreviewSize(crop)} />

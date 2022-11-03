@@ -4,7 +4,7 @@ import StaticCode from "../../StaticCode/StaticCode";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 
 const CMHTMLAsContainerPreview: React.FC<IncludeProps<Cmhtml>> = ({ self }) => {
-  return <StaticCode code={self.html} />;
+  return <StaticCode code={self?.html} />;
 };
 
 export default CMHTMLAsContainerPreview;

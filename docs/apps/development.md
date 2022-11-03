@@ -15,15 +15,15 @@ CoreMedia Headless Service that can be used as the basis for creating and managi
 your custom app and allow web developers to focus on customizing and replacing 
 the display and view aspects of the app.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Workspace uses [vite](https://vitejs.dev/) as tooling since version 2210.
 
 ## Prerequisites
 
 The project can be loaded on any environment supporting Node.js development. 
 We recommend:
 
-- Node.js 16.x (LTS) or higher
-- pnpm 6.x
+- Node.js 18 (LTS) or higher
+- pnpm 7
 
 ## Development environment
 
@@ -47,7 +47,7 @@ queries.
 
 ## Workflow
 
-Run `pnpm start` and open [http://localhost:3000](http://localhost:3000) to view 
+Run `pnpm start` and open [http://localhost:5173](http://localhost:5173) to view 
 the app in a browser. It will run in Preview Mode by default.
 
 The page will reload if you make edits.<br />
@@ -60,13 +60,13 @@ In the project directory [apps/spark](../../apps/spark), you can run the followi
 ### `pnpm start`
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
 ### `pnpm download`
 
 Apollo downloads and generates all required resources like schema, metadata and 
 type definitions and saves them to the `__downloaded__` folder. 
-If no Headless Server is defined for `REACT_APP_API_ENDPOINT`, the script will 
+If no Headless Server is defined for `VITE_API_ENDPOINT`, the script will 
 skip the download.
 
 ### `pnpm build`
@@ -77,7 +77,7 @@ Builds the app for production to the `dist` folder.
 
 Runs just the Typescript linting and formatting (based on eslint and prettier) on the repository.
 
-### `pnpm docs`
+### `pnpm run docs`
 
 Generates TypeDoc documentation and places it into [/docs](../../apps/spark/docs).
 

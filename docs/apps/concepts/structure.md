@@ -33,9 +33,9 @@ app/
     ├── __downloaded__/
     ├── __generated__/
     ├── components/
-    ├── container/
     ├── context/
     ├── models/
+    ├── pages/
     ├── queries/
     └── utils
 ```
@@ -51,10 +51,10 @@ the code.
 
 - `components` - All React render components as functional components, 
   see https://reactjs.org/docs/components-and-props.html
-- `container` - Page components as entrypoints. They query the GraphQL API to 
   retrieve the data from CoreMedia Headless Server.
 - `context` - React Context provider, see https://reactjs.org/docs/context.html
 - `models` - the view models used in the components
+- `pages` - Page components as entry points. They query the GraphQL API
 - `queries` - GraphQL queries and fragments
 - `utils` - Utility and Helper functions
 

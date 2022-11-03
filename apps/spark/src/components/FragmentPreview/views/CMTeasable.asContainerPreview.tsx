@@ -17,6 +17,6 @@ const getContainer = (items: Array<Dispatchable>, rootSegment: string): Slot => 
 const CMTeasableAsContainerPreview: React.FC<IncludeProps<CmTeasable>> = ({ self, params }) => {
   const { rootSegment } = useSiteContextState();
   const Container = slotByName(params?.containerView as string);
-  return <Container {...getContainer([self], rootSegment)} />;
+  return <>{self && <Container {...getContainer([self], rootSegment)} />}</>;
 };
 export default CMTeasableAsContainerPreview;

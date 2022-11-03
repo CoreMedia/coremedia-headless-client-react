@@ -52,7 +52,7 @@ const ProductDetails: React.FC = () => {
           <span>{product.id}</span>
           <hr />
           <ProductPricing {...product} />
-          <ProductActions product={product} />
+          <ProductActions />
           {description && <Text dangerouslySetInnerHTML={{ __html: description }} />}
         </Sticky>
       </Textuals>

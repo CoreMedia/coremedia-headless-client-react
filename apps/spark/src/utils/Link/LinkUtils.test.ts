@@ -2,11 +2,6 @@ import { CmLinkableFragment, CmDownloadFragment, CmExternalLinkFragment } from "
 import { LinkAttributes } from "../../components/Link/Link";
 import { getLink } from "./LinkUtils";
 
-beforeEach(() => {
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  jest.spyOn(console, "error").mockImplementation(() => {});
-});
-
 describe("linkutil", () => {
   it("getLink for teasable", () => {
     const teaser: CmLinkableFragment = {

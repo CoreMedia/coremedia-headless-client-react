@@ -5,10 +5,10 @@ import { version } from "../../__generated__/version.json";
  * @category App
  */
 export const getEndpoint = (): string => {
-  let uri = process.env.REACT_APP_API_ENDPOINT || "";
+  let uri = import.meta.env.VITE_API_ENDPOINT ?? "";
 
   // use local stitching server as default in development
-  if (!uri && process.env.NODE_ENV === "development") {
+  if (!uri && import.meta.env.DEV) {
     uri = "http://localhost:4000/graphql";
   }
 
@@ -25,7 +25,7 @@ export const getEndpoint = (): string => {
  * @category App
  */
 export const getFQDN = (): string => {
-  return process.env.REACT_APP_FQDN || "";
+  return import.meta.env.VITE_FQDN ?? "";
 };
 
 /**
@@ -47,7 +47,7 @@ export const getRootSegment = (path: string): string | undefined => {
  * @category App
  */
 export const isAPQEnabled = () => {
-  return process.env.REACT_APP_APQ_ENABLED === "true";
+  return import.meta.env.VITE_APQ_ENABLED === "true";
 };
 
 export const getWorkspaceVersion = () => {

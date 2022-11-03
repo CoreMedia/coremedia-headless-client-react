@@ -28,7 +28,7 @@ const CommercePreviewPage: FC<CommercePreviewProps> = ({ match }) => {
   if (!commerceBeanType) {
     return <Alert title="Invalid Type" message="Sorry, the requested type is not available." />;
   }
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+
   const { data, loading, error } = useCommercePreviewQuery({
     variables: {
       externalId: match.params.externalId,

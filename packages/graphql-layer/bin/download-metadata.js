@@ -13,18 +13,14 @@ const dotenv = require("dotenv");
 
 dotenv.config({ path: path.resolve(__dirname, '../../../apps/spark/.env') });
 
-// check for headless-server
-if(process.env.REACT_APP_API_ENDPOINT === undefined) {
-  console.log("Skip Download of interfaces.json. Environment variable REACT_APP_API_ENDPOINT is not set.");
-  process.exit(0);
-}
-
 // disable for self-signed certs
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-// get interfaces and store them as interfaces.json
-console.log("Using REACT_APP_API_ENDPOINT=" + process.env.REACT_APP_API_ENDPOINT);
-fetch(process.env.REACT_APP_API_ENDPOINT+"/graphql", {
+const graphQlEndpoint = process.env.VITE_API_ENDPOINT ?? "http://localhost:4000";
+
+// get metadata and store them as metadata.json
+console.log("Using VITE_API_ENDPOINT=" + graphQlEndpoint);
+fetch(graphQlEndpoint + "/graphql", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({

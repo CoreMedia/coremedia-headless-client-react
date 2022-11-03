@@ -1,13 +1,6 @@
 fragment CMTeasableForNavigation on CMTeasable {
-  id
+  ...CMLinkable
   teaserTitle
-  title
-  segment
-  navigationPath {
-    segment
-    id
-    title
-  }
   picture {
     ...CMPicture
   }

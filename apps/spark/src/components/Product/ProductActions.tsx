@@ -1,11 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { DetailProduct } from "../../models/Detail/DetailProduct";
 import WishIcon from "./assets/wish.svg";
-
-interface Props {
-  product: DetailProduct;
-}
 
 const StyledActions = styled.div`
   display: flex;
@@ -64,7 +59,7 @@ const StyledWishlist = styled.button`
   }
 `;
 
-const ProductActions: React.FC<Props> = ({ product }) => {
+const ProductActions: React.FC = () => {
   return (
     <StyledActions>
       <StyledAddToCart>Add to cart</StyledAddToCart>

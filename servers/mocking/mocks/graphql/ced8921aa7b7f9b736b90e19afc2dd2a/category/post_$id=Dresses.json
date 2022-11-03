@@ -1,7 +1,7 @@
 {
   "data": {
     "category": {
-      "id": "ibm:///catalog/category/Dresses",
+      "id": "mock:///catalog/category/Dresses",
       "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
       "externalId": "Dresses",
       "shortId": "Dresses",

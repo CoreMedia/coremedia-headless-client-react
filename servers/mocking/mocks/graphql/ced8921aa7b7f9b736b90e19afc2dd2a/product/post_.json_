@@ -1,10 +1,10 @@
 {
   "data": {
     "product": {
-      "id": "ibm:///catalog/product/{{params.id}}",
+      "id": "mock:///catalog/product/{{params.id}}",
       "siteId": "ced8921aa7b7f9b736b90e19afc2dd2a",
       "name": "Product {{params.id}}",
-      "shortDescription": "<div>A delicious product to buy</div>",
+      "shortDescription": "<div>An awesome product to buy</div>",
       "offerPrice": 100,
       "listPrice": 250,
       "currency": "USD",
@@ -13,6 +13,8 @@
       "externalId": "{{params.id}}",
       "shortId": "{{params.id}}",
       "category": {
+        "id": "mock:///catalog/category/Dresses",
+        "shortId": "Apparel",
         "breadcrumb": [
           {
             "name": "Apparel",

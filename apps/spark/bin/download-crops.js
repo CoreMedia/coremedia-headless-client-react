@@ -10,29 +10,19 @@ const fetch = require("cross-fetch");
 const fs = require("fs");
 const path = require("path");
 const dotenv = require("dotenv");
-const siteId = "ced8921aa7b7f9b736b90e19afc2dd2a"; // this is the siteid of calista
 
 dotenv.config();
-
-// check for headless-server
-if (process.env.REACT_APP_API_ENDPOINT === undefined) {
-  console.log(
-    "Skip Download of image-crops.json. Environment variable REACT_APP_API_ENDPOINT is not set."
-  );
-  process.exit(0);
-}
 
 // disable for self-signed certs
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
+const siteId = "ced8921aa7b7f9b736b90e19afc2dd2a"; // this is the siteid of calista
+const graphQlEndpoint = process.env.VITE_API_ENDPOINT ?? "http://localhost:4000";
+
 // get the image crops and store them as image-crops.json
-console.log(
-  "Using REACT_APP_API_ENDPOINT=" + process.env.REACT_APP_API_ENDPOINT
-);
-console.log(
-  "Using SiteID=" + siteId
-);
-fetch(process.env.REACT_APP_API_ENDPOINT+"/graphql", {
+console.log("Using VITE_API_ENDPOINT=" + graphQlEndpoint);
+console.log("Using SiteID=" + siteId);
+fetch(process.env.VITE_API_ENDPOINT+"/graphql", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
