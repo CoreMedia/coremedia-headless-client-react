@@ -52,6 +52,7 @@ const SearchResultCaption = styled.div`
   }
   ${Time} {
     font-style: italic;
+    margin-right: 10px;
   }
 `;
 

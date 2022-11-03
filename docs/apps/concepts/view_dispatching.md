@@ -1,6 +1,6 @@
 # CoreMedia Headless Client Documentation
 
-[Documentation](docs/README.md) / [Concepts](README.md) / View Dispatching
+[Documentation](../../README.md) / [Concepts](README.md) / View Dispatching
 
 ---
 
@@ -47,16 +47,10 @@ example: `CMArticle.asHeroBanner.tsx`. All templates for view dispatching should
 be in folders called `views`. They will be used to redirect to the component or 
 container you wish to render a specific content with.
 
-A webpack plugin can gather all this information before each build and dev 
-server start up, so an up to date list of all views is available and can be 
-handed over to the View Dispatcher. A second important step is to import all 
-view templates into React, so they are available to render if chosen. The plugin 
-must pass the code into the bundled JavaScript.
-
 The second important information is the type hierarchy. The CoreMedia Headless 
 Server offers a list of all types for an interface, from most to least specific, 
 via GraphQL. It is downloaded and stored in 
-[interfaces.json](../../app/src/__downloaded__/interfaces.json) by the script
+[interfaces.json](../../../packages/graphql-layer/src/__downloaded__/interfaces.json) by the script
 `pnpm download:interfaces`.
 
 The resulting list looks like this:
@@ -105,25 +99,13 @@ with the same type, but without the view. If this template is not available, the
 parent type is taken for `CMTeaserImpl` and rendered, if 
 a `CMTeasable.asCarouselBanner.tsx` view is available.
 
-## Webpack Configuration
-
-The View dispatcher is extracted as a separate package and is available as 
-Webpack plugin. Create-React-App does not allow direct changes to its webpack
-configuration. [Craco](https://github.com/gsoft-inc/craco#craco) is a plugin to 
-make this possible again and you can use it  to include the `ViewLoaderPlugin`
-in the [craco.config.json](../../app/craco.config.js).
-
-The `viewPattern` is the folder pattern where the plugin will look for view 
-templates and the `viewDispatcherImportCode` is the import statement for webpack 
-to write into the bundled JavaScript.
-
 ## Render order
 
 1. Load `App`
-2. Routing to the selected `Page` container 
+2. Routing to the selected `Page` 
 3. Load data with ApolloClient from GraphQL server
 3. Render `PageGrid` with `header` and `footer`
 4. Iterate over Placements and dispatch the content to existing views
-5. Initialize view [models](../../app/src/models)
+5. Initialize view [models](../../../apps/spark/src/models)
 7. Render components with properties of the models
  

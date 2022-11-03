@@ -1,13 +1,6 @@
 fragment TeaserTarget on ExtendedTeaserTarget {
   target {
-    id
-    title
-    segment
-    navigationPath {
-      id
-      segment
-      title
-    }
+    ...CMLinkable
     ... on CMExternalLink {
       url
       openInNewTab

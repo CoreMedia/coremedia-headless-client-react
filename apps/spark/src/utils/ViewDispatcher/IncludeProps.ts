@@ -17,7 +17,7 @@ export interface AdditionalIncludeParams {
 }
 
 export default interface IncludeProps<T extends Dispatchable = Dispatchable> {
-  self: T;
+  self?: T;
   type?: string;
   view?: string;
   viewType?: string;

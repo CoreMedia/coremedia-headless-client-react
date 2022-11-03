@@ -21,6 +21,7 @@ fragment CMImageMap on CMImageMap {
     linkedContent {
       ...CMTeasable
       ...CMProductTeaser
+      ...CMExternalProduct
     }
   }
 }

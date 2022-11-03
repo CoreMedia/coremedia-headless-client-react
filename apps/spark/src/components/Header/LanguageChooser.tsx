@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
-import Flag from "react-flagpack";
 import { useSiteContextState } from "../../context/SiteContextProvider";
-
-import Link from "../Link/Link";
-
 import { getLink } from "../../utils/Link/LinkUtils";
+import Link from "../Link/Link";
 import SeoHeader from "./SeoHeader";
 
 export const LanguageToggle = styled.button`
@@ -73,6 +70,7 @@ export const LanguageChooserMenu = styled.ul<{ open: boolean }>`
     css`
       display: block;
     `}
+
   li {
     position: relative;
     display: block;
@@ -82,7 +80,7 @@ export const LanguageChooserMenu = styled.ul<{ open: boolean }>`
 
     a {
       line-height: 32px;
-      padding: 2px 0 2px 35px;
+      padding: 2px 0 2px 18px;
       margin: 0;
       text-decoration: none;
     }
@@ -115,45 +113,38 @@ export const StyledLanguageChooser = styled.li<{ open: boolean }>`
   flex-wrap: wrap;
   position: relative;
   border-radius: 2px;
+  border: 1px solid transparent;
+  border-bottom: 4px none;
 
   ${(props) =>
     props.open &&
     css`
       border-color: var(--color-background-light-grey);
       background-color: var(--color-background-light-grey);
+      border-radius: 2px 2px 0 0;
     `};
-
-  @media screen and (min-width: 768px) and (orientation: landscape), screen and (min-width: 1200px) {
-    display: inline-block;
-  }
-
-  border: 1px solid transparent;
-  border-bottom: 4px none;
 
   > span {
     display: inline-block;
     font-size: var(--font-size-text-small);
     line-height: 1.428571429;
-    padding: 6px 18px 6px 30px;
+    padding: 6px 18px;
     cursor: pointer; // always show pointer as it is either a dropdown or a link
     color: #fff;
     text-transform: uppercase;
     text-decoration: none;
+
+    ${(props) =>
+      props.open &&
+      css`
+        color: var(--color-background-dark);
+      `};
   }
 
   @media screen and (min-width: 768px) and (orientation: landscape), screen and (min-width: 1200px) {
     display: inline-block;
     border-bottom: 4px solid transparent;
   }
-`;
-const StyledFlag = styled(Flag)`
-  width: 20px !important;
-  height: 20px !important;
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  border-radius: 100% !important;
 `;
 
 const LanguageChooser: React.FC = () => {
@@ -177,29 +168,12 @@ const LanguageChooser: React.FC = () => {
       if (localizedLabel === localeString && region) {
         const regionLabel: any = `${regionDisplayNames.of(region)}`;
         if (region !== regionLabel) {
-          localizedLabel = `${regionLabel} (${locale.language})`;
+          localizedLabel = `${regionLabel} (${locale?.language?.toLocaleUpperCase()})`;
         }
       }
     } catch (e) {}
     return localizedLabel;
   };
-
-  const countryFromLocale = (locale?: string | null): string | undefined => {
-    let countryCode;
-    if (locale) {
-      const tmp = locale.split("-");
-      if (tmp && tmp.length === 2 && isNaN(parseInt(tmp[1]))) {
-        countryCode = tmp[1];
-
-        if (countryCode === "GB") {
-          countryCode = "GB-UKM";
-        }
-      }
-    }
-    return countryCode;
-  };
-
-  const currentCountry = countryFromLocale(me.locale);
 
   return (
     <>
@@ -215,23 +189,16 @@ const LanguageChooser: React.FC = () => {
             setClicked(!clicked);
           }}
         >
-          <span>
-            {currentCountry && <StyledFlag code={currentCountry} size="m" hasBorder={false} />}
-            {!currentCountry && localeDisplayName(me.locale)}
-          </span>
+          <span>{localeDisplayName(me.locale)}</span>
           <LanguageToggle type="button" aria-haspopup="true" />
           <LanguageChooserMenu open={clicked}>
             {localizedVariants.map((item, index) => {
-              const countryCode = countryFromLocale(item.locale);
               return (
                 item !== me &&
                 me.locale &&
                 item.locale && (
                   <li key={index}>
-                    <Link to={getLink(item, rootSegment).linkTarget}>
-                      {countryCode && <StyledFlag code={countryCode} size="m" hasBorder={false} />}
-                      {localeDisplayName(item.locale)}
-                    </Link>
+                    <Link to={getLink(item, rootSegment).linkTarget}>{localeDisplayName(item.locale)}</Link>
                   </li>
                 )
               );

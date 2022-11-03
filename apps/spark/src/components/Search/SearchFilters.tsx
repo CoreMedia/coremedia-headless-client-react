@@ -3,13 +3,11 @@ import styled, { css } from "styled-components";
 import SortFilter from "./SortFilter";
 import FacetFilters from "./Filters/FacetFilters";
 import FilterIcon from "./assets/filter.svg";
-import CloseIcon from "./assets/close.svg";
 
 const SearchFilterSwitch = styled.div`
   margin-bottom: 20px;
   text-align: right;
-  //ATM the backend API does not yet support filters
-  //display: none;
+
   @media screen and (min-width: 768px) {
     display: none;
   }
@@ -110,15 +108,6 @@ const SearchFilterButton = styled.button`
     outline: none;
     background-color: var(--color-green-highlight-active);
     box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 2px #000;
-  }
-  i {
-    vertical-align: text-top;
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-image: url(${CloseIcon});
   }
   span {
     display: none;

@@ -1,12 +1,5 @@
 fragment CMTaxonomy on CMTaxonomy {
-  id
-  title
-  segment
-  navigationPath {
-    id
-    segment
-    title
-  }
+  ...CMLinkable
   value
   navigationPath {
     segment

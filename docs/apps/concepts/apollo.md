@@ -64,5 +64,5 @@ An alternative is a feature called "Automatic Persisted Queries". A persisted
 query is a query string that's cached on the server side, along with its unique 
 identifier (always its SHA-256 hash). The Apollo client in the Spark app has been
 prepared for this. You can enable APQ with the environment variable 
-`REACT_APP_APQ_ENABLED=true`. For more information, see the Apollo Server
+`VITE_APQ_ENABLED=true`. For more information, see the Apollo Server
 [documentation](https://www.apollographql.com/docs/apollo-server/performance/apq/).

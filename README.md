@@ -1,6 +1,6 @@
 ![CoreMedia Labs Logo](https://documentation.coremedia.com/badges/banner_coremedia_labs_wide.png)
 
-![CoreMedia Content Cloud Version](https://img.shields.io/static/v1?message=2207&label=CoreMedia%20Content%20Cloud&style=for-the-badge&labelColor=666666&color=672779 
+![CoreMedia Content Cloud Version](https://img.shields.io/static/v1?message=master&label=CoreMedia%20Content%20Cloud&style=for-the-badge&labelColor=666666&color=672779 
 "This badge shows the CoreMedia version this project is compatible with. 
 Please read the versioning section of the project to see what other CoreMedia versions are supported and how to find them."
 )
@@ -17,7 +17,7 @@ This is the workspace of Spark - a React example application based on React,
 TypeScript and the Headless Server of CoreMedia Content Cloud. It contains a 
 GraphQL schema stitching server, and a commerce mocking server. The stitching 
 server provides a unified GraphQL interface with an optional waiver of the 
-otherwise  necessary commerce connection (GraphQL Mocking Server).
+otherwise necessary commerce connection (GraphQL Mocking Server).
 
 CoreMedia customers can use Spark as a quick start for building prototype 
 applications. Note that we do not recommend the use of these prototype apps in 
@@ -50,7 +50,7 @@ Please refer to the [changelog](CHANGELOG.md) for more details.
 
 ## Quickstart
 
-You need at least Node.js 16 (LTS), pnpm 6 and a running instance of the CoreMedia Content Cloud.
+You need at least Node.js 18 (LTS), pnpm 7 and a running instance of the CoreMedia Content Cloud.
 Define your environment variables in `.env` file for the stitching server:
 
 [servers/stitching/.env](servers/stitching/.env.example)

@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Run Apollo:Prepare" type="js.build_tools.npm">
-    <package-json value="$PROJECT_DIR$/packages/graphql-layer/package.json" />
+  <configuration default="false" name="Run Mocking" type="js.build_tools.npm">
+    <package-json value="$PROJECT_DIR$/servers/mocking/package.json" />
     <command value="run" />
     <scripts>
-      <script value="apollo:prepare" />
+      <script value="start" />
     </scripts>
     <node-interpreter value="project" />
     <envs />

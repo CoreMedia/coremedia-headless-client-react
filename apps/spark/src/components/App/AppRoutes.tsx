@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import { Route, Switch } from "react-router-dom";
-import DetailPage from "../../container/DetailPage";
-import Page from "../../container/Page";
-import ProductPage from "../../container/ProductPage";
-import CategoryPage from "../../container/CategoryPage";
-import SearchPage from "../../container/SearchPage";
-import TopicPage from "../../container/TopicPage";
-import AuthorPage from "../../container/AuthorPage";
+import DetailPage from "../../pages/DetailPage";
+import Page from "../../pages/Page";
+import ProductPage from "../../pages/ProductPage";
+import CategoryPage from "../../pages/CategoryPage";
+import SearchPage from "../../pages/SearchPage";
+import TopicPage from "../../pages/TopicPage";
+import AuthorPage from "../../pages/AuthorPage";
 
 /**
  * The site specific routes of the app

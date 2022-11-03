@@ -5,9 +5,9 @@ import { initializeSlot } from "../../../models/Grid/Slot";
 import { slotByName } from "../../../utils/PageGrid/PageGridUtil";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 
-const CMTeasableAsContainerPreview: React.FC<IncludeProps<CmCollection>> = ({ self, params }) => {
+const CMCollectionAsContainerPreview: React.FC<IncludeProps<CmCollection>> = ({ self, params }) => {
   const { rootSegment } = useSiteContextState();
-  const Container = slotByName((params?.containerView as string) || self.viewtype);
+  const Container = slotByName((params?.containerView as string) || self?.viewtype);
   return <Container {...initializeSlot(self, rootSegment)} />;
 };
-export default CMTeasableAsContainerPreview;
+export default CMCollectionAsContainerPreview;

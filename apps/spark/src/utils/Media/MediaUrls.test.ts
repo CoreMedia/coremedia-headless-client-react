@@ -1,10 +1,5 @@
 import { getImageUrl } from "./MediaUrls";
 
-beforeEach(() => {
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  jest.spyOn(console, "error").mockImplementation(() => {});
-});
-
 describe("media", () => {
   it("imageUrl with regular uriTemplate", () => {
     const exampleUriTemplate = "url/{cropName}/{width}";

@@ -1,12 +1,5 @@
 fragment CMPerson on CMPerson {
-  id
-  title
-  segment
-  navigationPath {
-    id
-    segment
-    title
-  }
+  ...CMLinkable
   displayName
   teaserText {
     text

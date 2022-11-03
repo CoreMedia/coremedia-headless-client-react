@@ -35,6 +35,7 @@
       clear: both;
     }
     .cm-preview-copy-code {
+      display: none;
       margin-top: 24px;
       position: relative;
       float: right;
@@ -74,7 +75,7 @@
       <div id="cm-headless-fragment"></div>
     </div>
     <div class="cm-preview-copy-code">
-      <textarea id="cm-copy-codeblock" readOnly="true"></textarea>
+      <textarea id="cm-copy-codeblock" readOnly="readonly"></textarea>
       <button id="cm-copy-button" onclick="copyToClipboard();">Copy Code</button>
       <span id="cm-copy-message"></span>
       <script>
@@ -83,7 +84,7 @@
         var pathname = window.location.pathname.substr(0, window.location.pathname.lastIndexOf("/")+1);
         var contentId = window.location.hash.replace("#", "");
         if(contentId.lastIndexOf("?") > 0) {
-          contentId = contentId.substr(0, contentId.lastIndexOf("?"));
+          contentId = contentId.substring(0, contentId.lastIndexOf("?"));
         }
         var elementId = "cm-headless-fragment";
 

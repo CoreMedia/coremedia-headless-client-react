@@ -1,6 +1,6 @@
 query CommercePreview($externalId: String!, $type: CommerceBeanType!, $siteId: String!) {
   commerceBeanByType(externalId: $externalId, type: $type, siteId: $siteId) {
-    ...CategoryDetail
-    ...ProductDetail
+    ...CategoryLink
+    ...ProductLink
   }
 }

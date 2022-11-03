@@ -9,14 +9,14 @@ export const viewDispatcher = new ViewDispatcher<ViewComponent>(typeHierarchy);
 
 const Include: React.FC<IncludeProps> = (props) => {
   const { self, type, view = defaultView, viewType } = props;
-  const resolvedType = type || self.__typename;
+  const resolvedType = type || self?.__typename;
 
   if (!resolvedType) {
     console.error("View Dispatcher: can't resolve type", self);
     return null;
   }
 
-  const resolvedViewType = self.viewtype || viewType || null;
+  const resolvedViewType = self?.viewtype || viewType || null;
 
   const Component = viewDispatcher.lookupView(resolvedType, view, resolvedViewType);
   if (!Component) {

@@ -13,7 +13,7 @@ are reflected in the embedded preview, either instantly (for simple content
 properties like strings) or through automatically reloading the preview.
 
 You can enable the preview features in the app by setting the environment 
-variable `REACT_APP_PREVIEW=true`. It is enabled in the developer mode by default.
+variable `VITE_PREVIEW=true`. It is enabled in the developer mode by default.
 
 To enable the Spark App and the Standalone Fragment App in the Studio Preview for all 
 Blueprints, add the configuration as depicted in the screenshot to the settings 
@@ -110,7 +110,7 @@ data-cm-metadata='[
 
 ## Fragmented Preview
 
-The app has a route to a special [PreviewPage.tsx](../../../apps/spark/src/container/PreviewPage.tsx),
+The app has a route to a special [PreviewPage.tsx](../../../apps/spark/src/pages/PreviewPage.tsx),
 if the app runs in preview mode. It renders a fragmented preview similar to the 
 CAE for a given content ID. You can define a list of views for every content type in 
 [FragmentsByType.ts](../../../apps/spark/src/components/FragmentPreview/FragmentsByType.ts).

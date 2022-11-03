@@ -1,19 +1,19 @@
-  fragment Product on Product {
+fragment Product on Product {
+  id
+  siteId
+  name
+  shortDescription
+  offerPrice
+  listPrice
+  currency
+  locale
+  externalId
+  ...ProductLink
+  thumbnailUrl
+  augmentation {
     id
-    siteId
-    name
-    shortDescription
-    offerPrice
-    listPrice
-    currency
-    locale
-    externalId
-    ...ProductLink
-    thumbnailUrl
-    augmentation {
-      id
-      picture {
-        ...CMPicture
-      }
+    picture {
+      ...CMPicture
     }
   }
+}

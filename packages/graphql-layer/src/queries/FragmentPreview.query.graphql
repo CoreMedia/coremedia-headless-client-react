@@ -2,19 +2,19 @@ query FragmentPreview($contentId: String!) {
   content {
     content(id: $contentId) {
       __typename
-      ...CMTeasableDetail
       ...CMTeasable
       ...CMPicturePreview
       ...CMVideo
       ...CMExternalChannel
       ...CMCollection
       ...CMImageMap
-      ...CMPersonDetail
       ...CMProductTeaser
       ...CMProduct
       ...CMExternalLink
       ...CMExternalProduct
       ...CMDownload
+      ...CMTeasableDetail
+      ...CMPersonDetail
     }
   }
 }

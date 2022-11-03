@@ -3,11 +3,7 @@ fragment Category on Category {
   siteId
   externalId
   name
-  shortId
-  breadcrumb {
-    name
-    externalId
-  }
+  ...CategoryLink
   augmentation {
     picture {
       ...CMPicture

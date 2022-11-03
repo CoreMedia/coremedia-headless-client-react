@@ -12,8 +12,7 @@ query Site($rootSegment: String!) {
         }
       }
       localizedVariants {
-        ...CMLinkable
-        locale
+        ...LocalizedVariant
       }
       ...CMTeasableForNavigation
       ... on CMExternalChannel {

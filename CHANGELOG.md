@@ -1,5 +1,31 @@
 # Changelog
 
+## v2210.0.0
+
+*Released 03.11.2022*
+
+### Features:
+
+- Replaced `react-scripts`, and `craco` with `vite`. [vite](https://vitejs.dev/) is faster and a modern way to build and develop apps. Used for spark and storybook.
+  Environment variables for Spark are now prefixed with `VITE_` instead of `REACT_APP_`.
+
+### Breaking Changes:
+
+- Updated `schema.json`, and `metadata.json`, to CoreMedia Content Cloud v11 - 2210.1
+- Updated `node.js` to 18 LTS
+- Renamed folder `container` to `pages`, because it describes the purpose better
+- Removed webpack `ViewLoaderPlugin` from `@coremedia-labs/view-dispatcher`, because we moved to vite and removed webpack. If you need to load views for lookup, import them manually.
+- Removed `react-flagpack`, because it is not maintained, is not compatible with react 18 and vite, and has bad typescript support.
+- Updated `jest` to version 29 and replaced it with `vitest` in Spark app
+
+### Bugfixes and Changes:
+
+- Fixed layout of search
+- Updated `eslint` to version 8
+- Updated minor versions of dependencies
+
+---
+
 ## v2207.0.1
 
 *Released 09.08.2022*
@@ -23,8 +49,8 @@
 ### Breaking Changes:
 
 - Changed codegen tooling from `apollo` to `@graphql-codegen/cli`. The new tooling is faster and generates gql and React Hooks automatically. All queries and fragments in the package `coremedia-labs/graphql-layer` have been changed to `.graphql` files. Therefore, we changed the version to 2.0.0.
-- Updated `schema.json`, and `interfaces.json` to CoreMedia Content Cloud v11 - 2207.1
-- Updated package manager "pnpm" tp version 7
+- Updated `schema.json` to CoreMedia Content Cloud v11 - 2207.1
+- Updated package manager "pnpm" to version 7
 
 ### Bugfixes and Changes:
 
@@ -110,7 +136,7 @@
 
 - Fixed unwanted page reload in search
 - Optimized fragmented preview for Studio Integration
-- Updated `nodejs` to 16
+- Updated `node.js` to 16
 - Updated all other minor dependencies
 - Removed empty scripts with `exit 0`, since `pnpm` workspace script don't need them
 

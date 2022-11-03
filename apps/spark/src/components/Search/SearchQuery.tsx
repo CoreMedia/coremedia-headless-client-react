@@ -34,7 +34,7 @@ export const SearchButton = styled.button`
 export const SearchInput = styled.input`
   width: 100%;
   height: auto;
-  display: none;
+  display: inline-block;
   padding: 6px 12px;
   color: #000;
   border: 1px solid #000;
@@ -52,14 +52,6 @@ export const SearchInput = styled.input`
 
   @media screen and (min-width: 768px) {
     width: 250px;
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1199px) and (orientation: landscape) {
-    display: inline-block;
-  }
-
-  @media screen and (min-width: 1200px) {
-    display: inline-block;
   }
 
   /* clears the 'X' from Internet Explorer */

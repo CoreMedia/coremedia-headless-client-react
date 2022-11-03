@@ -13,8 +13,20 @@ const StandaloneFragment: FC<Props> = ({ contentId, caasUri }) => {
   const { data, loading, error } = useStandaloneFragmentQuery({ variables: { contentId } });
 
   if (loading) return <Loading />;
-  if (error) return <></>;
-  if (!data || !data.content || !data.content.content) return <></>;
+  if (error)
+    return (
+      <>
+        <h2>Error</h2>
+        <p>{error.message}</p>
+      </>
+    );
+  if (!data || !data.content || !data.content.content)
+    return (
+      <>
+        <h2>Error</h2>
+        <p>No content found.</p>
+      </>
+    );
 
   const content = data.content.content as StandaloneTeasableFragment;
 
@@ -32,14 +44,19 @@ const StandaloneFragment: FC<Props> = ({ contentId, caasUri }) => {
     },
   };
 
+  const codeblock = document.querySelector(".cm-preview-copy-code") as HTMLElement;
+  codeblock.style.display = "block";
+
   // view
   return (
-    <div>
-      <div>
+    <div className={"cm-banner"}>
+      <div className={"cm-banner__caption"}>
         <h1>{banner.teaserTitle}</h1>
         <div>{banner.teaserText}</div>
       </div>
-      <picture>{banner.picture.url && <img src={banner.picture.url} alt={banner.picture.alt} />}</picture>
+      <picture className={"cm-banner__picture"}>
+        {banner.picture.url && <img src={banner.picture.url} alt={banner.picture.alt} />}
+      </picture>
     </div>
   );
 };

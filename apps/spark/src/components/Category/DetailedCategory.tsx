@@ -20,7 +20,8 @@ const Sidebar = styled.div`
   max-width: 25%;
 
   > div {
-    max-width: 100%;
+    float: none;
+    width: auto;
   }
 `;
 const Content = styled.div`
