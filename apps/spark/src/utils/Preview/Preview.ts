@@ -3,11 +3,11 @@ import { ZonedDateTime, DateTimeFormatter, convert } from "@js-joda/core";
 const STUDIO_FORMAT: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm VV");
 
 /**
- * Checks for preview mode based on `REACT_APP_PREVIEW` or `mode` === "development"
+ * Checks for preview mode based on `VITE_PREVIEW` or `mode` === "development"
  * @return boolean preview mode
  */
 export const isPreview = (): boolean => {
-  return import.meta.env.REACT_APP_PREVIEW === "true" || import.meta.env.DEV;
+  return import.meta.env.VITE_PREVIEW === "true" || import.meta.env.DEV;
 };
 
 /**
