@@ -11,7 +11,7 @@ export default defineConfig({
       jsxRuntime: "classic",
     }),
   ],
-  base: "./",
+  base: "/",
   build: {
     // split chunks manually to avoid one big js file.
     rollupOptions: {

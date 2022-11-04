@@ -20,7 +20,7 @@ export const getEndpoint = (): string => {
 };
 
 /**
- * Returns REACT_APP_FQDN or empty string (for relative URLs).
+ * Returns VITE_FQDN or empty string (for relative URLs).
  * Used for link building
  * @category App
  */
@@ -43,7 +43,7 @@ export const getRootSegment = (path: string): string | undefined => {
 };
 
 /**
- * Returns true if REACT_APP_APQ_ENABLED is set to "true"
+ * Returns true if VITE_APQ_ENABLED is set to "true"
  * @category App
  */
 export const isAPQEnabled = () => {
