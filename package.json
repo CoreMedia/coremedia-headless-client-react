@@ -41,7 +41,7 @@
     "concurrently": "^7.5.0"
   },
   "devDependencies": {
-    "husky": "^8.0.1"
+    "husky": "^8.0.2"
   },
   "pnpm": {
     "peerDependencyRules": {
