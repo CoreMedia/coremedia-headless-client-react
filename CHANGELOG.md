@@ -2,12 +2,13 @@
 
 ## v2210.0.1
 
-*Released 04.11.2022*
+*Released 11.11.2022*
 
 ### Bugfixes:
 
 - Fixed relative base path for Spark in the vite.config.ts
 - Fixed missed out `VITE_` environment variables changes for preview
+- Updated minor versions of dependencies to fix security vulnerability
 
 ---
 
