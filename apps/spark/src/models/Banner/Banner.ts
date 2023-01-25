@@ -1,4 +1,10 @@
-import { CmLinkable, ProductRef, CmTeasableFragment, ProductImpl } from "@coremedia-labs/graphql-layer";
+import {
+  CmLinkable,
+  ProductRef,
+  CmTeasableFragment,
+  ProductImpl,
+  P13NExperience
+} from "@coremedia-labs/graphql-layer";
 import { LinkAttributes } from "../../components/Link/Link";
 import { getLink } from "../../utils/Link/LinkUtils";
 import { PreviewMetadata, getPropertyName } from "../../utils/Preview/MetaData";
@@ -122,7 +128,7 @@ export const initializeBanner = (self: CmTeasableFragment, rootSegment: string):
 };
 
 export const initializeBannerFor = (self: Dispatchable, rootSegment: string): Banner | null => {
-  const type = self.__typename;
+  const type = self.__typename;;
   if (type && type.indexOf("CM") >= 0) {
     return initializeBanner(self as CmTeasableFragment, rootSegment);
   } else if (type && type.indexOf("ProductRef") >= 0) {
@@ -135,6 +141,9 @@ export const initializeBannerFor = (self: Dispatchable, rootSegment: string): Ba
     );
   } else if (type && type.indexOf("ProductImpl") >= 0) {
     return initializeProductBannerFromProduct(self as ProductImpl, rootSegment);
+  } else if (type && type.indexOf("P13NExperience") >=0) {
+    const experience: P13NExperience = self as P13NExperience;
+    return initializeBanner(experience.baseline as CmTeasableFragment, rootSegment);
   }
   return null;
 };
