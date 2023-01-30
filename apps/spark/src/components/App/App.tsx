@@ -8,7 +8,7 @@ import { SiteContextProvider } from "../../context/SiteContextProvider";
 import { getRootSegment, isAPQEnabled } from "../../utils/App/App";
 import PreviewPage from "../../pages/PreviewPage";
 import { initializeApollo } from "../../utils/App/Apollo";
-import { getPreviewDate, isPreview } from "../../utils/Preview/Preview";
+import {getPreviewDate, getPreviewP13NExperiences, isPreview} from "../../utils/Preview/Preview";
 import { PreviewContextProvider } from "../../context/PreviewContextProvider";
 import SearchStateContextProvider, { SearchSortField } from "../../context/SearchStateContext";
 import CommercePreviewPage from "../../pages/CommercePreviewPage";
@@ -31,6 +31,7 @@ const App: FC = () => {
   const location = useLocation();
   const rootSegment = getRootSegment(location.pathname) || "calista";
   const previewDate = getPreviewDate(location.search);
+  const previewP13Experiences = getPreviewP13NExperiences(location.search);
   const urlSearchParams = useMemo(() => new URLSearchParams(location.search), [location.search]);
   const apolloClient = initializeApollo(previewDate, isAPQEnabled());
 
@@ -64,7 +65,7 @@ const App: FC = () => {
 
   return (
     <ApolloProvider client={apolloClient}>
-      <PreviewContextProvider previewDate={previewDate}>
+      <PreviewContextProvider previewDate={previewDate} previewP13Experiences={previewP13Experiences}>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <SiteContextProvider rootSegment={rootSegment} currentNavigation={location.pathname}>

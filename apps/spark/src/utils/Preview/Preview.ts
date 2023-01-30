@@ -21,6 +21,16 @@ export const getPreviewDate = (queryParams: string): string | undefined => {
 };
 
 /**
+ * Extract the p13Experience from URL path
+ * @param queryParams the query params of "react-router-dom"
+ * @return string p13Experience
+ */
+export const getPreviewP13NExperiences = (queryParams: string): Object | undefined => {
+  const p13nExperiences = new URLSearchParams(queryParams).get("p13n_experiences");
+  return (isPreview() && p13nExperiences && JSON.parse(p13nExperiences)) || undefined;
+};
+
+/**
  * Formats the previewDate in the format required by the headless endpoint
  * @param previewDate the preview date
  * @return formatted preview date

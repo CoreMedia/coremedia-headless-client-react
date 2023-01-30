@@ -7,6 +7,7 @@ import { slotByName } from "../../../utils/PageGrid/PageGridUtil";
 import { Dispatchable } from "../../../utils/ViewDispatcher/Dispatchable";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 import { notEmpty } from "../../../utils/Helpers";
+import {usePreviewContextState} from "../../../context/PreviewContextProvider";
 
 const getContainer = (items: Array<Dispatchable>, rootSegment: string): Slot => {
   return {
@@ -17,8 +18,15 @@ const getContainer = (items: Array<Dispatchable>, rootSegment: string): Slot => 
 const P13ExperienceAsContainerPreview: React.FC<IncludeProps<P13NExperience>> = ({ self, params }) => {
   const { rootSegment } = useSiteContextState();
   const Container = slotByName(params?.containerView as string);
-  const p13nVariant = self && self.variants && self.variants.at(0);
-  const p13nTarget = p13nVariant && p13nVariant.target;
-  return <>{p13nTarget && <Container {...getContainer([p13nTarget], rootSegment)} />}</>;
+  const { previewP13Experiences } = usePreviewContextState();
+  const previewP13Variants = previewP13Experiences && previewP13Experiences.variants;
+  const p13nVariants = self && self.variants;
+  let p13nTargets = self && self.baseline && [self.baseline];
+  if (previewP13Variants && p13nVariants) {
+    p13nTargets = p13nVariants
+      .filter((p13nVariant) => previewP13Variants.indexOf(p13nVariant.id) >= 0)
+      .map((p13nVariant) => p13nVariant.target);
+  }
+  return <>{p13nTargets && <Container {...getContainer(p13nTargets, rootSegment)} />}</>;
 };
 export default P13ExperienceAsContainerPreview;
