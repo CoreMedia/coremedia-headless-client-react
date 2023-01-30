@@ -1,6 +1,11 @@
 fragment P13NExperience on P13NExperience {
   baseline {
     ...CMTeasable
-
+  }
+  variants {
+    id
+    target {
+      ...CMTeasable
+    }
   }
 }
