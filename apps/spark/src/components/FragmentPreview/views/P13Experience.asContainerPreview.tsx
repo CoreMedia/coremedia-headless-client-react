@@ -1,5 +1,5 @@
 import React from "react";
-import {P13NExperience} from "@coremedia-labs/graphql-layer";
+import {CmTeasable, P13NExperience} from "@coremedia-labs/graphql-layer";
 import { useSiteContextState } from "../../../context/SiteContextProvider";
 import { initializeBannerFor } from "../../../models/Banner/Banner";
 import { Slot } from "../../../models/Grid/Slot";
@@ -21,11 +21,12 @@ const P13ExperienceAsContainerPreview: React.FC<IncludeProps<P13NExperience>> = 
   const { previewP13Experiences } = usePreviewContextState();
   const previewP13Variants = previewP13Experiences && previewP13Experiences.variants;
   const p13nVariants = self && self.variants;
-  let p13nTargets = self && self.baseline && [self.baseline];
+  const baseline = self && self.baseline as CmTeasable;
+  let p13nTargets = baseline && [baseline];
   if (previewP13Variants && p13nVariants) {
     p13nTargets = p13nVariants
       .filter((p13nVariant) => previewP13Variants.indexOf(p13nVariant.id) >= 0)
-      .map((p13nVariant) => p13nVariant.target);
+      .map((p13nVariant) => p13nVariant.target as CmTeasable);
   }
   return <>{p13nTargets && <Container {...getContainer(p13nTargets, rootSegment)} />}</>;
 };
