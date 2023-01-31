@@ -1,11 +1,12 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 
 interface PreviewContext {
   previewDate?: string;
   previewP13Experiences?: PreviewP13Experiences;
+  setExp2?: Function;
 }
 
-interface PreviewP13Experiences {
+export interface PreviewP13Experiences {
   variants?: string[];
 
 }
@@ -13,7 +14,7 @@ interface PreviewP13Experiences {
 const previewDataContext = React.createContext<PreviewContext>({});
 
 export const usePreviewContextState = (): PreviewContext => {
-  const context = React.useContext(previewDataContext);
+  const context = useContext(previewDataContext);
   if (context === undefined) {
     throw new Error("usePreviewContextState must be used within a PreviewDataProvider");
   }
@@ -28,9 +29,12 @@ interface Props {
 export const PreviewContextProvider: React.FC<Props> = ({ children,
                                                           previewDate,
                                                           previewP13Experiences}) => {
+  // the experience context ist used as state so that it can be manipulated.
+  const [exp, setExp] = useState(previewP13Experiences);
   const previewContextValue: PreviewContext = {
     previewDate: previewDate,
-    previewP13Experiences: previewP13Experiences,
+    previewP13Experiences: exp,
+    setExp2: setExp,
   };
   return <previewDataContext.Provider value={previewContextValue}>{children}</previewDataContext.Provider>;
 };
