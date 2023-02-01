@@ -7,7 +7,7 @@ import typeHierarchy from "../utils/ViewDispatcher/Interfaces";
 import Loading from "../components/Loading/Loading";
 import {ApolloClientAlert, PageNotFoundAlert} from "../components/Error/Alert";
 import FragmentPreview from "../components/FragmentPreview/FragmentPreview";
-import {PreviewP13Experiences, usePreviewContextState} from "../context/PreviewContextProvider";
+import {PreviewP13NExperiences, usePreviewContextState} from "../context/PreviewContextProvider";
 
 // Initialize the viewDispatcher
 const viewDispatcher = new ViewDispatcher<Fragment | Fragment[]>(typeHierarchy);
@@ -51,7 +51,7 @@ const PreviewPage: FC<FragmentPreviewProps> = ({ match }) => {
     const data = event.data;
     if (data.type === "previewExperience") {
       const variantId = data?.body?.variantId;
-      const exp:PreviewP13Experiences = {variants: [variantId]};
+      const exp:PreviewP13NExperiences = {variants: [variantId]};
       setExp2 && setExp2(exp);
     }
   }, false);

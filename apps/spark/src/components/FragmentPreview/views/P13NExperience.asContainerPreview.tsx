@@ -15,11 +15,11 @@ const getContainer = (items: Array<Dispatchable>, rootSegment: string): Slot => 
   };
 };
 
-const P13ExperienceAsContainerPreview: React.FC<IncludeProps<P13NExperience>> = ({ self, params }) => {
+const P13NExperienceAsContainerPreview: React.FC<IncludeProps<P13NExperience>> = ({ self, params }) => {
   const { rootSegment } = useSiteContextState();
   const Container = slotByName(params?.containerView as string);
-  const { previewP13Experiences } = usePreviewContextState();
-  const previewP13Variants = previewP13Experiences && previewP13Experiences.variants;
+  const { previewP13NExperiences } = usePreviewContextState();
+  const previewP13Variants = previewP13NExperiences && previewP13NExperiences.variants;
   const p13nVariants = self && self.variants;
   const baseline = self && self.baseline as CmTeasable;
   let p13nTargets = baseline && [baseline];
@@ -30,4 +30,4 @@ const P13ExperienceAsContainerPreview: React.FC<IncludeProps<P13NExperience>> = 
   }
   return <>{p13nTargets && <Container {...getContainer(p13nTargets, rootSegment)} />}</>;
 };
-export default P13ExperienceAsContainerPreview;
+export default P13NExperienceAsContainerPreview;

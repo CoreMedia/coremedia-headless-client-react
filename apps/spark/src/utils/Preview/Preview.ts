@@ -21,9 +21,9 @@ export const getPreviewDate = (queryParams: string): string | undefined => {
 };
 
 /**
- * Extract the p13Experience from URL path
+ * Extract the p13NExperiences from URL path
  * @param queryParams the query params of "react-router-dom"
- * @return string p13Experience
+ * @return Object p13NExperiences
  */
 export const getPreviewP13NExperiences = (queryParams: string): Object | undefined => {
   const p13nExperiences = new URLSearchParams(queryParams).get("p13n_experiences");

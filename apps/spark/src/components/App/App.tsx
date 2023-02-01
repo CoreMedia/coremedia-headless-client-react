@@ -31,7 +31,7 @@ const App: FC = () => {
   const location = useLocation();
   const rootSegment = getRootSegment(location.pathname) || "calista";
   const previewDate = getPreviewDate(location.search);
-  const previewP13Experiences = getPreviewP13NExperiences(location.search);
+  const previewP13NExperiences = getPreviewP13NExperiences(location.search);
   const urlSearchParams = useMemo(() => new URLSearchParams(location.search), [location.search]);
   const apolloClient = initializeApollo(previewDate, isAPQEnabled());
 
@@ -65,7 +65,7 @@ const App: FC = () => {
 
   return (
     <ApolloProvider client={apolloClient}>
-      <PreviewContextProvider previewDate={previewDate} previewP13Experiences={previewP13Experiences}>
+      <PreviewContextProvider previewDate={previewDate} previewP13NExperiences={previewP13NExperiences}>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <SiteContextProvider rootSegment={rootSegment} currentNavigation={location.pathname}>

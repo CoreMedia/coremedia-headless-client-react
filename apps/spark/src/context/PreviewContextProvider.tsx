@@ -2,11 +2,11 @@ import React, {useContext, useState} from "react";
 
 interface PreviewContext {
   previewDate?: string;
-  previewP13Experiences?: PreviewP13Experiences;
+  previewP13NExperiences?: PreviewP13NExperiences;
   setExp2?: Function;
 }
 
-export interface PreviewP13Experiences {
+export interface PreviewP13NExperiences {
   variants?: string[];
 
 }
@@ -23,17 +23,17 @@ export const usePreviewContextState = (): PreviewContext => {
 
 interface Props {
   previewDate?: string;
-  previewP13Experiences?: PreviewP13Experiences;
+  previewP13NExperiences?: PreviewP13NExperiences;
 }
 
 export const PreviewContextProvider: React.FC<Props> = ({ children,
                                                           previewDate,
-                                                          previewP13Experiences}) => {
+                                                          previewP13NExperiences}) => {
   // the experience context ist used as state so that it can be manipulated.
-  const [exp, setExp] = useState(previewP13Experiences);
+  const [exp, setExp] = useState(previewP13NExperiences);
   const previewContextValue: PreviewContext = {
     previewDate: previewDate,
-    previewP13Experiences: exp,
+    previewP13NExperiences: exp,
     setExp2: setExp,
   };
   return <previewDataContext.Provider value={previewContextValue}>{children}</previewDataContext.Provider>;
