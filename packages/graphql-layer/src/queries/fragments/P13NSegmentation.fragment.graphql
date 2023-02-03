@@ -1,0 +1,11 @@
+fragment P13NSegmentation on P13NSegmentation {
+  baseline {
+    ...CMTeasable
+  }
+  variants {
+    id
+    target {
+      ...CMTeasable
+    }
+  }
+}

@@ -20,6 +20,7 @@ import CMTeasableAsContainerPreview from "./views/CMTeasable.asContainerPreview"
 import CMTeasableAsFullPreview from "./views/CMTeasable.asFullPreview";
 import ProductAsPreview from "./views/Product.asPreview";
 import P13NExperienceAsContainerPreview from "./views/P13NExperience.asContainerPreview";
+import P13NSegmentationAsContainerPreview from "./views/P13NSegmentation.asContainerPreview";
 
 /* add views to view dispatcher */
 viewDispatcher.addViewComponent(CategoryAsPreview, "Category", "asPreview");
@@ -33,6 +34,7 @@ viewDispatcher.addViewComponent(CMTeasableAsContainerPreview, "CMTeasable", "asC
 viewDispatcher.addViewComponent(CMTeasableAsFullPreview, "CMTeasable", "asFullPreview");
 viewDispatcher.addViewComponent(ProductAsPreview, "Product", "asPreview");
 viewDispatcher.addViewComponent(P13NExperienceAsContainerPreview, "P13NExperience", "asContainerPreview");
+viewDispatcher.addViewComponent(P13NSegmentationAsContainerPreview, "P13NSegmentation", "asContainerPreview");
 
 interface Props {
   self: Dispatchable;
