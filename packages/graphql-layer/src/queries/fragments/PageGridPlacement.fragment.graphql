@@ -19,6 +19,8 @@ fragment PageGridPlacement on PageGridPlacement {
     ...CMPlaceholder
     ...CMExternalProduct
     ...CMDownload
+    ...P13NExperience
+    ...P13NSegmentation
     #Navigation fragment is required to load children when being placed in footer or footer-navigation
     ... on CMNavigation {
       children {

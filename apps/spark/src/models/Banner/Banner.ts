@@ -1,4 +1,4 @@
-import { CmLinkable, ProductRef, CmTeasableFragment, ProductImpl } from "@coremedia-labs/graphql-layer";
+import { CmLinkable, ProductRef, CmTeasableFragment, ProductImpl, P13NExperience} from "@coremedia-labs/graphql-layer";
 import { LinkAttributes } from "../../components/Link/Link";
 import { getLink } from "../../utils/Link/LinkUtils";
 import { PreviewMetadata, getPropertyName } from "../../utils/Preview/MetaData";
@@ -21,6 +21,7 @@ import {
 import { addTags, Tag } from "./Tag";
 import { Target } from "./Target";
 import { addTimeline, addVideo, SupportsTimeline, SupportsVideo } from "./VideoBanner";
+import {getP13NVariants} from "./P13N";
 
 /**
  * @category ViewModels
@@ -135,6 +136,10 @@ export const initializeBannerFor = (self: Dispatchable, rootSegment: string): Ba
     );
   } else if (type && type.indexOf("ProductImpl") >= 0) {
     return initializeProductBannerFromProduct(self as ProductImpl, rootSegment);
+  } else if (type && type.indexOf("P13NExperience") >= 0) {
+    const p13NVariants = getP13NVariants(self as P13NExperience);
+    // TODO: we take the first one from the array. Don't we need to populate the banner with more variants?
+    return initializeBanner(p13NVariants.at(0) as CmTeasableFragment, rootSegment);
   }
   return null;
 };
