@@ -1,7 +1,7 @@
 import {CmTeasable, P13NExperience} from "@coremedia-labs/graphql-layer";
 import {usePreviewContextState} from "../../context/PreviewContextProvider";
 
-export const getP13NVariants = (self: P13NExperience): Array<CmTeasable> => {
+export const getP13NTargets = (self: P13NExperience): Array<CmTeasable> => {
   const {previewP13NExperiences} = usePreviewContextState();
   const previewP13Variants = previewP13NExperiences && previewP13NExperiences.variants;
   // previewP13Variants can be set to 'baseline' (preview 'eye' usecase)

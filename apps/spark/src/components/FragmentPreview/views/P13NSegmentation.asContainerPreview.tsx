@@ -1,13 +1,13 @@
 import React from "react";
-import {CmTeasable, P13NSegmentation} from "@coremedia-labs/graphql-layer";
-import { useSiteContextState } from "../../../context/SiteContextProvider";
-import { initializeBannerFor } from "../../../models/Banner/Banner";
-import { Slot } from "../../../models/Grid/Slot";
-import { slotByName } from "../../../utils/PageGrid/PageGridUtil";
-import { Dispatchable } from "../../../utils/ViewDispatcher/Dispatchable";
+import {P13NSegmentation} from "@coremedia-labs/graphql-layer";
+import {useSiteContextState} from "../../../context/SiteContextProvider";
+import {initializeBannerFor} from "../../../models/Banner/Banner";
+import {Slot} from "../../../models/Grid/Slot";
+import {slotByName} from "../../../utils/PageGrid/PageGridUtil";
+import {Dispatchable} from "../../../utils/ViewDispatcher/Dispatchable";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
-import { notEmpty } from "../../../utils/Helpers";
-import {usePreviewContextState} from "../../../context/PreviewContextProvider";
+import {notEmpty} from "../../../utils/Helpers";
+import {getP13NTargets} from "../../../models/Banner/P13N";
 
 const getContainer = (items: Array<Dispatchable>, rootSegment: string): Slot => {
   return {
@@ -19,20 +19,7 @@ const P13NSegmentationAsContainerPreview: React.FC<IncludeProps<P13NSegmentation
   const { rootSegment } = useSiteContextState();
   const Container = slotByName(params?.containerView as string);
   // TODO: segmentation in preview doesn't work (eye use case do though). There must be another url parameter?
-  const { previewP13NExperiences } = usePreviewContextState();
-  const previewP13Variants = previewP13NExperiences && previewP13NExperiences.variants;
-  //previewP13Variants can contain 'baseline'
-  let p13nVariants = self && self.variants && self.variants.slice();
-  const baseline = self && self.baseline as CmTeasable;
-  if (baseline) {
-    p13nVariants?.push({id: 'baseline', target: baseline});
-  }
-  let p13nTargets = baseline && [baseline];
-  if (previewP13Variants && p13nVariants) {
-    p13nTargets = p13nVariants
-      .filter((p13nVariant) => previewP13Variants.indexOf(p13nVariant.id) >= 0)
-      .map((p13nVariant) => p13nVariant.target as CmTeasable);
-  }
-  return <>{p13nTargets && <Container {...getContainer(p13nTargets, rootSegment)} />}</>;
+  const p13NTargets = self && getP13NTargets(self);
+  return <>{p13NTargets && <Container {...getContainer(p13NTargets, rootSegment)} />}</>;
 };
 export default P13NSegmentationAsContainerPreview;
