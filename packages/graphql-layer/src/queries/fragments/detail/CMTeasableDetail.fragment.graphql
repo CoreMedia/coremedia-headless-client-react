@@ -33,5 +33,7 @@ fragment CMTeasableDetail on CMTeasable {
     ...CMTeasable
     ...CMCollection
     ...CMProduct
+    ...P13NExperience
+    ...P13NSegmentation
   }
 }
