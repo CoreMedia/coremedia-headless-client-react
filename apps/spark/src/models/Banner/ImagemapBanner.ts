@@ -60,6 +60,8 @@ export interface HotZoneProps {
   self: Banner;
   name: string;
   shape?: string | null;
+  displayAsInlineOverlay: boolean | null;
+  inlineOverlayTheme: string | null;
 }
 
 export interface SupportsImagemap extends PreviewMetadata {
@@ -103,6 +105,8 @@ const createHotZoneProps = (hotZone: Hotzone, crop: Crop, rootSegment: string): 
     position: position,
     self: initializeBanner(hotZone.linkedContent, rootSegment),
     shape: hotZone.shape,
+    displayAsInlineOverlay: hotZone.displayAsInlineOverlay,
+    inlineOverlayTheme: hotZone.inlineOverlayTheme,
   };
 };
 

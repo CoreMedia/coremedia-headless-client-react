@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    "coremedia.preview": ["./src/preview.js", "./src/placement-highlighting.js"],
+    "coremedia.preview": ["./src/preview.js", "./src/placement-highlighting.js", "./src/campaign-highlighting.js"],
   },
   output: {
     filename: "[name].js",

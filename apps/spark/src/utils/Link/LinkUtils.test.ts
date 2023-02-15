@@ -7,6 +7,7 @@ describe("linkutil", () => {
     const teaser: CmLinkableFragment = {
       __typename: "CMArticleImpl",
       id: "1234",
+      uuid: "0d204490-1200-49e0-8233-0051520ed122",
       title: "Title",
       segment: "Segment",
       navigationPath: [
@@ -28,6 +29,7 @@ describe("linkutil", () => {
     const channel: CmLinkableFragment = {
       __typename: "CMChannelImpl",
       id: "1234",
+      uuid: "c5c345b2-050b-4c92-8f70-c5573e002738",
       title: "Title",
       segment: "Segment",
       navigationPath: [
@@ -49,6 +51,7 @@ describe("linkutil", () => {
     const download: CmDownloadFragment = {
       __typename: "CMDownloadImpl",
       id: "1234",
+      uuid: "32637f90-2bc7-4a25-8eee-e2a6057cbb31",
       title: "Title",
       segment: "Segment",
       picture: null,
@@ -81,6 +84,7 @@ describe("linkutil", () => {
     const download: CmExternalLinkFragment = {
       __typename: "CMExternalLinkImpl",
       id: "1234",
+      uuid: "738aac5b-81b9-4dfb-be68-7ebfb9c85111",
       title: "Title",
       segment: "Segment",
       picture: null,

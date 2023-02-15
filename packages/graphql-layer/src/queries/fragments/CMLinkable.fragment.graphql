@@ -1,5 +1,6 @@
 fragment CMLinkable on CMLinkable {
   id
+  uuid
   title
   segment
   navigationPath {

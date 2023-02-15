@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Image from "../Media/Image";
 import { StyledMedia } from "../Details/DetailedMedia";
 import { useProductPageContextState } from "../../context/ProductPageContext";
+import Link from "../Link/Link";
 
 const StyledProductAssets = styled(StyledMedia)`
   flex: 2;
@@ -18,8 +19,12 @@ const StyledProductAsset = styled.div`
   padding: 2px;
 `;
 
+const StyledProductDownloads = styled.div`
+  width: 100%;
+`;
+
 const ProductAssets: React.FC = () => {
-  const { media } = useProductPageContextState();
+  const { media, downloads } = useProductPageContextState();
   return (
     <StyledProductAssets>
       {media &&
@@ -32,6 +37,22 @@ const ProductAssets: React.FC = () => {
             )
           );
         })}
+      {downloads && downloads.length > 0 && (
+        <StyledProductDownloads>
+          <h3>Downloads</h3>
+          <ul>
+            {downloads.map((download, index) => {
+              return (
+                <li key={index}>
+                  <Link to={download.data?.uri} openInNewTab={true} externalLink={true}>
+                    {download.title}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </StyledProductDownloads>
+      )}
     </StyledProductAssets>
   );
 };

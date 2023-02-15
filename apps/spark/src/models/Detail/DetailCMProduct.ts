@@ -10,6 +10,7 @@ import { Detail, initializeDetail } from "./Detail";
  */
 export interface Download extends LinkAttributes {
   title?: string;
+  data?: { uri: string | null } | null;
 }
 
 /**

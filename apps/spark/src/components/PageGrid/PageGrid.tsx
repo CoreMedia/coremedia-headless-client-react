@@ -13,7 +13,7 @@ export const StyledGrid = styled.div`
   --grid-gap: var(--padding-medium);
 `;
 
-const PageGrid: FC<Grid> = ({ rows = [] }) => {
+const PageGrid: FC<Grid> = ({ rows = [], campaignDataSlots }) => {
   if (!rows) {
     return <Alert message={"Error: PageGrid has no rows."} />;
   }
@@ -22,7 +22,7 @@ const PageGrid: FC<Grid> = ({ rows = [] }) => {
     <>
       {rows.map((row, rowindex) => (
         <Row {...row} key={rowindex}>
-          {row.cols?.map((placement, index) => {
+          {row.cols?.map((placement) => {
             // header and footer are already rendered by SiteContextProvider
             if (
               placement.name === "header" ||
@@ -32,7 +32,11 @@ const PageGrid: FC<Grid> = ({ rows = [] }) => {
             ) {
               return null;
             } else {
-              return <Col key={index} col={placement} />;
+              return (
+                <>
+                  <Col key={placement.name} col={placement} campaignDataSlots={campaignDataSlots} />
+                </>
+              );
             }
           })}
         </Row>

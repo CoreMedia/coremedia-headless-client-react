@@ -13,5 +13,8 @@ fragment ProductDetail on Product {
     pictures {
       ...CMPicture
     }
+    downloads {
+      ...CMDownload
+    }
   }
 }

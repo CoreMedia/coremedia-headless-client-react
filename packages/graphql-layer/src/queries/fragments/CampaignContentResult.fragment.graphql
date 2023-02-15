@@ -1,0 +1,29 @@
+fragment CampaignContentResult on SlotResult {
+  slots {
+    id
+    name
+    assignment {
+      id
+      refinements
+      items {
+        id
+        content {
+          ...CMTeasable
+          ...CMCollection
+          ...CMVideo
+          ...ShoppableVideo
+          ...CMImageMap
+          ...CMProductTeaser
+          ...CMExternalChannel
+          ...CMSelectionRules
+          ...CMProduct
+          ...CMExternalLink
+          ...CMPlaceholder
+          ...CMExternalProduct
+          ...CMDownload
+          ...CMHTML
+        }
+      }
+    }
+  }
+}

@@ -35,7 +35,7 @@ export const slotByName = (viewtype?: string | null) => {
       break;
     }
     default: {
-      container = HeroBannerContainer;
+      container = LeftRightBannerContainer;
     }
   }
   return container;

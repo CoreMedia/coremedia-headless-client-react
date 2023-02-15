@@ -1,0 +1,15 @@
+query PageByPathWithCampaigns($path: String!, $siteId: String!, $refinements: [String!]) {
+  content {
+    pageByPath(path: $path) {
+      id
+      uuid
+      title
+      grid {
+        ...PageGrid
+      }
+    }
+  }
+  campaignContent(site: $siteId, channelType: "content-page", refinements: $refinements) {
+    ...CampaignContentResult
+  }
+}

@@ -3,8 +3,12 @@ import { GraphQLResolveInfo, GraphQLSchema, Kind } from "graphql";
 import { WrapQuery } from "@graphql-tools/wrap";
 import logger from "./logger";
 
-export const resolvers = (coreMediaSchema: GraphQLSchema, catalogSchema: GraphQLSchema) => {
-  return {
+export const resolvers = (
+  coreMediaSchema: GraphQLSchema,
+  catalogSchema: GraphQLSchema,
+  campaignSchema?: GraphQLSchema
+) => {
+  const resolvers = {
     ProductRef: {
       product: {
         selectionSet: `{ externalId, siteId }`,
@@ -168,4 +172,53 @@ export const resolvers = (coreMediaSchema: GraphQLSchema, catalogSchema: GraphQL
       },
     },
   };
+
+  if (campaignSchema) {
+    resolvers["ContentRef"] = {
+      content: {
+        selectionSet: `{ id }`,
+        resolve(contentRef, args: Record<string, string>, context: Record<string, string>, info: GraphQLResolveInfo) {
+          const contentId = contentRef.id;
+          logger.debug("ContentRef#content " + contentId);
+          return delegateToSchema({
+            schema: coreMediaSchema,
+            operation: "query",
+            fieldName: "content",
+            context,
+            info,
+            transforms: [
+              new WrapQuery(
+                ["content"],
+                (subtree) => ({
+                  kind: Kind.SELECTION_SET,
+                  selections: [
+                    {
+                      kind: Kind.FIELD,
+                      name: {
+                        kind: Kind.NAME,
+                        value: "content",
+                      },
+                      arguments: [
+                        {
+                          kind: Kind.ARGUMENT,
+                          name: { kind: Kind.NAME, value: "id" },
+                          value: { kind: Kind.STRING, value: contentId },
+                        },
+                      ],
+                      selectionSet: subtree,
+                    },
+                  ],
+                }),
+                (result) => {
+                  return result && result.content;
+                }
+              ),
+            ],
+          });
+        },
+      },
+    };
+  }
+
+  return resolvers;
 };

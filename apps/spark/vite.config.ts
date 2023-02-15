@@ -17,15 +17,22 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes("slick")) {
-            return "slick";
-          } else if (id.includes("apollo") || id.includes("graphql")) {
-            return "graphql";
-          } else if (id.includes("react")) {
-            return "react";
-          } else if (id.includes("node_modules") && !id.includes("styled-components")) {
-            return "vendor";
+          // split only dependencies into chunks
+          if (id.indexOf("node_modules") > 0) {
+            // remove path of the workspace for chunk splitting to avoid wrong chunks,
+            // if the pathname include one of the given keywords
+            const packageId = id.substring(id.indexOf("node_modules"));
+            if (packageId.includes("slick")) {
+              return "slick";
+            } else if (packageId.includes("apollo") || packageId.includes("graphql")) {
+              return "graphql";
+            } else if (packageId.includes("react")) {
+              return "react";
+            } else if (!packageId.includes("styled-components")) {
+              return "vendor";
+            }
           }
+          // everything else will be part of index.js
         },
       },
     },
