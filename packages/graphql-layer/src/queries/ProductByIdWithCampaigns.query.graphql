@@ -1,0 +1,17 @@
+query ProductByIdWithCampaigns($externalId: String!, $siteId: String!, $refinements: [String!]) {
+  product(externalId: $externalId, siteId: $siteId) {
+    ...ProductDetail
+    augmentation {
+      id
+      pdpPagegrid {
+        id
+        placements(excludeNames: ["header", "footer", "footer-navigation"]) {
+          ...PageGridPlacement
+        }
+      }
+    }
+  }
+  campaignContent(site: $siteId, channelType: "product-page", refinements: $refinements) {
+    ...CampaignContentResult
+  }
+}

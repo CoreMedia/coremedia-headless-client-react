@@ -86,6 +86,25 @@ export const metaDataForPlacement = (name: string, hasItems?: boolean): metadata
 };
 
 /**
+ * Generates the CoreMedia metadata JSON for a [[CampaignSlot]].
+ * @param name The name of the slot
+ * @param hasItems Wether this slot has items or not
+ */
+export const metaDataForCampaignSlot = (name: string, hasItems?: boolean): metadata => {
+  if (!isPreview()) {
+    return undefined;
+  }
+  const metadata = [
+    { _: `properties.campaign-slot-${name}` },
+    {
+      campaignSlotRequest: [{ isInLayout: true, hasItems: hasItems || false, slotName: name }],
+    },
+  ];
+
+  return { "data-cm-metadata": JSON.stringify(metadata) };
+};
+
+/**
  * Generates the CoreMedia metadata JSON including the responsive device settings.
  */
 export const metaDataForResponsiveDevices = (): metadata => {

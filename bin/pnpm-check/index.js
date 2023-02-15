@@ -13,7 +13,7 @@ function pmFromUserAgent (userAgent) {
 
 if (usedPM !== wantedPM) {
   console.error('\nUse "pnpm install" for installation in this workspace.\n\n' +
-    'If you don\'t have pnpm, install it via "npm i -g pnpm".\n' +
+    'If you don\'t have pnpm, install it via "npm i -g pnpm@7".\n' +
     'For more details, go to https://pnpm.io/\n');
   process.exit(1);
 }

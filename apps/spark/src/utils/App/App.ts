@@ -29,6 +29,20 @@ export const getFQDN = (): string => {
 };
 
 /**
+ * Returns the backend URI. Used for blob URLs like images
+ * @category App
+ */
+export const getBackendMediaUri = (): string => {
+  let serverUrl = process.env.REACT_APP_MEDIA_FQDN || getFQDN();
+
+  // fallback to endpoint or local stitching server in development
+  if (!serverUrl && process.env.NODE_ENV === "development") {
+    serverUrl = (process.env.REACT_APP_API_ENDPOINT || "http://localhost:4000").replace("/graphql", "");
+  }
+  return serverUrl;
+};
+
+/**
  * Returns the rootSegment of the app
  * @param path the URL path of "react-router-dom"
  * @category App
@@ -40,6 +54,14 @@ export const getRootSegment = (path: string): string | undefined => {
   return navigationPath[0] !== "preview" && navigationPath[0] !== "commercepreview"
     ? navigationPath[0]
     : navigationPath[1];
+};
+
+/**
+ * checks the navigationPath, if it is the homepage
+ * @param currentNavigation
+ */
+export const isHomepage = (currentNavigation?: Array<string>) => {
+  return currentNavigation?.length === 1;
 };
 
 /**

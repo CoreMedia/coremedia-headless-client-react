@@ -124,6 +124,8 @@ export const createImagemap = (prefix = "Imagemap"): Banner => {
           rect: { height: 10.37037037037037, width: 9.1666666666666, x: 28.583333333333332, y: 29.037037037037035 },
           self: createBanner(),
           shape: "rect",
+          displayAsInlineOverlay: false,
+          inlineOverlayTheme: null,
         },
       ],
     ],

@@ -14,6 +14,7 @@ const StyledHeader = styled.header`
   position: relative;
   margin: 0;
   width: 100%;
+  z-index: 3;
 
   &:before {
     content: "";

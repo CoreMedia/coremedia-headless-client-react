@@ -1,20 +1,24 @@
 import React, { createContext } from "react";
 import { Picture } from "../models/Banner/Picture";
 import { DetailProduct } from "../models/Detail/DetailProduct";
+import { Download } from "../models/Detail/DetailCMProduct";
 
 export interface ProductPageContextData {
   media: Array<Picture>;
+  downloads: Array<Download>;
   product: DetailProduct | null;
 }
 
 const ProductPageContext = createContext<ProductPageContextData>({
   media: [],
+  downloads: [],
   product: null,
 });
 
-const ProductPageContextProvider: React.FC<ProductPageContextData> = ({ media, product, children }) => {
+const ProductPageContextProvider: React.FC<ProductPageContextData> = ({ media, downloads, product, children }) => {
   const contextValues: ProductPageContextData = {
     media: media,
+    downloads: downloads,
     product: product,
   };
 

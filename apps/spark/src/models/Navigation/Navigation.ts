@@ -9,6 +9,7 @@ import { SupportsStaticCode } from "../Banner/Code";
 export interface Navigation extends PreviewMetadata, LinkAttributes, SupportsPicture, SupportsStaticCode {
   items?: Array<Navigation>;
   title: string | null;
+  uuid?: string;
 }
 
 export interface NavigationProps extends Navigation {
@@ -19,7 +20,7 @@ export interface NavigationProps extends Navigation {
 
 export const initializeNavigation = (self: any, rootSegment: string): Navigation => {
   const navigation: Navigation = {
-    ...mapProperties(self, { title: "teaserTitle" }),
+    ...mapProperties(self, { title: "teaserTitle", uuid: "uuid" }),
     ...getLink(self, rootSegment),
   };
   addPicture(self, navigation);

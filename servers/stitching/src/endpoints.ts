@@ -6,11 +6,7 @@ export const coreMediaHeadlessServerEndpoint = () => {
     coreMediaEndpoint = "http://localhost:41180/graphql";
   }
 
-  // check for missing graphql
-  if (!coreMediaEndpoint.endsWith("/graphql")) {
-    coreMediaEndpoint = `${coreMediaEndpoint}/graphql`;
-  }
-  return coreMediaEndpoint;
+  return checkGraphqlEndpointURL(coreMediaEndpoint);
 };
 
 export const commerceCatalogEndpoint = () => {
@@ -21,13 +17,28 @@ export const commerceCatalogEndpoint = () => {
     catalogEndpoint = "http://localhost:5000/graphql";
   }
 
-  // check for missing graphql
-  if (!catalogEndpoint.endsWith("/graphql")) {
-    catalogEndpoint = `${catalogEndpoint}/graphql`;
-  }
-  return catalogEndpoint;
+  return checkGraphqlEndpointURL(catalogEndpoint);
 };
 
 export const proxyEndpoint = () => {
   return coreMediaHeadlessServerEndpoint().replace("/graphql", "");
+};
+
+export const campaignServiceEndpoint = () => {
+  const campaignEndpoint = process.env.CAMPAIGN_ENDPOINT || undefined;
+  return checkGraphqlEndpointURL(campaignEndpoint);
+};
+
+/**
+ *  checks and adds "/graphql" to URI, if missing
+ * @param endpoint
+ */
+const checkGraphqlEndpointURL = (endpoint) => {
+  if (endpoint && !endpoint.endsWith("/graphql")) {
+    if (!endpoint.endsWith("/")) {
+      endpoint = `${endpoint}/`;
+    }
+    endpoint = `${endpoint}graphql`;
+  }
+  return endpoint;
 };

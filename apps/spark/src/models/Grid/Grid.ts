@@ -1,4 +1,4 @@
-import { PageGrid, PageGridPlacement } from "@coremedia-labs/graphql-layer";
+import { PageGrid, PageGridPlacement, Slot } from "@coremedia-labs/graphql-layer";
 import { PreviewMetadata, initializeMetadata } from "../../utils/Preview/MetaData";
 import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
 
@@ -24,6 +24,7 @@ export interface Row extends PreviewMetadata {
  */
 export interface Grid extends PreviewMetadata {
   rows?: Array<Row> | null;
+  campaignDataSlots?: Array<Slot>;
 }
 
 export type Placements = Array<PageGridPlacement | null> | undefined | null;

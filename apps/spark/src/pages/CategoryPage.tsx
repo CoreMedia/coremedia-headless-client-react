@@ -1,7 +1,14 @@
 import React, { FC } from "react";
 import { match } from "react-router-dom";
 import { NetworkStatus } from "@apollo/client";
-import { Category, useCategoryByIdQuery } from "@coremedia-labs/graphql-layer";
+import {
+  Category,
+  CategoryByIdWithCampaignsQuery,
+  Slot,
+  SlotResult,
+  useCategoryByIdQuery,
+  useCategoryByIdWithCampaignsQuery,
+} from "@coremedia-labs/graphql-layer";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, CategoryNotFoundAlert } from "../components/Error/Alert";
 import { Placements } from "../models/Grid/Grid";
@@ -15,6 +22,12 @@ import DetailedCategory from "../components/Category/DetailedCategory";
 import SeoHeader from "../components/Header/SeoHeader";
 import { initializeMetadata } from "../utils/Preview/MetaData";
 import CategoryPageContext from "../context/CategoryPageContext";
+import {
+  CAMPAIGN_CONTEXT_CATEGORY,
+  getRefinementData,
+  hasCampaignData,
+  isCampaignEnabled,
+} from "../utils/Campaign/CampaignUtil";
 
 interface PageProps {
   match: match<RouteProps>;
@@ -27,10 +40,12 @@ interface RouteProps {
 export const ITEMS_PER_PAGE = 12;
 
 const CategoryPage: FC<PageProps> = ({ match }) => {
-  const { siteId, rootSegment } = useSiteContextState();
+  const { siteId, currentNavigation, rootSegment } = useSiteContextState();
   const { selectedFacets } = useSearchStateContextState();
+  let campaignDataSlots: Array<Slot> | undefined;
 
-  const { data, loading, error, fetchMore, networkStatus } = useCategoryByIdQuery({
+  // Fetch page data with or without campaigns
+  const queryVars = {
     variables: {
       externalId: match.params.seoSegment,
       siteId: siteId,
@@ -40,8 +55,14 @@ const CategoryPage: FC<PageProps> = ({ match }) => {
       filterFacets: selectedFacets.map((item) => {
         return item.facetQuery;
       }),
+      refinements: getRefinementData(currentNavigation, CAMPAIGN_CONTEXT_CATEGORY),
     },
-  });
+  };
+
+  const { data, loading, error, fetchMore, networkStatus } = isCampaignEnabled()
+    ? useCategoryByIdWithCampaignsQuery(queryVars)
+    : useCategoryByIdQuery(queryVars);
+
   const loadingMore = networkStatus === NetworkStatus.fetchMore;
   if (loading && !loadingMore) {
     return <Loading />;
@@ -83,6 +104,14 @@ const CategoryPage: FC<PageProps> = ({ match }) => {
   });
   const placements = category?.augmentation?.grid?.placements as Placements;
 
+  if (isCampaignEnabled()) {
+    const campaignData = (data as CategoryByIdWithCampaignsQuery)?.campaignContent as SlotResult;
+    if (hasCampaignData(campaignData)) {
+      console.debug("Campaign data loaded: ", campaignData);
+      campaignDataSlots = campaignData.slots as Array<Slot>;
+    }
+  }
+
   return (
     <SearchPageContext
       totalCount={searchProducts.totalCount}
@@ -108,7 +137,7 @@ const CategoryPage: FC<PageProps> = ({ match }) => {
             initializeMetadata(category.augmentation?.content?.id || category.id, "commerce").metadata?.root
           }
         />
-        <DetailedCategory placements={placements} name={category.name} />
+        <DetailedCategory placements={placements} name={category.name} campaignDataSlots={campaignDataSlots} />
       </CategoryPageContext>
     </SearchPageContext>
   );

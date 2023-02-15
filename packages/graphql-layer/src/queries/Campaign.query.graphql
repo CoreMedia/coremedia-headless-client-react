@@ -1,0 +1,31 @@
+query CampaignContent($siteId: String!, $channelType: String!, $refinements: [String!]) {
+  campaignContent(site: $siteId, channelType: $channelType, refinements: $refinements) {
+    slots {
+      id
+      name
+      assignment {
+        id
+        refinements
+        items {
+          id
+          content {
+            ...CMTeasable
+            ...CMCollection
+            ...CMVideo
+            ...ShoppableVideo
+            ...CMImageMap
+            ...CMProductTeaser
+            ...CMExternalChannel
+            ...CMSelectionRules
+            ...CMProduct
+            ...CMExternalLink
+            ...CMPlaceholder
+            ...CMExternalProduct
+            ...CMDownload
+            ...CMHTML
+          }
+        }
+      }
+    }
+  }
+}

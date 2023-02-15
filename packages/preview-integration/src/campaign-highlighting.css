@@ -1,0 +1,101 @@
+.cm-campaign-slot-highlighting-purple,
+.cm-campaign-slot-highlighting-green {
+  position: relative;
+}
+
+/* Available Empty Campaign Slot: */
+.cm-campaign-slot-highlighting-green {
+  background: #E8F8AF;
+  border: 2px solid #2FAC66;
+  margin: 3px 0;
+}
+
+/* Available Campaign Slot: */
+.cm-campaign-slot-highlighting-purple .cm-campaign-slot-border-left,
+.cm-campaign-slot-highlighting-purple .cm-campaign-slot-border-right,
+.cm-campaign-slot-highlighting-purple .cm-campaign-slot-border-top,
+.cm-campaign-slot-highlighting-purple .cm-campaign-slot-border-bottom {
+  background-color: #672779;
+}
+
+.cm-campaign-slot-border-left,
+.cm-campaign-slot-border-right,
+.cm-campaign-slot-border-top,
+.cm-campaign-slot-border-bottom {
+  position: absolute;
+  z-index: 10;
+  margin-bottom: 0;
+  margin-top: 0 !important;
+}
+
+.cm-campaign-slot-border-left,
+.cm-campaign-slot-border-right {
+  top: 0;
+  height: 100%;
+}
+
+.cm-campaign-slot-border-left {
+  left: 0;
+  width: 2px;
+}
+
+.cm-campaign-slot-border-right {
+  right: 0;
+  width: 2px;
+}
+
+.cm-campaign-slot-border-top,
+.cm-campaign-slot-border-bottom {
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+.cm-campaign-slot-border-top {
+  top: 0;
+}
+
+.cm-campaign-slot-border-bottom {
+  bottom: 0;
+}
+
+.cm-campaign-slot-highlighting-purple-overlay,
+.cm-campaign-slot-highlighting-green-overlay {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: initial;
+  padding: 0 3px;
+  margin-top: 0 !important;
+  z-index: 10;
+  font-weight: bold;
+}
+
+.cm-campaign-slot-highlighting-purple-overlay {
+  top: 1px;
+  right: 1px;
+}
+
+.cm-campaign-slot-highlighting-green-overlay {
+  background: #E8F8AF;
+  border: 1px solid #2FAC66;
+}
+
+.cm-campaign-slot-highlighting-purple-overlay {
+  background: #E6CAEE;
+  border: 1px solid #672779;
+}
+
+.cm-campaign-slot-highlighting-purple-overlay,
+.cm-campaign-slot-highlighting-green-overlay,
+.cm-campaign-slot-highlighting-green {
+  font-family: "Segoe UI", "Trebuchet MS", "Lucida Grande", Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: left;
+  color: #4F4F4F;
+}
+
+.cm-campaign-slot-highlighting-green-text {
+  margin-top: 0 !important;
+}

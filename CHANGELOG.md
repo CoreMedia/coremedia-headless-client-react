@@ -1,5 +1,31 @@
 # Changelog
 
+## v2301.0.0
+
+*Released 15.02.2023*
+
+### Features:
+
+- Added support for new CoreMedia Campaign Service
+  - The stitching server will include the campaign schema, if new environment variables
+    `CAMPAIGN_ENDPOINT` and `CAMPAIGN_AUTHORIZATION_ID` are set.
+  - The Spark app will fetch and render Campaign data on content pages, category pages, and product detail pages,
+    if new environment variable `VITE_CAMPAIGN_ENABLED` is set to "true".
+- Added rendering of assigned CMDownloads on product detail pages 
+- Added support for CMImageMap inline overlays
+
+### Breaking Changes:
+
+- Updated `schema.json`, and `interfaces.json` to CoreMedia Content Cloud v11 - 2301.1 and new CoreMedia Campaign Service
+
+### Bugfixes and Changes:
+
+- Fixed possibly wrong vite chunk splitting, if the workspace path included one 
+  of the keywords. This could lead to an empty page.
+- Updated minor versions of dependencies
+
+---
+
 ## v2210.0.1
 
 *Released 11.11.2022*
@@ -88,7 +114,7 @@
 
 ### Features:
 
-- Introduced View Model Layer. This layer is an abstraction between the GraphQL model and the components model. 
+- Introduced View Model Layer. This layer is an abstraction between the GraphQL model and the components model.
 - Introduced `styled-components` for styling the Spark app. All `scss` have been removed.
 - Added the faceted search feature of headless server and added search suggestions
 
