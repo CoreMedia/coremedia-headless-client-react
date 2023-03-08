@@ -6,14 +6,9 @@ import { Banner, initializeBanner, initializeBannerFor, SupportsTitle } from "..
 import { initializeMedia, Video } from "../Banner/Media";
 import { Picture } from "../Banner/Picture";
 import { addTags, SupportsTags } from "../Banner/Tag";
-import { addCMProductOverrides } from "../Navigation/Navigation";
 import { flattenItems, notEmpty } from "../../utils/Helpers";
 import { readTimeInMinutes } from "../../utils/Richtext/ReadTime";
-import { DetailAuthor, initializeDetailAuthor } from "./DetailAuthor";
-
-export interface SupportsRelated extends PreviewMetadata {
-  related?: Array<Banner>;
-}
+import { addCMProductTitle } from "../Banner/CMProduct";
 
 /**
  * @category ViewModels
@@ -26,6 +21,9 @@ export interface Detail extends PreviewMetadata, SupportsAuthors, SupportsTags, 
   media: Array<Video | Picture | null> | null;
 }
 
+export interface SupportsRelated extends PreviewMetadata {
+  related?: Array<Banner>;
+}
 /**
  * Returns a [[Detail]] object based on the GraphQL [[DetailTeasable]]
  */
@@ -57,14 +55,13 @@ export const initializeDetail = (self: CmTeasableDetailFragment, rootSegment: st
     );
   addAuthors(self, detail, rootSegment);
   addTags(self, detail, rootSegment);
-  addCMProductOverrides(self, detail);
+  addCMProductTitle(self, detail);
   addRelated(self, detail, rootSegment);
   return detail;
 };
 
 export const addRelated = (self: any, result: SupportsRelated, rootSegment: string) => {
-  "related" in self &&
-    self.related &&
+  if (self.related) {
     addProperty(
       result,
       "related",
@@ -74,13 +71,5 @@ export const addRelated = (self: any, result: SupportsRelated, rootSegment: stri
         .filter(notEmpty),
       getPropertyName(self, "related")
     );
-};
-
-export const initializeDetailFor = (self: any, rootSegment: string): Detail | DetailAuthor | null => {
-  if (self.__typename.indexOf("CMPerson") >= 0) {
-    return initializeDetailAuthor(self, rootSegment);
-  } else if (self.__typename.indexOf("CM") >= 0) {
-    return initializeDetail(self, rootSegment);
   }
-  return null;
 };

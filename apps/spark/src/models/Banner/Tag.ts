@@ -7,8 +7,12 @@ export interface SupportsTags extends PreviewMetadata {
   tags?: Array<Tag | null>;
 }
 
+export interface Tag extends PreviewMetadata, LinkAttributes {
+  name?: string;
+}
+
 export const addTags = (self: any, result: SupportsTags, rootSegment: string): void => {
-  "subjectTaxonomy" in self &&
+  if (self.subjectTaxonomy) {
     addProperty(
       result,
       "tags",
@@ -22,8 +26,5 @@ export const addTags = (self: any, result: SupportsTags, rootSegment: string): v
       }),
       getPropertyName(self, "subjectTaxonomy")
     );
+  }
 };
-
-export interface Tag extends PreviewMetadata, LinkAttributes {
-  name?: string;
-}

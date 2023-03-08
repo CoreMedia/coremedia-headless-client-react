@@ -8,6 +8,7 @@ import {
   useProductByIdQuery,
   useProductByIdWithCampaignsQuery,
 } from "@coremedia-labs/graphql-layer";
+import log from "loglevel";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, ProductNotFoundAlert } from "../components/Error/Alert";
 import { DetailProduct } from "../models/Detail/DetailProduct";
@@ -21,11 +22,12 @@ import DetailedProduct from "../components/Product/DetailedProduct";
 import ProductPageContext from "../context/ProductPageContext";
 import {
   CAMPAIGN_CONTEXT_PRODUCT,
-  getRefinementData,
   hasCampaignData,
   isCampaignEnabled,
+  addCampaignQueryVariables,
 } from "../utils/Campaign/CampaignUtil";
-import { Download } from "../models/Detail/DetailCMProduct";
+import { usePreviewContextState } from "../context/PreviewContextProvider";
+import { Download } from "../models/Detail/Download";
 
 interface PageProps {
   match: match<RouteProps>;
@@ -38,20 +40,20 @@ interface RouteProps {
 
 const ProductPage: FC<PageProps> = ({ match }) => {
   const { siteId, currentNavigation, rootSegment } = useSiteContextState();
-  let campaignDataSlots: Array<Slot> | undefined;
+  const { previewCampaignId } = usePreviewContextState();
 
-  // Fetch page data with or without campaigns
-  const queryVars = {
-    variables: {
-      externalId: match.params.seoSegment,
-      siteId: siteId,
-      refinements: getRefinementData(currentNavigation, CAMPAIGN_CONTEXT_PRODUCT),
-    },
+  let variables: any = {
+    externalId: match.params.seoSegment,
+    siteId: siteId,
   };
 
-  const { data, loading, error } = isCampaignEnabled()
-    ? useProductByIdWithCampaignsQuery(queryVars)
-    : useProductByIdQuery(queryVars);
+  const campaignEnabled = isCampaignEnabled();
+  let campaignDataSlots: Array<Slot> | undefined;
+  variables = addCampaignQueryVariables(variables, CAMPAIGN_CONTEXT_PRODUCT, currentNavigation, previewCampaignId);
+
+  const { data, loading, error } = campaignEnabled
+    ? useProductByIdWithCampaignsQuery({ variables: variables })
+    : useProductByIdQuery({ variables: variables });
 
   if (loading) {
     return <Loading />;
@@ -98,10 +100,18 @@ const ProductPage: FC<PageProps> = ({ match }) => {
   };
   const placements = product?.augmentation?.pdpPagegrid?.placements as Placements;
 
-  if (isCampaignEnabled()) {
-    const campaignData = (data as ProductByIdWithCampaignsQuery)?.campaignContent as SlotResult;
+  if (campaignEnabled) {
+    let campaignData;
+    if (variables.modePreviewCampaign) {
+      campaignData = (data as ProductByIdWithCampaignsQuery)?.previewCampaign as SlotResult;
+    } else if (variables.modePreviewCampaignContent) {
+      campaignData = (data as ProductByIdWithCampaignsQuery)?.previewCampaignContent as SlotResult;
+    } else {
+      campaignData = (data as ProductByIdWithCampaignsQuery)?.campaignContent as SlotResult;
+    }
+
     if (hasCampaignData(campaignData)) {
-      console.debug("Campaign data loaded: ", campaignData);
+      log.debug("Campaign data loaded for product page: ", campaignData);
       campaignDataSlots = campaignData.slots as Array<Slot>;
     }
   }

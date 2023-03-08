@@ -708,7 +708,133 @@
           },
           {
             "name": "campaignContent",
-            "description": "  Find slot definitions managed via campaigns. Parameters: - site: the site id, - channelType: Key used for the template type (e.g. values: \"category-page\", \"content-page\", ...). See also query \"channelTypes\"., - refinements: Sorted list of refinements (e.g. for a refinement for a category-page: \"women-dressed\", for a content-page: \"82be5043-e2d8-4db4-a6cb-3b58c2213825\" (the UUID of a CoreMedia Content)). The refinements are logically linked with or. The most important refinement should be defined first in the array, in case of multiple search hits.",
+            "description": "  Find slot definitions managed via campaigns. Only published campaigns are taken into account. Parameters: - site: the site id, - channelType: Key used for the template type (e.g. values: \"category-page\", \"content-page\", ...). See also query \"channelTypes\"., - refinements: Sorted list of refinements (e.g. for a refinement for a category-page: \"women-dressed\", for a content-page: \"82be5043-e2d8-4db4-a6cb-3b58c2213825\" (the UUID of a CoreMedia Content)). The refinements are logically linked with or. The most important refinement should be defined first in the array, in case of multiple search hits.",
+            "args": [
+              {
+                "name": "site",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "channelType",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "refinements",
+                "description": null,
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "SlotResult",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "previewCampaign",
+            "description": "  Find slot definitions managed via campaigns. Parameters: - campaignId: the campaign id, - channelType: Key used for the template type (e.g. values: \"category-page\", \"content-page\", ...). See also query \"channelTypes\"., - refinements: Sorted list of refinements (e.g. for a refinement for a category-page: \"women-dressed\", for a content-page: \"82be5043-e2d8-4db4-a6cb-3b58c2213825\" (the UUID of a CoreMedia Content)). The refinements are logically linked with or. The most important refinement should be defined first in the array, in case of multiple search hits.",
+            "args": [
+              {
+                "name": "campaignId",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "channelType",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "refinements",
+                "description": null,
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "SlotResult",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "previewCampaignContent",
+            "description": "  Equivalent to campaignContent, but also takes drafted and paused campaigns into account.",
             "args": [
               {
                 "name": "site",

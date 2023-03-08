@@ -24,14 +24,11 @@ export const initializeVideo = (video: CmVideo): Video => {
 };
 
 export const initializeMedia = (media: any): Video | Picture | null => {
-  if ("__typename" in media) {
-    const typename = media.__typename;
-    if (typename) {
-      if (typename.indexOf("CMPicture") >= 0) {
-        return initializePicture(media);
-      } else if (typename.indexOf("CMVideo") >= 0) {
-        return initializeVideo(media);
-      }
+  if (media.__typename) {
+    if (media.__typename.startsWith("CMPicture")) {
+      return initializePicture(media);
+    } else if (media.__typename.startsWith("CMVideo")) {
+      return initializeVideo(media);
     }
   }
   return null;

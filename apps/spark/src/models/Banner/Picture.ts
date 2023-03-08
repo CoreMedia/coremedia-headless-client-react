@@ -7,7 +7,7 @@ export interface SupportsPicture extends PreviewMetadata {
 }
 
 export const addPicture = (self: any, result: SupportsPicture): void => {
-  if ("picture" in self) {
+  if (self.picture) {
     self.picture && addProperty(result, "picture", initializePicture(self.picture), getPropertyName(self, "picture"));
   }
 };

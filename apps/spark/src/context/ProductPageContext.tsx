@@ -1,7 +1,7 @@
 import React, { createContext } from "react";
 import { Picture } from "../models/Banner/Picture";
 import { DetailProduct } from "../models/Detail/DetailProduct";
-import { Download } from "../models/Detail/DetailCMProduct";
+import { Download } from "../models/Detail/Download";
 
 export interface ProductPageContextData {
   media: Array<Picture>;

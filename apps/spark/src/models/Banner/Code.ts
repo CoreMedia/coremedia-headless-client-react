@@ -7,7 +7,7 @@ export interface SupportsStaticCode extends PreviewMetadata {
 }
 
 export const addStaticCode = (self: any, result: Banner): void => {
-  if ("html" in self) {
+  if (self.html) {
     addProperty(result, "code", self.html);
     result.picture = undefined;
     result.plaintext = null;

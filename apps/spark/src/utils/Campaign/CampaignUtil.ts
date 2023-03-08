@@ -1,6 +1,7 @@
 import { Slot, SlotResult } from "@coremedia-labs/graphql-layer";
 import { Banner, initializeBanner } from "../../models/Banner/Banner";
 import { Navigation } from "../../models/Navigation/Navigation";
+import { isPreview } from "../Preview/Preview";
 
 export const CAMPAIGN_CONTEXT_CATEGORY = "category-page";
 export const CAMPAIGN_CONTEXT_PRODUCT = "product-page";
@@ -83,4 +84,29 @@ export const getCurrentNavigationUuid = (
     }
   }
   return currentUuid;
+};
+
+/**
+ * Add additional variables for campaigns to the query variables map
+ * @param variables the GraphQL query variables map
+ * @param refinement given refinements
+ * @param currentNavigation (optional) given navigation array
+ * @param previewCampaignId (optional) given preview campaign id
+ */
+export const addCampaignQueryVariables = (
+  variables: any,
+  refinement: string,
+  currentNavigation?: string[],
+  previewCampaignId?: string
+) => {
+  const campaignEnabled = isCampaignEnabled();
+  if (campaignEnabled) {
+    const preview = isPreview();
+    variables.refinements = currentNavigation ? getRefinementData(currentNavigation, refinement) : [refinement];
+    variables.previewCampaign = previewCampaignId;
+    variables.modePreviewCampaign = campaignEnabled && preview && previewCampaignId !== undefined;
+    variables.modePreviewCampaignContent = campaignEnabled && preview && previewCampaignId === undefined;
+    variables.modeCampaignContent = campaignEnabled && !preview;
+  }
+  return variables;
 };

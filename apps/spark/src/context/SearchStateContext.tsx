@@ -1,4 +1,5 @@
 import React, { createContext, useReducer } from "react";
+import { SortFieldWithOrder } from "@coremedia-labs/graphql-layer";
 
 export interface SearchFacet {
   facetCategory: string;
@@ -159,7 +160,6 @@ const initialState = { selectedFacets: [], sortField: null, query: "", sortField
 
 interface Props {
   sortField: string | null;
-  sortFields: Array<SearchSortField>;
   query?: string;
   types?: Array<string>;
   limit?: number;
@@ -167,12 +167,39 @@ interface Props {
 
 const SearchStateContextProvider: React.FC<Props> = ({
   sortField,
-  sortFields,
   query,
   types = ["CMArticle"],
   limit = 5,
   children,
 }) => {
+  const sortFields: Array<SearchSortField> = [
+    {
+      label: "Relevance",
+      value: null,
+    },
+    {
+      label: "Display Date Asc",
+      value: SortFieldWithOrder.ExternallyDisplayedDateAsc,
+    },
+    {
+      label: "Display Date Desc",
+      value: SortFieldWithOrder.ExternallyDisplayedDateDesc,
+    },
+    { label: "Creation Date Asc", value: SortFieldWithOrder.CreationDateAsc },
+    {
+      label: "Creation Date Desc",
+      value: SortFieldWithOrder.CreationDateDesc,
+    },
+    {
+      label: "Modification Date Asc",
+      value: SortFieldWithOrder.ModificationDateAsc,
+    },
+    {
+      label: "Modification Date Desc",
+      value: SortFieldWithOrder.ModificationDateDesc,
+    },
+  ];
+
   const [state, dispatch] = useReducer(SearchStateReducer, {
     selectedFacets: [],
     sortField: sortField,

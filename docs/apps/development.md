@@ -48,10 +48,14 @@ queries.
 ## Workflow
 
 Run `pnpm start` and open [http://localhost:5173](http://localhost:5173) to view 
-the app in a browser. It will run in Preview Mode by default.
+the app in a browser. It will run in Preview Mode by default with Loglevel "info" 
+(and Loglevel "warn" in production mode).
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
+
+To change the log level set an environment variable VITE_LOGLEVEL to the given level.
+See https://github.com/pimterry/loglevel#logging-methods
 
 ## Available Scripts
 

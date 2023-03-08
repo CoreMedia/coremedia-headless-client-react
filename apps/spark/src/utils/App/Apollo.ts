@@ -7,6 +7,7 @@ import { ApolloClient, ApolloLink, concat, FieldPolicy, HttpLink, InMemoryCache 
 import { createPersistedQueryLink } from "@apollo/client/link/persisted-queries";
 import { sha256 } from "crypto-hash";
 import possibleTypes from "@coremedia-labs/graphql-layer/dist/__downloaded__/possibleTypes.json";
+import log from "loglevel";
 import { formatPreviewDate, isPreview } from "../Preview/Preview";
 import { getEndpoint } from "./App";
 
@@ -63,7 +64,7 @@ const createInMemoryCache = (): InMemoryCache => {
  * @param link includes the URI of the GraphQl Endpoint
  */
 const createApolloClient = (link: ApolloLink): ApolloClient<unknown> => {
-  console.log("New Apollo Client created", link);
+  log.info("New Apollo Client created", link);
   const cache = createInMemoryCache();
   return new ApolloClient({
     cache: cache,
@@ -102,12 +103,12 @@ export const initializeApollo = (newPreviewDate: string | undefined, apqEnabled:
       uri: getEndpoint(),
     });
     if (newPreviewDate && isPreview()) {
-      console.log("Time travel is activated.", newPreviewDate);
+      log.info("Time travel is activated.", newPreviewDate);
       const previewMiddleware = createPreviewMiddleWare(newPreviewDate);
       link = previewMiddleware ? concat(previewMiddleware, link) : link;
     }
     if (apqEnabled) {
-      console.log("Automatic persistent queries are activated.");
+      log.info("Automatic persistent queries are activated.");
       const persistedQueriesLink = createPersistedQueryLink({ sha256, useGETForHashedQueries: true });
       link = persistedQueriesLink.concat(link);
     }

@@ -17,13 +17,13 @@ export interface Slot extends PreviewMetadata {
  */
 export const initializeSlot = (self: any, rootSegment: string): Slot => {
   const slot: Slot = { items: [] };
-  if ("teaserTitle" in self) {
+  if (self.teaserTitle) {
     addProperty(slot, "title", self.teaserTitle, getPropertyName(self, "teaserTitle"));
   }
-  if ("plainTeaserText" in self) {
+  if (self.plainTeaserText) {
     addProperty(slot, "text", self.plainTeaserText, getPropertyName(self, "plainTeaserText"));
   }
-  if ("items" in self) {
+  if (self.items) {
     addProperty(
       slot,
       "items",

@@ -9,6 +9,7 @@ import {
   useCategoryByIdQuery,
   useCategoryByIdWithCampaignsQuery,
 } from "@coremedia-labs/graphql-layer";
+import log from "loglevel";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, CategoryNotFoundAlert } from "../components/Error/Alert";
 import { Placements } from "../models/Grid/Grid";
@@ -24,10 +25,11 @@ import { initializeMetadata } from "../utils/Preview/MetaData";
 import CategoryPageContext from "../context/CategoryPageContext";
 import {
   CAMPAIGN_CONTEXT_CATEGORY,
-  getRefinementData,
   hasCampaignData,
   isCampaignEnabled,
+  addCampaignQueryVariables,
 } from "../utils/Campaign/CampaignUtil";
+import { usePreviewContextState } from "../context/PreviewContextProvider";
 
 interface PageProps {
   match: match<RouteProps>;
@@ -42,26 +44,26 @@ export const ITEMS_PER_PAGE = 12;
 const CategoryPage: FC<PageProps> = ({ match }) => {
   const { siteId, currentNavigation, rootSegment } = useSiteContextState();
   const { selectedFacets } = useSearchStateContextState();
-  let campaignDataSlots: Array<Slot> | undefined;
+  const { previewCampaignId } = usePreviewContextState();
 
-  // Fetch page data with or without campaigns
-  const queryVars = {
-    variables: {
-      externalId: match.params.seoSegment,
-      siteId: siteId,
-      searchTerm: "*",
-      offset: 0,
-      limit: ITEMS_PER_PAGE,
-      filterFacets: selectedFacets.map((item) => {
-        return item.facetQuery;
-      }),
-      refinements: getRefinementData(currentNavigation, CAMPAIGN_CONTEXT_CATEGORY),
-    },
+  let variables: any = {
+    externalId: match.params.seoSegment,
+    siteId: siteId,
+    searchTerm: "*",
+    offset: 0,
+    limit: ITEMS_PER_PAGE,
+    filterFacets: selectedFacets.map((item) => {
+      return item.facetQuery;
+    }),
   };
 
-  const { data, loading, error, fetchMore, networkStatus } = isCampaignEnabled()
-    ? useCategoryByIdWithCampaignsQuery(queryVars)
-    : useCategoryByIdQuery(queryVars);
+  const campaignEnabled = isCampaignEnabled();
+  let campaignDataSlots: Array<Slot> | undefined;
+  variables = addCampaignQueryVariables(variables, CAMPAIGN_CONTEXT_CATEGORY, currentNavigation, previewCampaignId);
+
+  const { data, loading, error, fetchMore, networkStatus } = campaignEnabled
+    ? useCategoryByIdWithCampaignsQuery({ variables: variables })
+    : useCategoryByIdQuery({ variables: variables });
 
   const loadingMore = networkStatus === NetworkStatus.fetchMore;
   if (loading && !loadingMore) {
@@ -104,10 +106,18 @@ const CategoryPage: FC<PageProps> = ({ match }) => {
   });
   const placements = category?.augmentation?.grid?.placements as Placements;
 
-  if (isCampaignEnabled()) {
-    const campaignData = (data as CategoryByIdWithCampaignsQuery)?.campaignContent as SlotResult;
+  if (campaignEnabled) {
+    let campaignData;
+    if (variables.modePreviewCampaign) {
+      campaignData = (data as CategoryByIdWithCampaignsQuery)?.previewCampaign as SlotResult;
+    } else if (variables.modePreviewCampaignContent) {
+      campaignData = (data as CategoryByIdWithCampaignsQuery)?.previewCampaignContent as SlotResult;
+    } else {
+      campaignData = (data as CategoryByIdWithCampaignsQuery)?.campaignContent as SlotResult;
+    }
+
     if (hasCampaignData(campaignData)) {
-      console.debug("Campaign data loaded: ", campaignData);
+      log.debug("Campaign data loaded for category page: ", campaignData);
       campaignDataSlots = campaignData.slots as Array<Slot>;
     }
   }

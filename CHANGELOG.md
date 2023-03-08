@@ -1,5 +1,24 @@
 # Changelog
 
+## v2301.1.0
+
+*Released 08.03.2023*
+
+### Features:
+
+- Updated vite to v4 and switch to @vitejs/plugin-react-swc (~20x faster)
+- Added support for Preview API of CoreMedia Campaign Service.
+  - In preview mode the app can display even drafted and paused campaigns.
+  - Add a querystring "previewCampaign=<uuid-of-campaign>" to display just a single campaign
+- Add log framework to Spark to set different log levels. defaults are "warn" for PROD and "info" for DEV
+
+### Bugfixes and Changes:
+
+- Updated minor versions of dependencies
+- Optimized and made View Models more robust, if (commerce) properties are null
+
+---
+
 ## v2301.0.0
 
 *Released 15.02.2023*
