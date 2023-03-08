@@ -13,6 +13,7 @@ import {
   CmPerson,
 } from "@coremedia-labs/graphql-layer";
 import qs, { StringifiableRecord } from "query-string";
+import log from "loglevel";
 import { getFQDN } from "../App/App";
 import { LinkAttributes } from "../../components/Link/Link";
 
@@ -136,7 +137,7 @@ const createHref = (self: CmLinkableFragment, rootSegment: string, params?: Stri
       //Do not build links for these items.
       path = null;
     } else {
-      console.debug(`No linkbuilding for ${self.__typename} has been implemented yet`);
+      log.warn(`No linkbuilding for ${self.__typename} has been implemented yet`);
     }
   }
   return {
@@ -164,7 +165,7 @@ export const getLink = (to: any, rootSegment: string, params?: StringifiableReco
     } else if (typeof to === "string") {
       linkTarget.linkTarget = to;
     } else {
-      //console.warn("Ignoring unknown link target", to);
+      log.debug("Ignoring unknown link target", to);
     }
   }
   return linkTarget;

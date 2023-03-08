@@ -88,8 +88,6 @@ const Col: FC<PageGridPlacementProps> = ({ col, campaignDataSlots }) => {
   const campaignBanner = getFirstContentForCampaignSlot(col?.name || "", rootSegment, campaignDataSlots);
   let flattenedContainer;
 
-  console.log(col?.name, col?.items, col?.viewtype);
-
   // Empty Placement
   if (!col || !col.items || col.items.length === 0) {
     return null;

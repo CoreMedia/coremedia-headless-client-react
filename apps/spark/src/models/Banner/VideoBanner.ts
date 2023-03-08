@@ -6,27 +6,35 @@ import { addProperty } from "../../utils/ViewDispatcher/ModelHelper";
 import { Banner, initializeBanner } from "./Banner";
 import { initializeVideo } from "./Media";
 
+/**
+ * @category ViewModels
+ */
+export interface Video {
+  playerSettings?: PlayerSettings;
+  videoUrl?: string;
+}
+
+export interface PlayerSettings {
+  autoplay: boolean;
+  hideControls: boolean;
+  loop: boolean;
+  muted: boolean;
+}
+
+export interface SupportsVideo extends PreviewMetadata {
+  video?: Video;
+}
+
+export interface SupportsTimeline extends PreviewMetadata {
+  timeline?: Array<TimelineEntry>;
+}
+
 export interface TimelineEntry {
   startTime: number;
   endTime: number | undefined;
   entry: Banner;
   activeIdForBlock: number;
 }
-
-const addOrUpdate = (
-  sequenceEntries: { [key: number]: Array<Dispatchable> },
-  key: number,
-  value: Dispatchable
-): void => {
-  if (sequenceEntries[key]) {
-    const existingEntries = sequenceEntries[key];
-    if (existingEntries) {
-      sequenceEntries[key] = existingEntries.concat([value]);
-    }
-  } else {
-    sequenceEntries[key] = [value];
-  }
-};
 
 export const getSortedTimeLineSequences = (timeLine: TimeLine, rootSegment: string): Array<TimelineEntry> => {
   const sequenceEntries: {
@@ -68,29 +76,6 @@ export const getSortedTimeLineSequences = (timeLine: TimeLine, rootSegment: stri
   return timeLineEntries;
 };
 
-/**
- * @category ViewModels
- */
-export interface PlayerSettings {
-  autoplay: boolean;
-  hideControls: boolean;
-  loop: boolean;
-  muted: boolean;
-}
-
-export interface Video {
-  playerSettings?: PlayerSettings;
-  videoUrl?: string;
-}
-
-export interface SupportsVideo extends PreviewMetadata {
-  video?: Video;
-}
-
-export interface SupportsTimeline extends PreviewMetadata {
-  timeline?: Array<TimelineEntry>;
-}
-
 export const supportsVideo = (object: any): object is SupportsVideo => {
   return "video" in object;
 };
@@ -102,14 +87,11 @@ export const addVideo = (self: any, result: SupportsVideo): void => {
   if (videoUrl) {
     const video: Video = { videoUrl: videoUrl };
 
-    if ("settings" in self) {
-      const settings: any = self.settings;
-      if (settings && "playerSettings" in settings) {
-        video.playerSettings = settings.playerSettings;
-      }
+    if (self.settings?.playerSettings) {
+      video.playerSettings = self.settings.playerSettings;
     }
     result.video = video;
-  } else if ("media" in self) {
+  } else if (self.media) {
     const video =
       self.media && self.media[0] && self.media[0].__typename === "CMVideoImpl" && initializeVideo(self.media[0]);
     if (video) {
@@ -119,7 +101,22 @@ export const addVideo = (self: any, result: SupportsVideo): void => {
 };
 
 export const addTimeline = (self: any, result: SupportsTimeline, rootSegment: string): void => {
-  if ("timeLine" in self) {
+  if (self.timeLine) {
     addProperty(result, "timeline", getSortedTimeLineSequences(self.timeLine, rootSegment));
+  }
+};
+
+const addOrUpdate = (
+  sequenceEntries: { [key: number]: Array<Dispatchable> },
+  key: number,
+  value: Dispatchable
+): void => {
+  if (sequenceEntries[key]) {
+    const existingEntries = sequenceEntries[key];
+    if (existingEntries) {
+      sequenceEntries[key] = existingEntries.concat([value]);
+    }
+  } else {
+    sequenceEntries[key] = [value];
   }
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import ViewDispatcher, { defaultView } from "@coremedia-labs/view-dispatcher";
+import log from "loglevel";
 import IncludeProps from "./IncludeProps";
 import typeHierarchy from "./Interfaces";
 
@@ -12,7 +13,7 @@ const Include: React.FC<IncludeProps> = (props) => {
   const resolvedType = type || self?.__typename;
 
   if (!resolvedType) {
-    console.error("View Dispatcher: can't resolve type", self);
+    log.error("ViewDispatcher: Can't resolve type", self);
     return null;
   }
 
@@ -20,7 +21,7 @@ const Include: React.FC<IncludeProps> = (props) => {
 
   const Component = viewDispatcher.lookupView(resolvedType, view, resolvedViewType);
   if (!Component) {
-    console.error("ViewDispatcher: No view found", resolvedType, view);
+    log.error("ViewDispatcher: No view found", resolvedType, view);
     return null;
   }
 

@@ -1,3 +1,4 @@
+import log from "loglevel";
 import { version } from "../../__generated__/version.json";
 
 /**
@@ -29,20 +30,6 @@ export const getFQDN = (): string => {
 };
 
 /**
- * Returns the backend URI. Used for blob URLs like images
- * @category App
- */
-export const getBackendMediaUri = (): string => {
-  let serverUrl = process.env.REACT_APP_MEDIA_FQDN || getFQDN();
-
-  // fallback to endpoint or local stitching server in development
-  if (!serverUrl && process.env.NODE_ENV === "development") {
-    serverUrl = (process.env.REACT_APP_API_ENDPOINT || "http://localhost:4000").replace("/graphql", "");
-  }
-  return serverUrl;
-};
-
-/**
  * Returns the rootSegment of the app
  * @param path the URL path of "react-router-dom"
  * @category App
@@ -57,19 +44,31 @@ export const getRootSegment = (path: string): string | undefined => {
 };
 
 /**
- * checks the navigationPath, if it is the homepage
- * @param currentNavigation
- */
-export const isHomepage = (currentNavigation?: Array<string>) => {
-  return currentNavigation?.length === 1;
-};
-
-/**
  * Returns true if VITE_APQ_ENABLED is set to "true"
  * @category App
  */
 export const isAPQEnabled = () => {
+  if (import.meta.env.VITE_APQ_ENABLED === "true") {
+    log.warn(
+      "APQ is currently not supported by Stitching Server. Please disable it or remove the environment variable."
+    );
+  }
   return import.meta.env.VITE_APQ_ENABLED === "true";
+};
+
+/**
+ * Set loglevel based on parameter, or env var VITE_LOGLEVEL, or dev environment
+ * @param level number or string of loglevel (optional)
+ * @category App
+ */
+export const setLogLevel = (level?: string) => {
+  let logLevel = level ?? import.meta.env.VITE_LOGLEVEL;
+  if (!logLevel && import.meta.env.DEV) {
+    logLevel = log.levels.INFO;
+  }
+  if (logLevel) {
+    log.setLevel(logLevel);
+  }
 };
 
 export const getWorkspaceVersion = () => {

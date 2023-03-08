@@ -1,4 +1,11 @@
-query ProductByIdWithCampaigns($externalId: String!, $siteId: String!, $refinements: [String!]) {
+query ProductByIdWithCampaigns(
+  $externalId: String!
+  $siteId: String!
+  $refinements: [String!]
+  $modeCampaignContent: Boolean = true
+  $modePreviewCampaignContent: Boolean = false
+  $modePreviewCampaign: Boolean = false
+  $previewCampaignId: ID = "unknown") {
   product(externalId: $externalId, siteId: $siteId) {
     ...ProductDetail
     augmentation {
@@ -11,7 +18,13 @@ query ProductByIdWithCampaigns($externalId: String!, $siteId: String!, $refineme
       }
     }
   }
-  campaignContent(site: $siteId, channelType: "product-page", refinements: $refinements) {
+  previewCampaign(campaignId: $previewCampaignId, channelType: "product-page", refinements: $refinements) @include(if: $modePreviewCampaign) {
+    ...CampaignContentResult
+  }
+  previewCampaignContent(site: $siteId, channelType: "product-page", refinements: $refinements) @include(if: $modePreviewCampaignContent) {
+    ...CampaignContentResult
+  }
+  campaignContent(site: $siteId, channelType: "product-page", refinements: $refinements) @include(if: $modeCampaignContent) {
     ...CampaignContentResult
   }
 }

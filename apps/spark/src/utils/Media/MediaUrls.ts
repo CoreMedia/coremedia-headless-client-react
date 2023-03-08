@@ -1,4 +1,5 @@
 import { CmVideo } from "@coremedia-labs/graphql-layer";
+import log from "loglevel";
 import { Picture } from "../../models/Banner/Picture";
 import { getFQDN } from "../App/App";
 
@@ -10,7 +11,7 @@ import { getFQDN } from "../App/App";
  */
 export const getImageUrl = (imageUriTemplate: string | null, cropName: string, width: number): string => {
   if (imageUriTemplate == null) {
-    console.error("Error in getImageUrl. Parameter imageUrl is not set.");
+    log.error("Error in getImageUrl. Parameter imageUrl is not set.");
     return "";
   }
   return imageUriTemplate.replace("{cropName}", cropName).replace("{width}", String(width));

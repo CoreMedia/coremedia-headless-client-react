@@ -1,16 +1,21 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react-swc";
 import * as dotenv from "dotenv";
 
 dotenv.config();
 
+const getProxyHost = (): string => {
+  let proxyHost = "http://localhost:4000";
+  if (process.env.VITE_API_ENDPOINT) {
+    // remove graphql suffix, if exist
+    proxyHost = process.env.VITE_API_ENDPOINT.replace("/graphql", "");
+  }
+  return proxyHost;
+};
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react({
-      jsxRuntime: "classic",
-    }),
-  ],
+  plugins: [react()],
   base: "/",
   build: {
     // split chunks manually to avoid one big js file.
@@ -44,7 +49,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/caas": {
-        target: process.env.VITE_API_ENDPOINT || "http://localhost:4000",
+        target: getProxyHost(),
         secure: false,
         changeOrigin: true,
       },

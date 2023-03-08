@@ -1,6 +1,6 @@
 import { Banner } from "../Banner/Banner";
 import { Picture } from "../Banner/Picture";
-import { Download } from "./DetailCMProduct";
+import { Download } from "./Download";
 
 export interface DetailProduct extends Banner {
   name?: string | null;

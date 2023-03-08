@@ -1,12 +1,18 @@
-import { CmLinkable, ProductRef, CmTeasableFragment, ProductImpl } from "@coremedia-labs/graphql-layer";
+import {
+  CmLinkable,
+  ProductRef,
+  CmTeasableFragment,
+  ProductImpl,
+  CmProductFragment,
+} from "@coremedia-labs/graphql-layer";
 import { LinkAttributes } from "../../components/Link/Link";
 import { getLink } from "../../utils/Link/LinkUtils";
 import { PreviewMetadata, getPropertyName } from "../../utils/Preview/MetaData";
 import { Dispatchable } from "../../utils/ViewDispatcher/Dispatchable";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
-import { addCMProductOverrides } from "../Navigation/Navigation";
 import { addAuthors, SupportsAuthors } from "./Author";
 import { addStaticCode, SupportsStaticCode } from "./Code";
+import { addCMProductTitle } from "./CMProduct";
 import { addExternalLinkOverrides } from "./ExternalLink";
 import { addImagemap, SupportsImagemap } from "./ImagemapBanner";
 import { addPicture, SupportsPicture } from "./Picture";
@@ -66,12 +72,6 @@ export interface SupportsViewtype extends PreviewMetadata {
   viewtype: string | null;
 }
 
-const addViewtype = (self: any, result: SupportsViewtype) => {
-  if ("viewtype" in self) {
-    result.viewtype = self.viewtype;
-  }
-};
-
 /**
  * Returns a [[Banner]] object based on the GraphQL [[Teasable]]
  */
@@ -96,7 +96,7 @@ export const initializeBanner = (self: CmTeasableFragment, rootSegment: string):
   addPricing(self, banner);
   addVideo(self, banner);
   addProductOverrides(self, banner);
-  addCMProductOverrides(self, banner);
+  addCMProductTitle(self as CmProductFragment, banner);
   addImagemap(self, banner, rootSegment);
   addTimeline(self, banner, rootSegment);
   addTags(self, banner, rootSegment);
@@ -123,18 +123,22 @@ export const initializeBanner = (self: CmTeasableFragment, rootSegment: string):
 
 export const initializeBannerFor = (self: Dispatchable, rootSegment: string): Banner | null => {
   const type = self.__typename;
-  if (type && type.indexOf("CM") >= 0) {
+  if (type && type.startsWith("CM")) {
     return initializeBanner(self as CmTeasableFragment, rootSegment);
-  } else if (type && type.indexOf("ProductRef") >= 0) {
+  } else if (type && type.startsWith("ProductRef")) {
     const productRef: ProductRef = self as ProductRef;
     return (
-      (productRef &&
-        productRef.product &&
-        initializeProductBannerFromProduct(productRef.product as ProductImpl, rootSegment)) ||
+      (productRef?.product && initializeProductBannerFromProduct(productRef.product as ProductImpl, rootSegment)) ||
       null
     );
-  } else if (type && type.indexOf("ProductImpl") >= 0) {
+  } else if (type && type.startsWith("ProductImpl")) {
     return initializeProductBannerFromProduct(self as ProductImpl, rootSegment);
   }
   return null;
+};
+
+const addViewtype = (self: any, result: SupportsViewtype) => {
+  if (self.viewtype) {
+    result.viewtype = self.viewtype;
+  }
 };

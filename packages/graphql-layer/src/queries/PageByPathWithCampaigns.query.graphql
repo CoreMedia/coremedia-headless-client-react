@@ -1,4 +1,11 @@
-query PageByPathWithCampaigns($path: String!, $siteId: String!, $refinements: [String!]) {
+query PageByPathWithCampaigns(
+  $path: String!
+  $siteId: String!
+  $refinements: [String!]
+  $modeCampaignContent: Boolean = true
+  $modePreviewCampaignContent: Boolean = false
+  $modePreviewCampaign: Boolean = false
+  $previewCampaignId: ID = "unknown") {
   content {
     pageByPath(path: $path) {
       id
@@ -9,7 +16,13 @@ query PageByPathWithCampaigns($path: String!, $siteId: String!, $refinements: [S
       }
     }
   }
-  campaignContent(site: $siteId, channelType: "content-page", refinements: $refinements) {
+  previewCampaign(campaignId: $previewCampaignId, channelType: "content-page", refinements: $refinements) @include(if: $modePreviewCampaign) {
+    ...CampaignContentResult
+  }
+  previewCampaignContent(site: $siteId, channelType: "content-page", refinements: $refinements) @include(if: $modePreviewCampaignContent) {
+    ...CampaignContentResult
+  }
+  campaignContent(site: $siteId, channelType: "content-page", refinements: $refinements) @include(if: $modeCampaignContent) {
     ...CampaignContentResult
   }
 }

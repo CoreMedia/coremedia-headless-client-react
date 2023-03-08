@@ -4,22 +4,6 @@ import { PreviewMetadata, getPropertyName } from "../../utils/Preview/MetaData";
 import { addProperty, mapProperties } from "../../utils/ViewDispatcher/ModelHelper";
 import { Picture } from "./Picture";
 
-export interface SupportsAuthors extends PreviewMetadata {
-  authors?: Array<Author>;
-}
-
-export const addAuthors = (self: any, result: SupportsAuthors, rootSegment: string): void => {
-  "authors" in self &&
-    addProperty(
-      result,
-      "authors",
-      self.authors.map((author: CmPersonFragment) => {
-        return initializeAuthor(author, rootSegment);
-      }),
-      getPropertyName(self, "authors")
-    );
-};
-
 /**
  * @category ViewModels
  */
@@ -28,6 +12,10 @@ export interface Author extends PreviewMetadata {
   linkTarget: string | null;
   text: string | null;
   picture: Picture | null;
+}
+
+export interface SupportsAuthors extends PreviewMetadata {
+  authors?: Array<Author>;
 }
 
 /**
@@ -45,4 +33,17 @@ export const initializeAuthor = (person: CmPersonFragment, rootSegment: string):
     `${person.firstName} ${person.lastName}`;
   displayName && addProperty(author, "displayName", displayName, getPropertyName(person, "displayName"));
   return author;
+};
+
+export const addAuthors = (self: any, result: SupportsAuthors, rootSegment: string): void => {
+  if (self.authors) {
+    addProperty(
+      result,
+      "authors",
+      self.authors.map((author: CmPersonFragment) => {
+        return initializeAuthor(author, rootSegment);
+      }),
+      getPropertyName(self, "authors")
+    );
+  }
 };

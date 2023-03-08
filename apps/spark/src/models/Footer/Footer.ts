@@ -54,7 +54,7 @@ export const initializeFooterCollection = (self: any, rootSegment: string): Navi
     ...mapProperties(self, { title: "teaserTitle", code: "html" }),
     ...getLink(self, rootSegment),
   };
-  if ("items" in self) {
+  if (self.items) {
     addProperty(
       footerCollection,
       "items",
@@ -63,7 +63,7 @@ export const initializeFooterCollection = (self: any, rootSegment: string): Navi
       }),
       getPropertyName(self, "items")
     );
-  } else if ("children" in self) {
+  } else if (self.children) {
     addProperty(
       footerCollection,
       "items",

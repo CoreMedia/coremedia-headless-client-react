@@ -1,6 +1,3 @@
-/**
- * @category ViewModels
- */
 import { CmTeasableFragment } from "@coremedia-labs/graphql-layer";
 import { PreviewMetadata } from "../../utils/Preview/MetaData";
 import { notEmpty } from "../../utils/Helpers";
@@ -74,7 +71,7 @@ export const supportsImagemap = (object: any): object is SupportsImagemap => {
 };
 
 export const addImagemap = (self: any, result: SupportsImagemap, rootSegment: string): void => {
-  if ("transformedHotZones" in self) {
+  if (self.transformedHotZones) {
     result.hotzones = self.transformedHotZones
       .map((hotZone: any) => {
         if (hotZone.crops && hotZone.linkedContent) {

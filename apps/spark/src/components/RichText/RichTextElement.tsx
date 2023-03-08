@@ -1,5 +1,6 @@
 import React, { createElement } from "react";
 import styled from "styled-components";
+import log from "loglevel";
 import LeftRightBanner from "../LeftRightBanner/LeftRightBanner";
 import Link from "../Link/Link";
 import { ImageBox } from "../Media/ResponsiveImage";
@@ -137,7 +138,7 @@ const RichTextElement: React.FC<RichTextElementProps> = ({ _type, name, attribut
   } else if (_type === "Characters") {
     return <>{data}</>;
   } else {
-    console.warn("Ignoring unknown RichText Type", _type);
+    log.warn("Ignoring unknown RichText Type", _type);
   }
   return null;
 };

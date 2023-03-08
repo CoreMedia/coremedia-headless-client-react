@@ -1,4 +1,5 @@
 import { ZonedDateTime, DateTimeFormatter, convert } from "@js-joda/core";
+import { isCampaignEnabled } from "../Campaign/CampaignUtil";
 
 const STUDIO_FORMAT: DateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm VV");
 
@@ -18,6 +19,16 @@ export const isPreview = (): boolean => {
 export const getPreviewDate = (queryParams: string): string | undefined => {
   const previewDate = new URLSearchParams(queryParams).get("previewDate");
   return (isPreview() && previewDate) || undefined;
+};
+
+/**
+ * Extract the previewCampaignId from URL path
+ * @param queryParams the query params of "react-router-dom"
+ * @return string id of the campaign to be previewed
+ */
+export const getPreviewCampaignId = (queryParams: string): string | undefined => {
+  const previewCampaign = new URLSearchParams(queryParams).get("previewCampaign");
+  return (isPreview() && isCampaignEnabled() && previewCampaign) || undefined;
 };
 
 /**

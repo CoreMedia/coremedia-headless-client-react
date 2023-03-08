@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { ApolloError, ServerError } from "@apollo/client";
 import styled from "styled-components";
+import log from "loglevel";
 import { getEndpoint } from "../../utils/App/App";
 import { isPreview } from "../../utils/Preview/Preview";
 import NotFoundIcon from "./assets/not-found.svg";
@@ -64,8 +65,8 @@ export const CategoryNotFoundAlert: React.FC<Props> = () => {
 
 export const ApolloClientAlert: React.FC<Props> = ({ error }) => {
   if (isPreview()) {
-    console.error("Error: Endpoint =", getEndpoint());
-    console.error(error);
+    log.error("Apollo Client Error: Endpoint =", getEndpoint());
+    log.error(error);
   }
   const statusCode = error?.networkError as ServerError;
   const errorMessage = [...new Set(error?.message.split("\n"))].toString().replaceAll(",", "\n"); // filter duplicate messages
