@@ -708,7 +708,7 @@
           },
           {
             "name": "campaignContent",
-            "description": "  Find slot definitions managed via campaigns. Only published campaigns are taken into account. Parameters: - site: the site id, - channelType: Key used for the template type (e.g. values: \"category-page\", \"content-page\", ...). See also query \"channelTypes\"., - refinements: Sorted list of refinements (e.g. for a refinement for a category-page: \"women-dressed\", for a content-page: \"82be5043-e2d8-4db4-a6cb-3b58c2213825\" (the UUID of a CoreMedia Content)). The refinements are logically linked with or. The most important refinement should be defined first in the array, in case of multiple search hits.",
+            "description": " # Find slot definitions managed via campaigns. Only published campaigns are taken into account.\n# Parameters:\n# - site: the site id\n# - channelType: Key used for the template type (e.g. values: \"category-page\", \"content-page\", ...). See also query \"channelTypes\".\n# - refinements: Sorted list of refinements (e.g. for a refinement for a category-page: \"women-dressed\", for a content-page: \"82be5043-e2d8-4db4-a6cb-3b58c2213825\" (the UUID of a CoreMedia Content)). The refinements are logically linked with or. The most important refinement should be defined first in the array, in case of multiple search hits.",
             "args": [
               {
                 "name": "site",
@@ -771,7 +771,7 @@
           },
           {
             "name": "previewCampaign",
-            "description": "  Find slot definitions managed via campaigns. Parameters: - campaignId: the campaign id, - channelType: Key used for the template type (e.g. values: \"category-page\", \"content-page\", ...). See also query \"channelTypes\"., - refinements: Sorted list of refinements (e.g. for a refinement for a category-page: \"women-dressed\", for a content-page: \"82be5043-e2d8-4db4-a6cb-3b58c2213825\" (the UUID of a CoreMedia Content)). The refinements are logically linked with or. The most important refinement should be defined first in the array, in case of multiple search hits.",
+            "description": " # Preview campaign content for a given campaign id. The campaign doesn't necessarily need to be in state running.\n# Parameters:\n# - campaignId: the campaign id\n# - channelType: Key used for the template type (e.g. values: \"category-page\", \"content-page\", ...). See also query \"channelTypes\".\n# - refinements: Sorted list of refinements (e.g. for a refinement for a category-page: \"women-dressed\", for a content-page: \"82be5043-e2d8-4db4-a6cb-3b58c2213825\" (the UUID of a CoreMedia Content)). The refinements are logically linked with or. The most important refinement should be defined first in the array, in case of multiple search hits.",
             "args": [
               {
                 "name": "campaignId",
@@ -834,7 +834,7 @@
           },
           {
             "name": "previewCampaignContent",
-            "description": "  Equivalent to campaignContent, but also takes drafted and paused campaigns into account.",
+            "description": " # Same as campaignContent query, besides published also drafted or paused campaigns are taken into account.\n# Parameters:\n# - site: the site id\n# - channelType: Key used for the template type (e.g. values: \"category-page\", \"content-page\", ...). See also query \"channelTypes\".\n# - refinements: Sorted list of refinements (e.g. for a refinement for a category-page: \"women-dressed\", for a content-page: \"82be5043-e2d8-4db4-a6cb-3b58c2213825\" (the UUID of a CoreMedia Content)). The refinements are logically linked with or. The most important refinement should be defined first in the array, in case of multiple search hits.\n# - previewDate: Sets a simulated date of view for the preview to see how the campaings will look like in tbe future. The format of the string needs to be a valid ISO 8601 DateTime string. In other words, valid datetime strings of the form YYYY-MM-DDThh:mm:ss.SSSZ are accepted. The time zone offset is compulsory for this scalar. The time zone offset must either be Z (representing the UTC time zone) or be in the format ±hh:mm:ss.\n# - status: List of campaign status to be considered for preview. Allowed values: \"DRAFT\", \"ACTIVE\"",
             "args": [
               {
                 "name": "site",
@@ -876,6 +876,34 @@
                     "ofType": {
                       "kind": "SCALAR",
                       "name": "String",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "previewDate",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "status",
+                "description": null,
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "CampaignStatus",
                       "ofType": null
                     }
                   }
@@ -1775,7 +1803,7 @@
       {
         "kind": "SCALAR",
         "name": "BigDecimal",
-        "description": "java.math.BigDecimal",
+        "description": "An arbitrary precision signed decimal",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -111057,8 +111085,8 @@
               "name": "ProductAugmentation",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Will be removed in a future AEP. Retrieve commerce data directly from the commerce system or create a combined custom schema via schema federation or schema stitching instead."
           },
           {
             "name": "productAugmentationByStore",
@@ -111122,8 +111150,8 @@
               "name": "ProductAugmentation",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Will be removed in a future AEP. Retrieve commerce data directly from the commerce system or create a combined custom schema via schema federation or schema stitching instead."
           },
           {
             "name": "categoryAugmentationBySite",
@@ -111173,8 +111201,8 @@
               "name": "CategoryAugmentation",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Will be removed in a future AEP. Retrieve commerce data directly from the commerce system or create a combined custom schema via schema federation or schema stitching instead."
           },
           {
             "name": "categoryAugmentationByStore",
@@ -111238,8 +111266,8 @@
               "name": "CategoryAugmentation",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Will be removed in a future AEP. Retrieve commerce data directly from the commerce system or create a combined custom schema via schema federation or schema stitching instead."
           },
           {
             "name": "augmentationForCommerceIdBySite",
@@ -111279,8 +111307,8 @@
               "name": "Augmentation",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Will be removed in a future AEP. Retrieve commerce data directly from the commerce system or create a combined custom schema via schema federation or schema stitching instead."
           }
         ],
         "inputFields": null,
@@ -121081,7 +121109,7 @@
           },
           {
             "name": "assignments",
-            "description": "  The list of assignments for the slot name.",
+            "description": "  The list of assignments for the slot name. The limit controls how many assignments are returned. Valid limits are 1 to 10.",
             "args": [
               {
                 "name": "limit",
@@ -121291,6 +121319,29 @@
         "inputFields": null,
         "interfaces": [],
         "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "CampaignStatus",
+        "description": " # Campaign Status to support status filters in campaign preview.\n# - DRAFT: represents Draft, Paused\n# - ACTIVE: represents Planned, Running",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "DRAFT",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ACTIVE",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
         "possibleTypes": null
       },
       {

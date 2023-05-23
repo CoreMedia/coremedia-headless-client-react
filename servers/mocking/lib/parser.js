@@ -5,7 +5,7 @@ function getSiteId(reqBody) {
     return null;
   }
 
-  let result = null;
+  let result = "site_";
   if (reqBody.variables.siteId) {
     result = reqBody.variables.siteId;
   } else if (reqBody.variables._v0_siteId) {

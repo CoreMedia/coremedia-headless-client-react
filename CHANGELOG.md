@@ -1,5 +1,22 @@
 # Changelog
 
+## v2304.0.0
+
+*Released 24.05.2023*
+
+### Breaking Changes:
+
+- Updated pnpm to version 8
+- Updated `schema.json` to CoreMedia Content Cloud v11 - 2304.1 and to the latest CoreMedia Campaign Service changes
+
+
+### Bugfixes and Changes:
+
+- Mock data now works with all sites and locales, but kept aligned to calista.
+- Updated minor versions of dependencies
+
+---
+
 ## v2301.1.0
 
 *Released 08.03.2023*
@@ -15,7 +32,6 @@
 ### Bugfixes and Changes:
 
 - Updated minor versions of dependencies
-- Optimized and made View Models more robust, if (commerce) properties are null
 
 ---
 
