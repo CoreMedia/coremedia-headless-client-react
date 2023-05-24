@@ -25,8 +25,7 @@ export const proxyEndpoint = () => {
 };
 
 export const campaignServiceEndpoint = () => {
-  const campaignEndpoint = process.env.CAMPAIGN_ENDPOINT || undefined;
-  return checkGraphqlEndpointURL(campaignEndpoint);
+  return process.env.CAMPAIGN_ENDPOINT || undefined;
 };
 
 /**

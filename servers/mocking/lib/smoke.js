@@ -140,7 +140,7 @@ function processRequest(options) {
     if (reqBodyAsJson !== null && reqBodyAsJson !== "{}") {
       const site = getSiteId(req.body);
       if (site) {
-        pathParams.push(site);
+        pathParams.push("site_");
       }
 
       const id = getId(req.body);
