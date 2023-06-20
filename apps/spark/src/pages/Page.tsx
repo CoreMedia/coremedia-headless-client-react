@@ -34,7 +34,7 @@ interface RouteProps {
 }
 const Page: FC<PageProps> = ({ match }) => {
   const { siteId, navigation, currentNavigation } = useSiteContextState();
-  const { previewCampaignId } = usePreviewContextState();
+  const { previewCampaignId, previewDate } = usePreviewContextState();
   const currentUuid = getCurrentNavigationUuid(navigation, currentNavigation || []) || "";
   const path = match.params.pathSegments;
 
@@ -45,7 +45,7 @@ const Page: FC<PageProps> = ({ match }) => {
 
   const campaignEnabled = isCampaignEnabled();
   let campaignDataSlots: Array<Slot> | undefined;
-  variables = addCampaignQueryVariables(variables, currentUuid, undefined, previewCampaignId);
+  variables = addCampaignQueryVariables(variables, currentUuid, undefined, previewCampaignId, previewDate);
 
   const { data, loading, error } = campaignEnabled
     ? usePageByPathWithCampaignsQuery({ variables: variables })

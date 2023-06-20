@@ -23,7 +23,7 @@ The project can be loaded on any environment supporting Node.js development.
 We recommend:
 
 - Node.js 18 (LTS) or higher
-- pnpm 7
+- pnpm 8
 
 ## Development environment
 

@@ -8,7 +8,7 @@ import { createPersistedQueryLink } from "@apollo/client/link/persisted-queries"
 import { sha256 } from "crypto-hash";
 import possibleTypes from "@coremedia-labs/graphql-layer/dist/__downloaded__/possibleTypes.json";
 import log from "loglevel";
-import { formatPreviewDate, isPreview } from "../Preview/Preview";
+import { isPreview } from "../Preview/Preview";
 import { getEndpoint } from "./App";
 
 type KeyArgs = FieldPolicy<any>["keyArgs"];
@@ -77,11 +77,11 @@ const createApolloClient = (link: ApolloLink): ApolloClient<unknown> => {
  * @category Apollo
  * @internal
  */
-const createPreviewMiddleWare = (previewDate: string): ApolloLink => {
+const createPreviewMiddleWare = (previewDate: Date): ApolloLink => {
   return new ApolloLink((operation, forward) => {
     operation.setContext({
       headers: {
-        "X-Preview-Date": formatPreviewDate(previewDate),
+        "X-Preview-Date": previewDate.toUTCString(),
       },
     });
     return forward(operation);
@@ -96,14 +96,14 @@ const createPreviewMiddleWare = (previewDate: string): ApolloLink => {
  * @param newPreviewDate optional preview date used for Time Travel in CoreMedia Studio Preview
  * @param apqEnabled set to true to use APQ via GET requests
  */
-export const initializeApollo = (newPreviewDate: string | undefined, apqEnabled: boolean): ApolloClient<unknown> => {
+export const initializeApollo = (newPreviewDate: Date | undefined, apqEnabled: boolean): ApolloClient<unknown> => {
   // Create the Apollo Client once in the client, if not changed or previewDate is set
   if (!apolloClient || newPreviewDate) {
     let link: ApolloLink = new HttpLink({
       uri: getEndpoint(),
     });
     if (newPreviewDate && isPreview()) {
-      log.info("Time travel is activated.", newPreviewDate);
+      log.info("Time travel is activated.", newPreviewDate.toUTCString());
       const previewMiddleware = createPreviewMiddleWare(newPreviewDate);
       link = previewMiddleware ? concat(previewMiddleware, link) : link;
     }

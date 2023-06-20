@@ -8,6 +8,7 @@ import "dotenv/config";
 import { ApolloServer } from "apollo-server-express";
 import {
   ApolloServerPluginDrainHttpServer,
+  ApolloServerPluginInlineTraceDisabled,
   ApolloServerPluginLandingPageLocalDefault,
   ApolloServerPluginLandingPageProductionDefault,
 } from "apollo-server-core";
@@ -169,6 +170,7 @@ const createServer = async (schema) => {
       request: req,
     }),
     plugins: [
+      ApolloServerPluginInlineTraceDisabled(), // disabled, Apollo Federation not used.
       process.env.COREMEDIA_STITCHING_ENABLE_APOLLO_STUDIO || false
         ? ApolloServerPluginLandingPageLocalDefault({ footer: false })
         : ApolloServerPluginLandingPageProductionDefault({ footer: false }),

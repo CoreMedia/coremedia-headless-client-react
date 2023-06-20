@@ -23,6 +23,7 @@ Information about the CoreMedia Content Cloud specific concepts.
    - [SiteContextProvider](apps/concepts/README.md#sitecontextprovider)
    - [View Dispatching](apps/concepts/view_dispatching.md)
    - [Studio Preview Integration](apps/concepts/preview.md)
+   - [CoreMedia Campaigns](apps/concepts/campaigns.md)
    - [Standalone Fragment Application](apps/concepts/standalone.md)
    
 ### [API Documentation](../apps/spark/docs/index.html)
@@ -31,7 +32,7 @@ Generated HTML by Typedoc
 
 ---
 
-## Headless Servers
+## Additional Headless Servers
 
 ### [Workspace Structure](servers/structure.md)
 

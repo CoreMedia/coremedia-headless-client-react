@@ -1,4 +1,4 @@
-# CoreMedia Headless Stitching Documentation
+# CoreMedia Headless Stitching Server Documentation
 
 [Documentation](../README.md) / Installation (Stitching Server)
 
@@ -23,8 +23,8 @@ mocking mode the CATALOG_ENDPOINT can be left commented out. In a "real" scenari
 configure the Commerce Headless GraphQL url instead.
 
 ```
-COREMEDIA_ENDPOINT=http://<coremedia-headless-server>/graphql
-#CATALOG_ENDPOINT=http://<commerce-headless-server>/graphql
+COREMEDIA_ENDPOINT=https://<coremedia-headless-server>/graphql
+#CATALOG_ENDPOINT=https://<commerce-headless-server>/graphql
 ```
 
 ## Usage

@@ -1,4 +1,4 @@
-# CoreMedia Headless Stitching Documentation
+# CoreMedia Headless Stitching Server Documentation
 
 [Documentation](../README.md) / Installation and Start (Mocking Server)
 

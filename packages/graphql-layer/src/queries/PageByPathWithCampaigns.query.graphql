@@ -2,6 +2,7 @@ query PageByPathWithCampaigns(
   $path: String!
   $siteId: String!
   $refinements: [String!]
+  $previewDate: String
   $modeCampaignContent: Boolean = true
   $modePreviewCampaignContent: Boolean = false
   $modePreviewCampaign: Boolean = false
@@ -19,7 +20,7 @@ query PageByPathWithCampaigns(
   previewCampaign(campaignId: $previewCampaignId, channelType: "content-page", refinements: $refinements) @include(if: $modePreviewCampaign) {
     ...CampaignContentResult
   }
-  previewCampaignContent(site: $siteId, channelType: "content-page", refinements: $refinements) @include(if: $modePreviewCampaignContent) {
+  previewCampaignContent(site: $siteId, channelType: "content-page", refinements: $refinements, previewDate: $previewDate) @include(if: $modePreviewCampaignContent) {
     ...CampaignContentResult
   }
   campaignContent(site: $siteId, channelType: "content-page", refinements: $refinements) @include(if: $modeCampaignContent) {
