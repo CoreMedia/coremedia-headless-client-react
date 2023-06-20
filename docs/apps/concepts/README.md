@@ -70,3 +70,7 @@ and delegate to the render components.
 How to integrate the app into CoreMedia Studio, enable Preview Driven Editing,
 show a responsive device slider, highlight placements and render a fragmented
 preview for a content item.
+
+## [coreMedia Campaigns](campaigns.md)
+
+How to integrate CoreMedia campaigns into the app and preview campaigns.

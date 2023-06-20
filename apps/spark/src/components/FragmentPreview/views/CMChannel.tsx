@@ -14,7 +14,7 @@ const CMChannel: React.FC<IncludeProps<CmLinkable>> = ({ self }) => {
   let params = {};
   if (isPreview() && previewDate) {
     params = {
-      previewDate: previewDate,
+      previewDateISO: previewDate.toISOString(),
     };
   }
   return <Redirect to={getLink(self, rootSegment, params).linkTarget || ""} />;

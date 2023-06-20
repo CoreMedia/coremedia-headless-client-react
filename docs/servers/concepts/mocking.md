@@ -1,4 +1,4 @@
-# CoreMedia Headless Stitching Documentation
+# CoreMedia Headless Stitching Server Documentation
 
 [Documentation](../../../../coremedia-headless-stitching/documentation/README.md) / [Concepts](../../../../coremedia-headless-stitching/README.md) / Mocking
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 interface PreviewContext {
-  previewDate?: string;
+  previewDate?: Date;
   previewCampaignId?: string;
 }
 
@@ -16,16 +16,16 @@ export const usePreviewContextState = (): PreviewContext => {
 };
 
 interface Props {
-  previewDate?: string;
+  previewDate?: Date;
   previewCampaignId?: string;
 }
 
 export const PreviewContextProvider: React.FC<Props> = ({ children, previewDate, previewCampaignId }) => {
+  const [previewDateState] = useState(previewDate);
   const [previewCampaignIdState] = useState(previewCampaignId);
   const previewContextValue: PreviewContext = {
-    previewDate: previewDate,
+    previewDate: previewDateState,
     previewCampaignId: previewCampaignIdState,
   };
-
   return <previewDataContext.Provider value={previewContextValue}>{children}</previewDataContext.Provider>;
 };

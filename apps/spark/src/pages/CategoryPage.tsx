@@ -44,7 +44,7 @@ export const ITEMS_PER_PAGE = 12;
 const CategoryPage: FC<PageProps> = ({ match }) => {
   const { siteId, currentNavigation, rootSegment } = useSiteContextState();
   const { selectedFacets } = useSearchStateContextState();
-  const { previewCampaignId } = usePreviewContextState();
+  const { previewCampaignId, previewDate } = usePreviewContextState();
 
   let variables: any = {
     externalId: match.params.seoSegment,
@@ -59,7 +59,13 @@ const CategoryPage: FC<PageProps> = ({ match }) => {
 
   const campaignEnabled = isCampaignEnabled();
   let campaignDataSlots: Array<Slot> | undefined;
-  variables = addCampaignQueryVariables(variables, CAMPAIGN_CONTEXT_CATEGORY, currentNavigation, previewCampaignId);
+  variables = addCampaignQueryVariables(
+    variables,
+    CAMPAIGN_CONTEXT_CATEGORY,
+    currentNavigation,
+    previewCampaignId,
+    previewDate
+  );
 
   const { data, loading, error, fetchMore, networkStatus } = campaignEnabled
     ? useCategoryByIdWithCampaignsQuery({ variables: variables })

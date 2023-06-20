@@ -40,7 +40,7 @@ interface RouteProps {
 
 const ProductPage: FC<PageProps> = ({ match }) => {
   const { siteId, currentNavigation, rootSegment } = useSiteContextState();
-  const { previewCampaignId } = usePreviewContextState();
+  const { previewCampaignId, previewDate } = usePreviewContextState();
 
   let variables: any = {
     externalId: match.params.seoSegment,
@@ -49,7 +49,13 @@ const ProductPage: FC<PageProps> = ({ match }) => {
 
   const campaignEnabled = isCampaignEnabled();
   let campaignDataSlots: Array<Slot> | undefined;
-  variables = addCampaignQueryVariables(variables, CAMPAIGN_CONTEXT_PRODUCT, currentNavigation, previewCampaignId);
+  variables = addCampaignQueryVariables(
+    variables,
+    CAMPAIGN_CONTEXT_PRODUCT,
+    currentNavigation,
+    previewCampaignId,
+    previewDate
+  );
 
   const { data, loading, error } = campaignEnabled
     ? useProductByIdWithCampaignsQuery({ variables: variables })

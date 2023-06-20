@@ -14,16 +14,16 @@
     "dist/*"
   ],
   "devDependencies": {
-    "@babel/core": "^7.21.8",
-    "@babel/preset-env": "^7.21.5",
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
     "babel-loader": "^9.1.2",
-    "css-loader": "^6.7.4",
-    "eslint": "^8.41.0",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.8",
     "style-loader": "^3.3.3",
-    "webpack": "^5.83.1",
+    "webpack": "^5.87.0",
     "webpack-cli": "^4.10.0"
   },
   "browserslist": [

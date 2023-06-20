@@ -1,5 +1,22 @@
 # Changelog
 
+## v2304.1.0
+
+*Released 20.06.2023*
+
+### Features:
+
+- Updated typescript to version 5
+- Added preview time travel for CoreMedia Campaigns
+
+### Bugfixes and Changes:
+
+- Added documentation for CoreMedia Campaigns Integration
+- Updated minor versions of dependencies
+- Updated vite, fix CVE-2023-34092
+
+---
+
 ## v2304.0.0
 
 *Released 24.05.2023*
@@ -8,7 +25,6 @@
 
 - Updated pnpm to version 8
 - Updated `schema.json` to CoreMedia Content Cloud v11 - 2304.1 and to the latest CoreMedia Campaign Service changes
-
 
 ### Bugfixes and Changes:
 

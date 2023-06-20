@@ -92,21 +92,24 @@ export const getCurrentNavigationUuid = (
  * @param refinement given refinements
  * @param currentNavigation (optional) given navigation array
  * @param previewCampaignId (optional) given preview campaign id
+ * @param previewDate (optional) given preview date for time travel
  */
 export const addCampaignQueryVariables = (
   variables: any,
   refinement: string,
   currentNavigation?: string[],
-  previewCampaignId?: string
+  previewCampaignId?: string,
+  previewDate?: Date
 ) => {
   const campaignEnabled = isCampaignEnabled();
   if (campaignEnabled) {
     const preview = isPreview();
     variables.refinements = currentNavigation ? getRefinementData(currentNavigation, refinement) : [refinement];
-    variables.previewCampaignId = previewCampaignId;
-    variables.modePreviewCampaign = campaignEnabled && preview && previewCampaignId !== undefined;
-    variables.modePreviewCampaignContent = campaignEnabled && preview && previewCampaignId === undefined;
-    variables.modeCampaignContent = campaignEnabled && !preview;
+    variables.previewCampaignId = preview && previewCampaignId;
+    variables.previewDate = preview && previewDate?.toISOString();
+    variables.modePreviewCampaign = preview && previewCampaignId !== undefined;
+    variables.modePreviewCampaignContent = preview && previewCampaignId === undefined;
+    variables.modeCampaignContent = !preview;
   }
   return variables;
 };

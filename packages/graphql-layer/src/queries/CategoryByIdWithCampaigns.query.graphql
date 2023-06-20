@@ -8,6 +8,7 @@ query CategoryByIdWithCampaigns(
   $filterFacets: [String]
   $catalogId: String,
   $refinements: [String!]
+  $previewDate: String
   $modeCampaignContent: Boolean = true
   $modePreviewCampaignContent: Boolean = false
   $modePreviewCampaign: Boolean = false
@@ -29,7 +30,7 @@ query CategoryByIdWithCampaigns(
   previewCampaign(campaignId: $previewCampaignId, channelType: "category-page", refinements: $refinements) @include(if: $modePreviewCampaign) {
     ...CampaignContentResult
   }
-  previewCampaignContent(site: $siteId, channelType: "category-page", refinements: $refinements) @include(if: $modePreviewCampaignContent) {
+  previewCampaignContent(site: $siteId, channelType: "category-page", refinements: $refinements, previewDate: $previewDate) @include(if: $modePreviewCampaignContent) {
     ...CampaignContentResult
   }
   campaignContent(site: $siteId, channelType: "category-page", refinements: $refinements) @include(if: $modeCampaignContent) {

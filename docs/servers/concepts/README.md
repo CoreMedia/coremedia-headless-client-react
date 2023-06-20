@@ -1,4 +1,4 @@
-# CoreMedia Headless Stitching Documentation
+# CoreMedia Headless Stitching Server Documentation
 
 [Documentation](../../README.md) / Concepts
 
@@ -43,6 +43,10 @@ it would not start. It is therefore necessary to start the mocking server before
 ## [GraphQL Schema Changes](schema-changes.md)
 
 Instructions on what to do if the GraphQL schema changes. especially the commerce schema.
+
+## [CoreMedia Campaigns](campaigns.md)
+
+Additional information for CoreMedia Campaign integration.
 
 ## [Mocking in Detail](mocking.md)
 
