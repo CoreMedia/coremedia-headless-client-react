@@ -1,6 +1,6 @@
 {
   "name": "@coremedia-labs/headless-client-workspace",
-  "version": "2304.1.0",
+  "version": "2304.1.1",
   "description": "Spark - The React client workspace for the CoreMedia Headless Server",
   "private": true,
   "license": "CoreMedia Open Source License",
@@ -55,8 +55,8 @@
       "trim@<0.0.3": ">=0.0.3",
       "trim-newlines@<3.0.1": ">=3.0.1",
       "glob-parent@<5.1.2": ">=5.1.2",
-      "undici@<=5.8.1": ">=5.8.2",
-      "undici@<5.8.0": ">=5.8.0"
+      "undici@<5.19.1": ">=5.19.1",
+      "semver@<7.5.2": ">=7.5.2"
     }
   }
 }
