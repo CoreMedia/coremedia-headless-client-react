@@ -7,7 +7,11 @@ import { isCampaignEnabled } from "../Campaign/CampaignUtil";
  * @return boolean preview mode
  */
 export const isPreview = (): boolean => {
-  return import.meta.env.VITE_PREVIEW === "true" || (import.meta.env.DEV && import.meta.env.VITE_PREVIEW !== "false");
+  return (
+    import.meta.env.VITE_PREVIEW === "true" ||
+    (import.meta.env.DEV && import.meta.env.VITE_PREVIEW !== "false") ||
+    false
+  );
 };
 
 /**
@@ -46,6 +50,8 @@ export const getPreviewDate = (queryParams: string) => {
  */
 export const getPreviewCampaignId = (queryParams: string) => {
   const previewCampaignId =
-    new URLSearchParams(queryParams).get("campaignId") ?? new URLSearchParams(queryParams).get("previewCampaign");
+    new URLSearchParams(queryParams).get("localizedCampaignId") ??
+    new URLSearchParams(queryParams).get("campaignId") ??
+    new URLSearchParams(queryParams).get("previewCampaign");
   return (isPreview() && isCampaignEnabled() && previewCampaignId) || undefined;
 };

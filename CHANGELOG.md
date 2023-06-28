@@ -1,5 +1,17 @@
 # Changelog
 
+## v2304.1.1
+
+*Released 28.06.2023*
+
+### Bugfixes and Changes:
+
+- Fixed graphql error for production systems
+- Added unit-tests for preview and campaign utils
+- Updated minor versions of dependencies
+
+---
+
 ## v2304.1.0
 
 *Released 20.06.2023*

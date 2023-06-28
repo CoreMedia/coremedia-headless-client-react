@@ -9,6 +9,9 @@ Please read the versioning section of the project to see what other CoreMedia ve
 If a project is inactive it means that the development has been discontinued and won't support future CoreMedia versions."
 )
 
+![Build](https://github.com/CoreMedia/coremedia-headless-client-react-pwa/actions/workflows/ci.yml/badge.svg?branch=main)
+![Audit](https://github.com/CoreMedia/coremedia-headless-client-react-pwa/actions/workflows/audit.yml/badge.svg?branch=main)
+
 # Spark - The React Example Application
 
 ![Picture of Spark](docs/img/spark.jpg)

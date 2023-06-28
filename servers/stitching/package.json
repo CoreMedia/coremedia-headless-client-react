@@ -35,13 +35,13 @@
     "express-graphql": "^0.12.0",
     "express-http-proxy": "^1.6.3",
     "graphql": "^15.8.0",
-    "typescript": "^5.1.3",
+    "typescript": "^5.1.5",
     "winston": "^3.9.0"
   },
   "devDependencies": {
     "@types/express-actuator": "^1.8.0",
-    "@typescript-eslint/eslint-plugin": "^5.60.0",
-    "@typescript-eslint/parser": "^5.60.0",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
     "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",

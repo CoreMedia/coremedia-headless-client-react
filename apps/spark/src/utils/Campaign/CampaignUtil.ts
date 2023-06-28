@@ -105,8 +105,12 @@ export const addCampaignQueryVariables = (
   if (campaignEnabled) {
     const preview = isPreview();
     variables.refinements = currentNavigation ? getRefinementData(currentNavigation, refinement) : [refinement];
-    variables.previewCampaignId = preview && previewCampaignId;
-    variables.previewDate = preview && previewDate?.toISOString();
+    if (preview && previewCampaignId) {
+      variables.previewCampaignId = previewCampaignId;
+    }
+    if (preview && previewDate) {
+      variables.previewDate = preview && previewDate?.toISOString();
+    }
     variables.modePreviewCampaign = preview && previewCampaignId !== undefined;
     variables.modePreviewCampaignContent = preview && previewCampaignId === undefined;
     variables.modeCampaignContent = !preview;
