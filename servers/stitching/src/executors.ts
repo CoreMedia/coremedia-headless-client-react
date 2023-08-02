@@ -1,6 +1,6 @@
 import { Executor } from "@graphql-tools/utils";
 import { print } from "graphql";
-import { fetch } from "cross-undici-fetch";
+import fetch from "node-fetch";
 import { campaignServiceEndpoint, coreMediaHeadlessServerEndpoint } from "./endpoints";
 import logger from "./logger";
 

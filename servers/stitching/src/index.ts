@@ -2,24 +2,24 @@ import logger from "./logger";
 import express from "express";
 import proxy from "express-http-proxy";
 import cors from "cors";
+import { json } from "body-parser";
 import { resolvers } from "./resolvers";
 import { stitchSchemas, ValidationLevel } from "@graphql-tools/stitch";
 import "dotenv/config";
-import { ApolloServer } from "apollo-server-express";
+import { ApolloServer } from "@apollo/server";
+import { expressMiddleware } from "@apollo/server/express4";
+import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import {
-  ApolloServerPluginDrainHttpServer,
   ApolloServerPluginInlineTraceDisabled,
-  ApolloServerPluginLandingPageLocalDefault,
-  ApolloServerPluginLandingPageProductionDefault,
-} from "apollo-server-core";
+  ApolloServerPluginLandingPageDisabled,
+} from "@apollo/server/plugin/disabled";
+import { ApolloServerPluginLandingPageLocalDefault } from "@apollo/server/plugin/landingPage/default";
 import { loadSchema } from "@graphql-tools/load";
 import { UrlLoader } from "@graphql-tools/url-loader";
-import * as http from "http";
-import { Server } from "http";
-import { createActuator } from "./actuator";
 import { wrapSchema } from "@graphql-tools/wrap";
-import { graphqlHTTP } from "express-graphql";
-import { defaultQueryString } from "./graphiqlDefaultQuery";
+import * as http from "http";
+import { createActuator } from "./actuator";
+import { GraphQLSchema } from "graphql";
 import { campaignExecutor, cmExecutor } from "./executors";
 import {
   campaignServiceEndpoint,
@@ -130,14 +130,9 @@ const fetchSchemas = async () => {
   }
 };
 
-const createServer = async (schema) => {
+const createServer = async (schema: GraphQLSchema) => {
   // create express server with cors
   const app = express().disable("x-powered-by").use(cors());
-
-  // add graphiql endpoint
-  if (process.env.COREMEDIA_STITCHING_ENABLE_GRAPHIQL) {
-    app.use("/graphiql", graphqlHTTP({ schema, graphiql: { defaultQuery: defaultQueryString } }));
-  }
 
   // add actuator endpoint
   if (process.env.NODE_ENV === "production") {
@@ -166,30 +161,31 @@ const createServer = async (schema) => {
   const server = new ApolloServer({
     schema: schema,
     introspection: true,
-    context: ({ req }) => ({
-      request: req,
-    }),
     plugins: [
-      ApolloServerPluginInlineTraceDisabled(), // disabled, Apollo Federation not used.
-      process.env.COREMEDIA_STITCHING_ENABLE_APOLLO_STUDIO || false
+      process.env.NODE_ENV !== "production" || process.env.COREMEDIA_STITCHING_ENABLE_APOLLO_STUDIO === "true"
         ? ApolloServerPluginLandingPageLocalDefault({ footer: false })
-        : ApolloServerPluginLandingPageProductionDefault({ footer: false }),
+        : ApolloServerPluginLandingPageDisabled(),
+      ApolloServerPluginInlineTraceDisabled(), // disabled, Apollo Federation not used.
       ApolloServerPluginDrainHttpServer({ httpServer }),
     ],
   });
   await server.start();
-  server.applyMiddleware({ app });
+  app.use(
+    "/graphql",
+    cors<cors.CorsRequest>(),
+    json(),
+    expressMiddleware(server, {
+      context: async ({ req }) => ({ request: req }),
+    })
+  );
 
   return httpServer;
 };
 
-const startServer = (app: Server, port = 4000, host = "localhost") => {
-  app.listen(port, () => logger.info(`Stitching server started on: http://${host}:${port}/graphql`));
-};
-
 // start the server after retrieving the schemas and stitching them
-fetchSchemas().then((schema) => {
-  createServer(schema).then((app) => {
-    startServer(app);
-  });
-});
+(async () => {
+  const port = 4000;
+  const schema = await fetchSchemas();
+  const server = await createServer(schema);
+  server.listen(port, () => logger.info(`Stitching server started on: http://localhost:${port}/graphql`));
+})();

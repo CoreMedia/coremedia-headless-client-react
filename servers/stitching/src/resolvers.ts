@@ -1,5 +1,5 @@
 import { delegateToSchema } from "@graphql-tools/delegate";
-import { GraphQLResolveInfo, GraphQLSchema, Kind } from "graphql";
+import { GraphQLResolveInfo, GraphQLSchema, Kind, OperationTypeNode } from "graphql";
 import { WrapQuery } from "@graphql-tools/wrap";
 import logger from "./logger";
 
@@ -18,7 +18,7 @@ export const resolvers = (
           logger.debug("ProductRef#product " + externalId + ":" + siteId);
           return delegateToSchema({
             schema: catalogSchema,
-            operation: "query",
+            operation: OperationTypeNode.QUERY,
             fieldName: "product",
             args: {
               externalId: externalId,
@@ -39,7 +39,7 @@ export const resolvers = (
           logger.debug("CategoryRef#category " + externalId + ":" + siteId);
           return delegateToSchema({
             schema: catalogSchema,
-            operation: "query",
+            operation: OperationTypeNode.QUERY,
             fieldName: "category",
             args: {
               categoryId: externalId,
@@ -57,14 +57,19 @@ export const resolvers = (
         resolve(category, args: Record<string, string>, context: Record<string, string>, info: GraphQLResolveInfo) {
           const externalId = category.externalId;
           const siteId = category.siteId; // consider info.variableValues.siteId if not available
-          const breadcrumb = category.breadcrumb.map((a) => a.externalId);
+          const breadcrumb = category.breadcrumb.map((a) => {
+            return {
+              kind: Kind.STRING,
+              value: a.externalId,
+            };
+          });
           logger.debug("CategoryImpl#augmentation " + externalId + ":" + siteId + ":" + breadcrumb);
           return delegateToSchema({
             schema: coreMediaSchema,
-            operation: "query",
+            operation: OperationTypeNode.QUERY,
             fieldName: "content",
-            context,
-            info,
+            context: context,
+            info: info,
             transforms: [
               new WrapQuery(
                 ["content"],
@@ -95,8 +100,8 @@ export const resolvers = (
                           kind: Kind.ARGUMENT,
                           name: { kind: Kind.NAME, value: "breadcrumb" },
                           value: {
-                            kind: Kind.STRING,
-                            value: breadcrumb,
+                            kind: Kind.LIST,
+                            values: breadcrumb,
                           },
                         },
                       ],
@@ -117,14 +122,19 @@ export const resolvers = (
         resolve(product, args: Record<string, string>, context: Record<string, string>, info: GraphQLResolveInfo) {
           const externalId = product.externalId;
           const siteId = product.siteId; // consider info.variableValues.siteId if not available
-          const breadcrumb = product.category.breadcrumb.map((a) => a.externalId);
+          const breadcrumb = product.category.breadcrumb.map((a) => {
+            return {
+              kind: Kind.STRING,
+              value: a.externalId,
+            };
+          });
           logger.debug("ProductImpl#augmentation " + externalId + ":" + siteId + ":" + breadcrumb);
           return delegateToSchema({
             schema: coreMediaSchema,
-            operation: "query",
+            operation: OperationTypeNode.QUERY,
             fieldName: "content",
-            context,
-            info,
+            context: context,
+            info: info,
             transforms: [
               new WrapQuery(
                 ["content"],
@@ -155,8 +165,8 @@ export const resolvers = (
                           kind: Kind.ARGUMENT,
                           name: { kind: Kind.NAME, value: "breadcrumb" },
                           value: {
-                            kind: Kind.STRING,
-                            value: breadcrumb,
+                            kind: Kind.LIST,
+                            values: breadcrumb,
                           },
                         },
                       ],
@@ -182,10 +192,10 @@ export const resolvers = (
           logger.debug("ContentRef#content " + contentId);
           return delegateToSchema({
             schema: coreMediaSchema,
-            operation: "query",
+            operation: OperationTypeNode.QUERY,
             fieldName: "content",
-            context,
-            info,
+            context: context,
+            info: info,
             transforms: [
               new WrapQuery(
                 ["content"],

@@ -834,7 +834,7 @@
           },
           {
             "name": "previewCampaignContent",
-            "description": " # Same as campaignContent query, besides published also drafted or paused campaigns are taken into account.\n# Parameters:\n# - site: the site id\n# - channelType: Key used for the template type (e.g. values: \"category-page\", \"content-page\", ...). See also query \"channelTypes\".\n# - refinements: Sorted list of refinements (e.g. for a refinement for a category-page: \"women-dressed\", for a content-page: \"82be5043-e2d8-4db4-a6cb-3b58c2213825\" (the UUID of a CoreMedia Content)). The refinements are logically linked with or. The most important refinement should be defined first in the array, in case of multiple search hits.\n# - previewDate: Sets a simulated date of view for the preview to see how the campaings will look like in tbe future. The format of the string needs to be a valid ISO 8601 DateTime string. In other words, valid datetime strings of the form YYYY-MM-DDThh:mm:ss.SSSZ are accepted. The time zone offset is compulsory for this scalar. The time zone offset must either be Z (representing the UTC time zone) or be in the format ±hh:mm:ss.\n# - status: List of campaign status to be considered for preview. Allowed values: \"DRAFT\", \"ACTIVE\"",
+            "description": " # Same as campaignContent query, besides published also drafted or paused campaigns are taken into account.\n# Parameters:\n# - site: the site id\n# - channelType: Key used for the template type (e.g. values: \"category-page\", \"content-page\", ...). See also query \"channelTypes\".\n# - refinements: Sorted list of refinements (e.g. for a refinement for a category-page: \"women-dressed\", for a content-page: \"82be5043-e2d8-4db4-a6cb-3b58c2213825\" (the UUID of a CoreMedia Content)). The refinements are logically linked with or. The most important refinement should be defined first in the array, in case of multiple search hits.\n# - previewDate: Sets a simulated date of view for the preview to see how the campaings will look like in tbe future. The format of the string needs to be a valid ISO 8601 DateTime string. In other words, valid datetime strings of the form YYYY-MM-DDThh:mm:ss.SSSZ are accepted. The time zone offset is compulsory. The time zone offset must either be Z (representing the UTC time zone) or be in the format ±hh:mm:ss.\n# - status: List of campaign status to be considered for preview. Allowed values: \"DRAFT\", \"ACTIVE\"",
             "args": [
               {
                 "name": "site",
@@ -121097,7 +121097,7 @@
           },
           {
             "name": "assignment",
-            "description": "  The most relevant assignment for the slot name.",
+            "description": "  The most relevant assignment for the slot name. If there are multiple assignments from different campaigns for the slot name, the most relevant assignment is the one that has content assigned and is from the campaign with the highest priority. For assignments with the same relevance, the refinement query input is used to determine the most relevant assignment.",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -121109,7 +121109,7 @@
           },
           {
             "name": "assignments",
-            "description": "  The list of assignments for the slot name. The limit controls how many assignments are returned. Valid limits are 1 to 10.",
+            "description": "  The list of assignments for the slot name. The limit controls how many assignments are returned. Valid limits are 1 to 10. The assignments are sorted by relevance (see description of the assignment field).",
             "args": [
               {
                 "name": "limit",

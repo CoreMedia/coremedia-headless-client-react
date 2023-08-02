@@ -1,5 +1,28 @@
 # Changelog
 
+## v2307.0.0
+
+*Released 02.08.2023*
+
+### Breaking Changes:
+
+- Updated `schema.json` to CoreMedia Content Cloud v11 - 2307.1 and to the latest CoreMedia Campaign Service changes
+- Updated apollo server (stitching server) to v4
+  - removed "COREMEDIA_STITCHING_ENABLE_GRAPHIQL", because apollo server 4 doesn't support it anymore. Instead, Apollo Studio is available as replacement.
+
+### Features:
+
+- Updated storybook to v7
+- Updated graphql to v16
+- Updated @graphql-tools/* to latest versions in @coremedia-labs/headless-server-stitching
+- Updated @graphql-codegen/* to latest versions in @coremedia-labs/graphql-layer
+
+### Bugfixes and Changes:
+
+- Updated minor versions of dependencies
+
+---
+
 ## v2304.1.1
 
 *Released 28.06.2023*
