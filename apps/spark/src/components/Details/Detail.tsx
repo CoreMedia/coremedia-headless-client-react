@@ -14,6 +14,7 @@ import DetailedMedia from "./DetailedMedia";
 export const StyledDetail = styled.div`
   @media screen and (min-width: 1200px) {
     width: var(--screen-size-max);
+    max-width: 100%;
   }
 `;
 

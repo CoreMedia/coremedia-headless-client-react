@@ -37,6 +37,7 @@ export const StyledCol = styled.div<{ zone?: string }>`
 
   @media screen and (min-width: 1200px) {
     width: var(--screen-size-max);
+    max-width: 100%;
   }
 
   // no gap for first element on big screens

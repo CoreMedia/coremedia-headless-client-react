@@ -1,15 +1,14 @@
 module.exports = {
-  stories: [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(ts|tsx)"
-  ],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials"
-  ],
-  framework: "@storybook/react",
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(ts|tsx)"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  framework: {
+    name: "@storybook/react-vite",
+    options: {}
+  },
   core: {
-    builder: '@storybook/builder-vite',
-    disableTelemetry: true,
+    disableTelemetry: true
+  },
+  docs: {
+    autodocs: true
   }
 };
