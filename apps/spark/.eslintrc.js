@@ -34,6 +34,7 @@ module.exports = {
     "import/order": ["error"],
     "import/newline-after-import": ["error"],
     "@typescript-eslint/no-explicit-any" : "off", //disable for CI
-    "@typescript-eslint/explicit-module-boundary-types": "off" //disable for CI
+    "@typescript-eslint/explicit-module-boundary-types": "off", //disable for CI
+    "prettier/prettier": ["error", {"trailingComma": "es5"}],
   },
 };

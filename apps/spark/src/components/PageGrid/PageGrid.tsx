@@ -32,11 +32,7 @@ const PageGrid: FC<Grid> = ({ rows = [], campaignDataSlots }) => {
             ) {
               return null;
             } else {
-              return (
-                <>
-                  <Col key={placement.name} col={placement} campaignDataSlots={campaignDataSlots} />
-                </>
-              );
+              return <Col key={placement.name} col={placement} campaignDataSlots={campaignDataSlots} />;
             }
           })}
         </Row>

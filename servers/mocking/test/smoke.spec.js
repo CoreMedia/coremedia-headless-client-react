@@ -273,7 +273,7 @@ describe("smoke server", () => {
         res.status(statusCode).send("hello");
       });
 
-      fs = require("fs/promises");
+      fs = require("node:fs/promises");
       fs.mkdir = jest.fn();
       fs.writeFile = jest.fn();
     }

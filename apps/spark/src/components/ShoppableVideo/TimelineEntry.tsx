@@ -8,7 +8,9 @@ const StyledTimelineEntry = styled.div<{ active?: boolean }>`
   height: 100%;
   display: block;
   opacity: 0.4;
-  transition: opacity 0.3s linear 0.3s, border 0.3s ease-out 0.3s;
+  transition:
+    opacity 0.3s linear 0.3s,
+    border 0.3s ease-out 0.3s;
 
   ${(props) =>
     props.active && props.active === true

@@ -6,9 +6,8 @@
  * This script fetches the available interface definitions from the graphql server
  */
 
-const fetch = require("cross-fetch");
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 const dotenv = require("dotenv");
 
 dotenv.config({ path: path.resolve(__dirname, '../../../apps/spark/.env') });

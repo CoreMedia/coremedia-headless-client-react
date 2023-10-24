@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require("node:path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const multer = require("multer");

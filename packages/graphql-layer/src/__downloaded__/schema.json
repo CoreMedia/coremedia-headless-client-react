@@ -2224,6 +2224,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -3845,6 +3861,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -5612,6 +5644,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -7009,6 +7057,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -8530,6 +8594,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -9639,6 +9719,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -9666,8 +9758,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -9689,8 +9781,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -9720,8 +9812,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -10074,6 +10166,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -11225,6 +11333,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -11252,8 +11372,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -11275,8 +11395,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -11306,8 +11426,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -11742,6 +11862,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -13354,6 +13490,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -15080,6 +15232,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -16637,6 +16805,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -18288,6 +18472,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -19721,6 +19921,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -21278,6 +21494,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -22820,6 +23052,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -24476,6 +24724,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -26104,6 +26368,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -27876,6 +28156,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -29297,6 +29593,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -30837,6 +31149,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -32458,6 +32786,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -34213,6 +34557,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -35646,6 +36006,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -37198,6 +37574,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -38779,6 +39171,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -40484,6 +40892,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -41593,6 +42017,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -41620,8 +42056,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -41643,8 +42079,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -41674,8 +42110,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -42040,6 +42476,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -43191,6 +43643,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -43218,8 +43682,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -43241,8 +43705,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -43272,8 +43736,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -44311,6 +44775,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -45781,6 +46261,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -47375,6 +47871,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -48484,6 +48996,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -48511,8 +49035,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -48534,8 +49058,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -48565,8 +49089,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -48943,6 +49467,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -50094,6 +50634,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -50121,8 +50673,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -50144,8 +50696,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -50175,8 +50727,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -50640,6 +51192,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -51607,6 +52175,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -52532,6 +53116,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -54108,6 +54708,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -56575,6 +57191,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -57684,6 +58316,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -57711,8 +58355,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -57734,8 +58378,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -57765,8 +58409,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -58142,6 +58786,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -59293,6 +59953,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -59320,8 +59992,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -59343,8 +60015,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -59374,8 +60046,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -59832,6 +60504,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -61351,6 +62039,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -63432,6 +64136,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -64901,6 +65621,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -66494,6 +67230,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -67603,6 +68355,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -67630,8 +68394,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -67653,8 +68417,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -67684,8 +68448,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -68148,6 +68912,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -69299,6 +70079,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -69326,8 +70118,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -69349,8 +70141,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -69380,8 +70172,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -69974,6 +70766,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -71392,6 +72200,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -72929,6 +73753,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -74378,6 +75218,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -75946,6 +76802,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -77740,6 +78612,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -79668,6 +80556,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -81089,6 +81993,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -82629,6 +83549,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -84312,6 +85248,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -86686,6 +87638,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -88261,6 +89229,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -91252,6 +92236,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -92361,6 +93361,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -92388,8 +93400,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -92411,8 +93423,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -92442,8 +93454,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -92836,6 +93848,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -93987,6 +95015,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -94014,8 +95054,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -94037,8 +95077,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -94068,8 +95108,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -94588,6 +95628,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -96096,6 +97152,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -97757,6 +98829,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -99319,6 +100407,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -100869,6 +101973,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -102271,6 +103391,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -103792,6 +104928,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -104901,6 +106053,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -104928,8 +106092,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -104951,8 +106115,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -104982,8 +106146,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -105372,6 +106536,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -106523,6 +107703,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -106550,8 +107742,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -106573,8 +107765,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -106604,8 +107796,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -107125,6 +108317,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -108234,6 +109442,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -108261,8 +109481,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -108284,8 +109504,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -108315,8 +109535,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -108713,6 +109933,22 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -109864,6 +111100,18 @@
           {
             "name": "caption",
             "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichText",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "captionLegacy",
+            "description": null,
             "args": [
               {
                 "name": "view",
@@ -109891,8 +111139,8 @@
               "name": "String",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Replaced by new RichText type"
           },
           {
             "name": "captionAsTree",
@@ -109914,8 +111162,8 @@
               "name": "RichTextTree",
               "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "captionReferencedContent",
@@ -109945,8 +111193,8 @@
                 }
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "isDeprecated": true,
+            "deprecationReason": "Included in the RichText-Type of the caption field."
           },
           {
             "name": "copyright",
@@ -116272,6 +117520,22 @@
             "deprecationReason": null
           },
           {
+            "name": "linkedSettings",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "CMSettings",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "contentInSetting",
             "description": null,
             "args": [
@@ -121497,7 +122761,7 @@
       {
         "kind": "OBJECT",
         "name": "__Type",
-        "description": "The fundamental unit of any GraphQL Schema is the type. There are many kinds of types in GraphQL as represented by the `__TypeKind` enum.\n\nDepending on the kind of a type, certain fields describe information about that type. Scalar types provide no information beyond a name, description and optional `specifiedByUrl`, while Enum types provide their values. Object and Interface types provide the fields they describe. Abstract types, Union and Interface, provide the Object types possible at runtime. List and NonNull types compose other types.",
+        "description": "The fundamental unit of any GraphQL Schema is the type. There are many kinds of types in GraphQL as represented by the `__TypeKind` enum.\n\nDepending on the kind of a type, certain fields describe information about that type. Scalar types provide no information beyond a name, description and optional `specifiedByURL`, while Enum types provide their values. Object and Interface types provide the fields they describe. Abstract types, Union and Interface, provide the Object types possible at runtime. List and NonNull types compose other types.",
         "fields": [
           {
             "name": "kind",
@@ -121540,7 +122804,7 @@
             "deprecationReason": null
           },
           {
-            "name": "specifiedByUrl",
+            "name": "specifiedByURL",
             "description": null,
             "args": [],
             "type": {
@@ -122356,14 +123620,14 @@
       },
       {
         "name": "specifiedBy",
-        "description": "Exposes a URL that specifies the behaviour of this scalar.",
+        "description": "Exposes a URL that specifies the behavior of this scalar.",
         "locations": [
           "SCALAR"
         ],
         "args": [
           {
             "name": "url",
-            "description": "The URL that specifies the behaviour of this scalar.",
+            "description": "The URL that specifies the behavior of this scalar.",
             "type": {
               "kind": "NON_NULL",
               "name": null,

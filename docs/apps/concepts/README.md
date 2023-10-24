@@ -71,6 +71,10 @@ How to integrate the app into CoreMedia Studio, enable Preview Driven Editing,
 show a responsive device slider, highlight placements and render a fragmented
 preview for a content item.
 
-## [coreMedia Campaigns](campaigns.md)
+## [CoreMedia Campaigns](campaigns.md)
 
-How to integrate CoreMedia campaigns into the app and preview campaigns.
+How to integrate CoreMedia campaigns into the app and how to preview campaigns.
+
+## [CoreMedia Byside Integration](byside.md)
+
+How to integrate CoreMedia Byside into the app.

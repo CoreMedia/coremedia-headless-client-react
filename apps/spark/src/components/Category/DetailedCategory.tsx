@@ -48,12 +48,18 @@ interface Props {
 const DetailedCategory: React.FC<Props> = ({ name, placements, campaignDataSlots }) => {
   const { rootSegment } = useSiteContextState();
 
+  const campaignBannerHero = getFirstContentForCampaignSlot("hero", rootSegment, campaignDataSlots);
   const campaignBannerMain = getFirstContentForCampaignSlot("main", rootSegment, campaignDataSlots);
   const campaignBannerSidebar = getFirstContentForCampaignSlot("sidebar", rootSegment, campaignDataSlots);
 
   return (
     <StyledDetail>
       <CategoryHeader>{name}</CategoryHeader>
+      {campaignBannerHero && (
+        <CampaignSlot name={"Hero"} campaignDataSlots={campaignDataSlots}>
+          <HeroBanner banner={campaignBannerHero} />
+        </CampaignSlot>
+      )}
       <StyledRow>
         <Sidebar>
           <SubCategoryList />

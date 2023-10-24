@@ -24,5 +24,8 @@ module.exports = {
     "node_nodules/",
     "*.config.js",
     ".eslintrc.js"
-  ]
+  ],
+  rules: {
+    "prettier/prettier": ["error", {"trailingComma": "es5"}],
+  }
 };

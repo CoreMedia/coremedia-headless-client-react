@@ -35,7 +35,9 @@ const Button = styled(StyledButton)`
   &:active,
   &:focus {
     background-color: #fff;
-    box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, 0.75), inset 0 0 0 2px #000;
+    box-shadow:
+      inset 0 0 0 1px hsla(0, 0%, 100%, 0.75),
+      inset 0 0 0 2px #000;
   }
   position: absolute;
   bottom: 50%;
