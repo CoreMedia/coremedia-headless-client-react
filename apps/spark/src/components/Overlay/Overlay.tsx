@@ -14,7 +14,11 @@ const overlayStyleByName = (style: string) => {
   switch (style) {
     case "cm-richtext--dark-shadow": {
       return css`
-        text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+        text-shadow:
+          -1px 0 #fff,
+          0 1px #fff,
+          1px 0 #fff,
+          0 -1px #fff;
       `;
     }
     case "cm-richtext--light-shadow": {

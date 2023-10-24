@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { rmSync, unlinkSync } = require("fs");
+const { rmSync, unlinkSync } = require("node:fs");
 
 const isUsingPnpm = process.env.npm_config_user_agent?.startsWith('pnpm');
 const isUsingNpm = process.env.npm_config_user_agent?.startsWith('npm');

@@ -7,9 +7,8 @@
  * see https://www.apollographql.com/docs/react/v3.0-beta/data/fragments/#generating-possibletypes-automatically
  */
 
-const fetch = require("cross-fetch");
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 const dotenv = require("dotenv");
 
 dotenv.config({ path: path.resolve(__dirname, '../../../apps/spark/.env') });

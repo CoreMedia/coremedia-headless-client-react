@@ -6,9 +6,8 @@
  * This script fetches the available image crops from the graphql server
  */
 
-const fetch = require("cross-fetch");
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -30,7 +29,7 @@ fetch(process.env.VITE_API_ENDPOINT+"/graphql", {
     query: `
       query imageCrops($siteId: String!) {
         content {
-          site(id: $siteId) {
+          site(siteId: $siteId) {
             crops {
               name
               aspectRatio {

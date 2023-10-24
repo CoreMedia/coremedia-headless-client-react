@@ -1,4 +1,4 @@
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
 import { logfile } from "./logger";
 import actuator from "express-actuator";
 import { RequestHandler } from "express";

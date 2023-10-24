@@ -5,4 +5,7 @@ module.exports = {
     sourceType: "module",
   },
   ignorePatterns: ["dist", "node_nodules/"],
+  rules: {
+    "prettier/prettier": ["error", { trailingComma: "es5" }],
+  },
 };

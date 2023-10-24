@@ -6,11 +6,10 @@
  * This script downloads the schema.json from the graphql server
  */
 
-const dotenv = require("dotenv");
-const path = require("path");
-const fetch = require("cross-fetch");
-const fs = require("fs");
+const fs = require("node:fs");
+const path = require("node:path");
 const { getIntrospectionQuery } = require("graphql");
+const dotenv = require("dotenv");
 
 dotenv.config({ path: path.resolve(__dirname, '../../../apps/spark/.env') });
 

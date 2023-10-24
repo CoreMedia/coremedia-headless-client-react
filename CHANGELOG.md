@@ -1,8 +1,29 @@
 # Changelog
 
+## v2310.0.0
+
+*Released 24.10.2023*
+
+### Breaking Changes:
+
+- Replaced all 3rd-party libs like cross-fetch, and node-fetch with node.js builtin fetch API
+- Removed babel from stitching server, using "tsc" for compiling typescript
+- Updated `schema.json` to CoreMedia Content Cloud v11 - 2310.1
+
+### Features:
+
+- Added CoreMedia Byside Tag Integration
+
+### Bugfixes and Changes:
+
+- Updated minor versions of dependencies
+- Updated eslint and prettier to latest major versions, but keeping the old prettier config "trailingComma": "es5" 
+
+---
+
 ## v2307.0.0
 
-*Released 02.08.2023*
+*Released 27.07.2023*
 
 ### Breaking Changes:
 

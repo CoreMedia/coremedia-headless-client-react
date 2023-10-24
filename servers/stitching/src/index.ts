@@ -1,3 +1,4 @@
+import * as http from "node:http";
 import logger from "./logger";
 import express from "express";
 import proxy from "express-http-proxy";
@@ -17,7 +18,6 @@ import { ApolloServerPluginLandingPageLocalDefault } from "@apollo/server/plugin
 import { loadSchema } from "@graphql-tools/load";
 import { UrlLoader } from "@graphql-tools/url-loader";
 import { wrapSchema } from "@graphql-tools/wrap";
-import * as http from "http";
 import { createActuator } from "./actuator";
 import { GraphQLSchema } from "graphql";
 import { campaignExecutor, cmExecutor } from "./executors";

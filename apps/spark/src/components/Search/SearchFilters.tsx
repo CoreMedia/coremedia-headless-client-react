@@ -107,7 +107,9 @@ const SearchFilterButton = styled.button`
   &:focus {
     outline: none;
     background-color: var(--color-green-highlight-active);
-    box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 2px #000;
+    box-shadow:
+      inset 0 0 0 1px #fff,
+      inset 0 0 0 2px #000;
   }
   span {
     display: none;

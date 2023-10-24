@@ -21,4 +21,7 @@ module.exports = {
     ".eslintrc.js",
     "*.graphql"
   ],
+  rules: {
+    "prettier/prettier": ["error", {"trailingComma": "es5"}],
+  }
 };

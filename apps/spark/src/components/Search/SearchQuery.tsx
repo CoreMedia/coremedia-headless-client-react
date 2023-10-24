@@ -40,14 +40,18 @@ export const SearchInput = styled.input`
   border: 1px solid #000;
   border-radius: 2px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
   font-size: var(--font-size-text-small);
   line-height: 1.428571429;
 
   &:focus {
     border-color: #000;
     outline: none;
-    box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 2px #000;
+    box-shadow:
+      inset 0 0 0 1px #fff,
+      inset 0 0 0 2px #000;
   }
 
   @media screen and (min-width: 768px) {

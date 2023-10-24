@@ -6,16 +6,16 @@
     "newLine": "LF",
     "useDefineForClassFields": true,
     "esModuleInterop": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "lib": [
       "es5",
-      "esnext"
+      "esnext",
+      "dom"
     ],
     "baseUrl": "..",
     "rootDir": "src",
     "outDir": "dist",
     "declaration": true,
-    "emitDeclarationOnly": true,
     "types": [
       "node"
     ]
