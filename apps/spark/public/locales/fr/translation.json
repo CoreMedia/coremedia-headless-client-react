@@ -1,0 +1,137 @@
+{
+  "Button": {
+    "defaultText": "En savoir plus",
+    "addToCart" : "Ajouter au panier",
+    "addMoreCart" : "Ajouter plus",
+    "downloadText": "Télécharger"
+  },
+  "CartList": {
+    "emptyText": "Votre Panier es vide.",
+    "product": "Produit:",
+    "quantity": "Quantité:",
+    "price": "Prix:",
+    "description": "Description:"
+  },
+  "DetailedCart": {
+    "headline": "Panier",
+    "emptyText": "Votre Panier est vide.",
+    "description": "Description",
+    "price": "Prix",
+    "quantity": "Quantité",
+    "total": "Total",
+    "checkoutButtonText": "Aller à la caisse",
+    "continueShopping": "Continuer les achats",
+    "cartTotals": "Totaux du panier",
+    "subtotalInclTax": "Sous-total (TTC)",
+    "tax": "Taxe"
+  },
+  "HeaderCart": {
+    "title": "Panier"
+  },
+  "HeaderSearchForm": {
+    "close": "Fermer la recherche",
+    "label": "Recherche",
+    "placeholder": "Rechercher ...",
+    "submit": "Rechercher"
+  },
+  "Loading": {
+    "loading": "chargement ..."
+  },
+  "SideCart": {
+    "title": "Panier d'achat",
+    "close": "Fermer",
+    "openCartButtonText": "Aller au panier"
+  },
+  "Ticker": {
+    "title": "Breaking News"
+  },
+  "FacetFilters": {
+    "title": "Filtre"
+  },
+  "ProductAssets": {
+    "downloads": "Téléchargements"
+  },
+  "Search": {
+    "Header": {
+      "title": "Search Results",
+      "message": "Your search for <span>{{query}}</span> returned <b>{{totalCount}} hits</b>."
+    }
+  },
+  "SearchFilter": {
+    "closeSearch": "Fermer la recherche",
+    "filters": "Filtres",
+    "type_CMArticle": "Stories",
+    "type_CMCategory": "Categories",
+    "type_CMChannel": "Pages",
+    "type_CMEvent": "Events",
+    "type_CMExternalChannel": "External Channels",
+    "type_CMExternalPage": "External Pages",
+    "type_CMExternalProduct": "Products",
+    "type_CMImageMap": "Image Maps",
+    "type_CMLook": "Looks",
+    "type_CMPerson": "Editors",
+    "type_CMPicture": "Pictures",
+    "type_CMProduct": "Products",
+    "type_CMProductTeaser": "Product Teasers",
+    "type_CMRecipe": "Recipes",
+    "type_CMVideo": "Videos",
+    "allTypes": "Tous les types",
+    "subject": "Étiquette",
+    "type": "Type",
+    "price": "prix",
+    "brand": "Marque"
+  },
+  "SortFilter": {
+    "sortBy": "Trier par",
+    "Relevance": "Pertinence",
+    "Display Date Asc": "Date d'affichage (croissant)",
+    "Display Date Desc": "Date d'affichage (décroissant)",
+    "Creation Date Asc": "Date de création (croissante)",
+    "Creation Date Desc": "Date de création (décroissant)",
+    "Modification Date Asc": "Date de modification (croissante)",
+    "Modification Date Desc": "Date de modification (décroissant)"
+  },
+  "DetailPage": {
+    "relatedProducts": "Produits",
+    "related": "Contenu connexe"
+  },
+  "CheckoutPage": {
+    "successTitle": "Checkout terminé",
+    "successMessage": "<p>Merci pour votre commande.</p><p>Notre équipe est actuellement en train d'emballer et d'expédier votre commande.<br />Nous vous informerons dès que les marchandises seront en route vers vous.</p>",
+    "continueShopping": "Poursuivre les achats"
+  },
+  "CMArticle": "Story",
+  "CMCategory": "Category",
+  "CMChannel": "Page",
+  "CMEvent": "Event",
+  "CMExternalChannel": "External Channel",
+  "CMExternalPage": "External Page",
+  "CMExternalProduct": "Product",
+  "CMImageMap": "Image Map",
+  "CMLook": "Look",
+  "CMPerson": "Editor",
+  "CMPicture": "Picture",
+  "CMProduct": "Product",
+  "CMProductTeaser": "Product Teaser",
+  "CMRecipe": "Recipe",
+  "CMVideo": "Video",
+  "commonSize": "Size",
+  "color": "Color",
+  "style": "Style",
+  "gender": "Gender",
+  "season": "Season",
+  "landscape_ratio16x9": "Crop 16:9",
+  "portrait_ratio2x3": "Crop 2:3",
+  "landscape_ratio4x3": "Crop 4:3",
+  "landscape_ratio8x3": "Crop 8:3",
+  "portrait_ratio1x1": "Crop 1:1",
+  "OfferPrice_USD": "Price",
+  "({* TO 100])": "Less than $100",
+  "({100 TO 200])": "Between $100 and $200",
+  "({200 TO 300])": "Between $200 and $300",
+  "({300 TO 400])": "Between $300 and $400",
+  "({400 TO 500])": "Between $400 and $500",
+  "({500 TO *})": "More than $500",
+  "mobile-portrait": "(orientation: portrait) and (max-width: 767px)",
+  "tablet-portrait": "(orientation: portrait) and (min-width: 768px)"
+}

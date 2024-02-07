@@ -1,16 +1,14 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 
-"use strict";
+import * as fs from "node:fs";
+import * as path from "node:path";
+import * as dotenv from "dotenv";
 
 /*
  * This script fetches the available interface definitions from the graphql server
  */
 
-const fs = require("node:fs");
-const path = require("node:path");
-const dotenv = require("dotenv");
-
-dotenv.config({ path: path.resolve(__dirname, '../../../apps/spark/.env') });
+dotenv.config({ path: path.resolve(__dirname, "../../../apps/spark/.env") });
 
 // disable for self-signed certs
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -36,36 +34,29 @@ fetch(graphQlEndpoint + "/graphql", {
   }
 }`,
   }),
-}).then(result => result.json())
-  .then(result => {
-    let metadata = {};
+})
+  .then((result) => result.json())
+  .then((result) => {
+    const metadata = {};
 
     // transform the result into an easy-to-use map
     result.data.metadata.types.forEach((type) => {
       if (type.name) {
-        let mappings = {};
+        const mappings = {};
         type.fields.forEach((mapping) => {
-          if(mapping.metadata !== null) {
+          if (mapping.metadata !== null) {
             mappings[mapping.name] = mapping.metadata.mapping;
           }
         });
-        if(Object.keys(mappings).length > 0) {
+        if (Object.keys(mappings).length > 0) {
           metadata[type.name] = mappings;
         }
       }
     });
 
-    // create folder if not exist
-    fs.mkdir(path.join(__dirname, "../src/__downloaded__"), { recursive: true}, (err) => {
-      fs.writeFile(path.join(__dirname, "../src/__downloaded__/metadata.json"), JSON.stringify(metadata), err => {
-        if (err) {
-          console.error("Error writing metadata.json", err);
-        } else {
-          console.log("metadata mapping successfully extracted!");
-        }
-      });
-    });
+    fs.mkdirSync(path.join(__dirname, "../src/__downloaded__"), { recursive: true });
+    fs.writeFileSync(path.join(__dirname, "../src/__downloaded__/metadata.json"), JSON.stringify(metadata));
   })
   .catch((error) => {
-    console.error('Error:', error);
+    console.error("Error:", error);
   });

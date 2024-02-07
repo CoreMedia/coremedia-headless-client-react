@@ -34,7 +34,7 @@ const DetailedMedia: React.FC<Props> = ({ media }) => {
                   <VideoPlayer
                     video={media.video}
                     controls={false}
-                    autoPlay={true}
+                    playing={true}
                     muted={true}
                     loop={true}
                     metadata={media.metadata}

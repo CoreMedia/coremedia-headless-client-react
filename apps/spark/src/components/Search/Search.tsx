@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 import { useSearchPageContextState } from "../../context/SearchPageContext";
 import { useSearchStateContextState } from "../../context/SearchStateContext";
 import { StyledCol } from "../PageGrid/Col";
@@ -49,16 +50,16 @@ const SearchHeader = styled.div`
 const Search: React.FC = () => {
   const { totalCount } = useSearchPageContextState();
   const { query } = useSearchStateContextState();
-
+  const { t } = useTranslation();
   return (
     <StyledCol zone={"main"}>
       <StyledSearch>
         <SearchHeader>
-          <h1>Search Results</h1>
+          <h1>{t("Search.Header.title")}</h1>
           {query && (
-            <div>
-              Your search for <span>{query}</span> returned <b>{totalCount}</b> hits.
-            </div>
+            <div
+              dangerouslySetInnerHTML={{ __html: t("Search.Header.message", { query: query, totalCount: totalCount }) }}
+            />
           )}
         </SearchHeader>
         <div>

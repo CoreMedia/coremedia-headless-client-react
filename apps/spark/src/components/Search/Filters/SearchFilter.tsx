@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { useTranslation } from "react-i18next";
 import { SearchFacet, useSearchStateContextState } from "../../../context/SearchStateContext";
 import Chevron from "../assets/chevron.svg";
 import ArrowBack from "../assets/arrow-back.svg";
@@ -117,11 +118,12 @@ const SearchFilter: React.FC<Props> = ({ title, entries, filterType = "checkbox"
   const { removeFacets, selectedFacets } = useSearchStateContextState();
 
   const [isOpen, setIsOpen] = React.useState(true);
+  const { t } = useTranslation();
 
   return (
     <StyledSearchFilter onClick={() => setIsOpen(!isOpen)}>
       <SearchFilterTitle isClosed={!isOpen}>
-        {title}
+        {t(title)}
         <i />
       </SearchFilterTitle>
       <form style={!isOpen ? { display: "none" } : {}}>
@@ -134,7 +136,7 @@ const SearchFilter: React.FC<Props> = ({ title, entries, filterType = "checkbox"
               }}
             >
               <AllIcon />
-              <span>All types</span>
+              <span>{t("SearchFilter.allTypes")}</span>
             </SearchFilterAllItems>
           )}
           {entries?.map((item, index) => {
@@ -144,7 +146,7 @@ const SearchFilter: React.FC<Props> = ({ title, entries, filterType = "checkbox"
                 <CheckboxFilterEntry
                   key={index}
                   title={title}
-                  label={item.label}
+                  label={t(item.label)}
                   query={item.query}
                   count={item.count}
                 />

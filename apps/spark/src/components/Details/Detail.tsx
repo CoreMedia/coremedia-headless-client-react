@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 import { Detail as DetailModel } from "../../models/Detail/Detail";
 import { metaDataElement, metaDataProperty } from "../../utils/Preview/MetaData";
 import Date from "../Date/Date";
@@ -81,6 +82,8 @@ const Detail: React.FC<DetailModel> = ({
   structuredTextLinks,
   metadata = {},
 }) => {
+  const { t } = useTranslation();
+
   return (
     <StyledDetail {...metaDataElement(metadata.root)}>
       <Article>
@@ -131,7 +134,7 @@ const Detail: React.FC<DetailModel> = ({
       )}
       {related && related.length > 0 && (
         <section {...metaDataProperty(metadata.properties?.related)}>
-          <LandscapeBannerContainer title={"Related"} items={related} />
+          <LandscapeBannerContainer title={t("DetailPage.related")} items={related} />
         </section>
       )}
     </StyledDetail>

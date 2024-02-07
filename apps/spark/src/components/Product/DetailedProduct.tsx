@@ -11,6 +11,7 @@ import { getFirstContentForCampaignSlot } from "../../utils/Campaign/CampaignUti
 import CampaignSlot from "../Campaign/CampaignSlot";
 import HeroBanner from "../HeroBanner/HeroBanner";
 import LeftRightBanner from "../LeftRightBanner/LeftRightBanner";
+import { useBreakpoints } from "../../utils/TeaserVariants/variantsHelper";
 import ProductDetails from "./ProductDetails";
 import ProductAssets from "./ProductAssets";
 
@@ -26,29 +27,34 @@ interface Props {
 
 const DetailedProduct: React.FC<Props> = ({ placements, campaignDataSlots }) => {
   const { rootSegment } = useSiteContextState();
-
+  const { isMobile } = useBreakpoints();
   const campaignBannerHero = getFirstContentForCampaignSlot("banner", rootSegment, campaignDataSlots);
   const campaignBannerTab = getFirstContentForCampaignSlot("tab", rootSegment, campaignDataSlots);
   const campaignBannerAdditional = getFirstContentForCampaignSlot("additional", rootSegment, campaignDataSlots);
 
   return (
     <>
+      {/*Banner*/}
       <Col col={placementByName(placements, "banner") as ColPlacement} />
+
+      {/*Main*/}
       <StyledCol zone={"main"}>
         <CampaignSlot name={"Banner"} campaignDataSlots={campaignDataSlots}>
           {campaignBannerHero && <HeroBanner banner={campaignBannerHero} />}
         </CampaignSlot>
-        <StyledDetailProduct>
+        <StyledDetailProduct style={{ flexDirection: isMobile ? "column" : "row" }}>
           <ProductAssets />
           <ProductDetails />
         </StyledDetailProduct>
       </StyledCol>
+
       {/* Tab*/}
       <CampaignSlot name={"Tab"} campaignDataSlots={campaignDataSlots}>
         {campaignBannerTab && <LeftRightBanner {...campaignBannerTab} />}
       </CampaignSlot>
       <Col col={placementByName(placements, "tab") as ColPlacement} />
 
+      {/*Additional*/}
       <CampaignSlot name={"Additional"} campaignDataSlots={campaignDataSlots}>
         {campaignBannerAdditional && <LeftRightBanner {...campaignBannerAdditional} />}
       </CampaignSlot>

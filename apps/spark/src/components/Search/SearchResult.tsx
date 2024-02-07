@@ -7,34 +7,37 @@ import { notEmpty } from "../../utils/Helpers";
 import SearchBanner from "./SearchBanner";
 
 export const MoreButton = styled.button`
-  display: block;
-  margin: 0 auto;
-  border: none;
+  background: var(--cta-background);
+  border-radius: var(--cta-border-radius);
+  border: var(--cta-border);
+  color: var(--cta-text-color);
   cursor: pointer;
+  display: block;
+  font-family: var(--font-family-headline);
+  font-size: var(--font-size-heading-3);
+  margin: 0 auto;
+  padding: 10px 20px 5px;
+  pointer-events: auto;
   position: relative;
   text-decoration: none;
-  color: var(--color-font-cta-hover);
-  background-color: var(--color-green-highlight);
-  border-radius: 0;
-  pointer-events: auto;
   text-transform: uppercase;
-  padding: 10px 20px 5px;
   transition: all 0.1s ease;
-  font-size: var(--font-size-heading-3);
-  font-family: var(--font-family-headline);
 
   &:hover {
-    background-color: var(--color-green-highlight-hover);
-    color: var(--color-font-cta-hover);
+    background-color: var(--cta-background-hover);
+    border: var(--cta-border-hover);
+    color: var(--cta-text-color-hover);
   }
 
   &:active,
   &:focus {
     outline: none;
-    background-color: var(--color-green-highlight-active);
+    background: var(--cta-background-active);
+    border: var(--cta-border-active);
+    color: var(--cta-primary-text-color-active) " : " var(--cta-text-color-active);
     box-shadow:
-      inset 0 0 0 1px #fff,
-      inset 0 0 0 2px #000;
+      inset 0 0 0 1px var(--cta-background-active),
+      inset 0 0 0 2px var(--cta-text-color-active);
   }
 `;
 

@@ -955,37 +955,6 @@
             "deprecationReason": null
           },
           {
-            "name": "campaignTypes",
-            "description": "  List of campaign types for a given site.",
-            "args": [
-              {
-                "name": "site",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "_service",
             "description": "  Expose the service description in case you want to use Apollo Federation. See https://www.apollographql.com/docs/federation/federation-spec",
             "args": [],

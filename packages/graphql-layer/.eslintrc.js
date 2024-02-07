@@ -1,24 +1,18 @@
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
-  parser: "@typescript-eslint/parser", // Specifies the ESLint parser
+  parser: "@typescript-eslint/parser",
   extends: [
-    "plugin:@typescript-eslint/recommended", // Uses the recommended rules from @typescript-eslint/eslint-plugin
-    "plugin:prettier/recommended", // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
   ],
   parserOptions: {
-    ecmaVersion: 2021, // Allows for the parsing of modern ECMAScript features
-    sourceType: "module", // Allows for the use of imports
-    project: "./tsconfig.json",
-    tsconfigRootDir: "./",
+    ecmaVersion: "latest",
   },
   ignorePatterns: [
     "__downloaded__/",
     "__generated__/",
-    "bin/",
-    "public/",
     "dist/",
-    "node_nodules/",
-    "*.config.js",
-    ".eslintrc.js",
+    "*.js",
     "*.graphql"
   ],
   rules: {

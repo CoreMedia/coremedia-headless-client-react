@@ -3,12 +3,20 @@ import styled from "styled-components";
 import { Headline } from "../Details/Detail";
 import { StyledRichText } from "../RichText/RichText";
 import { useProductPageContextState } from "../../context/ProductPageContext";
-import ProductPricing from "./ProductPricing";
+import ProductPricing, { Price, StyledPricing } from "./ProductPricing";
 import ProductActions from "./ProductActions";
 
 const Textuals = styled.div`
   flex: 1;
   padding-left: 6px;
+
+  ${StyledPricing} {
+    margin: var(--padding-medium) 0;
+  }
+
+  ${Price} {
+    font-size: var(--font-size-heading-3);
+  }
 `;
 
 const Sticky = styled.div`
@@ -26,10 +34,11 @@ const Sticky = styled.div`
 
 const ProductHeadline = styled(Headline)`
   text-align: left;
+  margin-top: 0;
 `;
 
 const Text = styled(StyledRichText)`
-  margin-top: var(--padding-large);
+  margin: var(--padding-medium) 0;
   background-color: var(--color-background-light-grey);
   border-radius: 0.75rem;
   line-height: 1.25rem;
@@ -52,8 +61,8 @@ const ProductDetails: React.FC = () => {
           <span>{product.id}</span>
           <hr />
           <ProductPricing {...product} />
-          <ProductActions />
           {description && <Text dangerouslySetInnerHTML={{ __html: description }} />}
+          <ProductActions product={product} />
         </Sticky>
       </Textuals>
     )

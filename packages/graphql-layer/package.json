@@ -1,18 +1,18 @@
 {
   "name": "@coremedia-labs/graphql-layer",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "license": "CoreMedia Open Source License",
   "scripts": {
     "build": "pnpm codegen && tsc --build",
-    "lint": "eslint --fix \"src/**\"",
-    "lint:ci": "eslint \"src/**\"",
+    "lint": "eslint --fix \"**/*.ts\"",
+    "lint:ci": "eslint \"**/*.ts\"",
     "codegen": "graphql-codegen --config codegen.yml",
     "download": "pnpm download:possible-types && pnpm download:interfaces && pnpm download:metadata && pnpm download:schema",
-    "download:schema": "node ./bin/download-schema.js",
-    "download:possible-types": "node ./bin/download-possible-types.js",
-    "download:interfaces": "node ./bin/download-interfaces.js",
-    "download:metadata": "node ./bin/download-metadata.js"
+    "download:schema": "ts-node scripts/download-schema.ts",
+    "download:possible-types": "ts-node scripts/download-possible-types.ts",
+    "download:interfaces": "ts-node scripts/download-interfaces.ts",
+    "download:metadata": "ts-node scripts/download-metadata.ts"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,25 +27,25 @@
     "./dist/__downloaded__/schema.json": "./dist/__downloaded__/schema.json"
   },
   "dependencies": {
-    "@apollo/client": "^3.8.6",
-    "dotenv": "^16.3.1",
+    "@apollo/client": "^3.9.3",
+    "dotenv": "^16.4.1",
     "graphql": "^16.8.1",
     "graphql-tag": "^2.12.6",
     "typescript": "~5.2.2"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/cli": "^5.0.2",
     "@graphql-codegen/near-operation-file-preset": "^3.0.0",
-    "@graphql-codegen/typescript": "^4.0.1",
-    "@graphql-codegen/typescript-operations": "^4.0.1",
-    "@graphql-codegen/typescript-react-apollo": "^4.0.0",
-    "@types/node": "^18.18.6",
-    "@typescript-eslint/eslint-plugin": "^6.8.0",
-    "@typescript-eslint/parser": "^6.8.0",
-    "eslint": "^8.51.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "prettier": "^3.0.3",
-    "ts-node": "^10.9.1"
+    "@graphql-codegen/typescript": "^4.0.4",
+    "@graphql-codegen/typescript-operations": "^4.1.2",
+    "@graphql-codegen/typescript-react-apollo": "^4.2.0",
+    "@types/node": "^20.11.16",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5",
+    "ts-node": "^10.9.2"
   }
 }

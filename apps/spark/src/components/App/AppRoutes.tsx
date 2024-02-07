@@ -5,8 +5,10 @@ import Page from "../../pages/Page";
 import ProductPage from "../../pages/ProductPage";
 import CategoryPage from "../../pages/CategoryPage";
 import SearchPage from "../../pages/SearchPage";
+import CartPage from "../../pages/CartPage";
 import TopicPage from "../../pages/TopicPage";
 import AuthorPage from "../../pages/AuthorPage";
+import CheckoutPage from "../Checkout/CheckoutPage";
 
 /**
  * The site specific routes of the app
@@ -15,6 +17,10 @@ import AuthorPage from "../../pages/AuthorPage";
 const AppRoutes: FC = () => {
   return (
     <Switch>
+      {/* Cart */}
+      <Route path="/:rootSegment/cart" component={CartPage} />
+      {/* Checkout */}
+      <Route path="/:rootSegment/checkout" component={CheckoutPage} />
       {/* Search */}
       <Route path="/:rootSegment/search" component={SearchPage} />
       {/* Tag */}

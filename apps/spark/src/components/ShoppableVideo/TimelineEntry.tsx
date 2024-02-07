@@ -12,6 +12,10 @@ const StyledTimelineEntry = styled.div<{ active?: boolean }>`
     opacity 0.3s linear 0.3s,
     border 0.3s ease-out 0.3s;
 
+  &:hover {
+    opacity: 1;
+  }
+
   ${(props) =>
     props.active && props.active === true
       ? css`
@@ -25,7 +29,7 @@ const StyledTimelineEntry = styled.div<{ active?: boolean }>`
             bottom: 0;
             right: 0;
             height: 6px;
-            background-color: #006cae;
+            background-color: var(--color-blue);
           }
         `
       : ""}
@@ -34,12 +38,17 @@ const StyledTimelineEntry = styled.div<{ active?: boolean }>`
   }
 `;
 const TimelineEntry: React.FC<TimelineEntryInterface> = ({ entry, activeIdForBlock }) => {
-  const { activeBlock } = useShoppableVideoContextState();
+  const { activeBlock, play, pause, selectEntry } = useShoppableVideoContextState();
   const visible = activeBlock === activeIdForBlock;
 
+  const pauseVideoSelectBlock = () => {
+    selectEntry(entry);
+    pause();
+  };
+
   return (
-    <StyledTimelineEntry active={visible}>
-      <PortraitBanner {...{ ...entry, title: "", plaintext: "", listPrice: "", offerPrice: "", targets: [] }} />
+    <StyledTimelineEntry active={visible} onPointerEnter={pauseVideoSelectBlock} onPointerLeave={play}>
+      <PortraitBanner {...{ listPrice: "", offerPrice: "", targets: [], ...entry }} />
     </StyledTimelineEntry>
   );
 };

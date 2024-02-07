@@ -1,11 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { useSuggestLazyQuery } from "@coremedia-labs/graphql-layer";
 import { useSearchStateContextState } from "../../context/SearchStateContext";
 import Hamburger from "../Header/Hamburger";
 import { useSiteContextState } from "../../context/SiteContextProvider";
-import { ApolloClientAlert } from "../Error/Alert";
 import { LanguageChooserMenu } from "../Header/LanguageChooser";
 import { SearchButton, SearchFormFieldSet, SearchFormLabel, SearchInput } from "./SearchQuery";
 
@@ -110,7 +110,9 @@ const StyledSearch = styled.div`
 `;
 
 const HeaderInput = styled(SearchInput)`
-  background-color: #fff;
+  background-color: var(--color-background-light-grey);
+  border: none;
+  box-shadow: none;
 
   @media screen and (max-width: 767px),
     screen and (min-width: 768px) and (max-width: 1199px) and (orientation: portrait) {
@@ -194,10 +196,11 @@ const HeaderSearchForm: FC = () => {
   const { rootSegment } = useSiteContextState();
   const location = useLocation();
   const { setQuery } = useSearchStateContextState();
+  const { t } = useTranslation();
 
   const [suggestions, setSuggestions] = useState<Array<any>>([]);
 
-  const [getSuggestionQuery, { error }] = useSuggestLazyQuery();
+  const [getSuggestionQuery, {}] = useSuggestLazyQuery();
   const { siteId } = useSiteContextState();
 
   const onChangeHandler = (text: string) => {
@@ -242,8 +245,6 @@ const HeaderSearchForm: FC = () => {
     setSearchQuery(urlSearchParams.get("query") || "");
   }, [location.search]);
 
-  if (error) return <ApolloClientAlert error={error} />;
-
   return (
     <StyledSearch>
       <Hamburger
@@ -253,20 +254,21 @@ const HeaderSearchForm: FC = () => {
       />
       <StyledForm onSubmit={handleSubmit} autoComplete="off" role="search">
         <SearchFormFieldSet>
-          <SearchFormLabel htmlFor="SimpleSearchForm_SearchTerm">Search</SearchFormLabel>
+          <SearchFormLabel htmlFor="SimpleSearchForm_SearchTerm">{t("HeaderSearchForm.label")}</SearchFormLabel>
           <HeaderInput
+            id="SimpleSearchForm_SearchTerm"
             onChange={(event) => onChangeHandler(event.target.value)}
             type="search"
             name="query"
-            placeholder="Search..."
+            placeholder={t("HeaderSearchForm.placeholder")}
             required={true}
             minLength={3}
             //onBlur={() => setSuggestions([])}
             value={searchQuery}
           />
         </SearchFormFieldSet>
-        <HeaderSearchButton type="submit" title="Search">
-          <span>Search</span>
+        <HeaderSearchButton type="submit" title={t("HeaderSearchForm.submit")}>
+          <span>{t("HeaderSearchForm.submit")}</span>
         </HeaderSearchButton>
         <StyledSuggestionMenu open={suggestions && suggestions.length > 0}>
           {suggestions &&

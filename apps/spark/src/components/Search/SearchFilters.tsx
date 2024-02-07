@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
+import { useTranslation } from "react-i18next";
 import SortFilter from "./SortFilter";
 import FacetFilters from "./Filters/FacetFilters";
 import FilterIcon from "./assets/filter.svg";
@@ -87,7 +88,7 @@ const SearchFilterPopupHead = styled.div<{ active: boolean }>`
 const SearchFilterButton = styled.button`
   position: relative;
   text-decoration: none;
-  color: var(--color-font-cta-hover);
+  color: var(--color-cta-font-hover);
   background-color: var(--color-green-highlight);
   border-radius: 0;
   pointer-events: auto;
@@ -100,7 +101,7 @@ const SearchFilterButton = styled.button`
 
   &:hover {
     background-color: var(--color-green-highlight-hover);
-    color: var(--color-font-cta-hover);
+    color: var(--color-cta-font-hover);
   }
 
   &:active,
@@ -118,6 +119,7 @@ const SearchFilterButton = styled.button`
 
 const SearchFilters: React.FC = () => {
   const [toggled, setToggled] = useState(false);
+  const { t } = useTranslation();
   return (
     <>
       <SearchFilterSwitch>
@@ -128,13 +130,13 @@ const SearchFilters: React.FC = () => {
           }}
         >
           <SearchFilterSwitchIcon aria-label="" />
-          <span>Filters</span>
+          <span>{t("SearchFilters.filters")}</span>
         </SearchFilterButton>
       </SearchFilterSwitch>
 
       <SearchFilterPopup active={toggled !== undefined && toggled}>
         <SearchFilterPopupHead active={toggled !== undefined && toggled}>
-          <h2>Filters</h2>
+          <h2>{t("SearchFilters.filters")}</h2>
           <button
             type="button"
             onClick={() => {
@@ -142,7 +144,7 @@ const SearchFilters: React.FC = () => {
             }}
           >
             <i aria-label="" />
-            <span>Close search</span>
+            <span>{t("SearchFilters.closeSearch")}</span>
           </button>
         </SearchFilterPopupHead>
         <SortFilter />

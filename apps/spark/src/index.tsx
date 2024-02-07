@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./components/App/App";
 
 import "@coremedia-labs/preview-integration";
+import "./i18n";
 
 ReactDOM.render(
   <React.StrictMode>

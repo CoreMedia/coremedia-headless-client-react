@@ -8,6 +8,7 @@ interface Props {
   targets?: Array<Target>;
   additionalClass?: string;
   additionalButtonClass?: string;
+  primary?: boolean;
 }
 
 export const StyledCTA = styled.div`
@@ -17,7 +18,7 @@ export const StyledCTA = styled.div`
   text-shadow: none;
 `;
 
-const CTA: React.FC<Props> = ({ targets, additionalClass, additionalButtonClass }) => {
+const CTA: React.FC<Props> = ({ targets, additionalClass, additionalButtonClass, primary = true }) => {
   return (
     <StyledCTA className={additionalClass} {...metaDataProperty("properties.targets")}>
       {targets &&
@@ -32,6 +33,7 @@ const CTA: React.FC<Props> = ({ targets, additionalClass, additionalButtonClass 
                 additionalClass={additionalButtonClass}
                 openInNewTab={target.openInNewTab}
                 externalLink={target.externalLink}
+                primary={primary}
               />
             )
           );

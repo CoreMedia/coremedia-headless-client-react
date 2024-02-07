@@ -1,17 +1,15 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 
-"use strict";
+import * as fs from "node:fs";
+import * as path from "node:path";
+import * as dotenv from "dotenv";
 
 /*
  * This script fetches the possible type definitions from the graphql server
  * see https://www.apollographql.com/docs/react/v3.0-beta/data/fragments/#generating-possibletypes-automatically
  */
 
-const fs = require("node:fs");
-const path = require("node:path");
-const dotenv = require("dotenv");
-
-dotenv.config({ path: path.resolve(__dirname, '../../../apps/spark/.env') });
+dotenv.config({ path: path.resolve(__dirname, "../../../apps/spark/.env") });
 
 // disable for self-signed certs
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -39,28 +37,20 @@ fetch(graphQlEndpoint + "/graphql", {
       }
     `,
   }),
-}).then(result => result.json())
-  .then(result => {
+})
+  .then((result) => result.json())
+  .then((result) => {
     const possibleTypes = {};
 
-    result.data.__schema.types.forEach(supertype => {
+    result.data.__schema.types.forEach((supertype) => {
       if (supertype.possibleTypes) {
-        possibleTypes[supertype.name] =
-          supertype.possibleTypes.map(subtype => subtype.name);
+        possibleTypes[supertype.name] = supertype.possibleTypes.map((subtype) => subtype.name);
       }
     });
 
-    // create folder if not exist
-    fs.mkdir(path.join(__dirname, "../src/__downloaded__"), { recursive: true}, (err) => {
-      fs.writeFile(path.join(__dirname, "../src/__downloaded__/possibleTypes.json"), JSON.stringify(possibleTypes), err => {
-        if (err) {
-          console.error("Error writing possibleTypes.json", err);
-        } else {
-          console.log("Fragment types successfully extracted!");
-        }
-      });
-    });
+    fs.mkdirSync(path.join(__dirname, "../src/__downloaded__"), { recursive: true });
+    fs.writeFileSync(path.join(__dirname, "../src/__downloaded__/possibleTypes.json"), JSON.stringify(possibleTypes));
   })
   .catch((error) => {
-    console.error('Error:', error);
+    console.error("Error:", error);
   });

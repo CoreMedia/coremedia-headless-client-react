@@ -12,6 +12,7 @@ import ShoppableSlider from "./ShoppableSlider";
 import ShoppableVideoContextProvider from "./ShoppableVideoContext";
 import ShoppableVideoPlayer from "./ShoppableVideoPlayer";
 import TimelineEntry from "./TimelineEntry";
+import ShoppableVideoInfoBox from "./ShoppableVideoInfoBox";
 
 interface Props {
   banner: Banner;
@@ -35,7 +36,7 @@ const sliderConfig: Settings = {
 const StyledShoppableVideo = styled.div`
   position: relative;
 
-  ${ImageBox} {
+  > ${ImageBox} {
     --aspect-ratio: 16 * 9;
   }
 `;
@@ -45,6 +46,7 @@ const ShoppableHeroVideo: React.FC<Props> = ({ banner }) => {
     <ShoppableVideoContextProvider timeline={banner.timeline}>
       <div>
         <StyledShoppableVideo {...metaDataElement(banner.metadata?.root)}>
+          <ShoppableVideoInfoBox />
           <ShoppableVideoPlayer {...banner} controls={false} autoPlay={true} muted={true} loop={true} />
           {banner.overlayRequired && <OverlayWithCtas {...banner} />}
           {!banner.overlayRequired && (

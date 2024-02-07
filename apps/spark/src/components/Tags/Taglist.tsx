@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { metaDataElement, metaDataProperty, PreviewMetadata } from "../../utils/Preview/MetaData";
 import Link from "../Link/Link";
 import { Tag } from "../../models/Banner/Tag";
+import { useSiteContextState } from "../../context/SiteContextProvider";
+import { getLocalizedTagLabel } from "../../utils/Translation/TranslationHelper";
 
 interface Props extends PreviewMetadata {
   renderHeadline?: boolean;
@@ -47,6 +49,8 @@ export const Item = styled.li`
 `;
 
 const TagList: React.FC<Props> = ({ tags, renderHeadline = true }) => {
+  const { siteLocale } = useSiteContextState();
+  const locale = new Intl.Locale(siteLocale);
   return (
     <>
       {tags && tags.length > 0 && (
@@ -59,7 +63,7 @@ const TagList: React.FC<Props> = ({ tags, renderHeadline = true }) => {
                   <Item key={index} {...metaDataElement(taxonomy.metadata?.root)}>
                     {taxonomy.linkTarget && (
                       <Link to={taxonomy.linkTarget} {...metaDataProperty(taxonomy.metadata?.properties?.name)}>
-                        {taxonomy.name}
+                        {getLocalizedTagLabel(taxonomy, locale)}
                       </Link>
                     )}
                     {!taxonomy.linkTarget && taxonomy.name}

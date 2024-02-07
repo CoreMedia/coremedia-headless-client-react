@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { LocalizedVariantFragment, PageGridPlacement, useSiteQuery } from "@coremedia-labs/graphql-layer";
+import { useTranslation } from "react-i18next";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, PageNotFoundAlert } from "../components/Error/Alert";
 import { initializeNavigation, Navigation } from "../models/Navigation/Navigation";
@@ -15,6 +16,7 @@ interface SiteContext {
   siteId: string;
   siteLocale: string;
   rootSegment: string;
+  isCommerce?: boolean;
 }
 
 const siteContext = React.createContext<SiteContext>({ siteId: "", siteLocale: "en", rootSegment: "calista" });
@@ -39,6 +41,7 @@ export const SiteContextProvider: React.FC<Props> = ({ children, rootSegment, cu
       rootSegment: rootSegment,
     },
   });
+  const { i18n } = useTranslation();
 
   if (loading) return <Loading />;
   if (error) return <ApolloClientAlert error={error} />;
@@ -47,6 +50,7 @@ export const SiteContextProvider: React.FC<Props> = ({ children, rootSegment, cu
     !data.content ||
     !data.content.site ||
     !data.content.site.id ||
+    !data.content.site.locale ||
     !data.content.pageByPath ||
     !data.content.pageByPath.localizedVariants ||
     !data.content.pageByPath.grid?.placements
@@ -72,7 +76,10 @@ export const SiteContextProvider: React.FC<Props> = ({ children, rootSegment, cu
     siteId: data.content.site.id,
     siteLocale: data.content.site.locale,
     rootSegment: rootSegment,
+    isCommerce: !!data.content.pageByPath.settings.commerce,
   };
+
+  i18n.changeLanguage(data.content.site.locale);
 
   return <siteContext.Provider value={siteContextValue}>{children}</siteContext.Provider>;
 };
