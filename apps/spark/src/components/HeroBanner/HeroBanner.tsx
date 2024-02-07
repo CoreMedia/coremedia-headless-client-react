@@ -106,7 +106,7 @@ const HeroBanner: React.FC<Props> = ({ banner }) => {
         <Caption>
           <BannerCaption {...banner} />
           {supportsPricing(banner) && <ProductPricing {...banner} />}
-          {banner.targets && <CTA targets={banner.targets} />}
+          {banner.targets && <CTA targets={banner.targets} primary={true} />}
         </Caption>
       )}
     </StyledBanner>

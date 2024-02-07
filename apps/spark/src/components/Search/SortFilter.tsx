@@ -2,7 +2,9 @@ import React, { ChangeEvent, useMemo } from "react";
 import { SortFieldWithOrder } from "@coremedia-labs/graphql-layer";
 import { useHistory, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 import { useSearchStateContextState } from "../../context/SearchStateContext";
+import { getLocalizedLabel } from "../../utils/Translation/TranslationHelper";
 
 const StyledSort = styled.div`
   height: 74px;
@@ -35,6 +37,7 @@ const SortFilter: React.FC = () => {
   const urlSearchParams = useMemo(() => new URLSearchParams(location.search), [location.search]);
 
   const { setSortField, sortField, sortFields } = useSearchStateContextState();
+  const { t } = useTranslation();
 
   const onSortChange = (e: ChangeEvent<HTMLSelectElement>): void => {
     e.preventDefault();
@@ -53,12 +56,12 @@ const SortFilter: React.FC = () => {
     <>
       {sortFields && (
         <StyledSort>
-          <label htmlFor="cm-search-sort">Sort by</label>
+          <label htmlFor="cm-search-sort">{t("SortFilter.sortBy")}</label>
           <select id="cm-search-sort" onChange={onSortChange} value={sortField || ""}>
             {sortFields.map(({ label, value }) => {
               return (
                 <option key={value} value={value || ""}>
-                  {label}
+                  {getLocalizedLabel(label, "SortFilter")}
                 </option>
               );
             })}

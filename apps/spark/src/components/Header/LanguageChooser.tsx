@@ -4,6 +4,7 @@ import { useSiteContextState } from "../../context/SiteContextProvider";
 import { getLink } from "../../utils/Link/LinkUtils";
 import Link from "../Link/Link";
 import SeoHeader from "./SeoHeader";
+import CountryFlagIcon, { StyledCountryFlagIcon } from "./CountryFlagIcon";
 
 export const LanguageToggle = styled.button`
   position: absolute;
@@ -17,13 +18,12 @@ export const LanguageToggle = styled.button`
   overflow: visible;
 
   @media screen and (min-width: 768px) and (orientation: landscape), screen and (min-width: 1200px) {
-    position: relative;
     display: inline-block;
     width: 8px;
     height: 8px;
     padding: 0;
-    top: -7px;
-    left: -13px;
+    top: 50%;
+    transform: translateY(-6px) translateX(6px);
     font-size: 0;
     line-height: 0;
   }
@@ -34,7 +34,7 @@ export const LanguageToggle = styled.button`
     box-sizing: border-box;
     margin-left: 2px;
     vertical-align: middle;
-    border-color: #fff;
+    border-color: var(--color-background-light-grey);
     border-style: solid;
     border-width: 0 2px 2px 0;
     height: 8px;
@@ -43,6 +43,7 @@ export const LanguageToggle = styled.button`
 
     @media screen and (min-width: 768px) and (orientation: landscape), screen and (min-width: 1200px) {
       border-width: 0 1px 1px 0;
+      border-color: var(--color-background-dark);
     }
   }
 `;
@@ -53,17 +54,11 @@ export const LanguageChooserMenu = styled.ul<{ open: boolean }>`
   padding: 0;
   list-style: none;
 
-  opacity: 1;
   border: none;
   box-shadow: none;
   display: none;
 
   min-width: 200px;
-  border-radius: 0 2px 2px 2px;
-  border-top: 1px solid var(--color-background-light-grey);
-  border-color: var(--color-background-light-grey);
-  background-color: rgba(255, 255, 255, 0.8);
-  left: -1px;
 
   ${(props) =>
     props.open &&
@@ -74,15 +69,11 @@ export const LanguageChooserMenu = styled.ul<{ open: boolean }>`
   li {
     position: relative;
     display: block;
-    &:hover {
-      background-color: var(--color-background-light-grey);
-    }
 
     a {
-      line-height: 32px;
-      padding: 2px 0 2px 18px;
       margin: 0;
       text-decoration: none;
+      color: var(--color-white);
     }
   }
 
@@ -94,56 +85,66 @@ export const LanguageChooserMenu = styled.ul<{ open: boolean }>`
     font-size: 14px;
     text-align: left;
     backdrop-filter: blur(10px);
+    background-color: rgba(244, 244, 244, 0.5);
+    box-shadow: var(--drop-shadow);
     min-width: 250px;
     border-radius: 0 2px 2px 2px;
-
     padding: 0;
-    box-shadow: none;
     border-top: none;
-  }
 
-  @media screen and (max-width: 767px),
-    screen and (min-width: 768px) and (max-width: 1199px) and (orientation: portrait) {
-    opacity: 1 !important;
+    li {
+      a {
+        color: var(--color-background-dark);
+      }
+    }
   }
 `;
+
 export const StyledLanguageChooser = styled.li<{ open: boolean }>`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   position: relative;
   border-radius: 2px;
-  border: 1px solid transparent;
+  border: none;
   border-bottom: 4px none;
-
-  ${(props) =>
-    props.open &&
-    css`
-      border-color: var(--color-background-light-grey);
-      background-color: var(--color-background-light-grey);
-      border-radius: 2px 2px 0 0;
-    `};
-
-  > span {
-    display: inline-block;
-    font-size: var(--font-size-text-small);
-    line-height: 1.428571429;
-    padding: 6px 18px;
-    cursor: pointer; // always show pointer as it is either a dropdown or a link
-    color: #fff;
-    text-transform: uppercase;
-    text-decoration: none;
-
-    ${(props) =>
-      props.open &&
-      css`
-        color: var(--color-background-dark);
-      `};
-  }
 
   @media screen and (min-width: 768px) and (orientation: landscape), screen and (min-width: 1200px) {
     display: inline-block;
     border-bottom: 4px solid transparent;
+
+    ${(props) =>
+      props.open &&
+      css`
+        border-color: var(--color-background-light-grey);
+        background-color: var(--color-background-light-grey);
+        border-radius: 2px 2px 0 0;
+      `};
+  }
+
+  ${StyledCountryFlagIcon} {
+    margin-right: 6px;
+  }
+`;
+
+const CurrentLocale = styled.span`
+  @media screen and (min-width: 768px) and (orientation: landscape), screen and (min-width: 1200px) {
+    display: none;
+  }
+`;
+
+const StyledLanguageItem = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 6px 18px 6px 6px;
+  cursor: pointer; // always show pointer as it is either a dropdown or a link
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+
+  &:hover {
+    background-color: var(--color-background-light-grey);
   }
 `;
 
@@ -175,6 +176,19 @@ const LanguageChooser: React.FC = () => {
     return localizedLabel;
   };
 
+  const countryFromLocale = (locale?: string | null): string | undefined => {
+    let countryCode;
+    if (locale) {
+      const tmp = locale.split("-");
+      if (tmp && tmp.length === 2 && isNaN(parseInt(tmp[1]))) {
+        countryCode = tmp[1];
+      }
+    }
+    return countryCode;
+  };
+
+  const currentCountry = countryFromLocale(me.locale);
+
   return (
     <>
       <SeoHeader
@@ -189,16 +203,26 @@ const LanguageChooser: React.FC = () => {
             setClicked(!clicked);
           }}
         >
-          <span>{localeDisplayName(me.locale)}</span>
-          <LanguageToggle type="button" aria-haspopup="true" />
+          <StyledLanguageItem>
+            <CountryFlagIcon countryCode={currentCountry} />
+            <CurrentLocale>{localeDisplayName(me.locale)}</CurrentLocale>
+            <LanguageToggle type="button" aria-haspopup="true" />
+          </StyledLanguageItem>
+
           <LanguageChooserMenu open={clicked}>
             {localizedVariants.map((item, index) => {
+              const countryCode = countryFromLocale(item.locale);
               return (
                 item !== me &&
                 me.locale &&
                 item.locale && (
                   <li key={index}>
-                    <Link to={getLink(item, rootSegment).linkTarget}>{localeDisplayName(item.locale)}</Link>
+                    <Link to={getLink(item, rootSegment).linkTarget}>
+                      <StyledLanguageItem>
+                        <CountryFlagIcon countryCode={countryCode} />
+                        {localeDisplayName(item.locale)}
+                      </StyledLanguageItem>
+                    </Link>
                   </li>
                 )
               );

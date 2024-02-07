@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { DetailAuthor } from "../../models/Detail/DetailAuthor";
 import { metaDataElement, metaDataProperty } from "../../utils/Preview/MetaData";
 import LandscapeBannerContainer from "../LandscapeBanner/LandscapeBannerContainer";
@@ -16,6 +17,8 @@ const DetailPerson: React.FC<DetailAuthor> = ({
   related,
   metadata = {},
 }) => {
+  const { t } = useTranslation();
+
   return (
     <StyledDetail {...metaDataElement(metadata.root)}>
       <Article>
@@ -34,7 +37,7 @@ const DetailPerson: React.FC<DetailAuthor> = ({
       </Article>
       {related && related.length > 0 && (
         <section {...metaDataProperty(metadata.properties?.related)}>
-          <LandscapeBannerContainer title={"Related"} items={related} />
+          <LandscapeBannerContainer title={t("DetailPage.related")} items={related} />
         </section>
       )}
     </StyledDetail>

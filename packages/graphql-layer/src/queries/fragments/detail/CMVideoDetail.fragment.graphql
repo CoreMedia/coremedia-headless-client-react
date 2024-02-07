@@ -1,0 +1,8 @@
+fragment CMVideoDetail on CMVideo {
+  ...CMVideo
+  ...CMTeasableDetail
+  ...CMTeasable
+  dataUrl
+  viewtype
+}
+

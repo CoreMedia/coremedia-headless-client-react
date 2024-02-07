@@ -61,7 +61,7 @@ export const StyledTags = styled.div`
       margin: 0 10px 5px 0;
 
       a {
-        color: var(--color-font-cta-hover);
+        color: var(--color-cta-font-hover);
         padding: inherit;
 
         &:before {

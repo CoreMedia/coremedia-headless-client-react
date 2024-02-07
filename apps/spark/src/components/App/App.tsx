@@ -4,6 +4,7 @@ import { ApolloProvider } from "@apollo/client";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "styled-components";
 import { SiteContextProvider } from "../../context/SiteContextProvider";
+import CartContextProvider from "../../context/CartContext";
 import { getRootSegment, isAPQEnabled, setLogLevel } from "../../utils/App/App";
 import PreviewPage from "../../pages/PreviewPage";
 import { initializeApollo } from "../../utils/App/Apollo";
@@ -44,27 +45,32 @@ const App: FC = () => {
           <GlobalStyle />
           <SiteContextProvider rootSegment={rootSegment} currentNavigation={location.pathname}>
             <ScrollToTop />
-            <SearchStateContextProvider
-              sortField={urlSearchParams.get("sort")}
-              query={urlSearchParams.get("query") || ""}
-            >
-              <HelmetProvider>
-                <Switch>
-                  <Route exact path={"/"}>
-                    <Redirect to={`/${rootSegment}`} />
-                  </Route>
-                  {isPreview() && <Route path={"/preview/:rootSegment/:id/"} component={PreviewPage} />}
-                  {isPreview() && (
-                    <Route path={"/commercepreview/:rootSegment/:type/:externalId/"} component={CommercePreviewPage} />
-                  )}
+            <CartContextProvider>
+              <SearchStateContextProvider
+                sortField={urlSearchParams.get("sort")}
+                query={urlSearchParams.get("query") || ""}
+              >
+                <HelmetProvider>
+                  <Switch>
+                    <Route exact path={"/"}>
+                      <Redirect to={`/${rootSegment}`} />
+                    </Route>
+                    {isPreview() && <Route path={"/preview/:rootSegment/:id/"} component={PreviewPage} />}
+                    {isPreview() && (
+                      <Route
+                        path={"/commercepreview/:rootSegment/:type/:externalId/"}
+                        component={CommercePreviewPage}
+                      />
+                    )}
 
-                  <PageContext>
-                    <AppRoutes />
-                  </PageContext>
-                </Switch>
-                <BysideTag />
-              </HelmetProvider>
-            </SearchStateContextProvider>
+                    <PageContext>
+                      <AppRoutes />
+                    </PageContext>
+                  </Switch>
+                  <BysideTag />
+                </HelmetProvider>
+              </SearchStateContextProvider>
+            </CartContextProvider>
           </SiteContextProvider>
         </ThemeProvider>
       </PreviewContextProvider>

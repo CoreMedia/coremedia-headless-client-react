@@ -47,6 +47,14 @@ export const StyledCol = styled.div<{ zone?: string }>`
     }
   }
 
+  // no gap on mobile breakpoint
+  @media screen and (max-width: 736px) {
+    width: 100%;
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
   ${(props) => {
     return (
       props.zone &&

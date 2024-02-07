@@ -17,22 +17,84 @@ export const GlobalStyle = createGlobalStyle`
     --font-size-text: 16px;
     --font-size-text-small: 14px;
     --line-height: 1.2rem;
-    /* COLORS */
-    --color-background-light: #fff;
-    --color-background-dark: #1a1a1a;
+
+    /* COLORS - primary */
+    --color-red: #dd342b;
+    --color-magenta: #d82eb4;
+    --color-dark-grey: #363936;
+
+    /* COLORS - secondary */
+    --color-purple: #672779;
+    --color-blue: #006cae;
+    --color-turquoise: #6fc3b8;
+    --color-green: #2fac66;
+    --color-yellow: #efdf0f;
+    --color-light-grey: #f4f4f4;
+    --color-black: #000;
+    --color-white: #fff;
+
+    --color-background-light: var(--color-white);
+    --color-background-dark: var(--color-dark-grey);
     --color-background-grey: #333;
-    --color-background-light-grey: #efefed;
-    --color-menu-shadow: hsla(0, 0%, 0%, 0.5);
-    --color-background-image: #ccc;
-    --color-green-highlight: #6fc3b8;
-    --color-green-highlight-hover: var(--color-background-dark);
-    --color-green-highlight-active: var(--color-background-grey);
-    --color-font-cta-hover: var(--color-background-light);
+    --color-background-light-grey: var(--color-light-grey);
+    --color-background-image: var(--color-light-grey);
+
+    --color-green-highlight: #bbff00;
+    --color-green-highlight-hover: #ddff00;
+    --color-green-highlight-active: var(--color-green-highlight-hover);
+
+    /* GRADIENTS - primary */
+    --gradient-red-to-magenta: linear-gradient(135deg, var(--color-red), var(--color-magenta));
+    --gradient-purple-to-blue: linear-gradient(135deg, var(--color-purple), var(--color-blue));
+    --gradient-magenta-to-purple: linear-gradient(135deg, var(--color-magenta), var(--color-purple));
+
+    /* GRADIENTS - secondary */
+    --gradient-turquoise-to-purple: linear-gradient(135deg, var(--color-turquoise), var(--color-purple));
+    --gradient-blue-to-green: linear-gradient(135deg, var(--color-blue), var(--color-green));
+    --gradient-yellow-to-red: linear-gradient(135deg, var(--color-yellow), var(--color-red));
+    --gradient-blue-to-turquoise: linear-gradient(135deg, var(--color-blue), var(--color-turquoise));
+    --gradient-dark-to-light-grey: linear-gradient(135deg, var(--color-dark-grey), var(--color-light-grey));
+    --gradient-light-to-dark-grey: linear-gradient(135deg, var(--color-light-grey), var(--color-dark-grey));
+
     /* SIZES */
     --padding-small: 12px;
     --padding-medium: 24px;
     --padding-large: 48px;
     --screen-size-max: 1140px;
+
+    /* BORDERS */
+    --border-radius-small: 3px;
+    --border-radius-medium: 6px;
+    --border-radius-large: 9px;
+    --border-width-small: 1px;
+    --border-width-medium: 2px;
+    --border-width-large: 5px;
+
+    /* CTA buttons */
+    --cta-background: var(--color-white);
+    --cta-text-color: var(--color-black);
+    --cta-border: var(--border-width-small) solid var(--cta-text-color);
+    --cta-border-radius: var(--border-radius-small);
+    --cta-background-hover: var(--color-light-grey);
+    --cta-text-color-hover: var(--cta-text-color);
+    --cta-border-hover: var(--border-width-small) solid var(--color-light-grey);
+    --cta-background-active: var(--color-light-grey);
+    --cta-text-color-active: var(--cta-text-color);
+    --cta-border-active: var(--border-width-small) solid var(--color-light-grey);
+
+    --cta-primary-background: var(--color-black);
+    --cta-primary-text-color: var(--color-white);
+    --cta-primary-border: var(--border-width-small) solid var(--color-black);
+    --cta-primary-border-radius: var(--border-radius-small);
+    --cta-primary-background-hover: var(--color-light-grey);
+    --cta-primary-text-color-hover: var(--color-black);
+    --cta-primary-border-hover: var(--border-width-small) solid var(--color-light-grey);
+    --cta-primary-background-active: var(--color-light-grey);
+    --cta-primary-text-color-active: var(--cta-primary-text-color);
+    --cta-primary-border-active: var(--border-width-small) solid var(--color-light-grey);
+
+    /* Shadows */
+    --drop-shadow: 0px 0px 20px rgba(0,0,0,0.25);
   }
 
   @font-face {

@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 import { Banner } from "../../models/Banner/Banner";
 import { StyledButton } from "../Button/Button";
-import Link from "../Link/Link";
+import { useCartContextState } from "../../context/CartContext";
 
 interface Props {
   banner: Banner;
@@ -44,20 +45,31 @@ const Button = styled(StyledButton)`
   right: 50%;
   transform: translate(50%, 50%);
   padding: 14px;
-  white-space: nowrap;
   color: #000;
   transition: all 0.1s ease;
   text-align: center;
 `;
 
 const ShopNowButton: React.FC<Props> = ({ banner }) => {
+  const { t } = useTranslation();
+  const { addProduct, cartItems, increase } = useCartContextState();
+  const isInCart = (product: Banner) => {
+    return !!cartItems.find((item) => item.id === product.metadata?.root.id);
+  };
   return (
     <>
       {banner.shopNowConfiguration && (
         <ShowNow>
-          <Button as={Link} to={banner.linkTarget}>
-            <span>Shop Now</span>
-          </Button>
+          {isInCart(banner) && (
+            <Button onClick={() => increase(banner)}>
+              <span>{t("Button.addMoreCart")}</span>
+            </Button>
+          )}
+          {!isInCart(banner) && (
+            <Button onClick={() => addProduct(banner)}>
+              <span>{t("Button.addToCart")}</span>
+            </Button>
+          )}
         </ShowNow>
       )}
     </>

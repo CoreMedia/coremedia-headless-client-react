@@ -1,0 +1,137 @@
+{
+  "Button": {
+    "defaultText": "Weitere Infos",
+    "addToCart" : "Jetzt kaufen",
+    "addMoreCart" : "Weitere kaufen",
+    "downloadText": "Herunterladen"
+  },
+  "CartList": {
+    "emptyText": "Dein Warnkorb ist leer.",
+    "product": "Produkt:",
+    "quantity": "Anzahl:",
+    "price": "Preis:",
+    "description": "Beschreibung:"
+  },
+  "DetailedCart": {
+    "headline": "Warenkorb",
+    "emptyText": "Dein Warenkorb ist leer.",
+    "description": "Beschreibung",
+    "price": "Preis",
+    "quantity": "Anzahl",
+    "total": "Summe",
+    "checkoutButtonText": "Zur Kasse",
+    "continueShopping": "Weiter einkaufen",
+    "cartTotals": "Warenkorb Summe",
+    "subtotalInclTax": "Zwischensumme (inkl. MwSt.)",
+    "tax": "MwSt."
+  },
+  "HeaderCart": {
+    "title": "Warenkorb"
+  },
+  "HeaderSearchForm": {
+    "close": "Suche schließen",
+    "label": "Suchen",
+    "placeholder": "Suchen ...",
+    "submit": "Suchen"
+  },
+  "Loading": {
+    "loading": "laden ..."
+  },
+  "SideCart": {
+    "title": "Warenkorb",
+    "close": "Schließen",
+    "openCartButtonText": "Warenkorb anzeigen"
+  },
+  "Ticker": {
+    "title": "Eilmeldung"
+  },
+  "FacetFilters": {
+    "title": "Filter"
+  },
+  "ProductAssets": {
+    "downloads": "Downloads"
+  },
+  "Search": {
+    "Header": {
+      "title": "Suchergebnisse",
+      "message": "Ihre Suche nach <span>{{query}}</span> ergab <b>{{totalCount}} Treffer</b>."
+    }
+  },
+  "SearchFilter": {
+    "closeSearch": "Suche schließen",
+    "filters": "Filter",
+    "type_CMArticle": "Stories",
+    "type_CMCategory": "Kategorien",
+    "type_CMChannel": "Seiten",
+    "type_CMEvent": "Events",
+    "type_CMExternalChannel": "External Channels",
+    "type_CMExternalPage": "Externe Seiten",
+    "type_CMExternalProduct": "Produkte",
+    "type_CMImageMap": "Image Maps",
+    "type_CMLook": "Looks",
+    "type_CMPerson": "Editors",
+    "type_CMPicture": "Bilder",
+    "type_CMProduct": "Produkte",
+    "type_CMProductTeaser": "Produkt Teaser",
+    "type_CMRecipe": "Rezepte",
+    "type_CMVideo": "Videos",
+    "allTypes": "Alle Typen,",
+    "subject": "Schlagwort",
+    "type": "Typ",
+    "price": "Preis",
+    "brand": "Marke"
+  },
+  "SortFilter": {
+    "sortBy": "Sortieren nach",
+    "Relevance": "Relevanz",
+    "Display Date Asc": "Anzeige Datum (aufsteigend)",
+    "Display Date Desc": "Anzeige Datum (absteigend)",
+    "Creation Date Asc": "Erstellungsdatum (aufsteigend)",
+    "Creation Date Desc": "Erstellungsdatum (absteigend)",
+    "Modification Date Asc": "Änderungsdatum (aufsteigend)",
+    "Modification Date Desc": "Änderungsdatum (absteigend)"
+  },
+  "DetailPage": {
+    "relatedProducts": "Produkte",
+    "related": "Ähnliche Inhalte"
+  },
+  "CheckoutPage": {
+    "successTitle": "Checkout abgeschlossen",
+    "successMessage": "<p>Danke für Ihre Bestellung.</p><p>Unser Team ist gerade dabei, Ihre Bestellung zu verpacken und zu versenden.</p><p>Wir werden Sie informieren, sobald die Ware auf dem Weg zu Ihnen ist.</p>",
+    "continueShopping": "Weiter einkaufen"
+  },
+  "CMArticle": "Story",
+  "CMCategory": "Category",
+  "CMChannel": "Page",
+  "CMEvent": "Event",
+  "CMExternalChannel": "External Channel",
+  "CMExternalPage": "External Page",
+  "CMExternalProduct": "Product",
+  "CMImageMap": "Image Map",
+  "CMLook": "Look",
+  "CMPerson": "Editor",
+  "CMPicture": "Picture",
+  "CMProduct": "Product",
+  "CMProductTeaser": "Product Teaser",
+  "CMRecipe": "Recipe",
+  "CMVideo": "Video",
+  "commonSize": "Size",
+  "color": "Color",
+  "style": "Style",
+  "gender": "Gender",
+  "season": "Season",
+  "landscape_ratio16x9": "Ausschnitt 16:9",
+  "portrait_ratio2x3": "Ausschnitt 2:3",
+  "landscape_ratio4x3": "Ausschnitt 4:3",
+  "landscape_ratio8x3": "Ausschnitt 8:3",
+  "portrait_ratio1x1": "Ausschnitt 1:1",
+  "OfferPrice_USD": "Preis",
+  "({* TO 100])": "Unter 100€",
+  "({100 TO 200])": "Zwischen 100€ und 200€",
+  "({200 TO 300])": "Zwischen 200€ und 300€",
+  "({300 TO 400])": "Zwischen 300€ und 400€",
+  "({400 TO 500])": "Zwischen 400€ und 500€",
+  "({500 TO *})": "Über 500€",
+  "mobile-portrait": "(orientation: portrait) and (max-width: 767px)",
+  "tablet-portrait": "(orientation: portrait) and (min-width: 768px)"
+}

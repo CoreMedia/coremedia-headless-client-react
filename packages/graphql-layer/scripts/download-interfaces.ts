@@ -1,16 +1,14 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 
-"use strict";
+import * as fs from "node:fs";
+import * as path from "node:path";
+import * as dotenv from "dotenv";
 
 /*
  * This script fetches the available interface definitions from the graphql server
  */
 
-const fs = require("node:fs");
-const path = require("node:path");
-const dotenv = require("dotenv");
-
-dotenv.config({ path: path.resolve(__dirname, '../../../apps/spark/.env') });
+dotenv.config({ path: path.resolve(__dirname, "../../../apps/spark/.env") });
 
 // disable for self-signed certs
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -38,8 +36,9 @@ fetch(graphQlEndpoint + "/graphql", {
       }
     `,
   }),
-}).then(result => result.json())
-  .then(result => {
+})
+  .then((result) => result.json())
+  .then((result) => {
     const interfaces = {};
 
     result.data.__schema.types.forEach((type) => {
@@ -48,17 +47,9 @@ fetch(graphQlEndpoint + "/graphql", {
       }
     });
 
-    // create folder if not exist
-    fs.mkdir(path.join(__dirname, "../src/__downloaded__"), { recursive: true}, (err) => {
-      fs.writeFile(path.join(__dirname, "../src/__downloaded__/interfaces.json"), JSON.stringify(interfaces), err => {
-        if (err) {
-          console.error("Error writing interfaces.json", err);
-        } else {
-          console.log("Interfaces successfully extracted!");
-        }
-      });
-    });
+    fs.mkdirSync(path.join(__dirname, "../src/__downloaded__"), { recursive: true });
+    fs.writeFileSync(path.join(__dirname, "../src/__downloaded__/interfaces.json"), JSON.stringify(interfaces));
   })
   .catch((error) => {
-    console.error('Error:', error);
+    console.error("Error:", error);
   });

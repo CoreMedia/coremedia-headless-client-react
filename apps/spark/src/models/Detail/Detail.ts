@@ -44,15 +44,21 @@ export const initializeDetail = (self: CmTeasableDetailFragment, rootSegment: st
     );
   (self.detailText?.text ?? self.detailText?.text !== undefined) &&
     addProperty(detail, "readTime", readTimeInMinutes(self.detailText?.text));
-  self.media &&
-    addProperty(
-      detail,
-      "media",
-      self.media.map((item: any) => {
-        return initializeMedia(item);
-      }),
-      getPropertyName(self, "media")
-    );
+
+  if (self.__typename === "CMVideoImpl") {
+    addProperty(detail, "media", [initializeMedia(self)]);
+  } else {
+    self.media &&
+      addProperty(
+        detail,
+        "media",
+        self.media.map((item: any) => {
+          return initializeMedia(item);
+        }),
+        getPropertyName(self, "media")
+      );
+  }
+
   addAuthors(self, detail, rootSegment);
   addTags(self, detail, rootSegment);
   addCMProductTitle(self, detail);

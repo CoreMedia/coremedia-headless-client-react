@@ -6,8 +6,6 @@ import ModalComponent from "../Modal/ModalComponent";
 import PopupBanner from "../Popup/PopupBanner";
 import Link from "../Link/Link";
 import { formatPrice } from "../Product/ProductPricing";
-import ImageMapIcon from "./assets/imagemap-icon.svg";
-import ImageMapIconHover from "./assets/imagemap-icon-hover.svg";
 
 interface Props {
   hotZone: HotZoneProps;
@@ -19,16 +17,35 @@ const HotzoneIcon = styled.span`
   z-index: 3;
   border: 0;
   padding: 0;
-  display: block;
+  display: flex;
   transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
-  background: transparent url(${ImageMapIcon}) no-repeat 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #fff;
   border-radius: 50%;
   cursor: pointer;
+  transition: 0.3s;
+  outline: 0;
+  justify-content: center;
+  line-height: 1rem;
+  box-shadow: 0 0 1px 1px #fff;
+  -webkit-animation: 2s infinite pulse-animation;
+  animation: 2s infinite pulse-animation;
+  opacity: 0.8;
 
   :hover {
-    background-image: url(${ImageMapIconHover});
+    opacity: 1;
+    animation: none;
+  }
+
+  @keyframes pulse-animation {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.61);
+    }
+
+    100% {
+      box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
   }
 `;
 

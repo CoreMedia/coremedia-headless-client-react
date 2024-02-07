@@ -7,14 +7,18 @@ import { ImageBox } from "./ResponsiveImage";
 
 export const initializePlayerSettings = (
   controls: boolean,
-  autoPlay: boolean,
   muted: boolean,
   loop: boolean,
+  autoPlay: boolean,
+  playing?: boolean,
   settings?: { autoplay: boolean; hideControls: boolean; loop: boolean; muted: boolean }
 ) => {
+  if (playing == undefined && autoPlay) {
+    playing = autoPlay;
+  }
   return {
     controls: settings && settings.hideControls !== undefined ? !settings.hideControls : controls,
-    playing: settings && settings.autoplay !== undefined ? settings.autoplay : autoPlay,
+    playing: playing,
     muted: settings && settings.muted !== undefined ? settings.muted : muted,
     loop: settings && settings.loop !== undefined ? settings.loop : loop,
   };
@@ -25,6 +29,7 @@ export interface Props extends SupportsVideo {
   autoPlay?: boolean;
   muted?: boolean;
   loop?: boolean;
+  playing?: boolean;
   setTimestamp?: (payload: any) => void;
 }
 
@@ -43,6 +48,7 @@ const VideoPlayer: FC<Props> = ({
   video,
   controls = true,
   autoPlay = false,
+  playing,
   muted = true,
   loop = false,
   setTimestamp,
@@ -56,7 +62,7 @@ const VideoPlayer: FC<Props> = ({
           width={"100%"}
           height={"100%"}
           {...(setTimestamp && { onProgress: setTimestamp })}
-          {...initializePlayerSettings(controls, autoPlay, muted, loop, video.playerSettings)}
+          {...initializePlayerSettings(controls, autoPlay, muted, loop, playing, video.playerSettings)}
           {...metaDataProperty("properties.data")}
         />
       )}

@@ -1,8 +1,32 @@
 # Changelog
 
+## v2401.0.0
+
+*Released 07.02.2024*
+
+### Breaking Changes:
+
+- Updated `schema.json` to CoreMedia Content Cloud v12 - 2401.1 and to the latest CoreMedia Campaign Service changes
+- Updated `node.js` to 20 LTS
+
+### Features:
+
+- Small Design Refresh
+  with new logo, white header, and animated image map hotzone icons.
+  Enhanced shoppable video, and product detail page and other small adjustments.
+- Added localization and translations (i18n)
+- Added shopping cart and checkout functionality
+
+### Bugfixes and Changes:
+
+- Updated minor versions of dependencies
+- Fix standalone-fragment render error
+
+---
+
 ## v2310.0.0
 
-*Released 24.10.2023*
+*Released 20.10.2023*
 
 ### Breaking Changes:
 

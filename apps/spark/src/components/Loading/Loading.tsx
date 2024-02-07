@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 export const StyledLoading = styled.div`
   display: flex;
@@ -18,6 +19,7 @@ export const StyledLoading = styled.div`
   }
 `;
 const Loading: FC = () => {
+  const { t } = useTranslation();
   return (
     <StyledLoading>
       {
@@ -36,7 +38,7 @@ const Loading: FC = () => {
           </rect>
         </svg>
       }
-      <span>loading...</span>
+      <span>{t("Loading.loading")}</span>
     </StyledLoading>
   );
 };

@@ -29,6 +29,7 @@ export interface ImageProps {
   picture: Picture;
   cropName?: string;
   width?: number;
+  aspectRatio?: string;
 }
 
 /**

@@ -5,8 +5,8 @@ import Link from "../Link/Link";
 import Navigation, { StyledNavigation } from "../Navigation/Navigation";
 import HeaderSearchForm from "../Search/HeaderSearchForm";
 
+import HeaderCart from "../Cart/HeaderCart";
 import SparkLogo from "./assets/logo.svg";
-
 import LanguageChooser from "./LanguageChooser";
 import Hamburger from "./Hamburger";
 
@@ -22,7 +22,7 @@ const StyledHeader = styled.header`
     height: 70px;
     position: absolute;
     width: 100%;
-    background-color: var(--color-background-dark);
+    box-shadow: inset 0 -1px 0 0 var(--color-background-light-grey);
     left: 0;
     top: 0;
   }
@@ -51,7 +51,7 @@ const Logo = styled(Link)`
   transform: translateX(-22px); // 50% of the mobile button
 
   background: url(${SparkLogo}) no-repeat center center transparent;
-  width: 170px;
+  width: 120px;
   height: 40px;
   background-size: contain;
 
@@ -136,6 +136,7 @@ const Header: FC = () => {
           <Divider />
           <LanguageChooser />
           <HeaderSearchForm />
+          <HeaderCart />
         </NavBar>
       </HeaderWrapper>
     </StyledHeader>

@@ -1,40 +1,51 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import Link from "../Link/Link";
 
 interface Props {
-  linkTarget: any;
+  linkTarget?: any;
+  clickHandler?: () => void;
   text?: string;
   additionalClass?: string;
   openInNewTab?: boolean;
   externalLink?: boolean;
+  primary?: boolean;
 }
 
-export const StyledButton = styled(Link)`
-  display: inline-block;
+export const StyledButton = styled.div<{ primary?: boolean }>`
+  background: ${(props) => (props.primary ? "var(--cta-primary-background)" : "var(--cta-background)")};
+  border-radius: ${(props) => (props.primary ? "var(--cta-primary-border-radius)" : "var(--cta-border-radius)")};
+  border: ${(props) => (props.primary ? "var(--cta-primary-border)" : "var(--cta-border)")};
+  color: ${(props) => (props.primary ? "var(--cta-primary-text-color)" : "var(--cta-text-color)")};
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-headline);
+  font-size: var(--font-size-heading-3);
+  padding: 10px 20px 5px;
+  pointer-events: auto;
   position: relative;
   text-decoration: none;
-  color: #000;
-  background-color: var(--color-green-highlight);
-  border-radius: 0;
-  pointer-events: auto;
   text-transform: uppercase;
-  padding: 10px 20px 5px;
-  transition: all 0.1s ease;
-  font-size: var(--font-size-heading-3);
-  font-family: var(--font-family-headline);
+  transition: all 0.5s ease;
+
   &:hover {
-    background-color: var(--color-green-highlight-hover);
-    color: var(--color-font-cta-hover);
+    background: ${(props) => (props.primary ? "var(--cta-primary-background-hover)" : "var(--cta-background-hover)")};
+    border: ${(props) => (props.primary ? "var(--cta-primary-border-hover)" : "var(--cta-border-hover)")};
+    color: ${(props) => (props.primary ? "var(--cta-primary-text-color-hover)" : "var(--cta-text-color-hover)")};
   }
 
   &:active,
   &:focus {
     outline: none;
-    background-color: var(--color-green-highlight-active);
+    background: ${(props) => (props.primary ? "var(--cta-primary-background-active)" : "var(--cta-background-active)")};
+    border: ${(props) => (props.primary ? "var(--cta-primary-border-active)" : "var(--cta-border-active)")};
+    color: ${(props) => (props.primary ? "var(--cta-primary-text-color-active)" : "var(--cta-text-color-active)")};
     box-shadow:
-      inset 0 0 0 1px #fff,
-      inset 0 0 0 2px #000;
+      inset 0 0 0 1px var(--cta-background-active),
+      inset 0 0 0 2px var(--cta-text-color-active);
   }
 
   & + & {
@@ -42,36 +53,32 @@ export const StyledButton = styled(Link)`
   }
 `;
 
-export const CMButton = styled.div`
-  font-family: var(--font-family-text);
-  font-size: var(--font-size-text-small);
-  line-height: 1.428571429;
-  cursor: pointer;
-  text-decoration: none;
-  background-color: hsla(0, 0%, 100%, 0.75);
-  border: none;
-  border-radius: 0;
-  &:hover {
-    background-color: #fff;
-  }
-  &:active,
-  &:focus {
-    background-color: #fff;
-    box-shadow:
-      inset 0 0 0 1px hsla(0, 0%, 100%, 0.75),
-      inset 0 0 0 2px #000;
-  }
-`;
+const Button: React.FC<Props> = ({
+  linkTarget,
+  clickHandler,
+  text,
+  additionalClass,
+  openInNewTab = false,
+  externalLink = false,
+  primary = true,
+}) => {
+  const { t } = useTranslation();
 
-const Button: React.FC<Props> = ({ linkTarget, text, additionalClass, openInNewTab = false, externalLink = false }) => {
-  text = text ? text : "Read more"; //todo add i18n
+  if (!text) {
+    // do not show default text "read more" for media / download links
+    text =
+      linkTarget && linkTarget.indexOf("/caas/v1/media") === 0 ? t("Button.downloadText") : t("Button.defaultText");
+  }
   return (
     <StyledButton
+      as={Link}
       to={linkTarget}
+      clickHandler={clickHandler}
       className={additionalClass}
       role={"button"}
       openInNewTab={openInNewTab}
       externalLink={externalLink}
+      primary={primary}
     >
       {text}
     </StyledButton>

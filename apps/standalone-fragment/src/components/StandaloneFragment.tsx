@@ -44,9 +44,6 @@ const StandaloneFragment: FC<Props> = ({ contentId, caasUri }) => {
     },
   };
 
-  const codeblock = document.querySelector(".cm-preview-copy-code") as HTMLElement;
-  codeblock.style.display = "block";
-
   // view
   return (
     <div className={"cm-banner"}>

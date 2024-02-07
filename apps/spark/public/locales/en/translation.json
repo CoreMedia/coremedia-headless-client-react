@@ -1,0 +1,137 @@
+{
+  "Button": {
+    "defaultText": "Read more",
+    "addToCart" : "Add to cart",
+    "addMoreCart" : "Add more",
+    "downloadText": "Download"
+  },
+  "CartList": {
+    "emptyText": "Your cart is currently empty.",
+    "product": "Product:",
+    "quantity": "Quantity:",
+    "price": "Price:",
+    "description": "Description:"
+  },
+  "DetailedCart": {
+    "headline": "Cart",
+    "emptyText": "Your cart is currently empty.",
+    "description": "Description",
+    "price": "Price",
+    "quantity": "Quantity",
+    "total": "Total",
+    "checkoutButtonText": "Checkout",
+    "continueShopping": "Continue Shopping",
+    "cartTotals": "Cart Totals",
+    "subtotalInclTax": "Subtotal (incl. tax)",
+    "tax": "Tax"
+  },
+  "HeaderCart": {
+    "title": "Cart"
+  },
+  "HeaderSearchForm": {
+    "close": "Close search",
+    "label": "Search",
+    "placeholder": "Search ...",
+    "submit": "Search"
+  },
+  "Loading": {
+    "loading": "loading ..."
+  },
+  "SideCart": {
+    "title": "Cart",
+    "close": "Close",
+    "openCartButtonText": "Go to Cart"
+  },
+  "Ticker": {
+    "title": "Breaking News"
+  },
+  "FacetFilters": {
+    "title": "Filters"
+  },
+  "ProductAssets": {
+    "downloads": "Downloads"
+  },
+  "Search": {
+    "Header": {
+      "title": "Search Results",
+      "message": "Your search for <span>{{query}}</span> returned <b>{{totalCount}} hits</b>."
+    }
+  },
+  "SearchFilter": {
+    "closeSearch": "Close search",
+    "filters": "Filters",
+    "type_CMArticle": "Stories",
+    "type_CMCategory": "Categories",
+    "type_CMChannel": "Pages",
+    "type_CMEvent": "Events",
+    "type_CMExternalChannel": "External Channels",
+    "type_CMExternalPage": "External Pages",
+    "type_CMExternalProduct": "Products",
+    "type_CMImageMap": "Image Maps",
+    "type_CMLook": "Looks",
+    "type_CMPerson": "Editors",
+    "type_CMPicture": "Pictures",
+    "type_CMProduct": "Products",
+    "type_CMProductTeaser": "Product Teasers",
+    "type_CMRecipe": "Recipes",
+    "type_CMVideo": "Videos",
+    "allTypes": "All types",
+    "subject": "Tag",
+    "type": "Type",
+    "price": "Price",
+    "brand": "Brand"
+  },
+  "SortFilter": {
+    "sortBy": "Sort by",
+    "Relevance": "Relevance",
+    "Display Date Asc": "Display Date (ascending)",
+    "Display Date Desc": "Display Date (descending)",
+    "Creation Date Asc": "Creation Date (ascending)",
+    "Creation Date Desc": "Creation Date (descending)",
+    "Modification Date Asc": "Modification Date (ascending)",
+    "Modification Date Desc": "Modification Date (descending)"
+  },
+  "DetailPage": {
+    "relatedProducts": "Products",
+    "related": "Related"
+  },
+  "CheckoutPage": {
+    "successTitle": "Checkout Completed",
+    "successMessage": "<p>Thank you for your order.</p><p>Our team is currently packing and shipping your order.<br />We will inform you as soon as the goods are on their way to you.</p>",
+    "continueShopping": "Continue Shopping"
+  },
+  "CMArticle": "Story",
+  "CMCategory": "Category",
+  "CMChannel": "Page",
+  "CMEvent": "Event",
+  "CMExternalChannel": "External Channel",
+  "CMExternalPage": "External Page",
+  "CMExternalProduct": "Product",
+  "CMImageMap": "Image Map",
+  "CMLook": "Look",
+  "CMPerson": "Editor",
+  "CMPicture": "Picture",
+  "CMProduct": "Product",
+  "CMProductTeaser": "Product Teaser",
+  "CMRecipe": "Recipe",
+  "CMVideo": "Video",
+  "commonSize": "Size",
+  "color": "Color",
+  "style": "Style",
+  "gender": "Gender",
+  "season": "Season",
+  "landscape_ratio16x9": "Crop 16:9",
+  "portrait_ratio2x3": "Crop 2:3",
+  "landscape_ratio4x3": "Crop 4:3",
+  "landscape_ratio8x3": "Crop 8:3",
+  "portrait_ratio1x1": "Crop 1:1",
+  "OfferPrice_USD": "Price",
+  "({* TO 100])": "Less than $100",
+  "({100 TO 200])": "Between $100 and $200",
+  "({200 TO 300])": "Between $200 and $300",
+  "({300 TO 400])": "Between $300 and $400",
+  "({400 TO 500])": "Between $400 and $500",
+  "({500 TO *})": "More than $500",
+  "mobile-portrait": "(orientation: portrait) and (max-width: 767px)",
+  "tablet-portrait": "(orientation: portrait) and (min-width: 768px)"
+}

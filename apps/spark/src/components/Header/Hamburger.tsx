@@ -27,7 +27,7 @@ const HamburgerBar = styled.span<{ barIndex: number; toggled: boolean }>`
   width: 22px;
   height: 2px;
   border-radius: 1px;
-  background-color: var(--color-background-light);
+  background-color: var(--color-background-dark);
   ${(props) =>
     props.barIndex === 1 &&
     css`

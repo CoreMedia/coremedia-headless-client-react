@@ -4,6 +4,7 @@ query Detail($id: String!) {
       id
       uuid
       ...CMTeasableDetail
+      ...CMVideoDetail
       ...CMPersonDetail
       ...CMProductDetail
     }

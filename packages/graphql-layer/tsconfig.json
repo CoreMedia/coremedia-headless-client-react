@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "declaration": true,
     "declarationMap": true,
     "allowSyntheticDefaultImports": true,
@@ -17,8 +13,5 @@
     "jsx": "react-jsx",
     "types": []
   },
-  "include":[
-    "src/**/*",
-    "src/**/*.json",
-  ]
+  "include": ["src/**/*", "src/**/*.json"]
 }

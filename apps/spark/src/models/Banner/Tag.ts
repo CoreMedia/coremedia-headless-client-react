@@ -9,6 +9,7 @@ export interface SupportsTags extends PreviewMetadata {
 
 export interface Tag extends PreviewMetadata, LinkAttributes {
   name?: string;
+  translations?: any;
 }
 
 export const addTags = (self: any, result: SupportsTags, rootSegment: string): void => {
@@ -20,6 +21,7 @@ export const addTags = (self: any, result: SupportsTags, rootSegment: string): v
         return (
           taxonomy && {
             ...mapProperties(taxonomy, { name: "value" }),
+            ...mapProperties(taxonomy.translations, { translations: "translations" }),
             ...getLink(taxonomy, rootSegment),
           }
         );

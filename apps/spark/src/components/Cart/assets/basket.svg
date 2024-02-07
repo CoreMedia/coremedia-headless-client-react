@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Basket_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 226.77 226.77" style="enable-background:new 0 0 226.77 226.77;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	
+		.st1{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-miterlimit:3.8637;}
+</style>
+<g>
+	<path class="st0" d="M76.71,84.4c0-20.19,16.37-36.56,36.56-36.56s36.56,16.37,36.56,36.56"/>
+	<polygon class="st0" points="113.27,84.38 186.24,84.38 186.24,113.48 186.24,142.68 149.8,179.12 113.27,179.12 76.74,179.12 
+		40.3,142.68 40.3,113.58 40.3,84.38 	"/>
+	<line class="st1" x1="40.3" y1="113.48" x2="186.24" y2="113.48"/>
+	<line class="st1" x1="40.3" y1="142.68" x2="186.24" y2="142.68"/>
+	<line class="st1" x1="76.74" y1="179.12" x2="76.74" y2="84.38"/>
+	<line class="st1" x1="113.27" y1="179.12" x2="113.27" y2="84.38"/>
+	<line class="st1" x1="149.8" y1="179.12" x2="149.8" y2="84.38"/>
+</g>
+</svg>

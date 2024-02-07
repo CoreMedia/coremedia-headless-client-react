@@ -1,5 +1,6 @@
 import React from "react";
 import { useSearchStateContextState } from "../../../context/SearchStateContext";
+import { getLocalizedLabel } from "../../../utils/Translation/TranslationHelper";
 import {
   isActiveGroup,
   isFacetValueSelected,
@@ -31,7 +32,8 @@ const StringFilterEntry: React.FC<Props> = ({ title, label, query, count }) => {
     >
       {!isSelected && (
         <SearchFilterListLink checked={false}>
-          {label}
+          {/*TODO: Get localized tag label*/}
+          {title === "subject" ? label : getLocalizedLabel(title + "_" + label, "SearchFilter")}
           {count && count > 0 && <SearchFilterListCount>{count}</SearchFilterListCount>}
         </SearchFilterListLink>
       )}

@@ -1,5 +1,6 @@
 import React from "react";
 import { CmPicture, CmPicturePreviewFragment, Crop } from "@coremedia-labs/graphql-layer";
+import { useTranslation } from "react-i18next";
 import IncludeProps from "../../../utils/ViewDispatcher/IncludeProps";
 import { metaDataElement, metaDataForResponsiveDevices } from "../../../utils/Preview/MetaData";
 import FragmentPreviewItem from "../FragmentPreviewItem";
@@ -16,12 +17,13 @@ const findBestSuitablePreviewSize = (crop: Crop): number | undefined => {
 
 const CMPictureAsPreview: React.FC<IncludeProps<CmPicturePreviewFragment>> = ({ self }) => {
   const picture: Picture = initializePicture(self as CmPicture);
+  const { t } = useTranslation();
   return (
     <div {...metaDataElement(picture.metadata?.root)} {...metaDataForResponsiveDevices()}>
       <FragmentPreviewContextProvider type={self?.__typename}>
         {self?.crops.map((crop, index) => {
           return (
-            <FragmentPreviewItem key={index} title={crop.name}>
+            <FragmentPreviewItem key={index} title={t(crop.name)}>
               <Image picture={picture} cropName={crop.name} width={findBestSuitablePreviewSize(crop)} />
             </FragmentPreviewItem>
           );
