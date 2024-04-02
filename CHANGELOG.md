@@ -1,5 +1,19 @@
 # Changelog
 
+## v2404.0.0
+
+*Released 02.04.2024*
+
+### Breaking Changes:
+
+- Updated `schema.json` to CoreMedia Content Cloud v12 - 2404.1
+
+### Bugfixes and Changes:
+
+- Updated minor versions of dependencies
+
+---
+
 ## v2401.0.0
 
 *Released 07.02.2024*
