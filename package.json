@@ -1,11 +1,11 @@
 {
   "name": "@coremedia-labs/headless-client-workspace",
-  "version": "2401.0.0",
+  "version": "2404.0.0",
   "description": "Spark - The React client workspace for the CoreMedia Headless Server",
   "private": true,
   "license": "CoreMedia Open Source License",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "preinstall": "node ./bin/pnpm-check.js",
     "build": "pnpm -r build",
     "test": "pnpm -r test",
@@ -15,7 +15,7 @@
     "start": "concurrently \"pnpm --filter @coremedia-labs/headless-server-mocking start\" \"pnpm --filter @coremedia-labs/headless-server-stitching start\" \"pnpm --filter @coremedia-labs/spark start\""
   },
   "engines": {
-    "node": "^18 || ^20",
+    "node": "^20",
     "pnpm": "^8"
   },
   "packageManager": "pnpm@8.0.0",
@@ -37,11 +37,9 @@
     "react",
     "spark"
   ],
-  "dependencies": {
-    "concurrently": "^8.2.2"
-  },
   "devDependencies": {
-    "husky": "^9.0.10"
+    "concurrently": "^8.2.2",
+    "husky": "^9.0.11"
   },
   "pnpm": {
     "peerDependencyRules": {

@@ -64,11 +64,15 @@ export const getCurrentNavigationUuid = (
 ): string => {
   let currentUuid = "";
   const currentNavigationAsString = currentNavigation?.length > 0 ? "/" + currentNavigation.join("/") + "/" : undefined;
+  let navigationLinkTarget = navigation?.linkTarget || "";
+  if (navigationLinkTarget.indexOf("?") > 0) {
+    navigationLinkTarget = navigationLinkTarget?.substring(0, navigationLinkTarget?.indexOf("?")); // ignore query parameters
+  }
 
   if (currentNavigationAsString) {
     // check if the link target of the given navigation object is the same as the
     // current navigation, otherwise check the navigation objects of the children items
-    if (navigation?.linkTarget === currentNavigationAsString) {
+    if (navigationLinkTarget === currentNavigationAsString) {
       currentUuid = navigation?.uuid || "";
     } else if (navigation?.items && navigation?.items.length > 0) {
       // if the navigation has children items, loop over them recursively until
