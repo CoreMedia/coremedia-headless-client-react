@@ -1,5 +1,22 @@
 # Changelog
 
+## v2404.1.0
+
+*Released 25.04.2024*
+
+### Features:
+
+- Added default `.graphqlconfig` and graphql schema for code completion
+
+### Bugfixes and Changes:
+
+- Updated `schema.json` and `interfaces.json` to CoreMedia Content Cloud v12 - 2404.2
+  (fixing inheritance order of the interfaces) 
+- Fixed fragmented preview
+- Fixed umlauts in GraphQL queries, re #210
+- Added script "clean" to @coremedia-labs/graphql-layer for code generation
+- Updated minor versions of dependencies
+
 ## v2404.0.0
 
 *Released 02.04.2024*

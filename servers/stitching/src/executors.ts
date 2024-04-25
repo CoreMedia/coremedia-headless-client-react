@@ -32,7 +32,7 @@ export const cmExecutor: Executor = async ({ document, variables, context }) => 
   }
 
   // set correct content length for changed request.
-  newHeaders["content-length"] = JSON.stringify({ query, variables }).length;
+  newHeaders["content-length"] = new TextEncoder().encode(JSON.stringify({ query, variables })).length;
   let requestInit = undefined;
   if (method !== "GET" && method !== "HEAD") {
     requestInit = {

@@ -88,5 +88,5 @@ Generates TypeDoc documentation and places it into [/docs](../../apps/spark/docs
 ## IDE Support
 
 Using IntelliJ Idea with the JS GraphQL Plugin enables Code Completion for the
-GraphQL Queries. Duplicate and rename the file [.graphqlconfig.example](../../.graphqlconfig.example) 
-to `.graphqlconfig` and configure the corresponding values like `url`.
+GraphQL Queries. The `schema.graphql` is checked into the workspace. To update 
+it to your changes, configure and use the `.graphqlconfig`.

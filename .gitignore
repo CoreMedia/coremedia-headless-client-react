@@ -200,5 +200,4 @@ coverage/
 
 #Environment and Development Variables
 .env
-.graphqlconfig
 .eslintcache

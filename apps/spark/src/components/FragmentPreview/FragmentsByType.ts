@@ -9,15 +9,15 @@ export interface Fragment {
 export const fragmentsByType: {
   [key: string]: Fragment | Array<Fragment>;
 } = {
-  CMChannel: {
+  CMChannelImpl: {
     viewName: defaultView,
     title: "Full Page",
   },
-  CMPicture: {
+  CMPictureImpl: {
     viewName: "asPreview",
     title: "Picture Crops",
   },
-  CMVideo: [
+  CMVideoImpl: [
     {
       title: "Hero",
       viewName: "asContainerPreview",
@@ -26,7 +26,7 @@ export const fragmentsByType: {
       },
     },
   ],
-  CMArticle: [
+  CMArticleImpl: [
     {
       title: "Default",
       viewName: "asFullPreview",
@@ -74,7 +74,7 @@ export const fragmentsByType: {
       },
     },
   ],
-  CMTeasable: [
+  CMTeasableImpl: [
     {
       title: "Hero",
       viewName: "asContainerPreview",
@@ -118,13 +118,13 @@ export const fragmentsByType: {
       },
     },
   ],
-  CMPerson: [
+  CMPersonImpl: [
     {
       title: "Default",
       viewName: "asFullPreview",
     },
   ],
-  CMCollection: [
+  CMCollectionImpl: [
     {
       title: "Default",
       viewName: "asContainerPreview",
@@ -172,7 +172,7 @@ export const fragmentsByType: {
       },
     },
   ],
-  CMHTML: {
+  CMHTMLImpl: {
     viewName: "asPreview",
     title: "Default",
   },

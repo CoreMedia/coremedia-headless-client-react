@@ -9,22 +9,22 @@
     "lint:ci": "eslint \"src/**/*.+(ts|tsx)\""
   },
   "dependencies": {
-    "@apollo/client": "^3.9.10",
+    "@apollo/client": "^3.10.1",
     "@coremedia-labs/graphql-layer": "workspace:^",
     "graphql": "^16.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.3",
+    "@babel/core": "^7.24.4",
     "@types/react": "^17.0.80",
     "@types/react-dom": "^17.0.25",
-    "@typescript-eslint/eslint-plugin": "^7.5.0",
-    "@typescript-eslint/parser": "^7.5.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
     "babel-loader": "^9.1.3",
     "babel-preset-react-app": "^10.0.1",
     "copy-webpack-plugin": "^12.0.2",
-    "css-loader": "^6.10.0",
+    "css-loader": "^6.11.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",

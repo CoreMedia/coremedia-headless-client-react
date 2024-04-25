@@ -1,4 +1,4 @@
-const template = require("lodash.template");
+const { template } = require("lodash");
 
 function render(str, data) {
   return template(str, {

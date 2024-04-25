@@ -14,10 +14,10 @@
     "dist/*"
   ],
   "devDependencies": {
-    "@babel/core": "^7.24.3",
-    "@babel/preset-env": "^7.24.3",
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
     "babel-loader": "^9.1.3",
-    "css-loader": "^6.10.0",
+    "css-loader": "^6.11.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
