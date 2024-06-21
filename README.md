@@ -1,6 +1,6 @@
 ![CoreMedia Labs Logo](https://documentation.coremedia.com/badges/banner_coremedia_labs_wide.png)
 
-![CoreMedia Content Cloud Version](https://img.shields.io/static/v1?message=main&label=CoreMedia%20Content%20Cloud&style=for-the-badge&labelColor=666666&color=672779 
+![CoreMedia Content Cloud Version](https://img.shields.io/static/v1?message=2406&label=CoreMedia%20Content%20Cloud&style=for-the-badge&labelColor=666666&color=672779 
 "This badge shows the CoreMedia version this project is compatible with. 
 Please read the versioning section of the project to see what other CoreMedia versions are supported and how to find them."
 )
@@ -8,8 +8,6 @@ Please read the versioning section of the project to see what other CoreMedia ve
 "The status badge describes if the project is maintained. Possible values are active and inactive. 
 If a project is inactive it means that the development has been discontinued and won't support future CoreMedia versions."
 )
-
-![Build](https://github.com/CoreMedia/coremedia-headless-client-react-pwa/actions/workflows/ci.yml/badge.svg?branch=main)
 
 # Spark - The React Example Application
 
