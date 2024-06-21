@@ -9,7 +9,7 @@ import { ImageBox } from "../src/components/Media/ResponsiveImage";
 import { StyledImage } from "../src/components/Media/Image";
 
 export const parameters = {
-  actions: {argTypesRegex: "^on[A-Z].*"},
+  actions: {},
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -57,3 +57,4 @@ export const decorators = [
     </>
   ),
 ];
+export const tags = ["autodocs"];

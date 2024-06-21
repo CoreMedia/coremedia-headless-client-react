@@ -63,6 +63,7 @@
     "type_CMArticle": "Stories",
     "type_CMCategory": "Kategorien",
     "type_CMChannel": "Seiten",
+    "type_CMCollection": "Sammlungen",
     "type_CMEvent": "Events",
     "type_CMExternalChannel": "External Channels",
     "type_CMExternalPage": "Externe Seiten",

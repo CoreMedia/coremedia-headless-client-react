@@ -6,13 +6,15 @@ import logger from "./logger";
 /**
  * Executor to query subschema endpoint. Forwards headers from the context
  * For some reason when running graphiql, the headers hide within
- * context.headers, for all other calls within context.request.headers
+ * "context.headers", for all other calls within "context.request.headers"
  *
  * @param document
  * @param variables
  * @param context
  */
 export const cmExecutor: Executor = async ({ document, variables, context }) => {
+  logger.info("Query " + context.request?.body?.operationName + " with variables " + JSON.stringify(variables));
+
   const query = print(document);
   let newHeaders = {};
   let method = "POST";
@@ -48,6 +50,10 @@ export const cmExecutor: Executor = async ({ document, variables, context }) => 
 };
 
 export const campaignExecutor: Executor = async ({ document, variables, context }) => {
+  logger.info(
+    "Campaign query " + context.request?.body?.operationName + " with variables " + JSON.stringify(variables)
+  );
+
   const query = print(document);
   let newHeaders = {};
   let method = "POST";
@@ -66,8 +72,8 @@ export const campaignExecutor: Executor = async ({ document, variables, context 
   newHeaders["authorization"] = process.env.CAMPAIGN_AUTHORIZATION_ID;
 
   // set correct content length for changed request.
-  newHeaders["content-length"] = JSON.stringify({ query, variables }).length;
-  logger.debug("new Headers: ", newHeaders);
+  newHeaders["content-length"] = new TextEncoder().encode(JSON.stringify({ query, variables })).length;
+  logger.debug("new Headers: ", { message: newHeaders });
   let requestInit = undefined;
   if (method !== "GET" && method !== "HEAD") {
     requestInit = {

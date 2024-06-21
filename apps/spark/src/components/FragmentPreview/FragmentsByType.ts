@@ -9,7 +9,7 @@ export interface Fragment {
 export const fragmentsByType: {
   [key: string]: Fragment | Array<Fragment>;
 } = {
-  CMChannelImpl: {
+  CMChannel: {
     viewName: defaultView,
     title: "Full Page",
   },
@@ -74,7 +74,7 @@ export const fragmentsByType: {
       },
     },
   ],
-  CMTeasableImpl: [
+  CMTeasable: [
     {
       title: "Hero",
       viewName: "asContainerPreview",
@@ -124,7 +124,7 @@ export const fragmentsByType: {
       viewName: "asFullPreview",
     },
   ],
-  CMCollectionImpl: [
+  CMCollection: [
     {
       title: "Default",
       viewName: "asContainerPreview",

@@ -13,7 +13,7 @@ import { PreviewContextProvider } from "../../context/PreviewContextProvider";
 import SearchStateContextProvider from "../../context/SearchStateContext";
 import CommercePreviewPage from "../../pages/CommercePreviewPage";
 import AppRoutes from "./AppRoutes";
-import BysideTag from "./BysideTag";
+import CmecTag from "./CmecTag";
 import PageContext from "./PageContext";
 import ScrollToTop from "./ScrollToTop";
 import { GlobalStyle } from "./GlobalStyle";
@@ -67,7 +67,7 @@ const App: FC = () => {
                       <AppRoutes />
                     </PageContext>
                   </Switch>
-                  <BysideTag />
+                  <CmecTag />
                 </HelmetProvider>
               </SearchStateContextProvider>
             </CartContextProvider>
