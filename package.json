@@ -1,6 +1,6 @@
 {
   "name": "@coremedia-labs/headless-client-workspace",
-  "version": "2404.1.0",
+  "version": "2406.0.0",
   "description": "Spark - The React client workspace for the CoreMedia Headless Server",
   "private": true,
   "license": "CoreMedia Open Source License",
@@ -16,9 +16,8 @@
   },
   "engines": {
     "node": "^20",
-    "pnpm": "^8"
+    "pnpm": "^9"
   },
-  "packageManager": "pnpm@8.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/CoreMedia/coremedia-headless-client-react.git"

@@ -62,6 +62,7 @@
     "filters": "Filtri",
     "type_CMArticle": "Stories",
     "type_CMCategory": "Categories",
+    "type_CMCollection": "Collezioni",
     "type_CMChannel": "Pages",
     "type_CMEvent": "Events",
     "type_CMExternalChannel": "External Channels",

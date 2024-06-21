@@ -13,10 +13,16 @@ interface SiteContext {
   placements?: Array<PageGridPlacement | null> | null;
   localizedVariants?: Array<LocalizedVariantFragment>;
   currentNavigation?: Array<string>;
+  cmecConfig?: CmecConfig;
   siteId: string;
   siteLocale: string;
   rootSegment: string;
   isCommerce?: boolean;
+}
+
+interface CmecConfig {
+  id: string;
+  url: string;
 }
 
 const siteContext = React.createContext<SiteContext>({ siteId: "", siteLocale: "en", rootSegment: "calista" });
@@ -58,6 +64,14 @@ export const SiteContextProvider: React.FC<Props> = ({ children, rootSegment, cu
     return <PageNotFoundAlert />;
   }
 
+  const cmecConfig: CmecConfig = {
+    id: data.content.pageByPath.settings.engagement.webcareId ?? import.meta.env.VITE_ENGAGEMENT_CLOUD_ID,
+    url:
+      data.content.pageByPath.settings.engagement.urls.tag ??
+      import.meta.env.VITE_ENGAGEMENT_CLOUD_TAG_URL ??
+      "https://bywe2.byside.com/agent/bwc_we2.js",
+  };
+
   const siteContextValue: SiteContext = {
     navigation: initializeNavigation(data.content.pageByPath, rootSegment),
     footerNavigation: initializeFooterNavigationContainer(
@@ -77,6 +91,7 @@ export const SiteContextProvider: React.FC<Props> = ({ children, rootSegment, cu
     siteLocale: data.content.site.locale,
     rootSegment: rootSegment,
     isCommerce: !!data.content.pageByPath.settings.commerce,
+    cmecConfig: cmecConfig.id ? cmecConfig : undefined,
   };
 
   i18n.changeLanguage(data.content.site.locale);

@@ -1,5 +1,29 @@
 # Changelog
 
+## v2406.0.0
+
+*Released 20.06.2024*
+
+### Breaking Changes:
+
+- Updated pnpm to version 9
+- Updated `schema.json` to CoreMedia Content Cloud v12 - 2604.0
+
+
+### Features:
+
+- Changed `.graphqlconfig` to new format `graphql.config.yml`
+- Added `schema.graphql` into the workspace for code completion
+- Added support for CoreMedia Engagement Cloud configuration from settings.
+- Optimized stitching server (logging, code cleanup)
+- Updated storybook to v8
+
+### Bugfixes and Changes:
+
+- Updated minor versions of dependencies
+
+---
+
 ## v2404.1.0
 
 *Released 25.04.2024*
@@ -11,7 +35,7 @@
 ### Bugfixes and Changes:
 
 - Updated `schema.json` and `interfaces.json` to CoreMedia Content Cloud v12 - 2404.2
-  (fixing inheritance order of the interfaces) 
+  (fixing inheritance order of the interfaces)
 - Fixed fragmented preview
 - Fixed umlauts in GraphQL queries, re #210
 - Added script "clean" to @coremedia-labs/graphql-layer for code generation
@@ -67,12 +91,12 @@
 
 ### Features:
 
-- Added CoreMedia Byside Tag Integration
+- Added CoreMedia Tag Integration
 
 ### Bugfixes and Changes:
 
 - Updated minor versions of dependencies
-- Updated eslint and prettier to latest major versions, but keeping the old prettier config "trailingComma": "es5" 
+- Updated eslint and prettier to latest major versions, but keeping the old prettier config "trailingComma": "es5"
 
 ---
 
@@ -173,7 +197,7 @@
     `CAMPAIGN_ENDPOINT` and `CAMPAIGN_AUTHORIZATION_ID` are set.
   - The Spark app will fetch and render Campaign data on content pages, category pages, and product detail pages,
     if new environment variable `VITE_CAMPAIGN_ENABLED` is set to "true".
-- Added rendering of assigned CMDownloads on product detail pages 
+- Added rendering of assigned CMDownloads on product detail pages
 - Added support for CMImageMap inline overlays
 
 ### Breaking Changes:
@@ -182,7 +206,7 @@
 
 ### Bugfixes and Changes:
 
-- Fixed possibly wrong vite chunk splitting, if the workspace path included one 
+- Fixed possibly wrong vite chunk splitting, if the workspace path included one
   of the keywords. This could lead to an empty page.
 - Updated minor versions of dependencies
 

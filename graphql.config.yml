@@ -1,0 +1,8 @@
+schema: packages/graphql-layer/src/__downloaded__/schema.graphql
+extensions:
+  endpoints:
+    GraphQL Endpoint:
+      url: http://localhost:4000/graphql
+      headers:
+        user-agent: JS GraphQL
+      introspect: true

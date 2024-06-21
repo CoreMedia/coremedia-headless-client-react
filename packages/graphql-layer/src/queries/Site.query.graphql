@@ -14,7 +14,7 @@ query Site($rootSegment: String!) {
       localizedVariants {
         ...LocalizedVariant
       }
-      settings(paths: ["commerce"])
+      settings(paths: ["commerce",  ["engagement", "webcareId"], ["engagement", "urls", "tag"]])
       ...CMTeasableForNavigation
       ... on CMExternalChannel {
         id

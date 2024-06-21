@@ -1,7 +1,7 @@
 # Install dependencies only when needed
 FROM node:20 AS deps
 # pnpm
-RUN npm install --location=global pnpm@8
+RUN npm install --location=global pnpm@9
 WORKDIR /app
 COPY .npmrc package.json pnpm-lock.* ./
 RUN pnpm install --prod
@@ -9,7 +9,7 @@ RUN pnpm install --prod
 # Build Stitching Server
 FROM node:20 AS builder
 # pnpm
-RUN npm install --location=global pnpm@8
+RUN npm install --location=global pnpm@9
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .

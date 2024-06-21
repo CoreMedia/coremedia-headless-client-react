@@ -23,7 +23,7 @@ The project can be loaded on any environment supporting Node.js development.
 We recommend:
 
 - Node.js 20 (LTS) or higher
-- pnpm 8
+- pnpm 9
 
 ## Development environment
 
@@ -88,5 +88,4 @@ Generates TypeDoc documentation and places it into [/docs](../../apps/spark/docs
 ## IDE Support
 
 Using IntelliJ Idea with the JS GraphQL Plugin enables Code Completion for the
-GraphQL Queries. The `schema.graphql` is checked into the workspace. To update 
-it to your changes, configure and use the `.graphqlconfig`.
+GraphQL Queries out of the box. Configure the corresponding values like `url` in the file [graphql.config.yml](../../graphql.config.yml) if changes are needed.

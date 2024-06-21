@@ -75,6 +75,6 @@ preview for a content item.
 
 How to integrate CoreMedia campaigns into the app and how to preview campaigns.
 
-## [CoreMedia Byside Integration](byside.md)
+## [CoreMedia Engagement Cloud Integration](cmec)
 
-How to integrate CoreMedia Byside into the app.
+How to integrate CoreMedia Engagement Cloud into the app.
