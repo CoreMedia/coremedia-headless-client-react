@@ -17,7 +17,7 @@
     "build-storybook": "storybook build -o dist/storybook"
   },
   "dependencies": {
-    "@apollo/client": "^3.10.5",
+    "@apollo/client": "^3.11.4",
     "@coremedia-labs/graphql-layer": "workspace:^",
     "@coremedia-labs/preview-integration": "workspace:^",
     "@coremedia-labs/view-dispatcher": "workspace:^",

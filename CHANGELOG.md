@@ -1,5 +1,15 @@
 # Changelog
 
+## v2406.0.1
+
+*Released 13.08.2024*
+
+### Bugfixes and Changes:
+
+- Fixed peer dependency of @apollo/client in @coremedia-labs/graphql-layer
+
+---
+
 ## v2406.0.0
 
 *Released 20.06.2024*
