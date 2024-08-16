@@ -28,10 +28,11 @@
     "./dist/__downloaded__/schema.json": "./dist/__downloaded__/schema.json"
   },
   "dependencies": {
-    "@apollo/client": "^3.10.5",
+    "@apollo/client": "^3.11.4",
     "dotenv": "^16.4.5",
     "graphql": "^16.8.2",
     "graphql-tag": "^2.12.6",
+    "react-dom": "^17.0.2",
     "typescript": "~5.2.2"
   },
   "devDependencies": {
