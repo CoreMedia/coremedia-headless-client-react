@@ -1,5 +1,24 @@
 # Changelog
 
+## v2412.0.0
+
+*Released 04.03.2025*
+
+### Breaking Changes:
+
+- Updated `schema.json` to CoreMedia Content Cloud v12 - 2604.0
+
+### Features:
+
+- Added navigation breadcrumb
+- Added anchor links und table of contents for detail pages (articles)
+
+### Bugfixes and Changes:
+
+- Updated minor versions of dependencies
+
+---
+
 ## v2406.0.1
 
 *Released 13.08.2024*
@@ -18,7 +37,6 @@
 
 - Updated pnpm to version 9
 - Updated `schema.json` to CoreMedia Content Cloud v12 - 2604.0
-
 
 ### Features:
 

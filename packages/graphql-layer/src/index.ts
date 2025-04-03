@@ -61,6 +61,7 @@ export * from "./queries/fragments/link/__generated__/ProductLink.fragment";
 export * from "./queries/fragments/navigation/__generated__/CMCollectionForNavigation.fragment";
 export * from "./queries/fragments/navigation/__generated__/CMExternalChannelForNavigation.fragment";
 export * from "./queries/fragments/navigation/__generated__/CMExternalLinkForNavigation.fragment";
+export * from "./queries/fragments/navigation/__generated__/CMLinkableNavigationPath.fragment";
 export * from "./queries/fragments/navigation/__generated__/CMProductForNavigation.fragment";
 export * from "./queries/fragments/navigation/__generated__/CMTeasableForNavigation.fragment";
 

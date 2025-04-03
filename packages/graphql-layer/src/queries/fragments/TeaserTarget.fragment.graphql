@@ -36,4 +36,5 @@ fragment TeaserTarget on ExtendedTeaserTarget {
   }
   callToActionEnabled
   callToActionText
+  callToActionHash
 }

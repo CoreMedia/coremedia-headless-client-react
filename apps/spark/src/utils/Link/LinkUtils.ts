@@ -69,6 +69,7 @@ const createCategoryHref = (self: Category, rootSegment: string, params?: String
 
 const createHref = (self: CmLinkableFragment, rootSegment: string, params?: StringifiableRecord): LinkAttributes => {
   let path: string | undefined | null = "/";
+  let anchor: string | undefined;
   let isExternalLink = false;
   let openInNewTab = false;
   if (self.__typename) {
@@ -126,6 +127,11 @@ const createHref = (self: CmLinkableFragment, rootSegment: string, params?: Stri
       if (teaser.teaserTargets && teaser.teaserTargets[0]?.target) {
         const { linkTarget } = getLink(teaser.teaserTargets && teaser.teaserTargets[0]?.target, rootSegment);
         path = linkTarget;
+        if (teaser.teaserTargets[0].callToActionHash) {
+          anchor = teaser.teaserTargets[0].callToActionHash;
+        }
+      } else {
+        path = undefined;
       }
     } else if (
       self.__typename === "CMHTMLImpl" ||
@@ -144,6 +150,7 @@ const createHref = (self: CmLinkableFragment, rootSegment: string, params?: Stri
     linkTarget: (path && makeAbsoluteAndAddParams(path, params)) || undefined,
     externalLink: isExternalLink,
     openInNewTab: openInNewTab,
+    anchor: anchor,
   };
 };
 

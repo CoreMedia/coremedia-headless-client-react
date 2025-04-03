@@ -15,6 +15,7 @@ query PageByPathWithCampaigns(
       grid {
         ...PageGrid
       }
+      ...CMLinkableNavigationPath
     }
   }
   previewCampaign(campaignId: $previewCampaignId, channelType: "content-page", refinements: $refinements) @include(if: $modePreviewCampaign) {

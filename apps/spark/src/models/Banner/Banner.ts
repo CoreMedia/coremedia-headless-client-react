@@ -108,6 +108,7 @@ export const initializeBanner = (self: CmTeasableFragment, rootSegment: string):
             ...getLink(teaserTarget.target as CmLinkable, rootSegment),
             callToActionEnabled: teaserTarget.callToActionEnabled && true ? teaserTarget.callToActionEnabled : false,
             callToActionText: teaserTarget.callToActionText || undefined,
+            anchor: teaserTarget.callToActionHash,
           }
         );
       })
