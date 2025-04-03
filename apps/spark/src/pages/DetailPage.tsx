@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { match } from "react-router-dom";
 import { useDetailQuery } from "@coremedia-labs/graphql-layer";
 import Loading from "../components/Loading/Loading";
@@ -8,6 +8,9 @@ import { initializeDetail } from "../models/Detail/Detail";
 import SeoHeader from "../components/Header/SeoHeader";
 import Detail from "../components/Details/Detail";
 import { useSiteContextState } from "../context/SiteContextProvider";
+import { NavigationPathItem } from "../models/Navigation/NavigationPath";
+import { useBreadcrumbContext } from "../context/BreadcrumbContext";
+import ScrollTopLink from "../components/ScrollTop/ScrollTopLink";
 
 interface DetailViewProps {
   match: match<RouteProps>;
@@ -19,11 +22,21 @@ interface RouteProps {
 
 const DetailPage: FC<DetailViewProps> = ({ match }) => {
   const { rootSegment } = useSiteContextState();
+  const { setNavigationPath } = useBreadcrumbContext();
+
   const { data, loading, error } = useDetailQuery({
     variables: {
       id: match.params.id,
     },
   });
+
+  useEffect(() => {
+    // Update breadcrumb navigation path
+    data && setNavigationPath(data.content?.content?.navigationPath as Array<NavigationPathItem>);
+    return () => {
+      setNavigationPath([]);
+    };
+  }, [data]);
 
   if (loading) return <Loading />;
   if (error) return <ApolloClientAlert error={error} />;
@@ -36,6 +49,7 @@ const DetailPage: FC<DetailViewProps> = ({ match }) => {
       <StyledCol zone={"main"}>
         <SeoHeader title={content.title} />
         <Detail {...detail} />
+        <ScrollTopLink />
       </StyledCol>
     </>
   );

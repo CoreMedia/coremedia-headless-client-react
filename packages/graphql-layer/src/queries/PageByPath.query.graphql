@@ -7,6 +7,7 @@ query PageByPath($path: String!) {
       grid {
         ...PageGrid
       }
+      ...CMLinkableNavigationPath
     }
   }
 }

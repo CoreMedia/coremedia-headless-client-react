@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { match } from "react-router-dom";
 import {
   PageByPathWithCampaignsQuery,
@@ -23,6 +23,8 @@ import {
   addCampaignQueryVariables,
 } from "../utils/Campaign/CampaignUtil";
 import { usePreviewContextState } from "../context/PreviewContextProvider";
+import { NavigationPathItem } from "../models/Navigation/NavigationPath";
+import { useBreadcrumbContext } from "../context/BreadcrumbContext";
 
 interface PageProps {
   match: match<RouteProps>;
@@ -32,9 +34,11 @@ interface RouteProps {
   pageId: string;
   pathSegments: string;
 }
+
 const Page: FC<PageProps> = ({ match }) => {
   const { siteId, navigation, currentNavigation } = useSiteContextState();
   const { previewCampaignId, previewDate } = usePreviewContextState();
+  const { setNavigationPath } = useBreadcrumbContext();
   const currentUuid = getCurrentNavigationUuid(navigation, currentNavigation || []) || "";
   const path = match.params.pathSegments;
 
@@ -50,6 +54,14 @@ const Page: FC<PageProps> = ({ match }) => {
   const { data, loading, error } = campaignEnabled
     ? usePageByPathWithCampaignsQuery({ variables: variables })
     : usePageByPathQuery({ variables: variables });
+
+  useEffect(() => {
+    // Update breadcrumb navigation path
+    data && setNavigationPath(data.content?.pageByPath?.navigationPath as Array<NavigationPathItem>);
+    return () => {
+      setNavigationPath([]);
+    };
+  }, [data]);
 
   if (loading) return <Loading />;
   if (error) return <ApolloClientAlert error={error} />;

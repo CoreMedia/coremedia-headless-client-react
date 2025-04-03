@@ -11,6 +11,7 @@ import RichText from "../RichText/RichText";
 import { ImageBox } from "../Media/ResponsiveImage";
 import TagList from "../Tags/Taglist";
 import DetailedMedia from "./DetailedMedia";
+import DetailTOC from "./DetailTOC";
 
 export const StyledDetail = styled.div`
   @media screen and (min-width: 1200px) {
@@ -114,6 +115,9 @@ const Detail: React.FC<DetailModel> = ({
           {readTime && <span>{readTime} min read</span>}
         </MetaList>
         {media && <DetailedMedia media={media} />}
+
+        {/* Table of contents */}
+        <DetailTOC structuredText={structuredText} />
         {structuredText && (
           <Text {...metaDataProperty(metadata.properties?.structuredText)}>
             <RichText text={structuredText} embeddedItems={structuredTextLinks} />

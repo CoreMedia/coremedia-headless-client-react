@@ -1,11 +1,13 @@
 import React from "react";
 import { Link as ReactLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export interface LinkAttributes {
   linkTarget?: string;
   clickHandler?: () => void;
   openInNewTab?: boolean;
   externalLink?: boolean;
+  anchor?: string;
 }
 
 export interface LinkProps {
@@ -17,6 +19,7 @@ export interface LinkProps {
   openInNewTab?: boolean;
   externalLink?: boolean;
   primary?: boolean;
+  anchor?: string;
 }
 
 const Link: React.FC<LinkProps> = ({
@@ -28,6 +31,7 @@ const Link: React.FC<LinkProps> = ({
   title,
   openInNewTab = false,
   externalLink = false,
+  anchor,
 }) => {
   // no link, but an JS click handler
   if (clickHandler) {
@@ -53,6 +57,15 @@ const Link: React.FC<LinkProps> = ({
       <a className={className} href={to} role={role} title={title} onClick={clickHandler} {...openInNewTabProps}>
         {children}
       </a>
+    );
+  }
+
+  // internal hash link
+  if (anchor) {
+    return (
+      <HashLink className={className} to={`${to}#${anchor}`} role={role} title={title}>
+        {children}
+      </HashLink>
     );
   }
 

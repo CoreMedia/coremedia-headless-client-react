@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-turquoise: #6fc3b8;
     --color-green: #2fac66;
     --color-yellow: #efdf0f;
+    --color-grey: #919191;
     --color-light-grey: #f4f4f4;
     --color-black: #000;
     --color-white: #fff;

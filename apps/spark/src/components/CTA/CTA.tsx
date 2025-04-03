@@ -29,6 +29,8 @@ const CTA: React.FC<Props> = ({ targets, additionalClass, additionalButtonClass,
               <Button
                 key={index}
                 linkTarget={target.linkTarget}
+                anchor={target.anchor}
+                clickHandler={target.clickHandler}
                 text={target.callToActionText}
                 additionalClass={additionalButtonClass}
                 openInNewTab={target.openInNewTab}

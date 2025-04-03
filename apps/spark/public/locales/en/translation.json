@@ -96,6 +96,12 @@
     "relatedProducts": "Products",
     "related": "Related"
   },
+  "DetailTOC": {
+    "title": "On this page"
+  },
+  "ScrollTopLink": {
+    "text": "Scroll to top"
+  },
   "CheckoutPage": {
     "successTitle": "Checkout Completed",
     "successMessage": "<p>Thank you for your order.</p><p>Our team is currently packing and shipping your order.<br />We will inform you as soon as the goods are on their way to you.</p>",

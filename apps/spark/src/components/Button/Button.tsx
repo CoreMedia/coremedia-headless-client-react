@@ -5,6 +5,7 @@ import Link from "../Link/Link";
 
 interface Props {
   linkTarget?: any;
+  anchor?: string;
   clickHandler?: () => void;
   text?: string;
   additionalClass?: string;
@@ -55,6 +56,7 @@ export const StyledButton = styled.div<{ primary?: boolean }>`
 
 const Button: React.FC<Props> = ({
   linkTarget,
+  anchor,
   clickHandler,
   text,
   additionalClass,
@@ -73,6 +75,7 @@ const Button: React.FC<Props> = ({
     <StyledButton
       as={Link}
       to={linkTarget}
+      anchor={anchor}
       clickHandler={clickHandler}
       className={additionalClass}
       role={"button"}

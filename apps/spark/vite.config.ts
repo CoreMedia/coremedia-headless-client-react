@@ -18,6 +18,8 @@ export default defineConfig({
   plugins: [react()],
   base: "/",
   build: {
+    // do not inline assets
+    assetsInlineLimit: 0,
     // split chunks manually to avoid one big js file.
     rollupOptions: {
       output: {
