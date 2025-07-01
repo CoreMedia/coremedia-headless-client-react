@@ -9,6 +9,7 @@ import {
   useProductByIdWithCampaignsQuery,
 } from "@coremedia-labs/graphql-layer";
 import log from "loglevel";
+import { Helmet } from "react-helmet-async";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, ProductNotFoundAlert } from "../components/Error/Alert";
 import { DetailProduct } from "../models/Detail/DetailProduct";
@@ -39,7 +40,7 @@ interface RouteProps {
 }
 
 const ProductPage: FC<PageProps> = ({ match }) => {
-  const { siteId, currentNavigation, rootSegment } = useSiteContextState();
+  const { siteId, currentNavigation, rootSegment, cmecConfig } = useSiteContextState();
   const { previewCampaignId, previewDate } = usePreviewContextState();
 
   let variables: any = {
@@ -122,8 +123,23 @@ const ProductPage: FC<PageProps> = ({ match }) => {
     }
   }
 
+  // cmec extra metrics
+  let cmecPageData = "";
+  if (product.augmentation?.content) {
+    cmecPageData = `var bysideWebcare_content_uuid="${product.augmentation.content.uuid}";`;
+    cmecPageData += `var bysideWebcare_content_type="${product.augmentation.content.type}";`;
+    cmecPageData += `var bysideWebcare_content_locale="${product.augmentation.content.locale}";`;
+  } else {
+    cmecPageData = `var bysideWebcare_content_unavailable = new Date().getTime();`;
+  }
+
   return (
     <ProductPageContext media={media} downloads={downloads} product={detailProduct}>
+      {!!cmecConfig && (
+        <Helmet>
+          <script>{cmecPageData}</script>
+        </Helmet>
+      )}
       <SeoHeader title={detailProduct.name} />
       <RootPreviewId metadataRoot={detailProduct.metadata?.root} />
       <DetailedProduct placements={placements} campaignDataSlots={campaignDataSlots} />

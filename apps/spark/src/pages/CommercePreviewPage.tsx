@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { match } from "react-router-dom";
 import { CommerceBeanType, useCommercePreviewQuery } from "@coremedia-labs/graphql-layer";
+import { Helmet } from "react-helmet-async";
 import Loading from "../components/Loading/Loading";
 import { Alert, ApolloClientAlert, PageNotFoundAlert } from "../components/Error/Alert";
 import Include from "../utils/ViewDispatcher/Include";
@@ -23,7 +24,7 @@ const asCommerceBeanType = (beanTypeName: string | null): CommerceBeanType | nul
 };
 
 const CommercePreviewPage: FC<CommercePreviewProps> = ({ match }) => {
-  const { siteId } = useSiteContextState();
+  const { siteId, cmecConfig } = useSiteContextState();
   const commerceBeanType = asCommerceBeanType(match.params.type);
   if (!commerceBeanType) {
     return <Alert title="Invalid Type" message="Sorry, the requested type is not available." />;
@@ -43,7 +44,19 @@ const CommercePreviewPage: FC<CommercePreviewProps> = ({ match }) => {
 
   const self = data.commerceBeanByType;
 
-  return <Include self={self} view={"asPreview"} />;
+  // cmec extra metrics
+  const cmecPageData = `var bysideWebcare_content_unavailable = new Date().getTime();`;
+
+  return (
+    <>
+      {!!cmecConfig && (
+        <Helmet>
+          <script>{cmecPageData}</script>
+        </Helmet>
+      )}
+      <Include self={self} view={"asPreview"} />
+    </>
+  );
 };
 
 export default CommercePreviewPage;

@@ -22,8 +22,8 @@ This Workspace uses [vite](https://vitejs.dev/) as tooling since version 2210.
 The project can be loaded on any environment supporting Node.js development. 
 We recommend:
 
-- Node.js 20 (LTS) or higher
-- pnpm 9
+- Node.js 22 (LTS) or higher
+- pnpm 10
 
 ## Development environment
 

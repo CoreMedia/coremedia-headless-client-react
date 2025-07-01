@@ -1,7 +1,17 @@
 import { Executor } from "@graphql-tools/utils";
-import { print } from "graphql";
+import { GraphQLError, GraphQLErrorExtensions, print } from "graphql";
 import { campaignServiceEndpoint, coreMediaHeadlessServerEndpoint } from "./endpoints";
 import logger from "./logger";
+
+interface CMGraphQLErrorExtensions extends GraphQLErrorExtensions {
+  request?: RequestInit;
+  response?: {
+    status: number;
+    type: string;
+    headers?: Record<string, string>;
+    body?: string;
+  };
+}
 
 /**
  * Executor to query subschema endpoint. Forwards headers from the context
@@ -13,7 +23,14 @@ import logger from "./logger";
  * @param context
  */
 export const cmExecutor: Executor = async ({ document, variables, context }) => {
-  logger.info("Query " + context.request?.body?.operationName + " with variables " + JSON.stringify(variables));
+  logger.info(
+    "Query '" +
+      context.request?.body?.operationName +
+      "' with variables " +
+      JSON.stringify(variables) +
+      " from " +
+      coreMediaHeadlessServerEndpoint()
+  );
 
   const query = print(document);
   let newHeaders = {};
@@ -45,8 +62,36 @@ export const cmExecutor: Executor = async ({ document, variables, context }) => 
       body: JSON.stringify({ query, variables }),
     };
   }
-  const fetchResult = await fetch(coreMediaHeadlessServerEndpoint(), requestInit);
-  return fetchResult.json();
+
+  // fetch request from coreMediaHeadlessServerEndpoint with custom error handling
+  let response: Response;
+  let jsonResult;
+  try {
+    logger.debug("Request: " + JSON.stringify(requestInit));
+    response = await fetch(coreMediaHeadlessServerEndpoint(), requestInit);
+    jsonResult = await response.clone().json();
+  } catch (error) {
+    const errorExtensions: CMGraphQLErrorExtensions = {
+      code: "COREMEDIA_HLS_ERROR",
+      http: {
+        status: 502, //default is 200 even for errors
+      },
+      response: {
+        status: response?.status,
+        type: response?.type,
+        body: await response?.text(),
+      },
+    };
+    if (logger.level === "debug") {
+      errorExtensions.request = requestInit;
+      errorExtensions.response.headers = Object.fromEntries(response.headers.entries());
+      logger.debug("Response: " + JSON.stringify(errorExtensions.response));
+    }
+    throw new GraphQLError(error.message, {
+      extensions: errorExtensions,
+    });
+  }
+  return jsonResult;
 };
 
 export const campaignExecutor: Executor = async ({ document, variables, context }) => {

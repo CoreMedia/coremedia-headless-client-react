@@ -1,30 +1,31 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 import LeftRightBannerContainer from "../components/LeftRightBanner/LeftRightBannerContainer";
 import { createMixedItemCollection, createSlot } from "./helper/ModelHelper";
 
-export default {
+const meta: Meta<typeof LeftRightBannerContainer> = {
   title: "LeftRight Banner",
   component: LeftRightBannerContainer,
-} as ComponentMeta<typeof LeftRightBannerContainer>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof LeftRightBannerContainer> = (args) => <LeftRightBannerContainer {...args} />;
+type Story = StoryObj<typeof LeftRightBannerContainer>;
 
-export const Standard = Template.bind({});
-export const SixItems = Template.bind({});
-export const MixedItems = Template.bind({});
-
-Standard.args = {
-  ...createSlot(),
+export const Standard: Story = {
+  args: {
+    ...createSlot(),
+  },
 };
 
-SixItems.args = {
-  ...createSlot("Slot", 6),
+export const SixItems: Story = {
+  args: {
+    ...createSlot("Slot", 6),
+  },
 };
 
-MixedItems.args = {
-  ...{
+export const MixedItems: Story = {
+  args: {
+    ...createSlot(),
     items: createMixedItemCollection(),
   },
 };

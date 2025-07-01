@@ -1,6 +1,6 @@
 ![CoreMedia Labs Logo](https://documentation.coremedia.com/badges/banner_coremedia_labs_wide.png)
 
-![CoreMedia Content Cloud Version](https://img.shields.io/static/v1?message=2412&label=CoreMedia%20Content%20Cloud&style=for-the-badge&labelColor=666666&color=672779 
+![CoreMedia Content Cloud Version](https://img.shields.io/static/v1?message=2506&label=CoreMedia%20Content%20Cloud&style=for-the-badge&labelColor=666666&color=672779 
 "This badge shows the CoreMedia version this project is compatible with. 
 Please read the versioning section of the project to see what other CoreMedia versions are supported and how to find them."
 )
@@ -50,7 +50,7 @@ Please refer to the [changelog](CHANGELOG.md) for more details.
 
 ## Quickstart
 
-You need at least Node.js 20 (LTS), pnpm 9 and a running instance of the CoreMedia Content Cloud.
+You need at least Node.js 22 (LTS), pnpm 10 and a running instance of the CoreMedia Content Cloud.
 Define your environment variables in `.env` file for the stitching server:
 
 [servers/stitching/.env](servers/stitching/.env.example)

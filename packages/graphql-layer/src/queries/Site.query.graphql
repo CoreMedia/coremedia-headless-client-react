@@ -5,6 +5,10 @@ query Site($rootSegment: String!) {
       locale
     }
     pageByPath(path: $rootSegment) {
+      id
+      uuid
+      type
+      locale
       grid {
         id
         placements(names: ["header", "footer", "footer-navigation"]) {

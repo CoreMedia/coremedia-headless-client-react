@@ -2,11 +2,13 @@ import React, { FC } from "react";
 import { useFragmentPreviewQuery } from "@coremedia-labs/graphql-layer";
 import ViewDispatcher, { defaultView } from "@coremedia-labs/view-dispatcher";
 import { match } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Fragment, fragmentsByType } from "../components/FragmentPreview/FragmentsByType";
 import typeHierarchy from "../utils/ViewDispatcher/Interfaces";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, PageNotFoundAlert } from "../components/Error/Alert";
 import FragmentPreview from "../components/FragmentPreview/FragmentPreview";
+import { useSiteContextState } from "../context/SiteContextProvider";
 
 // Initialize the viewDispatcher
 const viewDispatcher = new ViewDispatcher<Fragment | Fragment[]>(typeHierarchy);
@@ -24,6 +26,7 @@ interface RouteProps {
 }
 
 const PreviewPage: FC<FragmentPreviewProps> = ({ match }) => {
+  const { cmecConfig } = useSiteContextState();
   const { data, loading, error } = useFragmentPreviewQuery({
     variables: {
       contentId: match.params.id,
@@ -42,7 +45,21 @@ const PreviewPage: FC<FragmentPreviewProps> = ({ match }) => {
     return <PageNotFoundAlert />;
   }
 
-  return <FragmentPreview self={self} fragments={fragments} />;
+  // cmec extra metrics
+  let cmecPageData = `var bysideWebcare_content_uuid="${data.content.content.uuid}";`;
+  cmecPageData += `var bysideWebcare_content_type="${data.content.content.type}";`;
+  cmecPageData += `var bysideWebcare_content_locale="${data.content.content.locale}";`;
+
+  return (
+    <>
+      {!!cmecConfig && (
+        <Helmet>
+          <script>{cmecPageData}</script>
+        </Helmet>
+      )}
+      <FragmentPreview self={self} fragments={fragments} />
+    </>
+  );
 };
 
 export default PreviewPage;

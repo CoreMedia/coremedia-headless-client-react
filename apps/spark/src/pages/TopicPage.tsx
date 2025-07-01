@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { match } from "react-router-dom";
 import { useSearchQuery } from "@coremedia-labs/graphql-layer";
 import { NetworkStatus } from "@apollo/client";
+import { Helmet } from "react-helmet-async";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, PageNotFoundAlert } from "../components/Error/Alert";
 import { StyledCol } from "../components/PageGrid/Col";
@@ -21,7 +22,7 @@ interface RouteProps {
 }
 
 const TopicPage: FC<DetailViewProps> = ({ match }) => {
-  const { siteId } = useSiteContextState();
+  const { siteId, cmecConfig } = useSiteContextState();
   const { rootSegment } = useSiteContextState();
 
   const { data, loading, error, fetchMore, networkStatus } = useSearchQuery({
@@ -61,8 +62,16 @@ const TopicPage: FC<DetailViewProps> = ({ match }) => {
     });
   };
 
+  // cmec extra metrics
+  const cmecPageData = `var bysideWebcare_content_unavailable = new Date().getTime();`;
+
   return (
     <StyledCol zone={"main"}>
+      {!!cmecConfig && (
+        <Helmet>
+          <script>{cmecPageData}</script>
+        </Helmet>
+      )}
       <LandscapeBannerContainer
         title={`${data.content.search.numFound} result${data.content.search.numFound > 1 ? "s" : ""} found for tag ${
           match.params.title

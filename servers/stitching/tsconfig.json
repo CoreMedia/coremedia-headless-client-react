@@ -8,9 +8,10 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "lib": [
-      "es5",
-      "esnext",
-      "dom"
+      "ES5",
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
     ],
     "baseUrl": "..",
     "rootDir": "src",

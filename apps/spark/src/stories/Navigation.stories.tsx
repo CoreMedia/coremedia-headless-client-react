@@ -1,40 +1,43 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 import NavigationMenu from "../components/Navigation/NavigationMenu";
 import { StyledNavigation } from "../components/Navigation/Navigation";
 import { createNavigationItem } from "./helper/ModelHelper";
 
-export default {
+const meta: Meta<typeof NavigationMenu> = {
   title: "NavigationMenu",
   component: NavigationMenu,
-} as ComponentMeta<typeof NavigationMenu>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof NavigationMenu> = (args) => (
-  <ul>
-    <StyledNavigation>
-      <NavigationMenu {...args} />
-    </StyledNavigation>
-  </ul>
-);
+type Story = StoryObj<typeof NavigationMenu>;
 
-export const Standard = Template.bind({});
-Standard.args = {
-  ...createNavigationItem(),
-  items: [
-    {
-      ...createNavigationItem("Text Only"),
-      items: [
-        createNavigationItem("Navigation", false, 4),
-        createNavigationItem("Navigation", false, 4),
-        createNavigationItem("Navigation", false, 4),
-        createNavigationItem("Navigation", false, 4),
-      ],
-    },
-    createNavigationItem("Without Images", false, 4),
-    createNavigationItem("With Images", true, 5),
-  ],
-  maxDepth: 3,
-  depth: 0,
-  isTopLevel: true,
+export const Standard: Story = {
+  args: {
+    ...createNavigationItem(),
+    items: [
+      {
+        ...createNavigationItem("Text Only"),
+        items: [
+          createNavigationItem("Navigation", false, 4),
+          createNavigationItem("Navigation", false, 4),
+          createNavigationItem("Navigation", false, 4),
+          createNavigationItem("Navigation", false, 4),
+        ],
+      },
+      createNavigationItem("Without Images", false, 4),
+      createNavigationItem("With Images", true, 5),
+    ],
+    maxDepth: 3,
+    depth: 0,
+    isTopLevel: true,
+  },
+  render: (args) => (
+    <ul>
+      <StyledNavigation>
+        <NavigationMenu {...args} />
+      </StyledNavigation>
+    </ul>
+  ),
 };

@@ -69,7 +69,7 @@ export const SiteContextProvider: React.FC<Props> = ({ children, rootSegment, cu
     url:
       data.content.pageByPath.settings.engagement.urls.tag ??
       import.meta.env.VITE_ENGAGEMENT_CLOUD_TAG_URL ??
-      "https://bywe2.byside.com/agent/bwc_we2.js",
+      "https://cdn.engagement.coremedia.cloud/cmec_we2.js",
   };
 
   const siteContextValue: SiteContext = {

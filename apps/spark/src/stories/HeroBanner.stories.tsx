@@ -1,5 +1,4 @@
-import React from "react";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 import HeroBannerContainer from "../components/HeroBanner/HeroBannerContainer";
 import {
@@ -9,30 +8,34 @@ import {
   createVideoWithOverlay,
 } from "./helper/ModelHelper";
 
-export default {
+const meta: Meta<typeof HeroBannerContainer> = {
   title: "Hero Banner",
   component: HeroBannerContainer,
-} as ComponentMeta<typeof HeroBannerContainer>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof HeroBannerContainer> = (args) => <HeroBannerContainer {...args} />;
+type Story = StoryObj<typeof HeroBannerContainer>;
 
-export const Standard = Template.bind({});
-export const MixedItems = Template.bind({});
-export const TeaserOverlayEnabled = Template.bind({});
-export const VideoHero = Template.bind({});
-
-Standard.args = {
-  ...createSlot(),
+export const Standard: Story = {
+  args: {
+    ...createSlot(),
+  },
 };
 
-MixedItems.args = {
-  items: createMixedItemCollection(),
+export const MixedItems: Story = {
+  args: {
+    items: createMixedItemCollection(),
+  },
 };
 
-TeaserOverlayEnabled.args = {
-  items: [createBannerWithOverlay()],
+export const TeaserOverlayEnabled: Story = {
+  args: {
+    items: [createBannerWithOverlay()],
+  },
 };
 
-VideoHero.args = {
-  items: [createVideoWithOverlay()],
+export const VideoHero: Story = {
+  args: {
+    items: [createVideoWithOverlay()],
+  },
 };

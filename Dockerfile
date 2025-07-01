@@ -1,2 +1,2 @@
-FROM node:20
-RUN npm install -g pnpm@9
+FROM node:22-slim
+RUN npm install -g pnpm@10

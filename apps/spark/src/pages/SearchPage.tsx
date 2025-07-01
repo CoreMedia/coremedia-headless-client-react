@@ -7,6 +7,7 @@ import {
   FacetedSearchDocument,
 } from "@coremedia-labs/graphql-layer";
 import { NetworkStatus, useQuery } from "@apollo/client";
+import { Helmet } from "react-helmet-async";
 import { useSearchStateContextState } from "../context/SearchStateContext";
 import Loading from "../components/Loading/Loading";
 import { Alert, ApolloClientAlert } from "../components/Error/Alert";
@@ -25,7 +26,7 @@ const asSortFieldWithOrder = (sortFieldName: string | null): SortFieldWithOrder 
 };
 
 const SearchPage: FC = () => {
-  const { siteId } = useSiteContextState();
+  const { siteId, cmecConfig } = useSiteContextState();
   const { query } = useSearchStateContextState();
   const { sortField, limit, selectedFacets } = useSearchStateContextState();
 
@@ -107,6 +108,9 @@ const SearchPage: FC = () => {
       [],
   }));
 
+  // cmec extra metrics
+  const cmecPageData = `var bysideWebcare_content_unavailable = new Date().getTime();`;
+
   return (
     <SearchPageContext
       query={query}
@@ -116,6 +120,11 @@ const SearchPage: FC = () => {
       onLoadMore={onLoadMore}
       isLoading={loadingMorePosts}
     >
+      {!!cmecConfig && (
+        <Helmet>
+          <script>{cmecPageData}</script>
+        </Helmet>
+      )}
       <SeoHeader title={`Search "${query}"`} />
       <Search />
     </SearchPageContext>

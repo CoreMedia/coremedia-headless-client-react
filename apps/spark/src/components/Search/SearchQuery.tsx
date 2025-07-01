@@ -12,7 +12,7 @@ export const SearchButton = styled.button`
   right: 0;
   width: 34px;
   height: 34px;
-  background: url(${Magnifier}) no-repeat center center transparent;
+  background: url("${Magnifier}") no-repeat center center transparent;
   cursor: pointer;
   padding: 1px 10px;
 

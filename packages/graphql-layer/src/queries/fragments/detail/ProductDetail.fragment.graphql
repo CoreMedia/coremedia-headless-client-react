@@ -16,5 +16,13 @@ fragment ProductDetail on Product {
     downloads {
       ...CMDownload
     }
+    content {
+      id
+      uuid
+      type
+      ... on CMLinkable {
+        locale
+      }
+    }
   }
 }

@@ -10,6 +10,7 @@ import {
   useCategoryByIdWithCampaignsQuery,
 } from "@coremedia-labs/graphql-layer";
 import log from "loglevel";
+import { Helmet } from "react-helmet-async";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, CategoryNotFoundAlert } from "../components/Error/Alert";
 import { Placements } from "../models/Grid/Grid";
@@ -42,7 +43,7 @@ interface RouteProps {
 export const ITEMS_PER_PAGE = 12;
 
 const CategoryPage: FC<PageProps> = ({ match }) => {
-  const { siteId, currentNavigation, rootSegment } = useSiteContextState();
+  const { siteId, currentNavigation, rootSegment, cmecConfig } = useSiteContextState();
   const { selectedFacets } = useSearchStateContextState();
   const { previewCampaignId, previewDate } = usePreviewContextState();
 
@@ -128,6 +129,16 @@ const CategoryPage: FC<PageProps> = ({ match }) => {
     }
   }
 
+  // cmec extra metrics
+  let cmecPageData = "";
+  if (category.augmentation?.content) {
+    cmecPageData = `var bysideWebcare_content_uuid="${category.augmentation.content.uuid}";`;
+    cmecPageData += `var bysideWebcare_content_type="${category.augmentation.content.type}";`;
+    cmecPageData += `var bysideWebcare_content_locale="${category.augmentation.content.locale}";`;
+  } else {
+    cmecPageData = `var bysideWebcare_content_unavailable = new Date().getTime();`;
+  }
+
   return (
     <SearchPageContext
       totalCount={searchProducts.totalCount}
@@ -143,6 +154,11 @@ const CategoryPage: FC<PageProps> = ({ match }) => {
       onLoadMore={onLoadMore}
       isLoading={loadingMore}
     >
+      {!!cmecConfig && (
+        <Helmet>
+          <script>{cmecPageData}</script>
+        </Helmet>
+      )}
       <CategoryPageContext
         categoryName={category.name}
         categoryChildren={category.children?.filter(notEmpty) as Array<Category>}

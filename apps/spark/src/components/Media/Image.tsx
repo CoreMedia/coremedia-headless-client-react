@@ -26,7 +26,7 @@ export const StyledImage = styled.img<{ uncropped?: boolean; loaded?: boolean }>
   ${(props) =>
     props.loaded === false &&
     css`
-      background: var(--color-background-image) url(${loader}) center/10% no-repeat;
+      background: var(--color-background-image) url("${loader}") center/10% no-repeat;
     `}
 `;
 const Image: FC<ImageProps> = ({ picture, cropName, width, aspectRatio = "auto" }) => {

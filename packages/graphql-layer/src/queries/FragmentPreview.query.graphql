@@ -1,6 +1,9 @@
 query FragmentPreview($contentId: String!) {
   content {
     content(id: $contentId) {
+      id
+      uuid
+      type
       __typename
       ...CMTeasable
       ...CMPicturePreview
