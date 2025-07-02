@@ -1,12 +1,35 @@
 # Changelog
 
-## v2412.0.0
+## v2506.0.0
 
-*Released 04.03.2025*
+*Released 02.07.2025*
 
 ### Breaking Changes:
 
-- Updated `schema.json` to CoreMedia Content Cloud v12 - 2604.0
+- Updated `node.js` to 22 LTS
+- Updated pnpm to version 10
+- Updated `schema.json` to CoreMedia Content Cloud v12 - 2506.0
+
+### Features:
+
+- Enhanced CoreMedia Engagement Cloud integration
+
+### Bugfixes and Changes:
+
+- Updated vite to v7
+- Updated storybook to v9
+- Updated minor versions of dependencies
+- Updated nginx docker image to v1.29 
+
+---
+
+## v2412.0.0
+
+*Released 03.04.2025*
+
+### Breaking Changes:
+
+- Updated `schema.json` to CoreMedia Content Cloud v12 - 2412.0
 
 ### Features:
 

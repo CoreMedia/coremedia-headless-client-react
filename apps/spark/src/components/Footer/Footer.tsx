@@ -116,7 +116,7 @@ const Version = styled.div`
 `;
 
 const Footer: FC = () => {
-  const { footer } = useSiteContextState();
+  const { footer, cmecConfig } = useSiteContextState();
   const name = footer?.metadata?.root.id || "footer";
 
   return (
@@ -135,20 +135,20 @@ const Footer: FC = () => {
 
           <SocialIcons>
             <a href="https://www.facebook.com/coremedia" target="_blank" rel="noopener noreferrer">
-              <i style={{ backgroundImage: `url(${Facebook})` }} />
+              <i style={{ backgroundImage: `url("${Facebook}")` }} />
             </a>
             <a href="https://de.linkedin.com/company/coremedia-ag" target="_blank" rel="noopener noreferrer">
-              <i style={{ backgroundImage: `url(${LinkedIn})` }} />
+              <i style={{ backgroundImage: `url("${LinkedIn}")` }} />
             </a>
             <a href="https://twitter.com/CoreMedia" target="_blank" rel="noopener noreferrer">
-              <i style={{ backgroundImage: `url(${Twitter})` }} />
+              <i style={{ backgroundImage: `url("${Twitter}")` }} />
             </a>
             <a href="https://www.youtube.com/user/coremediachannel" target="_blank" rel="noopener noreferrer">
-              <i style={{ backgroundImage: `url(${YouTube})` }} />
+              <i style={{ backgroundImage: `url("${YouTube}")` }} />
             </a>
           </SocialIcons>
           <Version>
-            Version: <b>{getWorkspaceVersion()}</b>
+            Version: <b>{getWorkspaceVersion()}</b> {cmecConfig ? "with CMEC" : ""}
           </Version>
         </FooterWrapper>
       </StyledFooter>

@@ -3,6 +3,8 @@ query PageByPath($path: String!) {
     pageByPath(path: $path) {
       id
       uuid
+      type
+      locale
       title
       grid {
         ...PageGrid

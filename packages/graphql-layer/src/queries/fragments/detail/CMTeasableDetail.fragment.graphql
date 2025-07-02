@@ -1,5 +1,8 @@
 fragment CMTeasableDetail on CMTeasable {
   id
+  uuid
+  type
+  locale
   detailText {
     text
     textAsTree

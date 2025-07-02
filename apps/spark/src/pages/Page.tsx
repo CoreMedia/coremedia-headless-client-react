@@ -9,6 +9,7 @@ import {
   usePageByPathWithCampaignsQuery,
 } from "@coremedia-labs/graphql-layer";
 import log from "loglevel";
+import { Helmet } from "react-helmet-async";
 import PageGrid from "../components/PageGrid/PageGrid";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, PageNotFoundAlert } from "../components/Error/Alert";
@@ -36,7 +37,7 @@ interface RouteProps {
 }
 
 const Page: FC<PageProps> = ({ match }) => {
-  const { siteId, navigation, currentNavigation } = useSiteContextState();
+  const { siteId, navigation, currentNavigation, cmecConfig } = useSiteContextState();
   const { previewCampaignId, previewDate } = usePreviewContextState();
   const { setNavigationPath } = useBreadcrumbContext();
   const currentUuid = getCurrentNavigationUuid(navigation, currentNavigation || []) || "";
@@ -83,8 +84,17 @@ const Page: FC<PageProps> = ({ match }) => {
     }
   }
 
+  let cmecPageData = `var bysideWebcare_content_uuid="${data.content.pageByPath.uuid}";`;
+  cmecPageData += `var bysideWebcare_content_type="${data.content.pageByPath.type}";`;
+  cmecPageData += `var bysideWebcare_content_locale="${data.content.pageByPath.locale}";`;
+
   return (
     <>
+      {!!cmecConfig && (
+        <Helmet>
+          <script>{cmecPageData}</script>
+        </Helmet>
+      )}
       <SeoHeader title={data?.content?.pageByPath?.title} />
       {data?.content?.pageByPath?.id && <RootPreviewId metadataRoot={{ id: data?.content?.pageByPath?.id }} />}
       {data.content.pageByPath.grid && (

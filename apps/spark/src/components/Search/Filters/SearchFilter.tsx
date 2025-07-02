@@ -63,7 +63,7 @@ const SearchFilterTitle = styled.h3<{ isClosed: boolean }>`
     display: inline-block;
     background-repeat: no-repeat;
     background-position: 50%;
-    background-image: url(${Chevron});
+    background-image: url("${Chevron}");
     transform: ${(props) => (props.isClosed ? css`rotate(0deg)` : css`rotate(180deg)`)};
     transition: all 0.2s ease;
   }
@@ -110,7 +110,7 @@ const AllIcon = styled.i`
   display: inline-block;
   background-repeat: no-repeat;
   background-position: 50%;
-  background-image: url(${ArrowBack});
+  background-image: url("${ArrowBack}");
   margin-right: 5px;
 `;
 

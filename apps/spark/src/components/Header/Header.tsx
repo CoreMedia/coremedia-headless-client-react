@@ -50,7 +50,7 @@ const Logo = styled(Link)`
   margin: 0 auto;
   transform: translateX(-22px); // 50% of the mobile button
 
-  background: url(${SparkLogo}) no-repeat center center transparent;
+  background: url("${SparkLogo}") no-repeat center center transparent;
   width: 120px;
   height: 40px;
   background-size: contain;

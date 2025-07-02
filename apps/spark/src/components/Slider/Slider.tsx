@@ -32,11 +32,11 @@ const StyledSlider = styled(ReactSlider)<{ innerArrows: boolean }>`
   }
 
   .slick-prev:before {
-    background-image: url(${Prev});
+    background-image: url("${Prev}");
   }
 
   .slick-next:before {
-    background-image: url(${Next});
+    background-image: url("${Next}");
   }
 
   .slick-active {
@@ -70,11 +70,11 @@ const StyledSlider = styled(ReactSlider)<{ innerArrows: boolean }>`
         left: 0;
 
         &:before {
-          background-image: url(${PrevInner});
+          background-image: url("${PrevInner}");
         }
 
         &:hover:before {
-          background-image: url(${PrevInnerHover});
+          background-image: url("${PrevInnerHover}");
         }
       }
 
@@ -82,11 +82,11 @@ const StyledSlider = styled(ReactSlider)<{ innerArrows: boolean }>`
         right: 0;
 
         &:before {
-          background-image: url(${NextInner});
+          background-image: url("${NextInner}");
         }
 
         &:hover:before {
-          background-image: url(${NextInnerHover});
+          background-image: url("${NextInnerHover}");
         }
       }
     `};

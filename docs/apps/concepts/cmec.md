@@ -33,7 +33,7 @@ the [.env file](../../../apps/spark/.env.example).
 VITE_ENGAGEMENT_CLOUD_ID=<your-webcare-id>
 ```
 
-If you're not using the script url `https://bywe2.byside.com/agent/bwc_we2.js`,
+If you're not using the script url `hhttps://cdn.engagement.coremedia.cloud/cmec_we2.js`,
 please add your custom URL as environment variable too.
 
 ```

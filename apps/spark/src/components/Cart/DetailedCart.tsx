@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import styled, { css } from "styled-components";
+import { Helmet } from "react-helmet-async";
 import { useCartContextState } from "../../context/CartContext";
 import Link from "../Link/Link";
 import ProductPricing, { formatPrice } from "../Product/ProductPricing";
@@ -152,7 +153,7 @@ const CartContent = styled.div<{ addBorder?: boolean }>`
 `;
 
 const DetailedCart: React.FC = () => {
-  const { rootSegment } = useSiteContextState();
+  const { rootSegment, cmecConfig } = useSiteContextState();
   const { cartItems, itemCount, increase, decrease, removeProduct, total, hideSideCart } = useCartContextState();
   const { t } = useTranslation();
 
@@ -160,8 +161,16 @@ const DetailedCart: React.FC = () => {
     hideSideCart();
   }, []);
 
+  // cmec extra metrics
+  const cmecPageData = `var bysideWebcare_content_unavailable = new Date().getTime();`;
+
   return (
     <StyledCol zone={"main"}>
+      {!!cmecConfig && (
+        <Helmet>
+          <script>{cmecPageData}</script>
+        </Helmet>
+      )}
       <Headline>{t("DetailedCart.headline")}</Headline>
       {itemCount === 0 && (
         <EmptyCart>

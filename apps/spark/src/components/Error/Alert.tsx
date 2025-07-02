@@ -39,7 +39,7 @@ export const StyledAlert = styled.div`
 
 export const Alert: FC<Props> = ({ errorCode = 404, title = "Alert", message = "", icon = NotFoundIcon }) => {
   return (
-    <StyledAlert>
+    <StyledAlert className={"error"}>
       {icon && <img src={icon} alt="" />}
       {title && (
         <h1>
@@ -68,7 +68,7 @@ export const ApolloClientAlert: React.FC<Props> = ({ error }) => {
     log.error("Apollo Client Error: Endpoint =", getEndpoint());
     log.error(error);
   }
-  const statusCode = error?.networkError as ServerError;
+  const networkError = error?.networkError as ServerError;
   const errorMessage = [...new Set(error?.message.split("\n"))].toString().replaceAll(",", "\n"); // filter duplicate messages
-  return <Alert errorCode={statusCode?.statusCode || 500} title="Apollo Client Error" message={errorMessage} />;
+  return <Alert errorCode={networkError?.statusCode || 500} title="Apollo Client Error" message={errorMessage} />;
 };

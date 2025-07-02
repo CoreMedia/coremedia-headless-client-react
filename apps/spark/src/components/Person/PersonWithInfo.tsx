@@ -52,7 +52,7 @@ const EmailIcon = styled.span`
   display: inline-block;
   background-repeat: no-repeat;
   background-position: 50%;
-  background-image: url(${Envelop});
+  background-image: url("${Envelop}");
   height: 18px;
   width: 18px;
   margin-right: 6px;

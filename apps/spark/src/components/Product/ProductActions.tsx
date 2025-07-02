@@ -39,13 +39,13 @@ const StyledWishlistButton = styled(StyledButton)`
     width: 1.5rem;
     display: flex;
     margin: 0 auto;
-    background: url(${WishIconOutline}) no-repeat 50% transparent;
+    background: url("${WishIconOutline}") no-repeat 50% transparent;
     height: 100%;
   }
 
   &:hover {
     > span {
-      background: url(${WishIconSolid}) no-repeat 50% transparent;
+      background: url("${WishIconSolid}") no-repeat 50% transparent;
     }
   }
 `;

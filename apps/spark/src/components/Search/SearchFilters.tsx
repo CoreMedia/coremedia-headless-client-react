@@ -15,7 +15,7 @@ const SearchFilterSwitch = styled.div`
 `;
 
 const SearchFilterSwitchIcon = styled.i`
-  mask-image: url(${FilterIcon});
+  mask-image: url("${FilterIcon}");
   background-color: var(--color-background-light);
   float: right;
   margin: 3px 0 0 5px;

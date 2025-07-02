@@ -23,7 +23,7 @@ const SearchFilterCheckbox = styled.span<{ checked: boolean }>`
   display: inline-block;
   background-repeat: no-repeat;
   background-position: 50%;
-  background-image: url(${(props) => (props.checked ? Checked : Unchecked)});
+  background-image: url("${(props) => (props.checked ? Checked : Unchecked)}");
   margin-right: 5px;
   vertical-align: middle;
 `;

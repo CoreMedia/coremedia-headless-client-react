@@ -32,7 +32,7 @@ export const PlayButton = styled.div`
   > * {
     width: 90px;
     height: 90px;
-    mask-image: url(${PlayIcon});
+    mask-image: url("${PlayIcon}");
     background-color: #ffffff;
     opacity: 50%;
     background-size: contain;

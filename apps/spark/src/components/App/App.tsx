@@ -32,7 +32,7 @@ const App: FC = () => {
   setLogLevel();
 
   const location = useLocation();
-  const rootSegment = getRootSegment(location.pathname) || "calista";
+  const rootSegment = getRootSegment(location.pathname) || "corporate";
   const previewDate = getPreviewDate(location.search);
   const previewCampaignId = getPreviewCampaignId(location.search);
   const urlSearchParams = useMemo(() => new URLSearchParams(location.search), [location.search]);

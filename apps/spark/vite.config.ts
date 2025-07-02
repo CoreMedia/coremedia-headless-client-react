@@ -19,7 +19,7 @@ export default defineConfig({
   base: "/",
   build: {
     // do not inline assets
-    assetsInlineLimit: 0,
+    //assetsInlineLimit: 0,
     // split chunks manually to avoid one big js file.
     rollupOptions: {
       output: {
@@ -31,10 +31,10 @@ export default defineConfig({
             const packageId = id.substring(id.indexOf("node_modules"));
             if (packageId.includes("slick")) {
               return "slick";
-            } else if (packageId.includes("apollo") || packageId.includes("graphql")) {
-              return "graphql";
             } else if (packageId.includes("react")) {
               return "react";
+            } else if (packageId.includes("apollo") || packageId.includes("graphql")) {
+              return "graphql";
             } else if (!packageId.includes("styled-components")) {
               return "vendor";
             }

@@ -1,29 +1,24 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 
 import Button from "../components/Button/Button";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
+const meta: Meta<typeof Button> = {
   title: "Button",
   component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: "color" },
+};
+export default meta;
+
+type Story = StoryObj<typeof Button>;
+
+export const WithText: Story = {
+  args: {
+    linkTarget: "/",
+    text: "Button Text",
   },
-} as ComponentMeta<typeof Button>;
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
-
-export const WithText = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-WithText.args = {
-  linkTarget: "/",
-  text: "Button Text",
 };
 
-export const Standard = Template.bind({});
-Standard.args = {
-  linkTarget: "/",
+export const Standard: Story = {
+  args: {
+    linkTarget: "/",
+  },
 };
