@@ -1,23 +1,18 @@
 export * from "./__generated__/schema.types";
 
 export * from "./queries/__generated__/CategoryById.query";
-export * from "./queries/__generated__/CategoryByIdWithCampaigns.query";
 export * from "./queries/__generated__/CommercePreview.query";
 export * from "./queries/__generated__/Detail.query";
 export * from "./queries/__generated__/FacetedSearch.query";
 export * from "./queries/__generated__/FragmentPreview.query";
 export * from "./queries/__generated__/PageByPath.query";
-export * from "./queries/__generated__/PageByPathWithCampaigns.query";
 export * from "./queries/__generated__/ProductById.query";
-export * from "./queries/__generated__/ProductByIdWithCampaigns.query";
 export * from "./queries/__generated__/Search.query";
 export * from "./queries/__generated__/Site.query";
 export * from "./queries/__generated__/StandaloneFragment.query";
 export * from "./queries/__generated__/Suggest.query";
 export * from "./queries/__generated__/Teasable.query";
-export * from "./queries/__generated__/Campaign.query";
 
-export * from "./queries/fragments/__generated__/CampaignContentResult.fragment";
 export * from "./queries/fragments/__generated__/Category.fragment";
 export * from "./queries/fragments/__generated__/CategoryRef.fragment";
 export * from "./queries/fragments/__generated__/CMCollection.fragment";
@@ -34,7 +29,6 @@ export * from "./queries/fragments/__generated__/CMPicture.fragment";
 export * from "./queries/fragments/__generated__/CMPlaceholder.fragment";
 export * from "./queries/fragments/__generated__/CMProduct.fragment";
 export * from "./queries/fragments/__generated__/CMProductTeaser.fragment";
-export * from "./queries/fragments/__generated__/CMSelectionRules.fragment";
 export * from "./queries/fragments/__generated__/CMTaxonomy.fragment";
 export * from "./queries/fragments/__generated__/CMTeasable.fragment";
 export * from "./queries/fragments/__generated__/CMVideo.fragment";

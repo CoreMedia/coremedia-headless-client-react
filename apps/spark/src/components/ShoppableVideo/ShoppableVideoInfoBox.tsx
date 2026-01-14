@@ -43,9 +43,7 @@ const StyledInfoBoxDetails = styled.div`
   }
 `;
 
-interface Props {}
-
-const ShoppableVideoInfoBox: React.FC<Props> = () => {
+const ShoppableVideoInfoBox: React.FC = () => {
   const { selectedEntry, playing } = useShoppableVideoContextState();
 
   if (!selectedEntry || playing) {

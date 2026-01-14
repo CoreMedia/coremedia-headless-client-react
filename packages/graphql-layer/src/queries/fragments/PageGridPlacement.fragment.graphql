@@ -12,7 +12,6 @@ fragment PageGridPlacement on PageGridPlacement {
     ...CMImageMap
     ...CMProductTeaser
     ...CMExternalChannel
-    ...CMSelectionRules
     ...CMProduct
     ...CMExternalLink
     ...CMHTML

@@ -8,7 +8,7 @@ import CartContextProvider from "../../context/CartContext";
 import { getRootSegment, isAPQEnabled, setLogLevel } from "../../utils/App/App";
 import PreviewPage from "../../pages/PreviewPage";
 import { initializeApollo } from "../../utils/App/Apollo";
-import { getPreviewCampaignId, getPreviewDate, isPreview } from "../../utils/Preview/Preview";
+import { getPreviewDate, isPreview } from "../../utils/Preview/Preview";
 import { PreviewContextProvider } from "../../context/PreviewContextProvider";
 import SearchStateContextProvider from "../../context/SearchStateContext";
 import CommercePreviewPage from "../../pages/CommercePreviewPage";
@@ -34,13 +34,12 @@ const App: FC = () => {
   const location = useLocation();
   const rootSegment = getRootSegment(location.pathname) || "corporate";
   const previewDate = getPreviewDate(location.search);
-  const previewCampaignId = getPreviewCampaignId(location.search);
   const urlSearchParams = useMemo(() => new URLSearchParams(location.search), [location.search]);
   const apolloClient = initializeApollo(previewDate, isAPQEnabled());
 
   return (
     <ApolloProvider client={apolloClient}>
-      <PreviewContextProvider previewDate={previewDate} previewCampaignId={previewCampaignId}>
+      <PreviewContextProvider previewDate={previewDate}>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <SiteContextProvider rootSegment={rootSegment} currentNavigation={location.pathname}>

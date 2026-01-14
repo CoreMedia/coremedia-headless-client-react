@@ -6,8 +6,7 @@
   "scripts": {
     "clean": "rimraf -g \"src/**/__generated__/\" \"dist/\"",
     "build": "pnpm clean && pnpm codegen && tsc --build",
-    "lint": "eslint --fix \"**/*.ts\"",
-    "lint:ci": "eslint \"**/*.ts\"",
+    "lint": "eslint",
     "codegen": "graphql-codegen --config codegen.yml",
     "download": "pnpm download:possible-types && pnpm download:interfaces && pnpm download:metadata && pnpm download:schema",
     "download:schema": "ts-node scripts/download-schema.ts",
@@ -28,27 +27,28 @@
     "./dist/__downloaded__/schema.json": "./dist/__downloaded__/schema.json"
   },
   "dependencies": {
-    "@apollo/client": "^3.13.8",
-    "dotenv": "^16.6.1",
-    "graphql": "^16.11.0",
-    "graphql-tag": "^2.12.6",
-    "react-dom": "^17.0.2",
-    "typescript": "~5.2.2"
+    "@apollo/client": "catalog:",
+    "dotenv": "catalog:",
+    "graphql": "catalog:",
+    "graphql-tag": "catalog:",
+    "react-dom": "catalog:",
+    "typescript": "catalog:"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^5.0.7",
-    "@graphql-codegen/near-operation-file-preset": "^3.1.0",
-    "@graphql-codegen/typescript": "^4.1.6",
-    "@graphql-codegen/typescript-operations": "^4.6.1",
-    "@graphql-codegen/typescript-react-apollo": "^4.3.3",
-    "@types/node": "^22.15.34",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.5.1",
-    "prettier": "^3.6.2",
-    "rimraf": "^5.0.10",
-    "ts-node": "^10.9.2"
+    "@eslint/js": "catalog:",
+    "@graphql-codegen/cli": "catalog:",
+    "@graphql-codegen/near-operation-file-preset": "catalog:",
+    "@graphql-codegen/typescript": "catalog:",
+    "@graphql-codegen/typescript-operations": "catalog:",
+    "@graphql-codegen/typescript-react-apollo": "catalog:",
+    "@types/node": "catalog:",
+    "@typescript-eslint/parser": "catalog:",
+    "eslint": "catalog:",
+    "eslint-config-prettier": "catalog:",
+    "eslint-plugin-prettier": "catalog:",
+    "prettier": "catalog:",
+    "rimraf": "catalog:",
+    "ts-node": "catalog:",
+    "typescript-eslint": "catalog:"
   }
 }

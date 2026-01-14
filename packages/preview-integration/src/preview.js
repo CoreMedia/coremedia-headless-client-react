@@ -4,8 +4,17 @@
  * Initializes the communication between Studio and CAE to provide the PBE feature.
  *
  * The script is robust against multiple loading.
+ *
+ * Static Application Security Testing (SAST) tools like Checkmarx may complain
+ * about this script, if they assume that it embeds untrusted data without
+ * proper sanitization or encoding. Such reports are false positives.
+ *
+ * @license CoreMedia Open Source License
  */
 let studioUrlWhitelist = window.studioUrlWhitelist || [];
+
+const CAPABILITIES_MESSAGE_TYPE = "previewCapabilities";
+const REFRESH_MESSAGE_TYPE = "refresh";
 
 function init() {
   if (!window.PDE_INITIALIZED) {
@@ -33,7 +42,9 @@ function initHandler(event) {
   let msgJson = undefined;
   try {
     msgJson = JSON.parse(msg);
-  } catch (err) {}
+  } catch (_) {
+    //ignored
+  }
 
   if (msgJson && msgJson.type === "initConfirm") {
     const parserOrigin = document.createElement("a");
@@ -88,6 +99,65 @@ function ready(callback) {
     document.addEventListener("DOMContentLoaded", callback);
   }
 }
+
+function onRefreshMessage(event) {
+  let msgData = event.data;
+  if (typeof msgData === "string") {
+    msgData = JSON.parse(event.data);
+  }
+
+  switch (msgData.type) {
+    case REFRESH_MESSAGE_TYPE: {
+      const customEvent = new CustomEvent(REFRESH_MESSAGE_TYPE, { detail: msgData });
+      window.dispatchEvent(customEvent);
+      break;
+    }
+  }
+}
+
+function addPreviewRefreshCapability() {
+  const capabilitiesResponse = JSON.stringify({
+    type: CAPABILITIES_MESSAGE_TYPE,
+    body: {
+      capabilities: {
+        previewRefresh: true,
+      },
+    },
+  });
+
+  if (window.parent !== window) {
+    window.parent.postMessage(capabilitiesResponse, "*");
+  }
+}
+
+/**
+ * Public API endpoint to remove the listener for the refresh rendering.
+ * @param listener the listener to remove
+ */
+window.studioRemoveRefreshListener = (listener) => {
+  window.removeEventListener(REFRESH_MESSAGE_TYPE, listener);
+  window.removeEventListener("message", onRefreshMessage);
+};
+
+let previewRefreshCapabilitySet = false;
+/**
+ * Public API endpoint to enable the refresh rendering, avoiding full page reloads.
+ * @param listener the listener to add
+ * @returns a function to unregister the listener
+ */
+window.studioAddRefreshListener = (listener) => {
+  window.addEventListener(REFRESH_MESSAGE_TYPE, listener);
+  if (!previewRefreshCapabilitySet) {
+    addPreviewRefreshCapability();
+    previewRefreshCapabilitySet = true;
+  }
+
+  window.removeEventListener("message", onRefreshMessage);
+  window.addEventListener("message", onRefreshMessage);
+  return () => {
+    window.studioRemoveRefreshListener(listener);
+  };
+};
 
 const hasMultipleInstances = typeof window.PDE_INITIALIZED !== typeof undefined;
 

@@ -1,7 +1,5 @@
 const winston = require("winston");
-const { config } = require("dotenv");
-
-config();
+require("dotenv").config({ quiet: true });
 
 let level = process.env.COREMEDIA_MOCKING_LOGLEVEL || "info";
 let silent = process.env.NODE_ENV === "test";

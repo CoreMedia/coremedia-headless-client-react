@@ -66,7 +66,9 @@ function postMessageHandler(event) {
     let msgJson = undefined;
     try {
       msgJson = JSON.parse(msg);
-    } catch (err) {}
+    } catch (_) {
+      //ignored
+    }
     if (msgJson) {
       if (msgJson.type === ADD_HIGHLIGHT_MESSAGE_TYPE || msgJson.type === REMOVE_HIGHLIGHT_MESSAGE_TYPE) {
         const localizationMap = msgJson.body;

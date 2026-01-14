@@ -24,10 +24,6 @@ export const proxyEndpoint = () => {
   return coreMediaHeadlessServerEndpoint().replace("/graphql", "");
 };
 
-export const campaignServiceEndpoint = () => {
-  return process.env.CAMPAIGN_ENDPOINT || undefined;
-};
-
 /**
  *  checks and adds "/graphql" to URI, if missing
  * @param endpoint

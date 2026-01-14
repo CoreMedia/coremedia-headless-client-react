@@ -1,5 +1,25 @@
 # Changelog
 
+## v2512.0.0
+
+*Released 14.01.2026*
+
+### Breaking Changes:
+
+- Updated `schema.json` to CoreMedia Content Cloud v13 - 2512.0
+- Updated `node.js` to 24 LTS
+- Updates eslint to v9
+- Added pnpm catalogs to the workspace
+- Removed support for CoreMedia Campaign Service
+
+### Bugfixes and Changes:
+
+- Updated apollo server to v5 (stitching server)
+- Updated express to v5 (stitching server)
+- Updated minor versions of dependencies
+
+---
+
 ## v2506.0.0
 
 *Released 02.07.2025*

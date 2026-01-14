@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
-import { Slot as campaignSlot } from "@coremedia-labs/graphql-layer";
 import { useSiteContextState } from "../../context/SiteContextProvider";
 import { initializeBannerFor } from "../../models/Banner/Banner";
 import { Col as ColProps } from "../../models/Grid/Grid";
@@ -10,14 +9,9 @@ import { flattenItems, notEmpty } from "../../utils/Helpers";
 import { metaDataForPlacement } from "../../utils/Preview/MetaData";
 import { initializeDetail } from "../../models/Detail/Detail";
 import DetailContainer from "../Details/DetailContainer";
-import { getFirstContentForCampaignSlot } from "../../utils/Campaign/CampaignUtil";
-import CampaignSlot from "../Campaign/CampaignSlot";
-import HeroBanner from "../HeroBanner/HeroBanner";
-import LeftRightBanner from "../LeftRightBanner/LeftRightBanner";
 
 interface PageGridPlacementProps {
   col?: ColProps;
-  campaignDataSlots?: Array<campaignSlot>;
 }
 
 export const StyledCol = styled.div<{ zone?: string }>`
@@ -92,9 +86,8 @@ export const StyledCol = styled.div<{ zone?: string }>`
     `};
 `;
 
-const Col: FC<PageGridPlacementProps> = ({ col, campaignDataSlots }) => {
+const Col: FC<PageGridPlacementProps> = ({ col }) => {
   const { rootSegment } = useSiteContextState();
-  const campaignBanner = getFirstContentForCampaignSlot(col?.name || "", rootSegment, campaignDataSlots);
   let flattenedContainer;
 
   // Empty Placement
@@ -121,12 +114,6 @@ const Col: FC<PageGridPlacementProps> = ({ col, campaignDataSlots }) => {
   }
   return (
     <>
-      {campaignBanner && (
-        <CampaignSlot name={col.name} campaignDataSlots={campaignDataSlots}>
-          {col.name === "hero" && <HeroBanner banner={campaignBanner} />}
-          {col.name !== "hero" && <LeftRightBanner {...campaignBanner} />}
-        </CampaignSlot>
-      )}
       <StyledCol zone={col.name} {...metaDataForPlacement(col.name, !!col.items)}>
         {flattenedContainer}
         {!flattenedContainer &&

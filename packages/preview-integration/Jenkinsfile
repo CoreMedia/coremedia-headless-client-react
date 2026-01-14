@@ -1,0 +1,96 @@
+#!/usr/bin/env groovy
+
+import com.coremedia.cm.Jenkins
+
+@Library('coremedia-internal') _
+
+String SKIP_TESTS = 'tests'
+
+pipeline {
+
+  agent {
+    docker {
+      label "${Jenkins.defaultNodeLabel}"
+      image 'node:22-slim'
+    }
+  }
+
+  parameters {
+    string(name: 'VERSION', description: 'The workspace version to build.')
+    string(name: 'SKIPS', defaultValue: '', description: "No skips by default. Possible values (comma separated):")
+    booleanParam(name: 'DEPLOY', defaultValue: true, description: 'Deploy built artifacts into configured Nexus.')
+  }
+
+  options {
+    timestamps()
+    buildDiscarder(logRotator(numToKeepStr: '25', artifactNumToKeepStr: '25'))
+    durabilityHint('PERFORMANCE_OPTIMIZED')
+  }
+
+  stages {
+    stage('Install Packages') {
+      steps {
+        dir(path: "packages/preview-integration") {
+          bash(label: "Triggering pnpm install", script: "pnpm install")
+        }
+      }
+    }
+
+    stage('Build') {
+      steps {
+        dir(path: "packages/preview-integration") {
+          bash(label: "Triggering pnpm build", script: "pnpm build")
+        }
+      }
+    }
+
+    stage('Test') {
+      when {
+        expression { !skip(SKIP_TESTS) }
+        beforeAgent true
+      }
+      steps {
+        dir(path: "packages/preview-integration") {
+          bash(label: "Triggering tests", script: "pnpm test")
+        }
+      }
+    }
+
+    stage('Deploy') {
+      when {
+        expression { params.DEPLOY }
+        beforeAgent true
+      }
+      steps {
+        script {
+          cmRequireParameters('VERSION')
+          dir(path: "packages/preview-integration") {
+            bash(label: "Triggering npm version", script: "npm version ${params.VERSION}")
+            bash(label: "Triggering npm publish", script: "npm publish --registry=${Jenkins.getHostedNpmRepositoryUrl(env)} --strict-ssl=false")
+          }
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      cmsCleanup()
+    }
+  }
+}
+
+def bash(Map conf) {
+  if (conf.containsKey("script")) {
+    conf.script = "#!/bin/bash\n\nset +x\nset -e\n\n" + conf.script
+  }
+  sh(conf)
+}
+
+boolean skip(String type) {
+  if (params.SKIPS instanceof String) {
+    def skips = ((String) params.SKIPS).split(",")
+    return skips.contains(type) || skips.contains('all')
+  }
+  false
+}
