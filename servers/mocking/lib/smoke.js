@@ -69,7 +69,7 @@ function createServer(options) {
     }
   }
 
-  return app.all("*", hooks.before, asyncMiddleware(processRequest(options)), hooks.after, sendResponse);
+  return app.all(/(.*)/, hooks.before, asyncMiddleware(processRequest(options)), hooks.after, sendResponse);
 }
 
 function startServer(app) {

@@ -1,14 +1,6 @@
 import React, { FC } from "react";
 import { match } from "react-router-dom";
-import {
-  ProductByIdWithCampaignsQuery,
-  ProductImpl,
-  Slot,
-  SlotResult,
-  useProductByIdQuery,
-  useProductByIdWithCampaignsQuery,
-} from "@coremedia-labs/graphql-layer";
-import log from "loglevel";
+import { ProductImpl, useProductByIdQuery } from "@coremedia-labs/graphql-layer";
 import { Helmet } from "react-helmet-async";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, ProductNotFoundAlert } from "../components/Error/Alert";
@@ -21,13 +13,6 @@ import { initializeProductBannerFromProduct } from "../models/Banner/ProductBann
 import { useSiteContextState } from "../context/SiteContextProvider";
 import DetailedProduct from "../components/Product/DetailedProduct";
 import ProductPageContext from "../context/ProductPageContext";
-import {
-  CAMPAIGN_CONTEXT_PRODUCT,
-  hasCampaignData,
-  isCampaignEnabled,
-  addCampaignQueryVariables,
-} from "../utils/Campaign/CampaignUtil";
-import { usePreviewContextState } from "../context/PreviewContextProvider";
 import { Download } from "../models/Detail/Download";
 
 interface PageProps {
@@ -40,27 +25,14 @@ interface RouteProps {
 }
 
 const ProductPage: FC<PageProps> = ({ match }) => {
-  const { siteId, currentNavigation, rootSegment, cmecConfig } = useSiteContextState();
-  const { previewCampaignId, previewDate } = usePreviewContextState();
+  const { siteId, rootSegment, cmecConfig } = useSiteContextState();
 
-  let variables: any = {
+  const variables: any = {
     externalId: match.params.seoSegment,
     siteId: siteId,
   };
 
-  const campaignEnabled = isCampaignEnabled();
-  let campaignDataSlots: Array<Slot> | undefined;
-  variables = addCampaignQueryVariables(
-    variables,
-    CAMPAIGN_CONTEXT_PRODUCT,
-    currentNavigation,
-    previewCampaignId,
-    previewDate
-  );
-
-  const { data, loading, error } = campaignEnabled
-    ? useProductByIdWithCampaignsQuery({ variables: variables })
-    : useProductByIdQuery({ variables: variables });
+  const { data, loading, error } = useProductByIdQuery({ variables: variables });
 
   if (loading) {
     return <Loading />;
@@ -107,22 +79,6 @@ const ProductPage: FC<PageProps> = ({ match }) => {
   };
   const placements = product?.augmentation?.pdpPagegrid?.placements as Placements;
 
-  if (campaignEnabled) {
-    let campaignData;
-    if (variables.modePreviewCampaign) {
-      campaignData = (data as ProductByIdWithCampaignsQuery)?.previewCampaign as SlotResult;
-    } else if (variables.modePreviewCampaignContent) {
-      campaignData = (data as ProductByIdWithCampaignsQuery)?.previewCampaignContent as SlotResult;
-    } else {
-      campaignData = (data as ProductByIdWithCampaignsQuery)?.campaignContent as SlotResult;
-    }
-
-    if (hasCampaignData(campaignData)) {
-      log.debug("Campaign data loaded for product page: ", campaignData);
-      campaignDataSlots = campaignData.slots as Array<Slot>;
-    }
-  }
-
   // cmec extra metrics
   let cmecPageData = "";
   if (product.augmentation?.content) {
@@ -142,7 +98,7 @@ const ProductPage: FC<PageProps> = ({ match }) => {
       )}
       <SeoHeader title={detailProduct.name} />
       <RootPreviewId metadataRoot={detailProduct.metadata?.root} />
-      <DetailedProduct placements={placements} campaignDataSlots={campaignDataSlots} />
+      <DetailedProduct placements={placements} />
     </ProductPageContext>
   );
 };

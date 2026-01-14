@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsbuildinfo",
     "target": "ESNext",
     "lib": [
       "dom",

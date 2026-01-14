@@ -5,10 +5,10 @@ import proxy from "express-http-proxy";
 import cors from "cors";
 import { json } from "body-parser";
 import { resolvers } from "./resolvers";
-import { stitchSchemas, ValidationLevel } from "@graphql-tools/stitch";
+import { stitchSchemas } from "@graphql-tools/stitch";
 import "dotenv/config";
 import { ApolloServer } from "@apollo/server";
-import { expressMiddleware } from "@apollo/server/express4";
+import { expressMiddleware } from "@as-integrations/express5";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import {
   ApolloServerPluginInlineTraceDisabled,
@@ -19,13 +19,8 @@ import { loadSchema } from "@graphql-tools/load";
 import { UrlLoader } from "@graphql-tools/url-loader";
 import { wrapSchema } from "@graphql-tools/wrap";
 import { createActuator } from "./actuator";
-import { campaignExecutor, cmExecutor } from "./executors";
-import {
-  campaignServiceEndpoint,
-  commerceCatalogEndpoint,
-  coreMediaHeadlessServerEndpoint,
-  proxyEndpoint,
-} from "./endpoints";
+import { cmExecutor } from "./executors";
+import { commerceCatalogEndpoint, coreMediaHeadlessServerEndpoint, proxyEndpoint } from "./endpoints";
 
 const fetchSchemas = async () => {
   try {
@@ -51,7 +46,7 @@ const fetchSchemas = async () => {
     logger.info(`Successfully loaded schema from commerceCatalogEndpoint.`);
 
     // Schema extensions
-    let linkSchemaDefs = `
+    const linkSchemaDefs = `
         extend type CategoryRef {
             category: Category
         }
@@ -75,53 +70,11 @@ const fetchSchemas = async () => {
         }
   `;
 
-    if (campaignServiceEndpoint() && process.env.CAMPAIGN_AUTHORIZATION_ID) {
-      logger.info(`Campaign Service enabled.`);
-      logger.info(`Loading schema from ${campaignServiceEndpoint()} (Campaign Service).`);
-      const campaignSchema = await loadSchema(campaignServiceEndpoint(), {
-        loaders: [new UrlLoader()],
-        headers: {
-          Authorization: process.env.CAMPAIGN_AUTHORIZATION_ID,
-        },
-      });
-      logger.info(`Successfully loaded schema from campaignServiceEndpoint.`);
-
-      // Schema extensions
-      linkSchemaDefs += `
-        type ContentRef @extends {
-            content: Content_
-        }
-      `;
-
-      return stitchSchemas({
-        subschemas: [
-          wrapSchema({ schema: coreMediaSchema, executor: cmExecutor }),
-          catalogSchema,
-          wrapSchema({ schema: campaignSchema, executor: campaignExecutor }),
-        ],
-        resolvers: resolvers(
-          wrapSchema({ schema: coreMediaSchema, executor: cmExecutor }),
-          catalogSchema,
-          wrapSchema({ schema: campaignSchema, executor: campaignExecutor })
-        ),
-        typeDefs: linkSchemaDefs,
-        typeMergingOptions: {
-          validationScopes: {
-            // ignore apollo federation specific duplicate schema definitions
-            "Query._service": {
-              validationLevel: ValidationLevel.Off,
-            },
-          },
-        },
-      });
-    } else {
-      logger.info(`Campaign Service not configured.`);
-      return stitchSchemas({
-        subschemas: [wrapSchema({ schema: coreMediaSchema, executor: cmExecutor }), catalogSchema],
-        resolvers: resolvers(wrapSchema({ schema: coreMediaSchema, executor: cmExecutor }), catalogSchema),
-        typeDefs: linkSchemaDefs,
-      });
-    }
+    return stitchSchemas({
+      subschemas: [wrapSchema({ schema: coreMediaSchema, executor: cmExecutor }), catalogSchema],
+      resolvers: resolvers(wrapSchema({ schema: coreMediaSchema, executor: cmExecutor }), catalogSchema),
+      typeDefs: linkSchemaDefs,
+    });
   } catch (error) {
     logger.error("Could not retrieve and stitch schemas.");
     logger.error(error, { message: error.message });

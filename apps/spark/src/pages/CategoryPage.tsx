@@ -1,15 +1,7 @@
 import React, { FC } from "react";
 import { match } from "react-router-dom";
 import { NetworkStatus } from "@apollo/client";
-import {
-  Category,
-  CategoryByIdWithCampaignsQuery,
-  Slot,
-  SlotResult,
-  useCategoryByIdQuery,
-  useCategoryByIdWithCampaignsQuery,
-} from "@coremedia-labs/graphql-layer";
-import log from "loglevel";
+import { Category, useCategoryByIdQuery } from "@coremedia-labs/graphql-layer";
 import { Helmet } from "react-helmet-async";
 import Loading from "../components/Loading/Loading";
 import { ApolloClientAlert, CategoryNotFoundAlert } from "../components/Error/Alert";
@@ -24,13 +16,6 @@ import DetailedCategory from "../components/Category/DetailedCategory";
 import SeoHeader from "../components/Header/SeoHeader";
 import { initializeMetadata } from "../utils/Preview/MetaData";
 import CategoryPageContext from "../context/CategoryPageContext";
-import {
-  CAMPAIGN_CONTEXT_CATEGORY,
-  hasCampaignData,
-  isCampaignEnabled,
-  addCampaignQueryVariables,
-} from "../utils/Campaign/CampaignUtil";
-import { usePreviewContextState } from "../context/PreviewContextProvider";
 
 interface PageProps {
   match: match<RouteProps>;
@@ -43,11 +28,10 @@ interface RouteProps {
 export const ITEMS_PER_PAGE = 12;
 
 const CategoryPage: FC<PageProps> = ({ match }) => {
-  const { siteId, currentNavigation, rootSegment, cmecConfig } = useSiteContextState();
+  const { siteId, rootSegment, cmecConfig } = useSiteContextState();
   const { selectedFacets } = useSearchStateContextState();
-  const { previewCampaignId, previewDate } = usePreviewContextState();
 
-  let variables: any = {
+  const variables: any = {
     externalId: match.params.seoSegment,
     siteId: siteId,
     searchTerm: "*",
@@ -58,19 +42,7 @@ const CategoryPage: FC<PageProps> = ({ match }) => {
     }),
   };
 
-  const campaignEnabled = isCampaignEnabled();
-  let campaignDataSlots: Array<Slot> | undefined;
-  variables = addCampaignQueryVariables(
-    variables,
-    CAMPAIGN_CONTEXT_CATEGORY,
-    currentNavigation,
-    previewCampaignId,
-    previewDate
-  );
-
-  const { data, loading, error, fetchMore, networkStatus } = campaignEnabled
-    ? useCategoryByIdWithCampaignsQuery({ variables: variables })
-    : useCategoryByIdQuery({ variables: variables });
+  const { data, loading, error, fetchMore, networkStatus } = useCategoryByIdQuery({ variables: variables });
 
   const loadingMore = networkStatus === NetworkStatus.fetchMore;
   if (loading && !loadingMore) {
@@ -113,22 +85,6 @@ const CategoryPage: FC<PageProps> = ({ match }) => {
   });
   const placements = category?.augmentation?.grid?.placements as Placements;
 
-  if (campaignEnabled) {
-    let campaignData;
-    if (variables.modePreviewCampaign) {
-      campaignData = (data as CategoryByIdWithCampaignsQuery)?.previewCampaign as SlotResult;
-    } else if (variables.modePreviewCampaignContent) {
-      campaignData = (data as CategoryByIdWithCampaignsQuery)?.previewCampaignContent as SlotResult;
-    } else {
-      campaignData = (data as CategoryByIdWithCampaignsQuery)?.campaignContent as SlotResult;
-    }
-
-    if (hasCampaignData(campaignData)) {
-      log.debug("Campaign data loaded for category page: ", campaignData);
-      campaignDataSlots = campaignData.slots as Array<Slot>;
-    }
-  }
-
   // cmec extra metrics
   let cmecPageData = "";
   if (category.augmentation?.content) {
@@ -169,7 +125,7 @@ const CategoryPage: FC<PageProps> = ({ match }) => {
             initializeMetadata(category.augmentation?.content?.id || category.id, "commerce").metadata?.root
           }
         />
-        <DetailedCategory placements={placements} name={category.name} campaignDataSlots={campaignDataSlots} />
+        <DetailedCategory placements={placements} name={category.name} />
       </CategoryPageContext>
     </SearchPageContext>
   );

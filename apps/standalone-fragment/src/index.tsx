@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import StandaloneFragment from "./components/StandaloneFragment";
 import { ApolloProvider } from "@apollo/client";
+import StandaloneFragment from "./components/StandaloneFragment";
 import { initializeApollo } from "./utils/Apollo";
 
 export const render = (contentId: string, elementId: string, uri: string): void => {

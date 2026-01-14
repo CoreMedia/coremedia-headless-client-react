@@ -1,23 +1,23 @@
 # Install dependencies only when needed
-FROM node:22 AS deps
-# pnpm
-RUN npm install --location=global pnpm@10
-WORKDIR /app
-COPY .npmrc package.json pnpm-lock.* ./
-RUN pnpm install --prod
+FROM node:24-slim as base
+ARG MAINTAINER='CoreMedia GmbH <support@coremedia.com>'
+LABEL maintainer="${MAINTAINER}"
+
+RUN apt-get update -y -qq > /dev/null && \
+    apt-get install -y -qq > /dev/null curl && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN npm install -g pnpm@10
 
 # Build Stitching Server
-FROM node:22 AS builder
-# pnpm
-RUN npm install --location=global pnpm@10
+FROM base AS builder
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+COPY .npmrc package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN pnpm install --prod --no-frozen-lockfile
 COPY . .
 RUN pnpm build
 
-
 # Production image, copy all the files and run the stitching server
-FROM node:22 AS runner
+FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production

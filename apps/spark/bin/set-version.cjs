@@ -9,7 +9,7 @@ const version = require("../../../package.json").version;
 require('dotenv').config();
 
 const versionFile = {
-  "version": version + ((process.env.VITE_CAMPAIGN_ENABLED === "true") ? " with campaigns" : "")
+  "version": version
 }
 
 fs.mkdir(path.join(__dirname, "../src/__generated__"), { recursive: true}, () => {

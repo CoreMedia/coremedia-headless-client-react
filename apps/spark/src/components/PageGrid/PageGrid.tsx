@@ -13,7 +13,7 @@ export const StyledGrid = styled.div`
   --grid-gap: var(--padding-medium);
 `;
 
-const PageGrid: FC<Grid> = ({ rows = [], campaignDataSlots }) => {
+const PageGrid: FC<Grid> = ({ rows = [] }) => {
   if (!rows) {
     return <Alert message={"Error: PageGrid has no rows."} />;
   }
@@ -32,7 +32,7 @@ const PageGrid: FC<Grid> = ({ rows = [], campaignDataSlots }) => {
             ) {
               return null;
             } else {
-              return <Col key={placement.name} col={placement} campaignDataSlots={campaignDataSlots} />;
+              return <Col key={placement.name} col={placement} />;
             }
           })}
         </Row>

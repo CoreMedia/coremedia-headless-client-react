@@ -5,8 +5,7 @@
   "license": "CoreMedia Open Source License",
   "scripts": {
     "build": "webpack --mode=production",
-    "lint": "eslint --fix \"src/**\"",
-    "lint:ci": "eslint \"src/**\""
+    "lint": "eslint"
   },
   "main": "dist/coremedia.preview.js",
   "main:src": "src/preview.js",
@@ -14,17 +13,19 @@
     "dist/*"
   ],
   "devDependencies": {
-    "@babel/core": "^7.27.7",
-    "@babel/preset-env": "^7.27.2",
-    "babel-loader": "^9.2.1",
-    "css-loader": "^6.11.0",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.5.1",
-    "prettier": "^3.6.2",
-    "style-loader": "^3.3.4",
-    "webpack": "^5.99.9",
-    "webpack-cli": "^5.1.4"
+    "@babel/core": "catalog:",
+    "@babel/preset-env": "catalog:",
+    "@eslint/js": "catalog:",
+    "babel-loader": "catalog:",
+    "css-loader": "catalog:",
+    "eslint": "catalog:",
+    "eslint-config-prettier": "catalog:",
+    "eslint-plugin-prettier": "catalog:",
+    "globals": "catalog:",
+    "prettier": "catalog:",
+    "style-loader": "catalog:",
+    "webpack": "catalog:",
+    "webpack-cli": "catalog:"
   },
   "browserslist": [
     "last 1 Chrome version",

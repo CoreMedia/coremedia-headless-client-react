@@ -5,35 +5,37 @@
   "license": "CoreMedia Open Source License",
   "scripts": {
     "build": "webpack --mode=production",
-    "lint": "eslint --fix \"src/**/*.+(ts|tsx)\"",
-    "lint:ci": "eslint \"src/**/*.+(ts|tsx)\""
+    "lint": "eslint"
   },
   "dependencies": {
-    "@apollo/client": "^3.13.8",
+    "@apollo/client": "catalog:",
     "@coremedia-labs/graphql-layer": "workspace:^",
-    "graphql": "^16.11.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "graphql": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:"
   },
   "devDependencies": {
-    "@babel/core": "^7.27.7",
-    "@types/react": "^17.0.87",
-    "@types/react-dom": "^17.0.26",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
-    "babel-loader": "^9.2.1",
-    "babel-preset-react-app": "^10.1.0",
-    "copy-webpack-plugin": "^12.0.2",
-    "css-loader": "^6.11.0",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.5.1",
-    "eslint-plugin-react": "^7.37.5",
-    "prettier": "^3.6.2",
-    "style-loader": "^3.3.4",
-    "typescript": "~5.2.2",
-    "webpack": "^5.99.9",
-    "webpack-cli": "^5.1.4"
+    "@babel/core": "catalog:",
+    "@eslint/js": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@typescript-eslint/parser": "catalog:",
+    "babel-loader": "catalog:",
+    "babel-preset-react-app": "catalog:",
+    "copy-webpack-plugin": "catalog:",
+    "css-loader": "catalog:",
+    "eslint": "catalog:",
+    "eslint-config-prettier": "catalog:",
+    "eslint-import-resolver-typescript": "catalog:",
+    "eslint-plugin-import": "catalog:",
+    "eslint-plugin-prettier": "catalog:",
+    "eslint-plugin-react": "catalog:",
+    "prettier": "catalog:",
+    "style-loader": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "webpack": "catalog:",
+    "webpack-cli": "catalog:"
   },
   "browserslist": {
     "production": [

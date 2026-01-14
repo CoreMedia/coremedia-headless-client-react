@@ -172,7 +172,9 @@ const LanguageChooser: React.FC = () => {
           localizedLabel = `${regionLabel} (${locale?.language?.toLocaleUpperCase()})`;
         }
       }
-    } catch (e) {}
+    } catch (_) {
+      //ignored
+    }
     return localizedLabel;
   };
 

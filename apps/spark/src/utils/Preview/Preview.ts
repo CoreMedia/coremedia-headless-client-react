@@ -1,6 +1,5 @@
 import { ZonedDateTime, DateTimeFormatter, convert } from "@js-joda/core";
 import log from "loglevel";
-import { isCampaignEnabled } from "../Campaign/CampaignUtil";
 
 /**
  * Checks for preview mode based on `VITE_PREVIEW` or `mode` === "development"
@@ -41,17 +40,4 @@ export const getPreviewDate = (queryParams: string) => {
     log.error("Ignore previewDate:", error);
   }
   return undefined;
-};
-
-/**
- * Extract the previewCampaignId from URL path
- * @param queryParams the query params of "react-router-dom"
- * @return string uuid of the campaign to be previewed
- */
-export const getPreviewCampaignId = (queryParams: string) => {
-  const previewCampaignId =
-    new URLSearchParams(queryParams).get("localizedCampaignId") ??
-    new URLSearchParams(queryParams).get("campaignId") ??
-    new URLSearchParams(queryParams).get("previewCampaign");
-  return (isPreview() && isCampaignEnabled() && previewCampaignId) || undefined;
 };

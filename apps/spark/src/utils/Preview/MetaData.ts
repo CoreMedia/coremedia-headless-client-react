@@ -86,25 +86,6 @@ export const metaDataForPlacement = (name: string, hasItems?: boolean): metadata
 };
 
 /**
- * Generates the CoreMedia metadata JSON for a [[CampaignSlot]].
- * @param name The name of the slot
- * @param hasItems Wether this slot has items or not
- */
-export const metaDataForCampaignSlot = (name: string, hasItems?: boolean): metadata => {
-  if (!isPreview()) {
-    return undefined;
-  }
-  const metadata = [
-    { _: `properties.campaign-slot-${name}` },
-    {
-      campaignSlotRequest: [{ isInLayout: true, hasItems: hasItems || false, slotName: name }],
-    },
-  ];
-
-  return { "data-cm-metadata": JSON.stringify(metadata) };
-};
-
-/**
  * Generates the CoreMedia metadata JSON including the responsive device settings.
  */
 export const metaDataForResponsiveDevices = (): metadata => {
@@ -131,7 +112,7 @@ export const metaDataForResponsiveDevices = (): metadata => {
  * Helper to get the property name from metaDataMapping for a given content type,
  * falls back to the given propertyName if no mapping is found.
  * @param type The given content object
- * @param propertyName The name of of the property
+ * @param propertyName The name of the property
  */
 export function getPropertyName<S extends Dispatchable>(type: S, propertyName: keyof S): string {
   let property = "properties." + (propertyName as string);

@@ -43,7 +43,8 @@ export interface OverlayConfiguration {
  * @category ViewModels
  */
 export interface Banner
-  extends PreviewMetadata,
+  extends
+    PreviewMetadata,
     SupportsAuthors,
     SupportsShopNow,
     SupportsPricing,
