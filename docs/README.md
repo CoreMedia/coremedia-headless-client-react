@@ -23,7 +23,6 @@ Information about the CoreMedia Content Cloud specific concepts.
    - [SiteContextProvider](apps/concepts/README.md#sitecontextprovider)
    - [View Dispatching](apps/concepts/view_dispatching.md)
    - [Studio Preview Integration](apps/concepts/preview.md)
-   - [CoreMedia Campaigns](apps/concepts/campaigns.md)
    - [CoreMedia Engagement Cloud](apps/concepts/cmec.md)
    - [Standalone Fragment Application](apps/concepts/standalone.md)
    
